@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-08-24T23:20:35.031133",
+  "api_key": "ApiKey-fd521625-00ee-4507-97f8-ffdf937fa7de",
+  "diagnostics": {
+    "qiskit_installation": true,
+    "account_cleanup": true,
+    "connection_success": false,
+    "key_validation": false
+  }
+}

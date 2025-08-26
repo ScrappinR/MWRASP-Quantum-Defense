@@ -1,0 +1,21 @@
+{
+  "validation_timestamp": "2025-08-25T17:54:47.909168",
+  "total_documents_analyzed": 632,
+  "compliance_summary": {
+    "compliant": 325,
+    "violations_found": 301,
+    "not_analyzed": 0,
+    "authority_references": 6
+  },
+  "violation_summary": {
+    "critical": 670,
+    "high": 45,
+    "medium": 1940,
+    "low": 0
+  },
+  "priority_actions": [
+    "IMMEDIATE: Fix critical violations in 204 documents",
+    "HIGH: Update deprecated metrics in 18 documents"
+  ],
+  "compliance_recommendations": []
+}

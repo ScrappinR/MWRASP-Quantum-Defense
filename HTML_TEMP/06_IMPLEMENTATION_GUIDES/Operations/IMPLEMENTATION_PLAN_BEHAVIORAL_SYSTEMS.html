@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Implementation Plan Behavioral Systems</title>
+    <style>
+        @media print {
+            @page { 
+                size: A4; 
+                margin: 1in;
+                @top-center { content: "MWRASP Quantum Defense System"; }
+                @bottom-right { content: "Page " counter(page); }
+            }
+        }
+        
+        body {
+            font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #333;
+            max-width: 100%;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            font-size: 24pt;
+            font-weight: bold;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 10pt;
+            margin-bottom: 20pt;
+        }
+        
+        h2 {
+            color: #2563eb;
+            font-size: 18pt;
+            font-weight: bold;
+            margin-top: 25pt;
+            margin-bottom: 15pt;
+        }
+        
+        h3 {
+            color: #3b82f6;
+            font-size: 14pt;
+            font-weight: bold;
+            margin-top: 20pt;
+            margin-bottom: 10pt;
+        }
+        
+        h4 {
+            color: #60a5fa;
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 15pt;
+            margin-bottom: 8pt;
+        }
+        
+        p {
+            margin-bottom: 10pt;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-bottom: 12pt;
+            padding-left: 25pt;
+        }
+        
+        li {
+            margin-bottom: 5pt;
+        }
+        
+        code {
+            background-color: #f1f5f9;
+            padding: 3pt 6pt;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 10pt;
+            border-radius: 3pt;
+        }
+        
+        pre {
+            background-color: #f8fafc;
+            border: 1pt solid #e2e8f0;
+            border-radius: 5pt;
+            padding: 15pt;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 9pt;
+            line-height: 1.3;
+            overflow-x: auto;
+            margin-bottom: 15pt;
+            white-space: pre-wrap;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20pt;
+            font-size: 10pt;
+        }
+        
+        th, td {
+            border: 1pt solid #d1d5db;
+            padding: 8pt 10pt;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f3f4f6;
+            font-weight: bold;
+            color: #1f2937;
+        }
+        
+        .classification {
+            text-align: center;
+            font-weight: bold;
+            color: #dc2626;
+            font-size: 14pt;
+            margin-bottom: 30pt;
+            padding: 15pt;
+            border: 2pt solid #dc2626;
+            background-color: #fef2f2;
+        }
+        
+        .document-header {
+            text-align: center;
+            margin-bottom: 30pt;
+            padding-bottom: 20pt;
+            border-bottom: 2pt solid #3b82f6;
+        }
+        
+        .document-footer {
+            border-top: 1pt solid #d1d5db;
+            padding-top: 15pt;
+            margin-top: 30pt;
+            font-size: 9pt;
+            color: #6b7280;
+            text-align: center;
+        }
+        
+        blockquote {
+            border-left: 4pt solid #3b82f6;
+            padding-left: 20pt;
+            margin-left: 15pt;
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 15pt;
+        }
+    </style>
+</head>
+<body>
+    <div class="document-header">
+        <h1>Implementation Plan Behavioral Systems</h1>
+        <p><strong>MWRASP Quantum Defense System</strong></p>
+        <p>Generated: 2025-08-24 18:15:04</p>
+    </div>
+    
+    <div class="classification">SECRET - AUTHORIZED PERSONNEL ONLY</div>
+    
+    <h1 id="mwrasp-behavioral-systems-full-implementation-plan">MWRASP Behavioral Systems - Full Implementation Plan</h1>
+<h2 id="current-status-proof-of-concept">Current Status: PROOF OF CONCEPT</h2>
+<p>The behavioral cryptography and digital body language systems are currently standalone demonstrations. They need integration with the core MWRASP platform.</p>
+<h2 id="architecture-for-production-implementation">Architecture for Production Implementation</h2>
+<h3 id="1-personality-data-storage-management">1. Personality Data Storage &amp; Management</h3>
+<h4 id="a-distributed-personality-database">A. Distributed Personality Database</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="n">PersonalityStorage:</span>
+    <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    Each agent needs persistent storage of:</span>
+<span class="s">    - Core personality traits (immutable after creation)</span>
+<span class="s">    - Relationship histories (append-only log)</span>
+<span class="s">    - Behavioral baselines per partner</span>
+<span class="s">    - Trust scores and comfort levels</span>
+<span class="s">    &quot;&quot;&quot;</span>
+
+    <span class="n">def</span> <span class="n">__init__</span>(<span class="nb">self</span>):
+        <span class="c1"># PRIMARY STORAGE: Distributed hash table</span>
+        <span class="nb">self</span>.<span class="n">personality_dht</span> = <span class="n">DistributedHashTable</span>(
+            <span class="n">replication_factor</span>=<span class="mi">3</span>,  <span class="c1"># Each personality stored on 3 nodes</span>
+            <span class="n">encryption_key</span>=<span class="nb">self</span>.<span class="n">derive_key_from_agent_id</span>()
+        )
+
+        <span class="c1"># CACHE: Local fast access</span>
+        <span class="nb">self</span>.<span class="n">personality_cache</span> = <span class="n">LRUCache</span>(<span class="n">max_size</span>=<span class="mi">1000</span>)
+
+        <span class="c1"># BACKUP: Encrypted cold storage</span>
+        <span class="nb">self</span>.<span class="n">personality_backup</span> = <span class="n">EncryptedFileStore</span>(
+            <span class="nb">path</span>=<span class="s">&quot;/secure/personalities/&quot;</span>,
+            <span class="n">rotation_days</span>=<span class="mi">7</span>
+        )
+</code></pre></div>
+
+<h4 id="b-personality-genesis-process">B. Personality Genesis Process</h4>
+<div class="codehilite"><pre><span></span><code>def create_agent_with_personality(agent_id: str, role: AgentRole):
+    &quot;&quot;&quot;
+    STEP 1: Generate deterministic seed from agent_id
+    STEP 2: Create core traits (immutable)
+    STEP 3: Generate behavioral quirks
+    STEP 4: Store in distributed system
+    STEP 5: Broadcast personality hash to network
+    &quot;&quot;&quot;
+
+    # Deterministic but unpredictable
+    personality_seed = hashlib.sha256(
+        agent_id.encode() + 
+        SYSTEM_SECRET +  # Never exposed
+        str(time.time()).encode()  # Birth time
+    ).digest()
+
+    personality = {
+        &#39;core_traits&#39;: {
+            &#39;precision&#39;: derive_float(personality_seed, 0),
+            &#39;paranoia&#39;: derive_float(personality_seed, 1),
+            &#39;patience&#39;: derive_float(personality_seed, 2),
+            &#39;formality&#39;: derive_float(personality_seed, 3),
+            &#39;creativity&#39;: derive_float(personality_seed, 4)
+        },
+        &#39;quirks&#39;: generate_quirks(personality_seed),
+        &#39;birth_time&#39;: time.time(),
+        &#39;birth_location&#39;: get_node_geography(),
+        &#39;relationships&#39;: {}  # Empty initially
+    }
+
+    # Store encrypted
+    encrypted_personality = encrypt_with_agent_key(personality)
+
+    # Replicate across nodes
+    store_in_dht(agent_id, encrypted_personality)
+
+    return personality
+</code></pre></div>
+
+<h3 id="2-integration-with-core-agent-system">2. Integration with Core Agent System</h3>
+<h4 id="a-modify-existing-agent_systempy">A. Modify existing agent_system.py</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="n">EvolutionaryAgent</span><span class="p">(</span><span class="n">Agent</span><span class="p">):</span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">agent_id</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">):</span>
+<span class="w">        </span><span class="n">super</span><span class="p">()</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">agent_id</span><span class="p">,</span><span class="w"> </span><span class="o">...</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1"># ADD: Personality components</span>
+<span class="w">        </span><span class="bp">self</span><span class="o">.</span><span class="n">personality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PersonalityStorage</span><span class="o">.</span><span class="n">load_or_create</span><span class="p">(</span><span class="n">agent_id</span><span class="p">)</span>
+<span class="w">        </span><span class="bp">self</span><span class="o">.</span><span class="n">behavioral_engine</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BehavioralCryptography</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">personality</span><span class="p">)</span>
+<span class="w">        </span><span class="bp">self</span><span class="o">.</span><span class="n">body_language</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DigitalBodyLanguage</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">personality</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1"># ADD: Relationship tracker</span>
+<span class="w">        </span><span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RelationshipManager</span><span class="p">(</span><span class="n">agent_id</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">async</span><span class="w"> </span><span class="n">def</span><span class="w"> </span><span class="n">send_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">recipient_id</span><span class="p">:</span><span class="w"> </span><span class="nb">str</span><span class="p">,</span><span class="w"> </span><span class="n">message</span><span class="p">:</span><span class="w"> </span><span class="n">bytes</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        MODIFIED: Add behavioral signatures to all communications</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="c1"># Get relationship context</span>
+<span class="w">        </span><span class="n">relationship</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">relationships</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span><span class="n">recipient_id</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1"># Generate behavioral signature for this interaction</span>
+<span class="w">        </span><span class="n">behavioral_signature</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">body_language</span><span class="o">.</span><span class="n">generate_signature</span><span class="p">(</span>
+<span class="w">            </span><span class="n">partner_id</span><span class="o">=</span><span class="n">recipient_id</span><span class="p">,</span>
+<span class="w">            </span><span class="n">interaction_count</span><span class="o">=</span><span class="n">relationship</span><span class="o">.</span><span class="n">interaction_count</span><span class="p">,</span>
+<span class="w">            </span><span class="n">context</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">current_context</span><span class="p">()</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1"># Apply behaviors to message</span>
+<span class="w">        </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">apply_behavioral_modifications</span><span class="p">(</span>
+<span class="w">            </span><span class="n">message</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">behavioral_signature</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1"># Add protocol presentation order</span>
+<span class="w">        </span><span class="n">protocols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">behavioral_engine</span><span class="o">.</span><span class="n">get_protocol_order</span><span class="p">(</span>
+<span class="w">            </span><span class="n">recipient_id</span><span class="p">,</span>
+<span class="w">            </span><span class="bp">self</span><span class="o">.</span><span class="n">current_situation</span><span class="p">()</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1"># Package everything</span>
+<span class="w">        </span><span class="n">authenticated_message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="s1">&#39;sender&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">agent_id</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;recipient&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">recipient_id</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;protocols&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">protocols</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;message&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">message</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;behavioral_markers&#39;</span><span class="p">:</span><span class="w"> </span><span class="n">behavioral_signature</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;timestamp&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">get_timestamp_with_personality_precision</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1"># Update relationship</span>
+<span class="w">        </span><span class="n">relationship</span><span class="o">.</span><span class="n">record_interaction</span><span class="p">(</span><span class="n">authenticated_message</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">await</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">transport</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">authenticated_message</span><span class="p">)</span>
+</code></pre></div>
+
+<h4 id="b-message-reception-with-verification">B. Message Reception with Verification</h4>
+<div class="codehilite"><pre><span></span><code><span class="nx">async</span><span class="w"> </span><span class="nx">def</span><span class="w"> </span><span class="nx">receive_message</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="w"> </span><span class="nx">sender_id</span><span class="p">:</span><span class="w"> </span><span class="nx">str</span><span class="p">,</span><span class="w"> </span><span class="nx">message_package</span><span class="p">:</span><span class="w"> </span><span class="nx">dict</span><span class="p">):</span>
+<span class="w">    </span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">    MODIFIED: Verify behavioral authenticity before processing</span>
+<span class="s">    &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Load</span><span class="w"> </span><span class="nx">sender</span><span class="err">&#39;</span><span class="nx">s</span><span class="w"> </span><span class="nx">expected</span><span class="w"> </span><span class="nx">personality</span>
+<span class="w">    </span><span class="nx">expected_personality</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kp">self</span><span class="p">.</span><span class="nx">relationships</span><span class="p">.</span><span class="nx">get_baseline</span><span class="p">(</span><span class="nx">sender_id</span><span class="p">)</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Extract</span><span class="w"> </span><span class="nx">behavioral</span><span class="w"> </span><span class="nx">markers</span>
+<span class="w">    </span><span class="nx">observed_behaviors</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">message_package</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="err">&#39;</span><span class="nx">behavioral_markers</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{})</span>
+<span class="w">    </span><span class="nx">observed_protocols</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">message_package</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="err">&#39;</span><span class="nx">protocols</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">[])</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Verify</span><span class="w"> </span><span class="nx">protocol</span><span class="w"> </span><span class="nx">presentation</span><span class="w"> </span><span class="nx">order</span>
+<span class="w">    </span><span class="nx">protocol_valid</span><span class="p">,</span><span class="w"> </span><span class="nx">protocol_confidence</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kp">self</span><span class="p">.</span><span class="nx">behavioral_engine</span><span class="p">.</span><span class="nx">verify_order</span><span class="p">(</span>
+<span class="w">        </span><span class="nx">sender_id</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">observed_protocols</span><span class="p">,</span>
+<span class="w">        </span><span class="kp">self</span><span class="p">.</span><span class="nx">current_situation</span><span class="p">()</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Verify</span><span class="w"> </span><span class="nx">digital</span><span class="w"> </span><span class="nx">body</span><span class="w"> </span><span class="nx">language</span>
+<span class="w">    </span><span class="nx">behavior_valid</span><span class="p">,</span><span class="w"> </span><span class="nx">behavior_confidence</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kp">self</span><span class="p">.</span><span class="nx">body_language</span><span class="p">.</span><span class="nx">verify_behaviors</span><span class="p">(</span>
+<span class="w">        </span><span class="nx">sender_id</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">observed_behaviors</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">expected_personality</span>
+<span class="w">    </span><span class="p">)</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Combined</span><span class="w"> </span><span class="nx">authentication</span>
+<span class="w">    </span><span class="nx">total_confidence</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="nx">protocol_confidence</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m m-Double">0.5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">behavior_confidence</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m m-Double">0.5</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">total_confidence</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="m m-Double">0.6</span><span class="p">:</span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">Potential</span><span class="w"> </span><span class="nx">impostor</span>
+<span class="w">        </span><span class="nx">await</span><span class="w"> </span><span class="kp">self</span><span class="p">.</span><span class="nx">security_alert</span><span class="p">(</span>
+<span class="w">            </span><span class="nx">f</span><span class="s">&quot;Behavioral anomaly detected from {sender_id}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">confidence</span><span class="p">=</span><span class="nx">total_confidence</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">details</span><span class="p">=</span><span class="nx">observed_behaviors</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">None</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Process</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="nx">normally</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">await</span><span class="w"> </span><span class="kp">self</span><span class="p">.</span><span class="nx">process_authenticated_message</span><span class="p">(</span><span class="nx">message_package</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="3-behavioral-data-protection">3. Behavioral Data Protection</h3>
+<h4 id="a-encryption-layers">A. Encryption Layers</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nl">BehavioralDataProtection</span><span class="p">:</span>
+<span class="w">    </span><span class="ss">&quot;&quot;&quot;</span>
+<span class="ss">    Three-layer protection for personality data</span>
+<span class="ss">    &quot;&quot;&quot;</span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">protect_personality_data</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">personality_data</span><span class="p">:</span><span class="w"> </span><span class="n">dict</span><span class="p">,</span><span class="w"> </span><span class="nl">agent_id</span><span class="p">:</span><span class="w"> </span><span class="nf">str</span><span class="p">)</span><span class="err">:</span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">LAYER</span><span class="w"> </span><span class="mi">1</span><span class="err">:</span><span class="w"> </span><span class="n">Field</span><span class="o">-</span><span class="k">level</span><span class="w"> </span><span class="n">encryption</span>
+<span class="w">        </span><span class="n">sensitive_fields</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="n">&#39;quirks&#39;, &#39;relationships&#39;, &#39;trust_scores&#39;</span><span class="o">]</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">sensitive_fields</span><span class="p">:</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">field</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">personality_data</span><span class="p">:</span>
+<span class="w">                </span><span class="n">personality_data</span><span class="o">[</span><span class="n">field</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">encrypt_field</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">personality_data</span><span class="o">[</span><span class="n">field</span><span class="o">]</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">agent_id</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">field</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="k">Unique</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">field</span>
+<span class="w">                </span><span class="p">)</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">LAYER</span><span class="w"> </span><span class="mi">2</span><span class="err">:</span><span class="w"> </span><span class="n">Temporal</span><span class="w"> </span><span class="n">fragmentation</span>
+<span class="w">        </span><span class="n">fragments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">fragment_personality</span><span class="p">(</span><span class="n">personality_data</span><span class="p">)</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">LAYER</span><span class="w"> </span><span class="mi">3</span><span class="err">:</span><span class="w"> </span><span class="k">Distributed</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">Byzantine</span><span class="w"> </span><span class="n">fault</span><span class="w"> </span><span class="n">tolerance</span>
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">store_fragments_byzantine</span><span class="p">(</span><span class="n">fragments</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">fragments</span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">fragment_personality</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="k">data</span><span class="err">:</span><span class="w"> </span><span class="n">dict</span><span class="p">)</span><span class="err">:</span>
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+<span class="ss">        Fragment personality across time and space</span>
+<span class="ss">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Core</span><span class="w"> </span><span class="n">traits</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Long</span><span class="o">-</span><span class="n">lived</span><span class="w"> </span><span class="n">fragments</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="k">hour</span><span class="p">)</span>
+<span class="w">        </span><span class="n">core_fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Fragment</span><span class="p">(</span>
+<span class="w">            </span><span class="k">data</span><span class="o">=</span><span class="k">data</span><span class="o">[</span><span class="n">&#39;core_traits&#39;</span><span class="o">]</span><span class="p">,</span>
+<span class="w">            </span><span class="n">ttl_ms</span><span class="o">=</span><span class="mi">3600000</span><span class="p">,</span>
+<span class="w">            </span><span class="k">replication</span><span class="o">=</span><span class="mi">5</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">High</span><span class="w"> </span><span class="k">replication</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Relationships</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Medium</span><span class="o">-</span><span class="n">lived</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="w"> </span><span class="n">minutes</span><span class="p">)</span>
+<span class="w">        </span><span class="n">relationship_fragments</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">[]</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">partner_id</span><span class="p">,</span><span class="w"> </span><span class="n">relationship</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">data</span><span class="o">[</span><span class="n">&#39;relationships&#39;</span><span class="o">]</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="err">:</span>
+<span class="w">            </span><span class="n">frag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Fragment</span><span class="p">(</span>
+<span class="w">                </span><span class="k">data</span><span class="o">=</span><span class="n">relationship</span><span class="p">,</span>
+<span class="w">                </span><span class="n">ttl_ms</span><span class="o">=</span><span class="mi">300000</span><span class="p">,</span>
+<span class="w">                </span><span class="k">replication</span><span class="o">=</span><span class="mi">3</span>
+<span class="w">            </span><span class="p">)</span>
+<span class="w">            </span><span class="n">relationship_fragments</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">frag</span><span class="p">)</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Active</span><span class="w"> </span><span class="n">behaviors</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Short</span><span class="o">-</span><span class="n">lived</span><span class="w"> </span><span class="p">(</span><span class="mi">30</span><span class="w"> </span><span class="n">seconds</span><span class="p">)</span>
+<span class="w">        </span><span class="n">behavior_fragment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Fragment</span><span class="p">(</span>
+<span class="w">            </span><span class="k">data</span><span class="o">=</span><span class="k">data</span><span class="o">[</span><span class="n">&#39;current_behaviors&#39;</span><span class="o">]</span><span class="p">,</span>
+<span class="w">            </span><span class="n">ttl_ms</span><span class="o">=</span><span class="mi">30000</span><span class="p">,</span>
+<span class="w">            </span><span class="k">replication</span><span class="o">=</span><span class="mi">2</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="err">{</span>
+<span class="w">            </span><span class="s1">&#39;core&#39;</span><span class="err">:</span><span class="w"> </span><span class="n">core_fragment</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;relationships&#39;</span><span class="err">:</span><span class="w"> </span><span class="n">relationship_fragments</span><span class="p">,</span>
+<span class="w">            </span><span class="s1">&#39;behaviors&#39;</span><span class="err">:</span><span class="w"> </span><span class="n">behavior_fragment</span>
+<span class="w">        </span><span class="err">}</span>
+</code></pre></div>
+
+<h4 id="b-access-control">B. Access Control</h4>
+<div class="codehilite"><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">PersonalityAccessControl</span><span class="p">:</span>
+<span class="w">    </span><span class="s">&quot;&quot;&quot;</span>
+<span class="s">    Who can access what personality data</span>
+<span class="s">    &quot;&quot;&quot;</span>
+
+<span class="w">    </span><span class="nx">def</span><span class="w"> </span><span class="nx">can_access_personality</span><span class="p">(</span><span class="kp">self</span><span class="p">,</span><span class="w"> </span><span class="nx">requester_id</span><span class="p">:</span><span class="w"> </span><span class="nx">str</span><span class="p">,</span><span class="w"> </span><span class="nx">target_id</span><span class="p">:</span><span class="w"> </span><span class="nx">str</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                              </span><span class="nx">data_type</span><span class="p">:</span><span class="w"> </span><span class="nx">str</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">Agents</span><span class="w"> </span><span class="nx">can</span><span class="w"> </span><span class="nx">always</span><span class="w"> </span><span class="nx">access</span><span class="w"> </span><span class="nx">their</span><span class="w"> </span><span class="nx">own</span><span class="w"> </span><span class="nx">full</span><span class="w"> </span><span class="nx">personality</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">requester_id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">target_id</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">True</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">Partners</span><span class="w"> </span><span class="nx">can</span><span class="w"> </span><span class="nx">access</span><span class="w"> </span><span class="nx">relationship</span><span class="o">-</span><span class="nx">specific</span><span class="w"> </span><span class="nx">data</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">data_type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">relationship</span><span class="err">&#39;</span><span class="p">:</span>
+<span class="w">            </span><span class="nx">relationship</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kp">self</span><span class="p">.</span><span class="nx">get_relationship</span><span class="p">(</span><span class="nx">target_id</span><span class="p">,</span><span class="w"> </span><span class="nx">requester_id</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="nx">relationship</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nx">relationship</span><span class="p">.</span><span class="nx">trust_score</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="m m-Double">0.5</span><span class="p">:</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nx">True</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">Coordinators</span><span class="w"> </span><span class="nx">can</span><span class="w"> </span><span class="nx">access</span><span class="w"> </span><span class="nx">limited</span><span class="w"> </span><span class="nx">behavioral</span><span class="w"> </span><span class="nx">data</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="kp">self</span><span class="p">.</span><span class="nx">is_coordinator</span><span class="p">(</span><span class="nx">requester_id</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nx">data_type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">behaviors</span><span class="err">&#39;</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">True</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="nx">System</span><span class="w"> </span><span class="nx">admins</span><span class="w"> </span><span class="nx">can</span><span class="w"> </span><span class="nx">access</span><span class="w"> </span><span class="nx">anonymized</span><span class="w"> </span><span class="nx">patterns</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="kp">self</span><span class="p">.</span><span class="nx">is_admin</span><span class="p">(</span><span class="nx">requester_id</span><span class="p">)</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="nx">data_type</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="err">&#39;</span><span class="nx">patterns</span><span class="err">&#39;</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">True</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">False</span>
+</code></pre></div>
+
+<h3 id="4-deployment-strategy">4. Deployment Strategy</h3>
+<h4 id="phase-1-personality-genesis-week-1-2">Phase 1: Personality Genesis (Week 1-2)</h4>
+<div class="codehilite"><pre><span></span><code>def phase1_personality_creation():
+    &quot;&quot;&quot;
+    Create personalities for all existing agents
+    &quot;&quot;&quot;
+    for agent_id in existing_agents:
+        # Generate personality
+        personality = create_agent_with_personality(agent_id, agent.role)
+
+        # Store securely
+        PersonalityStorage.store(agent_id, personality)
+
+        # Initialize with random historical interactions
+        # (So agents don&#39;t start as complete strangers)
+        bootstrap_relationships(agent_id, sample_size=5)
+</code></pre></div>
+
+<h4 id="phase-2-behavioral-integration-week-3-4">Phase 2: Behavioral Integration (Week 3-4)</h4>
+<div class="codehilite"><pre><span></span><code>def phase2_integrate_behaviors():
+    &quot;&quot;&quot;
+    Modify agent communication to include behaviors
+    &quot;&quot;&quot;
+    # Update agent message handlers
+    AgentSystem.message_handler = BehavioralMessageHandler()
+
+    # Add behavioral verification to authentication
+    AuthenticationSystem.add_verifier(BehavioralVerifier())
+
+    # Start collecting behavioral baselines
+    BehavioralBaseline.start_collection(window_hours=24)
+</code></pre></div>
+
+<h4 id="phase-3-full-activation-week-5-6">Phase 3: Full Activation (Week 5-6)</h4>
+<div class="codehilite"><pre><span></span><code>def phase3_activate_system():
+    &quot;&quot;&quot;
+    Enable full behavioral authentication
+    &quot;&quot;&quot;
+    # Enable impostor detection
+    SecuritySystem.enable_behavioral_anomaly_detection()
+
+    # Start relationship evolution
+    RelationshipManager.enable_evolution()
+
+    # Activate quirk manifestation
+    QuirkEngine.activate(threshold_confidence=0.7)
+</code></pre></div>
+
+<h3 id="5-runtime-behavioral-tactics">5. Runtime Behavioral Tactics</h3>
+<h4 id="a-normal-operations">A. Normal Operations</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="n">NormalOperationBehaviors:</span>
+    <span class="n">def</span> <span class="n">apply_behaviors</span>(<span class="nb">self</span>, <span class="n">agent</span>, <span class="nb">message</span>):
+        <span class="c1"># Subtle behaviors only</span>
+        <span class="nb">message</span>.<span class="n">packet_spacing</span> = <span class="n">agent</span>.<span class="n">personality</span>.<span class="n">get_rhythm</span>(<span class="s">&#39;normal&#39;</span>)
+        <span class="nb">message</span>.<span class="n">padding</span> = <span class="n">agent</span>.<span class="n">personality</span>.<span class="n">get_padding_style</span>(<span class="s">&#39;standard&#39;</span>)
+        <span class="nb">message</span>.<span class="n">precision</span> = <span class="n">agent</span>.<span class="n">personality</span>.<span class="n">base_precision</span>
+        <span class="k">return</span> <span class="nb">message</span>
+</code></pre></div>
+
+<h4 id="b-under-attack">B. Under Attack</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="n">UnderAttackBehaviors:</span>
+    <span class="n">def</span> <span class="n">apply_behaviors</span>(<span class="nb">self</span>, <span class="n">agent</span>, <span class="nb">message</span>):
+        <span class="c1"># Stress behaviors emerge</span>
+        <span class="nb">message</span>.<span class="n">packet_spacing</span> = <span class="n">agent</span>.<span class="n">personality</span>.<span class="n">get_rhythm</span>(<span class="s">&#39;stressed&#39;</span>)
+        <span class="nb">message</span>.<span class="n">retries</span> = <span class="n">agent</span>.<span class="n">personality</span>.<span class="n">panic_retry_count</span>
+        <span class="nb">message</span>.<span class="n">buffer_size</span> *= <span class="n">agent</span>.<span class="n">personality</span>.<span class="n">paranoia_multiplier</span>
+
+        <span class="c1"># Add tells</span>
+        <span class="nb">message</span>.<span class="n">behavioral_tells</span> = <span class="n">agent</span>.<span class="n">personality</span>.<span class="n">stress_tells</span>
+        <span class="k">return</span> <span class="nb">message</span>
+</code></pre></div>
+
+<h4 id="c-stealth-mode">C. Stealth Mode</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="n">StealthBehaviors:</span>
+    <span class="n">def</span> <span class="n">apply_behaviors</span>(<span class="nb">self</span>, <span class="n">agent</span>, <span class="nb">message</span>):
+        <span class="c1"># Minimize distinctive behaviors</span>
+        <span class="nb">message</span>.<span class="n">packet_spacing</span> = [<span class="mi">100</span>, <span class="mi">100</span>, <span class="mi">100</span>]  <span class="c1"># Generic</span>
+        <span class="nb">message</span>.<span class="n">padding</span> = <span class="s">&#39;standard&#39;</span>
+        <span class="nb">message</span>.<span class="n">quirks</span> = []  <span class="c1"># Hide quirks</span>
+
+        <span class="c1"># But still include authentication markers</span>
+        <span class="nb">message</span>.<span class="n">stealth_signature</span> = <span class="n">agent</span>.<span class="n">generate_stealth_signature</span>()
+        <span class="k">return</span> <span class="nb">message</span>
+</code></pre></div>
+
+<h3 id="6-performance-optimization">6. Performance Optimization</h3>
+<h4 id="a-caching-strategy">A. Caching Strategy</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nl">BehavioralCache</span><span class="p">:</span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">__init__</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="err">:</span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Hot</span><span class="w"> </span><span class="nl">cache</span><span class="p">:</span><span class="w"> </span><span class="n">Active</span><span class="w"> </span><span class="n">relationships</span><span class="w"> </span><span class="p">(</span><span class="k">last</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">hour</span><span class="p">)</span>
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">hot_cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TTLCache</span><span class="p">(</span><span class="n">ttl_seconds</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span><span class="w"> </span><span class="n">max_size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Warm</span><span class="w"> </span><span class="nl">cache</span><span class="p">:</span><span class="w"> </span><span class="n">Recent</span><span class="w"> </span><span class="n">relationships</span><span class="w"> </span><span class="p">(</span><span class="k">last</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="n">hours</span><span class="p">)</span>
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">warm_cache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TTLCache</span><span class="p">(</span><span class="n">ttl_seconds</span><span class="o">=</span><span class="mi">86400</span><span class="p">,</span><span class="w"> </span><span class="n">max_size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Cold</span><span class="w"> </span><span class="nl">storage</span><span class="p">:</span><span class="w"> </span><span class="ow">All</span><span class="w"> </span><span class="n">historical</span><span class="w"> </span><span class="n">relationships</span>
+<span class="w">        </span><span class="n">self</span><span class="p">.</span><span class="n">cold_storage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DiskBackedCache</span><span class="p">(</span><span class="k">path</span><span class="o">=</span><span class="ss">&quot;/cache/behavioral/&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">get_relationship_behaviors</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">agent_id</span><span class="p">,</span><span class="w"> </span><span class="n">partner_id</span><span class="p">)</span><span class="err">:</span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="k">Check</span><span class="w"> </span><span class="n">caches</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="k">order</span>
+<span class="w">        </span><span class="k">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="ss">&quot;{agent_id}:{partner_id}&quot;</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Hot</span><span class="w"> </span><span class="k">path</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="nl">hot_cache</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">hot_cache</span><span class="o">[</span><span class="n">key</span><span class="o">]</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Warm</span><span class="w"> </span><span class="k">path</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="k">key</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="nl">warm_cache</span><span class="p">:</span>
+<span class="w">            </span><span class="n">behaviors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">warm_cache</span><span class="o">[</span><span class="n">key</span><span class="o">]</span>
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">hot_cache</span><span class="o">[</span><span class="n">key</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">behaviors</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">Promote</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">behaviors</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Cold</span><span class="w"> </span><span class="k">path</span>
+<span class="w">        </span><span class="n">behaviors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">cold_storage</span><span class="p">.</span><span class="k">load</span><span class="p">(</span><span class="k">key</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nl">behaviors</span><span class="p">:</span>
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">warm_cache</span><span class="o">[</span><span class="n">key</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">behaviors</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">Warm</span><span class="w"> </span><span class="n">up</span>
+<span class="w">            </span><span class="n">self</span><span class="p">.</span><span class="n">hot_cache</span><span class="o">[</span><span class="n">key</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">behaviors</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">Heat</span><span class="w"> </span><span class="n">up</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">behaviors</span>
+</code></pre></div>
+
+<h4 id="b-batch-processing">B. Batch Processing</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nl">BehavioralBatchProcessor</span><span class="p">:</span>
+<span class="w">    </span><span class="n">async</span><span class="w"> </span><span class="n">def</span><span class="w"> </span><span class="n">process_message_batch</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">messages</span><span class="p">:</span><span class="w"> </span><span class="n">List</span><span class="o">[</span><span class="n">Message</span><span class="o">]</span><span class="p">)</span><span class="err">:</span>
+<span class="w">        </span><span class="ss">&quot;&quot;&quot;</span>
+<span class="ss">        Process multiple messages efficiently</span>
+<span class="ss">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="k">Group</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">sender</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">cache</span><span class="w"> </span><span class="n">efficiency</span>
+<span class="w">        </span><span class="n">by_sender</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">defaultdict</span><span class="p">(</span><span class="n">list</span><span class="p">)</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">messages</span><span class="p">:</span>
+<span class="w">            </span><span class="n">by_sender</span><span class="o">[</span><span class="n">msg.sender_id</span><span class="o">]</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="k">Load</span><span class="w"> </span><span class="n">personalities</span><span class="w"> </span><span class="n">once</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">sender</span>
+<span class="w">        </span><span class="n">personalities</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">{}</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">sender_id</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">by_sender</span><span class="p">.</span><span class="n">keys</span><span class="p">()</span><span class="err">:</span>
+<span class="w">            </span><span class="n">personalities</span><span class="o">[</span><span class="n">sender_id</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">await</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">load_personality</span><span class="p">(</span><span class="n">sender_id</span><span class="p">)</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Parallel</span><span class="w"> </span><span class="n">verification</span>
+<span class="w">        </span><span class="n">verification_tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="err">[]</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">sender_id</span><span class="p">,</span><span class="w"> </span><span class="n">sender_messages</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">by_sender</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="err">:</span>
+<span class="w">            </span><span class="n">personality</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">personalities</span><span class="o">[</span><span class="n">sender_id</span><span class="o">]</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="n">msg</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nl">sender_messages</span><span class="p">:</span>
+<span class="w">                </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">self</span><span class="p">.</span><span class="n">verify_behavioral_authenticity</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">personality</span>
+<span class="w">                </span><span class="p">)</span>
+<span class="w">                </span><span class="n">verification_tasks</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
+
+<span class="w">        </span><span class="err">#</span><span class="w"> </span><span class="n">Wait</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ow">all</span><span class="w"> </span><span class="n">verifications</span>
+<span class="w">        </span><span class="n">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">await</span><span class="w"> </span><span class="n">asyncio</span><span class="p">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">verification_tasks</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">results</span>
+</code></pre></div>
+
+<h3 id="7-monitoring-metrics">7. Monitoring &amp; Metrics</h3>
+<h4 id="a-behavioral-health-metrics">A. Behavioral Health Metrics</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="n">BehavioralMetrics</span><span class="p">:</span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">collect_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1"># Performance metrics</span>
+<span class="w">            </span><span class="s1">&#39;avg_verification_time_ms&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_avg_verification_time</span><span class="p">(),</span>
+<span class="w">            </span><span class="s1">&#39;cache_hit_rate&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">hit_rate</span><span class="p">(),</span>
+<span class="w">            </span><span class="s1">&#39;personality_load_time_ms&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_personality_load_time</span><span class="p">(),</span>
+
+<span class="w">            </span><span class="c1"># Security metrics</span>
+<span class="w">            </span><span class="s1">&#39;impostor_detection_rate&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_impostor_detection_rate</span><span class="p">(),</span>
+<span class="w">            </span><span class="s1">&#39;false_positive_rate&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_false_positive_rate</span><span class="p">(),</span>
+<span class="w">            </span><span class="s1">&#39;behavioral_anomalies_per_hour&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">count_anomalies</span><span class="p">(),</span>
+
+<span class="w">            </span><span class="c1"># Relationship metrics</span>
+<span class="w">            </span><span class="s1">&#39;avg_relationship_trust&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_avg_trust</span><span class="p">(),</span>
+<span class="w">            </span><span class="s1">&#39;relationship_evolution_rate&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_evolution_rate</span><span class="p">(),</span>
+<span class="w">            </span><span class="s1">&#39;quirk_manifestation_frequency&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">count_quirk_usage</span><span class="p">(),</span>
+
+<span class="w">            </span><span class="c1"># Storage metrics</span>
+<span class="w">            </span><span class="s1">&#39;personality_storage_gb&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_storage_usage</span><span class="p">(),</span>
+<span class="w">            </span><span class="s1">&#39;fragment_reconstruction_success_rate&#39;</span><span class="p">:</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">calc_reconstruction_rate</span><span class="p">()</span>
+<span class="w">        </span><span class="p">}</span>
+</code></pre></div>
+
+<h3 id="8-failure-recovery">8. Failure Recovery</h3>
+<h4 id="a-personality-loss-recovery">A. Personality Loss Recovery</h4>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="n">PersonalityRecovery</span><span class="p">:</span>
+<span class="w">    </span><span class="n">def</span><span class="w"> </span><span class="n">recover_lost_personality</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">agent_id</span><span class="p">:</span><span class="w"> </span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Rebuild personality from relationship observations</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="c1"># Gather observations from partners</span>
+<span class="w">        </span><span class="n">observations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">partner</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">get_known_partners</span><span class="p">(</span><span class="n">agent_id</span><span class="p">):</span>
+<span class="w">            </span><span class="n">partner_observations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">partner</span><span class="o">.</span><span class="n">get_behavioral_history</span><span class="p">(</span><span class="n">agent_id</span><span class="p">)</span>
+<span class="w">            </span><span class="n">observations</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">partner_observations</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">len</span><span class="p">(</span><span class="n">observations</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">:</span>
+<span class="w">            </span><span class="c1"># Not enough data, generate new personality</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">generate_new_personality</span><span class="p">(</span><span class="n">agent_id</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1"># Reconstruct personality from observations</span>
+<span class="w">        </span><span class="n">reconstructed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">reconstruct_from_observations</span><span class="p">(</span><span class="n">observations</span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1"># Validate reconstruction</span>
+<span class="w">        </span><span class="n">confidence</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">validate_reconstruction</span><span class="p">(</span><span class="n">reconstructed</span><span class="p">,</span><span class="w"> </span><span class="n">observations</span><span class="p">)</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">confidence</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.8</span><span class="p">:</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">reconstructed</span>
+<span class="w">        </span><span class="k">else</span><span class="p">:</span>
+<span class="w">            </span><span class="c1"># Partial reconstruction + new elements</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">hybrid_reconstruction</span><span class="p">(</span><span class="n">reconstructed</span><span class="p">,</span><span class="w"> </span><span class="n">agent_id</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="9-testing-strategy">9. Testing Strategy</h3>
+<h4 id="a-unit-tests">A. Unit Tests</h4>
+<div class="codehilite"><pre><span></span><code><span class="n">def</span><span class="w"> </span><span class="n">test_personality_consistency</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Verify personality remains consistent across operations&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="n">agent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_test_agent</span><span class="p">()</span>
+<span class="w">    </span><span class="n">personality1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agent</span><span class="o">.</span><span class="n">personality</span><span class="o">.</span><span class="n">get_core_traits</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1"># Perform various operations</span>
+<span class="w">    </span><span class="n">agent</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;partner1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">agent</span><span class="o">.</span><span class="n">receive_message</span><span class="p">(</span><span class="s2">&quot;partner2&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">agent</span><span class="o">.</span><span class="n">handle_error</span><span class="p">(</span><span class="s2">&quot;timeout&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">personality2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agent</span><span class="o">.</span><span class="n">personality</span><span class="o">.</span><span class="n">get_core_traits</span><span class="p">()</span>
+<span class="w">    </span><span class="nb">assert</span><span class="w"> </span><span class="n">personality1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">personality2</span><span class="w">  </span><span class="c1"># Core traits immutable</span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">test_relationship_evolution</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Verify relationships evolve correctly&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="n">agent1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_test_agent</span><span class="p">(</span><span class="s2">&quot;agent1&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">agent2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_test_agent</span><span class="p">(</span><span class="s2">&quot;agent2&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">initial_comfort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agent1</span><span class="o">.</span><span class="n">relationships</span><span class="o">.</span><span class="n">get_comfort</span><span class="p">(</span><span class="s2">&quot;agent2&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1"># Simulate 10 interactions</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="w">        </span><span class="n">agent1</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;agent2&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="s2">&quot;message{i}&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="n">final_comfort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">agent1</span><span class="o">.</span><span class="n">relationships</span><span class="o">.</span><span class="n">get_comfort</span><span class="p">(</span><span class="s2">&quot;agent2&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nb">assert</span><span class="w"> </span><span class="n">final_comfort</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">initial_comfort</span><span class="w">  </span><span class="c1"># Comfort increased</span>
+
+<span class="n">def</span><span class="w"> </span><span class="n">test_impostor_detection</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Verify impostors are detected&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="n">real_agent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_test_agent</span><span class="p">(</span><span class="s2">&quot;real&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">impostor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_test_agent</span><span class="p">(</span><span class="s2">&quot;impostor&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1"># Impostor tries to impersonate real agent</span>
+<span class="w">    </span><span class="n">impostor_message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">impostor</span><span class="o">.</span><span class="n">create_message</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">impostor_message</span><span class="p">[</span><span class="s1">&#39;sender&#39;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;real&quot;</span><span class="w">  </span><span class="c1"># Claim to be real agent</span>
+
+<span class="w">    </span><span class="c1"># Target should detect impostor</span>
+<span class="w">    </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">create_test_agent</span><span class="p">(</span><span class="s2">&quot;target&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">target</span><span class="o">.</span><span class="n">verify_sender</span><span class="p">(</span><span class="n">impostor_message</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nb">assert</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">is_impostor</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">True</span>
+<span class="w">    </span><span class="nb">assert</span><span class="w"> </span><span class="n">result</span><span class="o">.</span><span class="n">confidence</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.4</span>
+</code></pre></div>
+
+<h4 id="b-integration-tests">B. Integration Tests</h4>
+<div class="codehilite"><pre><span></span><code><span class="nx">def</span><span class="w"> </span><span class="nx">test_full_behavioral_flow</span><span class="p">():</span>
+<span class="w">    </span><span class="s">&quot;&quot;&quot;Test complete behavioral authentication flow&quot;&quot;&quot;</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Create</span><span class="w"> </span><span class="nx">network</span><span class="w"> </span><span class="nx">of</span><span class="w"> </span><span class="nx">agents</span>
+<span class="w">    </span><span class="nx">agents</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nx">create_test_agent</span><span class="p">(</span><span class="nx">f</span><span class="s">&quot;agent{i}&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nx">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Let</span><span class="w"> </span><span class="nx">them</span><span class="w"> </span><span class="nx">interact</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="nx">relationships</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nx">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+<span class="w">        </span><span class="nx">sender</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">random</span><span class="p">.</span><span class="kd">choice</span><span class="p">(</span><span class="nx">agents</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">receiver</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">random</span><span class="p">.</span><span class="kd">choice</span><span class="p">(</span><span class="nx">agents</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">sender</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">receiver</span><span class="p">:</span>
+<span class="w">            </span><span class="nx">sender</span><span class="p">.</span><span class="nx">send_message</span><span class="p">(</span><span class="nx">receiver</span><span class="p">.</span><span class="nx">agent_id</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Verify</span><span class="w"> </span><span class="nx">all</span><span class="w"> </span><span class="nx">relationships</span><span class="w"> </span><span class="nx">evolved</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">agent</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nx">agents</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">assert</span><span class="w"> </span><span class="nx">len</span><span class="p">(</span><span class="nx">agent</span><span class="p">.</span><span class="nx">relationships</span><span class="p">)</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Verify</span><span class="w"> </span><span class="nx">personalities</span><span class="w"> </span><span class="nx">are</span><span class="w"> </span><span class="nx">unique</span>
+<span class="w">    </span><span class="nx">personalities</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[</span><span class="nx">agent</span><span class="p">.</span><span class="nx">personality</span><span class="p">.</span><span class="nx">get_signature</span><span class="p">()</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nx">agent</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nx">agents</span><span class="p">]</span>
+<span class="w">    </span><span class="nx">assert</span><span class="w"> </span><span class="nx">len</span><span class="p">(</span><span class="nx">set</span><span class="p">(</span><span class="nx">personalities</span><span class="p">))</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">len</span><span class="p">(</span><span class="nx">personalities</span><span class="p">)</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Test</span><span class="w"> </span><span class="nx">impostor</span><span class="w"> </span><span class="nx">detection</span>
+<span class="w">    </span><span class="nx">impostor</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">create_test_agent</span><span class="p">(</span><span class="s">&quot;impostor&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">target</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">agents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Impostor</span><span class="w"> </span><span class="nx">observes</span><span class="w"> </span><span class="nx">some</span><span class="w"> </span><span class="nx">messages</span>
+<span class="w">    </span><span class="nx">observed</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">agents</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">get_recent_messages</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">impostor</span><span class="p">.</span><span class="nx">learn_from_observations</span><span class="p">(</span><span class="nx">observed</span><span class="p">)</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Try</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">impersonate</span>
+<span class="w">    </span><span class="nx">fake_message</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">impostor</span><span class="p">.</span><span class="nx">impersonate</span><span class="p">(</span><span class="nx">agents</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">agent_id</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="p">.</span><span class="nx">agent_id</span><span class="p">)</span>
+
+<span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="nx">Should</span><span class="w"> </span><span class="nx">be</span><span class="w"> </span><span class="nx">detected</span>
+<span class="w">    </span><span class="nx">detection</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">target</span><span class="p">.</span><span class="nx">receive_message</span><span class="p">(</span><span class="nx">fake_message</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">assert</span><span class="w"> </span><span class="nx">detection</span><span class="p">.</span><span class="nx">impostor_suspected</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">True</span>
+</code></pre></div>
+
+<h3 id="10-production-readiness-checklist">10. Production Readiness Checklist</h3>
+<ul>
+<li>[ ] Personality generation tested with 10,000+ agents</li>
+<li>[ ] Behavioral verification under 5ms per message</li>
+<li>[ ] Relationship storage scales to O(n ) agent pairs</li>
+<li>[ ] Cache hit rate &gt; 90% for active relationships</li>
+<li>[ ] Impostor detection rate &gt; 95%</li>
+<li>[ ] False positive rate &lt; 1%</li>
+<li>[ ] Personality recovery tested</li>
+<li>[ ] Distributed storage verified with 3-node failure</li>
+<li>[ ] Performance under 10,000 msg/sec load</li>
+<li>[ ] Memory usage &lt; 100MB per 1000 agents</li>
+<li>[ ] Behavioral metrics dashboard deployed</li>
+<li>[ ] Alert system for anomaly detection</li>
+<li>[ ] Backup and recovery procedures tested</li>
+<li>[ ] Security audit completed</li>
+<li>[ ] Documentation complete</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>This implementation plan transforms the proof-of-concept behavioral systems into production-ready components that:</p>
+<ol>
+<li><strong>Store personalities securely</strong> using encryption, fragmentation, and distribution</li>
+<li><strong>Integrate seamlessly</strong> with existing agent communication</li>
+<li><strong>Protect behavioral data</strong> through multiple security layers</li>
+<li><strong>Scale efficiently</strong> using intelligent caching and batching</li>
+<li><strong>Recover gracefully</strong> from failures and data loss</li>
+<li><strong>Monitor continuously</strong> for security and performance</li>
+</ol>
+<p>The system is designed to be invisible during normal operations while providing strong authentication through the accumulation of subtle behavioral patterns that are unique to each agent and relationship.</p>
+    
+    <div class="document-footer">
+        <p><strong>Document:</strong> IMPLEMENTATION_PLAN_BEHAVIORAL_SYSTEMS.md | <strong>Generated:</strong> 2025-08-24 18:15:04</p>
+        <p>MWRASP Quantum Defense System - Confidential and Proprietary</p>
+    </div>
+</body>
+</html>

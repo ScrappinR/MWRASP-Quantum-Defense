@@ -1,0 +1,1596 @@
+{
+  "generated_at": 1756121559.5683434,
+  "total_scenarios": 20,
+  "quantum_scenarios": 10,
+  "classical_scenarios": 10,
+  "scenarios": [
+    {
+      "algorithm": "simon",
+      "n_bits": 4,
+      "query_count": 4,
+      "execution_time": 0.0,
+      "success_probability": 1.0,
+      "access_pattern": [
+        {
+          "time": 1756121559.5673425,
+          "query_type": "quantum_oracle",
+          "input": 5,
+          "output": 6,
+          "algorithm_step": "period_finding",
+          "value": "5"
+        },
+        {
+          "time": 1756121559.5674424,
+          "query_type": "quantum_oracle",
+          "input": 5,
+          "output": 6,
+          "algorithm_step": "period_finding",
+          "value": "5"
+        },
+        {
+          "time": 1756121559.5675426,
+          "query_type": "quantum_oracle",
+          "input": 3,
+          "output": 0,
+          "algorithm_step": "period_finding",
+          "value": "3"
+        },
+        {
+          "time": 1756121559.5676425,
+          "query_type": "quantum_oracle",
+          "input": 13,
+          "output": 14,
+          "algorithm_step": "period_finding",
+          "value": "13"
+        },
+        {
+          "time": 1756121559.5777426,
+          "query_type": "classical_postprocess",
+          "result": 3,
+          "algorithm_step": "period_extraction"
+        }
+      ]
+    },
+    {
+      "algorithm": "deutsch_jozsa",
+      "n_bits": 3,
+      "query_count": 5,
+      "execution_time": 0.0,
+      "success_probability": 0.8,
+      "access_pattern": [
+        {
+          "time": 1756121559.5673425,
+          "query_type": "classical_oracle",
+          "input": 0,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.5753424,
+          "query_type": "classical_oracle",
+          "input": 1,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.5833426,
+          "query_type": "classical_oracle",
+          "input": 2,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.5913424,
+          "query_type": "classical_oracle",
+          "input": 3,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.5993426,
+          "query_type": "classical_oracle",
+          "input": 4,
+          "algorithm_step": "sequential_evaluation"
+        }
+      ]
+    },
+    {
+      "algorithm": "grover",
+      "n_bits": 5,
+      "query_count": 32,
+      "execution_time": 0.0010008811950683594,
+      "success_probability": 0.8,
+      "access_pattern": [
+        {
+          "time": 1756121559.5673425,
+          "query_type": "classical_search",
+          "input": 0,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.5773425,
+          "query_type": "classical_search",
+          "input": 1,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.5873425,
+          "query_type": "classical_search",
+          "input": 2,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.5973425,
+          "query_type": "classical_search",
+          "input": 3,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6073425,
+          "query_type": "classical_search",
+          "input": 4,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6173425,
+          "query_type": "classical_search",
+          "input": 5,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6273425,
+          "query_type": "classical_search",
+          "input": 6,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6373425,
+          "query_type": "classical_search",
+          "input": 7,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6473424,
+          "query_type": "classical_search",
+          "input": 8,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6573424,
+          "query_type": "classical_search",
+          "input": 9,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6673424,
+          "query_type": "classical_search",
+          "input": 10,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6773424,
+          "query_type": "classical_search",
+          "input": 11,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6873424,
+          "query_type": "classical_search",
+          "input": 12,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6973426,
+          "query_type": "classical_search",
+          "input": 13,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7073426,
+          "query_type": "classical_search",
+          "input": 14,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7173426,
+          "query_type": "classical_search",
+          "input": 15,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7273426,
+          "query_type": "classical_search",
+          "input": 16,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7373426,
+          "query_type": "classical_search",
+          "input": 17,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7473426,
+          "query_type": "classical_search",
+          "input": 18,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7573426,
+          "query_type": "classical_search",
+          "input": 19,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7673426,
+          "query_type": "classical_search",
+          "input": 20,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7773426,
+          "query_type": "classical_search",
+          "input": 21,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7873425,
+          "query_type": "classical_search",
+          "input": 22,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7973425,
+          "query_type": "classical_search",
+          "input": 23,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.8073425,
+          "query_type": "classical_search",
+          "input": 24,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.8173425,
+          "query_type": "classical_search",
+          "input": 25,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.8273425,
+          "query_type": "classical_search",
+          "input": 26,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.8373425,
+          "query_type": "classical_search",
+          "input": 27,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.8473425,
+          "query_type": "classical_search",
+          "input": 28,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.8573425,
+          "query_type": "classical_search",
+          "input": 29,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.8673425,
+          "query_type": "classical_search",
+          "input": 30,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.8773425,
+          "query_type": "classical_search",
+          "input": 31,
+          "algorithm_step": "linear_search"
+        }
+      ]
+    },
+    {
+      "algorithm": "grover",
+      "n_bits": 4,
+      "query_count": 9,
+      "execution_time": 0.0,
+      "success_probability": 0.26873855999999996,
+      "access_pattern": [
+        {
+          "time": 1756121559.5684433,
+          "query_type": "quantum_oracle_search",
+          "input": 3,
+          "output": 0,
+          "algorithm_step": "amplitude_amplification",
+          "value": "3",
+          "amplitude": 0.3,
+          "iteration": 0
+        },
+        {
+          "time": 1756121559.5685432,
+          "query_type": "quantum_diffusion",
+          "algorithm_step": "inversion_about_average",
+          "value": "4",
+          "amplitude": 0.3
+        },
+        {
+          "time": 1756121559.5699432,
+          "query_type": "quantum_oracle_search",
+          "input": 1,
+          "output": 0,
+          "algorithm_step": "amplitude_amplification",
+          "value": "1",
+          "amplitude": 0.36,
+          "iteration": 1
+        },
+        {
+          "time": 1756121559.570043,
+          "query_type": "quantum_diffusion",
+          "algorithm_step": "inversion_about_average",
+          "value": "5",
+          "amplitude": 0.36
+        },
+        {
+          "time": 1756121559.5714433,
+          "query_type": "quantum_oracle_search",
+          "input": 13,
+          "output": 0,
+          "algorithm_step": "amplitude_amplification",
+          "value": "13",
+          "amplitude": 0.432,
+          "iteration": 2
+        },
+        {
+          "time": 1756121559.5715432,
+          "query_type": "quantum_diffusion",
+          "algorithm_step": "inversion_about_average",
+          "value": "6",
+          "amplitude": 0.432
+        },
+        {
+          "time": 1756121559.5729432,
+          "query_type": "quantum_oracle_search",
+          "input": 4,
+          "output": 0,
+          "algorithm_step": "amplitude_amplification",
+          "value": "4",
+          "amplitude": 0.5184,
+          "iteration": 3
+        },
+        {
+          "time": 1756121559.573043,
+          "query_type": "quantum_diffusion",
+          "algorithm_step": "inversion_about_average",
+          "value": "8",
+          "amplitude": 0.5184
+        },
+        {
+          "time": 1756121559.5793436,
+          "query_type": "quantum_measurement",
+          "result": 7,
+          "algorithm_step": "final_measurement",
+          "value": "7",
+          "success_probability": 0.26873855999999996
+        }
+      ]
+    },
+    {
+      "algorithm": "grover",
+      "n_bits": 4,
+      "query_count": 16,
+      "execution_time": 0.0,
+      "success_probability": 0.8,
+      "access_pattern": [
+        {
+          "time": 1756121559.5683434,
+          "query_type": "classical_search",
+          "input": 0,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.5783434,
+          "query_type": "classical_search",
+          "input": 1,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.5883434,
+          "query_type": "classical_search",
+          "input": 2,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.5983434,
+          "query_type": "classical_search",
+          "input": 3,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6083434,
+          "query_type": "classical_search",
+          "input": 4,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6183434,
+          "query_type": "classical_search",
+          "input": 5,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6283433,
+          "query_type": "classical_search",
+          "input": 6,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6383433,
+          "query_type": "classical_search",
+          "input": 7,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6483433,
+          "query_type": "classical_search",
+          "input": 8,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6583433,
+          "query_type": "classical_search",
+          "input": 9,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6683433,
+          "query_type": "classical_search",
+          "input": 10,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6783433,
+          "query_type": "classical_search",
+          "input": 11,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6883433,
+          "query_type": "classical_search",
+          "input": 12,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.6983435,
+          "query_type": "classical_search",
+          "input": 13,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7083435,
+          "query_type": "classical_search",
+          "input": 14,
+          "algorithm_step": "linear_search"
+        },
+        {
+          "time": 1756121559.7183435,
+          "query_type": "classical_search",
+          "input": 15,
+          "algorithm_step": "linear_search"
+        }
+      ]
+    },
+    {
+      "algorithm": "deutsch_jozsa",
+      "n_bits": 6,
+      "query_count": 32,
+      "execution_time": 0.0,
+      "success_probability": 0.8,
+      "access_pattern": [
+        {
+          "time": 1756121559.5683434,
+          "query_type": "classical_oracle",
+          "input": 0,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.5763433,
+          "query_type": "classical_oracle",
+          "input": 1,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.5843434,
+          "query_type": "classical_oracle",
+          "input": 2,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.5923433,
+          "query_type": "classical_oracle",
+          "input": 3,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6003435,
+          "query_type": "classical_oracle",
+          "input": 4,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6083434,
+          "query_type": "classical_oracle",
+          "input": 5,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6163435,
+          "query_type": "classical_oracle",
+          "input": 6,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6243434,
+          "query_type": "classical_oracle",
+          "input": 7,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6323433,
+          "query_type": "classical_oracle",
+          "input": 8,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6403434,
+          "query_type": "classical_oracle",
+          "input": 9,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6483433,
+          "query_type": "classical_oracle",
+          "input": 10,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6563435,
+          "query_type": "classical_oracle",
+          "input": 11,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6643434,
+          "query_type": "classical_oracle",
+          "input": 12,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6723435,
+          "query_type": "classical_oracle",
+          "input": 13,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6803434,
+          "query_type": "classical_oracle",
+          "input": 14,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6883433,
+          "query_type": "classical_oracle",
+          "input": 15,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.6963434,
+          "query_type": "classical_oracle",
+          "input": 16,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7043433,
+          "query_type": "classical_oracle",
+          "input": 17,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7123435,
+          "query_type": "classical_oracle",
+          "input": 18,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7203434,
+          "query_type": "classical_oracle",
+          "input": 19,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7283435,
+          "query_type": "classical_oracle",
+          "input": 20,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7363434,
+          "query_type": "classical_oracle",
+          "input": 21,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7443435,
+          "query_type": "classical_oracle",
+          "input": 22,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7523434,
+          "query_type": "classical_oracle",
+          "input": 23,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7603433,
+          "query_type": "classical_oracle",
+          "input": 24,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7683434,
+          "query_type": "classical_oracle",
+          "input": 25,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7763433,
+          "query_type": "classical_oracle",
+          "input": 26,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7843435,
+          "query_type": "classical_oracle",
+          "input": 27,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.7923434,
+          "query_type": "classical_oracle",
+          "input": 28,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.8003435,
+          "query_type": "classical_oracle",
+          "input": 29,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.8083434,
+          "query_type": "classical_oracle",
+          "input": 30,
+          "algorithm_step": "sequential_evaluation"
+        },
+        {
+          "time": 1756121559.8163433,
+          "query_type": "classical_oracle",
+          "input": 31,
+          "algorithm_step": "sequential_evaluation"
+        }
+      ]
+    },
+    {
+      "algorithm": "grover",
+      "n_bits": 3,
+      "query_count": 5,
+      "execution_time": 0.0,
+      "success_probability": 0.2591999999999999,
+      "access_pattern": [
+        {
+          "time": 1756121559.5684433,
+          "query_type": "quantum_oracle_search",
+          "input": 2,
+          "output": 0,
+          "algorithm_step": "amplitude_amplification",
+          "value": "2",
+          "amplitude": 0.42426406871192845,
+          "iteration": 0
+        },
+        {
+          "time": 1756121559.5685432,
+          "query_type": "quantum_diffusion",
+          "algorithm_step": "inversion_about_average",
+          "value": "3",
+          "amplitude": 0.42426406871192845
+        },
+        {
+          "time": 1756121559.5699432,
+          "query_type": "quantum_oracle_search",
+          "input": 4,
+          "output": 1,
+          "algorithm_step": "amplitude_amplification",
+          "value": "4",
+          "amplitude": 0.5091168824543141,
+          "iteration": 1
+        },
+        {
+          "time": 1756121559.570043,
+          "query_type": "quantum_diffusion",
+          "algorithm_step": "inversion_about_average",
+          "value": "4",
+          "amplitude": 0.5091168824543141
+        },
+        {
+          "time": 1756121559.5763435,
+          "query_type": "quantum_measurement",
+          "result": 7,
+          "algorithm_step": "final_measurement",
+          "value": "7",
+          "success_probability": 0.2591999999999999
+        }
+      ]
+    },
+    {
+      "algorithm": "bernstein_vazirani",
+      "n_bits": 3,
+      "query_count": 1,
+      "execution_time": 0.0,
+      "success_probability": 1.0,
+      "access_pattern": [
+        {
+          "time": 1756121559.5684433,
+          "query_type": "quantum_oracle_single",
+          "input": "superposition_all_states",
+          "output": 1,
+          "algorithm_step": "linear_structure_detection"
+        },
+        {
+          "time": 1756121559.5685432,
+          "query_type": "quantum_measurement",
+          "result": 1,
+          "algorithm_step": "secret_string_extraction"
+        },
+        {
+          "time": 1756121559.5885432,
+          "query_type": "classical_verification",
+          "verified_result": 1,
+          "algorithm_step": "result_verification"
+        }
+      ]
+    },
+    {
+      "algorithm": "simon",
+      "n_bits": 8,
+      "query_count": 8,
+      "execution_time": 0.0,
+      "success_probability": 1.0,
+      "access_pattern": [
+        {
+          "time": 1756121559.5683434,
+          "query_type": "quantum_oracle",
+          "input": 38,
+          "output": 10,
+          "algorithm_step": "period_finding",
+          "value": "38"
+        },
+        {
+          "time": 1756121559.5684433,
+          "query_type": "quantum_oracle",
+          "input": 237,
+          "output": 193,
+          "algorithm_step": "period_finding",
+          "value": "237"
+        },
+        {
+          "time": 1756121559.5685434,
+          "query_type": "quantum_oracle",
+          "input": 213,
+          "output": 249,
+          "algorithm_step": "period_finding",
+          "value": "213"
+        },
+        {
+          "time": 1756121559.5686433,
+          "query_type": "quantum_oracle",
+          "input": 218,
+          "output": 246,
+          "algorithm_step": "period_finding",
+          "value": "218"
+        },
+        {
+          "time": 1756121559.5687435,
+          "query_type": "quantum_oracle",
+          "input": 177,
+          "output": 157,
+          "algorithm_step": "period_finding",
+          "value": "177"
+        },
+        {
+          "time": 1756121559.5688434,
+          "query_type": "quantum_oracle",
+          "input": 170,
+          "output": 134,
+          "algorithm_step": "period_finding",
+          "value": "170"
+        },
+        {
+          "time": 1756121559.5689435,
+          "query_type": "quantum_oracle",
+          "input": 91,
+          "output": 119,
+          "algorithm_step": "period_finding",
+          "value": "91"
+        },
+        {
+          "time": 1756121559.5690434,
+          "query_type": "quantum_oracle",
+          "input": 152,
+          "output": 180,
+          "algorithm_step": "period_finding",
+          "value": "152"
+        },
+        {
+          "time": 1756121559.5791433,
+          "query_type": "classical_postprocess",
+          "result": 44,
+          "algorithm_step": "period_extraction"
+        }
+      ]
+    },
+    {
+      "algorithm": "shor",
+      "n_bits": 11,
+      "query_count": 24,
+      "execution_time": 0.0,
+      "success_probability": 0.75,
+      "access_pattern": [
+        {
+          "time": 1756121559.5783434,
+          "query_type": "classical_preprocessing",
+          "input": 1477,
+          "value": "1477",
+          "algorithm_step": "coprime_selection",
+          "selected_a": 358
+        },
+        {
+          "time": 1756121559.5783434,
+          "query_type": "quantum_fourier_transform",
+          "input": 1402,
+          "output": 1142,
+          "value": "1402",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^1402 mod 1477 = 1142",
+          "qft_phase": 0
+        },
+        {
+          "time": 1756121559.5791433,
+          "query_type": "quantum_fourier_transform",
+          "input": 741,
+          "output": 239,
+          "value": "741",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^741 mod 1477 = 239",
+          "qft_phase": 1
+        },
+        {
+          "time": 1756121559.5799434,
+          "query_type": "quantum_fourier_transform",
+          "input": 1445,
+          "output": 932,
+          "value": "1445",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^1445 mod 1477 = 932",
+          "qft_phase": 2
+        },
+        {
+          "time": 1756121559.5807433,
+          "query_type": "quantum_fourier_transform",
+          "input": 1021,
+          "output": 239,
+          "value": "1021",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^1021 mod 1477 = 239",
+          "qft_phase": 3
+        },
+        {
+          "time": 1756121559.5815434,
+          "query_type": "quantum_fourier_transform",
+          "input": 1408,
+          "output": 729,
+          "value": "1408",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^1408 mod 1477 = 729",
+          "qft_phase": 4
+        },
+        {
+          "time": 1756121559.5823433,
+          "query_type": "quantum_fourier_transform",
+          "input": 510,
+          "output": 148,
+          "value": "510",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^510 mod 1477 = 148",
+          "qft_phase": 5
+        },
+        {
+          "time": 1756121559.5831435,
+          "query_type": "quantum_fourier_transform",
+          "input": 80,
+          "output": 967,
+          "value": "80",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^80 mod 1477 = 967",
+          "qft_phase": 6
+        },
+        {
+          "time": 1756121559.5839434,
+          "query_type": "quantum_fourier_transform",
+          "input": 1127,
+          "output": 526,
+          "value": "1127",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^1127 mod 1477 = 526",
+          "qft_phase": 7
+        },
+        {
+          "time": 1756121559.5847435,
+          "query_type": "quantum_fourier_transform",
+          "input": 976,
+          "output": 547,
+          "value": "976",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^976 mod 1477 = 547",
+          "qft_phase": 8
+        },
+        {
+          "time": 1756121559.5855434,
+          "query_type": "quantum_fourier_transform",
+          "input": 369,
+          "output": 512,
+          "value": "369",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^369 mod 1477 = 512",
+          "qft_phase": 9
+        },
+        {
+          "time": 1756121559.5863433,
+          "query_type": "quantum_fourier_transform",
+          "input": 978,
+          "output": 1380,
+          "value": "978",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^978 mod 1477 = 1380",
+          "qft_phase": 10
+        },
+        {
+          "time": 1756121559.5871434,
+          "query_type": "quantum_fourier_transform",
+          "input": 999,
+          "output": 512,
+          "value": "999",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^999 mod 1477 = 512",
+          "qft_phase": 11
+        },
+        {
+          "time": 1756121559.5879433,
+          "query_type": "quantum_fourier_transform",
+          "input": 595,
+          "output": 421,
+          "value": "595",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^595 mod 1477 = 421",
+          "qft_phase": 12
+        },
+        {
+          "time": 1756121559.5887434,
+          "query_type": "quantum_fourier_transform",
+          "input": 859,
+          "output": 512,
+          "value": "859",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^859 mod 1477 = 512",
+          "qft_phase": 13
+        },
+        {
+          "time": 1756121559.5895433,
+          "query_type": "quantum_fourier_transform",
+          "input": 348,
+          "output": 1380,
+          "value": "348",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^348 mod 1477 = 1380",
+          "qft_phase": 14
+        },
+        {
+          "time": 1756121559.5903435,
+          "query_type": "quantum_fourier_transform",
+          "input": 511,
+          "output": 1289,
+          "value": "511",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^511 mod 1477 = 1289",
+          "qft_phase": 15
+        },
+        {
+          "time": 1756121559.5911434,
+          "query_type": "quantum_fourier_transform",
+          "input": 411,
+          "output": 1401,
+          "value": "411",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^411 mod 1477 = 1401",
+          "qft_phase": 16
+        },
+        {
+          "time": 1756121559.5919435,
+          "query_type": "quantum_fourier_transform",
+          "input": 559,
+          "output": 722,
+          "value": "559",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^559 mod 1477 = 722",
+          "qft_phase": 17
+        },
+        {
+          "time": 1756121559.5927434,
+          "query_type": "quantum_fourier_transform",
+          "input": 529,
+          "output": 449,
+          "value": "529",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^529 mod 1477 = 449",
+          "qft_phase": 18
+        },
+        {
+          "time": 1756121559.5935433,
+          "query_type": "quantum_fourier_transform",
+          "input": 416,
+          "output": 547,
+          "value": "416",
+          "algorithm_step": "period_finding",
+          "modular_exp": "358^416 mod 1477 = 547",
+          "qft_phase": 19
+        },
+        {
+          "time": 1756121559.6143434,
+          "query_type": "quantum_measurement",
+          "result": 21,
+          "value": "21",
+          "algorithm_step": "period_extraction",
+          "period_candidates": 22
+        },
+        {
+          "time": 1756121559.6193435,
+          "query_type": "classical_factorization",
+          "target": 1477,
+          "discovered_factor": 5,
+          "value": "5",
+          "algorithm_step": "factor_extraction",
+          "success": false
+        },
+        {
+          "time": 1756121559.6213436,
+          "query_type": "classical_verification",
+          "original_number": 1477,
+          "factor1": 5,
+          "factor2": null,
+          "value": "1477",
+          "algorithm_step": "factorization_complete",
+          "cryptographic_break": false
+        }
+      ]
+    },
+    {
+      "algorithm": "shor",
+      "n_bits": 8,
+      "query_count": 16,
+      "execution_time": 0.0,
+      "success_probability": 0.8,
+      "access_pattern": [
+        {
+          "time": 1756121559.5683434,
+          "query_type": "classical_trial_division",
+          "input": 2,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.6183434,
+          "query_type": "classical_trial_division",
+          "input": 3,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.6683433,
+          "query_type": "classical_trial_division",
+          "input": 4,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.7183435,
+          "query_type": "classical_trial_division",
+          "input": 5,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.7683434,
+          "query_type": "classical_trial_division",
+          "input": 6,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.8183434,
+          "query_type": "classical_trial_division",
+          "input": 7,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.8683434,
+          "query_type": "classical_trial_division",
+          "input": 8,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.9183433,
+          "query_type": "classical_trial_division",
+          "input": 9,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.9683435,
+          "query_type": "classical_trial_division",
+          "input": 10,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121560.0183434,
+          "query_type": "classical_trial_division",
+          "input": 11,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121560.0683434,
+          "query_type": "classical_trial_division",
+          "input": 12,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121560.1183434,
+          "query_type": "classical_trial_division",
+          "input": 13,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121560.1683433,
+          "query_type": "classical_trial_division",
+          "input": 14,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121560.2183435,
+          "query_type": "classical_trial_division",
+          "input": 15,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121560.2683434,
+          "query_type": "classical_trial_division",
+          "input": 16,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121560.3183434,
+          "query_type": "classical_trial_division",
+          "input": 17,
+          "algorithm_step": "factorization_attempt"
+        }
+      ]
+    },
+    {
+      "algorithm": "shor",
+      "n_bits": 5,
+      "query_count": 4,
+      "execution_time": 0.0,
+      "success_probability": 0.8,
+      "access_pattern": [
+        {
+          "time": 1756121559.5683434,
+          "query_type": "classical_trial_division",
+          "input": 2,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.6183434,
+          "query_type": "classical_trial_division",
+          "input": 3,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.6683433,
+          "query_type": "classical_trial_division",
+          "input": 4,
+          "algorithm_step": "factorization_attempt"
+        },
+        {
+          "time": 1756121559.7183435,
+          "query_type": "classical_trial_division",
+          "input": 5,
+          "algorithm_step": "factorization_attempt"
+        }
+      ]
+    },
+    {
+      "algorithm": "shor",
+      "n_bits": 10,
+      "query_count": 22,
+      "execution_time": 0.0,
+      "success_probability": 0.75,
+      "access_pattern": [
+        {
+          "time": 1756121559.5783434,
+          "query_type": "classical_preprocessing",
+          "input": 827,
+          "value": "827",
+          "algorithm_step": "coprime_selection",
+          "selected_a": 554
+        },
+        {
+          "time": 1756121559.5783434,
+          "query_type": "quantum_fourier_transform",
+          "input": 481,
+          "output": 349,
+          "value": "481",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^481 mod 827 = 349",
+          "qft_phase": 0
+        },
+        {
+          "time": 1756121559.5791433,
+          "query_type": "quantum_fourier_transform",
+          "input": 695,
+          "output": 683,
+          "value": "695",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^695 mod 827 = 683",
+          "qft_phase": 1
+        },
+        {
+          "time": 1756121559.5799434,
+          "query_type": "quantum_fourier_transform",
+          "input": 399,
+          "output": 331,
+          "value": "399",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^399 mod 827 = 331",
+          "qft_phase": 2
+        },
+        {
+          "time": 1756121559.5807433,
+          "query_type": "quantum_fourier_transform",
+          "input": 645,
+          "output": 531,
+          "value": "645",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^645 mod 827 = 531",
+          "qft_phase": 3
+        },
+        {
+          "time": 1756121559.5815434,
+          "query_type": "quantum_fourier_transform",
+          "input": 81,
+          "output": 551,
+          "value": "81",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^81 mod 827 = 551",
+          "qft_phase": 4
+        },
+        {
+          "time": 1756121559.5823433,
+          "query_type": "quantum_fourier_transform",
+          "input": 685,
+          "output": 758,
+          "value": "685",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^685 mod 827 = 758",
+          "qft_phase": 5
+        },
+        {
+          "time": 1756121559.5831435,
+          "query_type": "quantum_fourier_transform",
+          "input": 58,
+          "output": 677,
+          "value": "58",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^58 mod 827 = 677",
+          "qft_phase": 6
+        },
+        {
+          "time": 1756121559.5839434,
+          "query_type": "quantum_fourier_transform",
+          "input": 356,
+          "output": 544,
+          "value": "356",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^356 mod 827 = 544",
+          "qft_phase": 7
+        },
+        {
+          "time": 1756121559.5847435,
+          "query_type": "quantum_fourier_transform",
+          "input": 572,
+          "output": 764,
+          "value": "572",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^572 mod 827 = 764",
+          "qft_phase": 8
+        },
+        {
+          "time": 1756121559.5855434,
+          "query_type": "quantum_fourier_transform",
+          "input": 45,
+          "output": 80,
+          "value": "45",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^45 mod 827 = 80",
+          "qft_phase": 9
+        },
+        {
+          "time": 1756121559.5863433,
+          "query_type": "quantum_fourier_transform",
+          "input": 401,
+          "output": 516,
+          "value": "401",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^401 mod 827 = 516",
+          "qft_phase": 10
+        },
+        {
+          "time": 1756121559.5871434,
+          "query_type": "quantum_fourier_transform",
+          "input": 809,
+          "output": 52,
+          "value": "809",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^809 mod 827 = 52",
+          "qft_phase": 11
+        },
+        {
+          "time": 1756121559.5879433,
+          "query_type": "quantum_fourier_transform",
+          "input": 228,
+          "output": 85,
+          "value": "228",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^228 mod 827 = 85",
+          "qft_phase": 12
+        },
+        {
+          "time": 1756121559.5887434,
+          "query_type": "quantum_fourier_transform",
+          "input": 763,
+          "output": 636,
+          "value": "763",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^763 mod 827 = 636",
+          "qft_phase": 13
+        },
+        {
+          "time": 1756121559.5895433,
+          "query_type": "quantum_fourier_transform",
+          "input": 284,
+          "output": 197,
+          "value": "284",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^284 mod 827 = 197",
+          "qft_phase": 14
+        },
+        {
+          "time": 1756121559.5903435,
+          "query_type": "quantum_fourier_transform",
+          "input": 20,
+          "output": 514,
+          "value": "20",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^20 mod 827 = 514",
+          "qft_phase": 15
+        },
+        {
+          "time": 1756121559.5911434,
+          "query_type": "quantum_fourier_transform",
+          "input": 441,
+          "output": 802,
+          "value": "441",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^441 mod 827 = 802",
+          "qft_phase": 16
+        },
+        {
+          "time": 1756121559.5919435,
+          "query_type": "quantum_fourier_transform",
+          "input": 14,
+          "output": 822,
+          "value": "14",
+          "algorithm_step": "period_finding",
+          "modular_exp": "554^14 mod 827 = 822",
+          "qft_phase": 17
+        },
+        {
+          "time": 1756121559.6127434,
+          "query_type": "quantum_measurement",
+          "result": 45,
+          "value": "45",
+          "algorithm_step": "period_extraction",
+          "period_candidates": 18
+        },
+        {
+          "time": 1756121559.6177435,
+          "query_type": "classical_factorization",
+          "target": 827,
+          "discovered_factor": 16,
+          "value": "16",
+          "algorithm_step": "factor_extraction",
+          "success": false
+        },
+        {
+          "time": 1756121559.6197436,
+          "query_type": "classical_verification",
+          "original_number": 827,
+          "factor1": 16,
+          "factor2": null,
+          "value": "827",
+          "algorithm_step": "factorization_complete",
+          "cryptographic_break": false
+        }
+      ]
+    },
+    {
+      "algorithm": "shor",
+      "n_bits": 7,
+      "query_count": 16,
+      "execution_time": 0.0,
+      "success_probability": 0.95,
+      "access_pattern": [
+        {
+          "time": 1756121559.5783434,
+          "query_type": "classical_preprocessing",
+          "input": 85,
+          "value": "85",
+          "algorithm_step": "coprime_selection",
+          "selected_a": 16
+        },
+        {
+          "time": 1756121559.5783434,
+          "query_type": "quantum_fourier_transform",
+          "input": 77,
+          "output": 16,
+          "value": "77",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^77 mod 85 = 16",
+          "qft_phase": 0
+        },
+        {
+          "time": 1756121559.5791433,
+          "query_type": "quantum_fourier_transform",
+          "input": 40,
+          "output": 1,
+          "value": "40",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^40 mod 85 = 1",
+          "qft_phase": 1
+        },
+        {
+          "time": 1756121559.5799434,
+          "query_type": "quantum_fourier_transform",
+          "input": 35,
+          "output": 16,
+          "value": "35",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^35 mod 85 = 16",
+          "qft_phase": 2
+        },
+        {
+          "time": 1756121559.5807433,
+          "query_type": "quantum_fourier_transform",
+          "input": 43,
+          "output": 16,
+          "value": "43",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^43 mod 85 = 16",
+          "qft_phase": 3
+        },
+        {
+          "time": 1756121559.5815434,
+          "query_type": "quantum_fourier_transform",
+          "input": 64,
+          "output": 1,
+          "value": "64",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^64 mod 85 = 1",
+          "qft_phase": 4
+        },
+        {
+          "time": 1756121559.5823433,
+          "query_type": "quantum_fourier_transform",
+          "input": 13,
+          "output": 16,
+          "value": "13",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^13 mod 85 = 16",
+          "qft_phase": 5
+        },
+        {
+          "time": 1756121559.5831435,
+          "query_type": "quantum_fourier_transform",
+          "input": 24,
+          "output": 1,
+          "value": "24",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^24 mod 85 = 1",
+          "qft_phase": 6
+        },
+        {
+          "time": 1756121559.5839434,
+          "query_type": "quantum_fourier_transform",
+          "input": 14,
+          "output": 1,
+          "value": "14",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^14 mod 85 = 1",
+          "qft_phase": 7
+        },
+        {
+          "time": 1756121559.5847435,
+          "query_type": "quantum_fourier_transform",
+          "input": 15,
+          "output": 16,
+          "value": "15",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^15 mod 85 = 16",
+          "qft_phase": 8
+        },
+        {
+          "time": 1756121559.5855434,
+          "query_type": "quantum_fourier_transform",
+          "input": 14,
+          "output": 1,
+          "value": "14",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^14 mod 85 = 1",
+          "qft_phase": 9
+        },
+        {
+          "time": 1756121559.5863433,
+          "query_type": "quantum_fourier_transform",
+          "input": 21,
+          "output": 16,
+          "value": "21",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^21 mod 85 = 16",
+          "qft_phase": 10
+        },
+        {
+          "time": 1756121559.5871434,
+          "query_type": "quantum_fourier_transform",
+          "input": 55,
+          "output": 16,
+          "value": "55",
+          "algorithm_step": "period_finding",
+          "modular_exp": "16^55 mod 85 = 16",
+          "qft_phase": 11
+        },
+        {
+          "time": 1756121559.6079433,
+          "query_type": "quantum_measurement",
+          "result": 14,
+          "value": "14",
+          "algorithm_step": "period_extraction",
+          "period_candidates": 16
+        },
+        {
+          "time": 1756121559.6129434,
+          "query_type": "classical_factorization",
+          "target": 85,
+          "discovered_factor": 

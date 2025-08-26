@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>01 Deployment Architecture</title>
+    <style>
+        @media print {
+            @page { 
+                size: A4; 
+                margin: 1in;
+                @top-center { content: "MWRASP Quantum Defense System"; }
+                @bottom-right { content: "Page " counter(page); }
+            }
+        }
+        
+        body {
+            font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #333;
+            max-width: 100%;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            font-size: 24pt;
+            font-weight: bold;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 10pt;
+            margin-bottom: 20pt;
+        }
+        
+        h2 {
+            color: #2563eb;
+            font-size: 18pt;
+            font-weight: bold;
+            margin-top: 25pt;
+            margin-bottom: 15pt;
+        }
+        
+        h3 {
+            color: #3b82f6;
+            font-size: 14pt;
+            font-weight: bold;
+            margin-top: 20pt;
+            margin-bottom: 10pt;
+        }
+        
+        h4 {
+            color: #60a5fa;
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 15pt;
+            margin-bottom: 8pt;
+        }
+        
+        p {
+            margin-bottom: 10pt;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-bottom: 12pt;
+            padding-left: 25pt;
+        }
+        
+        li {
+            margin-bottom: 5pt;
+        }
+        
+        code {
+            background-color: #f1f5f9;
+            padding: 3pt 6pt;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 10pt;
+            border-radius: 3pt;
+        }
+        
+        pre {
+            background-color: #f8fafc;
+            border: 1pt solid #e2e8f0;
+            border-radius: 5pt;
+            padding: 15pt;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 9pt;
+            line-height: 1.3;
+            overflow-x: auto;
+            margin-bottom: 15pt;
+            white-space: pre-wrap;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20pt;
+            font-size: 10pt;
+        }
+        
+        th, td {
+            border: 1pt solid #d1d5db;
+            padding: 8pt 10pt;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f3f4f6;
+            font-weight: bold;
+            color: #1f2937;
+        }
+        
+        .classification {
+            text-align: center;
+            font-weight: bold;
+            color: #dc2626;
+            font-size: 14pt;
+            margin-bottom: 30pt;
+            padding: 15pt;
+            border: 2pt solid #dc2626;
+            background-color: #fef2f2;
+        }
+        
+        .document-header {
+            text-align: center;
+            margin-bottom: 30pt;
+            padding-bottom: 20pt;
+            border-bottom: 2pt solid #3b82f6;
+        }
+        
+        .document-footer {
+            border-top: 1pt solid #d1d5db;
+            padding-top: 15pt;
+            margin-top: 30pt;
+            font-size: 9pt;
+            color: #6b7280;
+            text-align: center;
+        }
+        
+        blockquote {
+            border-left: 4pt solid #3b82f6;
+            padding-left: 20pt;
+            margin-left: 15pt;
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 15pt;
+        }
+    </style>
+</head>
+<body>
+    <div class="document-header">
+        <h1>01 Deployment Architecture</h1>
+        <p><strong>MWRASP Quantum Defense System</strong></p>
+        <p>Generated: 2025-08-24 18:15:10</p>
+    </div>
+    
+    <div class="classification">TOP SECRET//SCI - HANDLE VIA SPECIAL ACCESS CHANNELS</div>
+    
+    <h1 id="mwrasp-deployment-architecture">MWRASP DEPLOYMENT ARCHITECTURE</h1>
+<h2 id="complete-implementation-blueprint-for-defense-enterprise">Complete Implementation Blueprint for Defense &amp; Enterprise</h2>
+<hr />
+<h1 id="table-of-contents">TABLE OF CONTENTS</h1>
+<ol>
+<li><a href="#reference-architectures">Reference Architectures</a></li>
+<li><a href="#hardware-specifications">Hardware Specifications</a></li>
+<li><a href="#network-topology">Network Topology</a></li>
+<li><a href="#cloud-native-deployment">Cloud Native Deployment</a></li>
+<li><a href="#edge-computing-architecture">Edge Computing Architecture</a></li>
+<li><a href="#classified-network-deployment">Classified Network Deployment</a></li>
+<li><a href="#scaling-strategies">Scaling Strategies</a></li>
+<li><a href="#disaster-recovery">Disaster Recovery</a></li>
+</ol>
+<hr />
+<h1 id="reference-architectures">REFERENCE ARCHITECTURES</h1>
+<h2 id="1-small-tactical-unit-squadplatoon-level">1. SMALL TACTICAL UNIT (Squad/Platoon Level)</h2>
+<h3 id="deployable-in-30-minutes-on-single-ruggedized-server">Deployable in 30 minutes on single ruggedized server</h3>
+<div class="codehilite"><pre><span></span><code><span class="w">          </span><span class="n">TACTICAL</span><span class="w"> </span><span class="n">OPERATIONS</span><span class="w"> </span><span class="n">CENTER</span><span class="w">        </span>
+
+<span class="w">       </span><span class="n">MWRASP</span><span class="w"> </span><span class="n">Tactical</span><span class="w"> </span><span class="n">Server</span><span class="w">             </span>
+<span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="n">Dell</span><span class="w"> </span><span class="n">EMC</span><span class="w"> </span><span class="n">XR12</span><span class="w"> </span><span class="n">Rugged</span><span class="w">             </span>
+<span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="mi">128</span><span class="n">GB</span><span class="w"> </span><span class="n">RAM</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="n">cores</span><span class="w">              </span>
+<span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">Active</span><span class="w"> </span><span class="n">Agents</span><span class="w">                 </span>
+
+<span class="w">  </span><span class="p">[</span><span class="n">SATCOM</span><span class="p">]</span><span class="w">        </span><span class="p">[</span><span class="n">Local</span><span class="w"> </span><span class="n">Network</span><span class="p">]</span><span class="w">         </span>
+
+<span class="w">  </span><span class="p">[</span><span class="n">Field</span><span class="w">         </span><span class="p">[</span><span class="n">Warfighter</span><span class="w">             </span>
+<span class="w">   </span><span class="n">Assets</span><span class="p">]</span><span class="w">        </span><span class="n">Devices</span><span class="p">]</span><span class="w">               </span>
+
+<span class="nl">Specifications</span><span class="p">:</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Coverage</span><span class="o">:</span><span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="n">warfighters</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Response</span><span class="w"> </span><span class="n">Time</span><span class="o">:</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">50</span><span class="n">ms</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Power</span><span class="o">:</span><span class="w"> </span><span class="mi">500</span><span class="n">W</span><span class="w"> </span><span class="p">(</span><span class="n">battery</span><span class="o">/</span><span class="n">generator</span><span class="w"> </span><span class="n">capable</span><span class="p">)</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Weight</span><span class="o">:</span><span class="w"> </span><span class="mi">45</span><span class="w"> </span><span class="n">lbs</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Cost</span><span class="o">:</span><span class="w"> </span><span class="n">$45</span><span class="p">,</span><span class="mo">000</span>
+</code></pre></div>
+
+<h2 id="2-forward-operating-base-battalion-level">2. FORWARD OPERATING BASE (Battalion Level)</h2>
+<h3 id="high-availability-cluster-with-500-user-support">High-availability cluster with 500+ user support</h3>
+<div class="codehilite"><pre><span></span><code><span class="w">               </span><span class="n">FOB</span><span class="w"> </span><span class="n">NETWORK</span><span class="w"> </span><span class="n">OPERATIONS</span><span class="w">             </span>
+
+<span class="w">    </span><span class="n">Load</span><span class="w"> </span><span class="n">Balancer</span><span class="w"> </span><span class="p">(</span><span class="n">F5</span><span class="w"> </span><span class="n">BIG</span><span class="o">-</span><span class="n">IP</span><span class="p">)</span><span class="w">                    </span>
+
+<span class="w">      </span><span class="n">MWRASP</span><span class="mi">-1</span><span class="w"> </span><span class="n">MWRASP</span><span class="mi">-2</span><span class="w"> </span><span class="n">MWRASP</span><span class="mi">-3</span><span class="w">             </span>
+<span class="w">      </span><span class="n">Primary</span><span class="w">  </span><span class="n">Secondary</span><span class="w"> </span><span class="n">Tertiary</span><span class="w">             </span>
+
+<span class="w">           </span><span class="n">Shared</span><span class="w"> </span><span class="n">Storage</span><span class="w"> </span><span class="p">(</span><span class="n">SAN</span><span class="p">)</span><span class="w">                   </span>
+
+<span class="w">  </span><span class="p">[</span><span class="n">SIPR</span><span class="w"> </span><span class="n">Net</span><span class="p">]</span><span class="w">  </span><span class="p">[</span><span class="n">NIPR</span><span class="w"> </span><span class="n">Net</span><span class="p">]</span><span class="w">   </span><span class="p">[</span><span class="n">Coalition</span><span class="p">]</span><span class="w">          </span>
+
+<span class="nl">Specifications</span><span class="p">:</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Nodes</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="n">x</span><span class="w"> </span><span class="n">HPE</span><span class="w"> </span><span class="n">ProLiant</span><span class="w"> </span><span class="n">DL380</span><span class="w"> </span><span class="n">Gen11</span>
+<span class="o">-</span><span class="w"> </span><span class="n">RAM</span><span class="o">:</span><span class="w"> </span><span class="mi">512</span><span class="n">GB</span><span class="w"> </span><span class="n">per</span><span class="w"> </span><span class="n">node</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Storage</span><span class="o">:</span><span class="w"> </span><span class="mi">50</span><span class="n">TB</span><span class="w"> </span><span class="n">SAN</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Agents</span><span class="o">:</span><span class="w"> </span><span class="mi">50-75</span><span class="w"> </span><span class="n">active</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Users</span><span class="o">:</span><span class="w"> </span><span class="mi">500-1000</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Uptime</span><span class="o">:</span><span class="w"> </span><span class="mf">99.99</span><span class="o">%</span>
+<span class="o">-</span><span class="w"> </span><span class="n">Cost</span><span class="o">:</span><span class="w"> </span><span class="n">$250</span><span class="p">,</span><span class="mo">000</span>
+</code></pre></div>
+
+<h2 id="3-enterprise-headquarters-divisioncorps">3. ENTERPRISE HEADQUARTERS (Division/Corps)</h2>
+<h3 id="multi-site-geo-redundant-architecture">Multi-site, geo-redundant architecture</h3>
+<div class="codehilite"><pre><span></span><code>            GLOBAL DEFENSE NETWORK                     
+
+   PRIMARY SITE                  SECONDARY SITE        
+   Washington DC                 Colorado Springs      
+
+     MWRASP        MWRASP             
+     Cluster A       WAN Link     Cluster B          
+     (10 nodes)      Encrypted    (10 nodes)         
+
+      TS/SCI                       TS/SCI             
+      Network                      Network            
+
+               EDGE LOCATIONS (50+)                    
+
+           Edge   Edge   Edge   Edge                
+
+Specifications:
+- Total Nodes: 20+ across 2 sites
+- Agents: 500+ (auto-scaling)
+- Users: 10,000+
+- Bandwidth: 100Gbps interconnect
+- Latency: &lt;5ms intra-site, &lt;50ms inter-site
+- Cost: $5M initial, $500K/year operational
+</code></pre></div>
+
+<hr />
+<h1 id="hardware-specifications">HARDWARE SPECIFICATIONS</h1>
+<h2 id="minimum-requirements-by-deployment-size">Minimum Requirements by Deployment Size</h2>
+<table>
+<thead>
+<tr>
+<th>Deployment</th>
+<th>CPU Cores</th>
+<th>RAM</th>
+<th>Storage</th>
+<th>Network</th>
+<th>Agents</th>
+<th>Users</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tactical</td>
+<td>16</td>
+<td>64GB</td>
+<td>2TB</td>
+<td>1Gbps</td>
+<td>10</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Small Business</td>
+<td>24</td>
+<td>128GB</td>
+<td>4TB</td>
+<td>10Gbps</td>
+<td>20</td>
+<td>100</td>
+</tr>
+<tr>
+<td>FOB/Medium</td>
+<td>64</td>
+<td>512GB</td>
+<td>20TB</td>
+<td>25Gbps</td>
+<td>75</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>Enterprise</td>
+<td>256</td>
+<td>2TB</td>
+<td>100TB</td>
+<td>100Gbps</td>
+<td>200</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>Global</td>
+<td>1024+</td>
+<td>8TB+</td>
+<td>1PB+</td>
+<td>400Gbps</td>
+<td>500+</td>
+<td>50000+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="recommended-hardware-vendors">Recommended Hardware Vendors</h2>
+<h3 id="tacticalruggedized">Tactical/Ruggedized</h3>
+<ul>
+<li><strong>Dell EMC XR Series</strong>: MIL-STD certified</li>
+<li><strong>Crystal Group RS Servers</strong>: Battlefield proven</li>
+<li><strong>Systel RuggedServers</strong>: Airborne certified</li>
+</ul>
+<h3 id="enterprise">Enterprise</h3>
+<ul>
+<li><strong>HPE ProLiant Gen11</strong>: Best price/performance</li>
+<li><strong>Dell PowerEdge R750</strong>: High density compute</li>
+<li><strong>Lenovo ThinkSystem SR650</strong>: Reliability leader</li>
+</ul>
+<h3 id="high-performance">High Performance</h3>
+<ul>
+<li><strong>NVIDIA DGX Systems</strong>: AI acceleration</li>
+<li><strong>IBM Power10</strong>: Quantum-ready architecture</li>
+<li><strong>Supermicro Ultra</strong>: Maximum density</li>
+</ul>
+<hr />
+<h1 id="network-topology">NETWORK TOPOLOGY</h1>
+<h2 id="security-zone-architecture">Security Zone Architecture</h2>
+<div class="codehilite"><pre><span></span><code><span class="w">               </span><span class="n">DMZ</span><span class="w"> </span><span class="p">(</span><span class="n">Zone</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">                    </span>
+<span class="w">          </span><span class="n">Internet</span><span class="o">-</span><span class="n">Facing</span><span class="w"> </span><span class="n">Services</span><span class="w">             </span>
+<span class="w">       </span><span class="p">[</span><span class="n">Web</span><span class="w"> </span><span class="n">Portal</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">API</span><span class="w"> </span><span class="n">Gateway</span><span class="p">]</span><span class="w">             </span>
+
+<span class="w">                    </span><span class="n">Firewall</span>
+
+<span class="w">            </span><span class="n">Application</span><span class="w"> </span><span class="n">Zone</span><span class="w"> </span><span class="p">(</span><span class="n">Zone</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w">          </span>
+<span class="w">               </span><span class="n">MWRASP</span><span class="w"> </span><span class="n">Core</span><span class="w"> </span><span class="n">Services</span><span class="w">            </span>
+<span class="w">      </span><span class="p">[</span><span class="n">MWRASP</span><span class="w"> </span><span class="n">Nodes</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">Load</span><span class="w"> </span><span class="n">Balancers</span><span class="p">]</span><span class="w">        </span>
+
+<span class="w">                    </span><span class="n">Firewall</span>
+
+<span class="w">             </span><span class="n">Data</span><span class="w"> </span><span class="n">Zone</span><span class="w"> </span><span class="p">(</span><span class="n">Zone</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w">                </span>
+<span class="w">           </span><span class="n">Sensitive</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">Processing</span><span class="w">           </span>
+<span class="w">       </span><span class="p">[</span><span class="n">Fragmentation</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">Encryption</span><span class="p">]</span><span class="w">           </span>
+
+<span class="w">                    </span><span class="n">Air</span><span class="w"> </span><span class="n">Gap</span>
+
+<span class="w">          </span><span class="n">Classified</span><span class="w"> </span><span class="n">Zone</span><span class="w"> </span><span class="p">(</span><span class="n">Zone</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w">             </span>
+<span class="w">             </span><span class="n">TS</span><span class="o">/</span><span class="n">SCI</span><span class="w"> </span><span class="n">Operations</span><span class="w">                 </span>
+<span class="w">         </span><span class="p">[</span><span class="n">Classified</span><span class="w"> </span><span class="n">MWRASP</span><span class="w"> </span><span class="n">Instance</span><span class="p">]</span><span class="w">         </span>
+</code></pre></div>
+
+<h2 id="network-segmentation-rules">Network Segmentation Rules</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">firewall_rules</span><span class="o">:</span>
+<span class="w">  </span><span class="n">dmz_to_app</span><span class="o">:</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">protocol</span><span class="o">:</span><span class="w"> </span><span class="n">HTTPS</span>
+<span class="w">      </span><span class="n">port</span><span class="o">:</span><span class="w"> </span><span class="mi">443</span>
+<span class="w">      </span><span class="n">direction</span><span class="o">:</span><span class="w"> </span><span class="n">inbound</span>
+<span class="w">      </span><span class="n">rate_limit</span><span class="o">:</span><span class="w"> </span><span class="mi">10000</span><span class="o">/</span><span class="n">sec</span>
+
+<span class="w">  </span><span class="n">app_to_data</span><span class="o">:</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">protocol</span><span class="o">:</span><span class="w"> </span><span class="n">TCP</span>
+<span class="w">      </span><span class="n">port</span><span class="o">:</span><span class="w"> </span><span class="mi">8443</span>
+<span class="w">      </span><span class="n">direction</span><span class="o">:</span><span class="w"> </span><span class="n">bidirectional</span>
+<span class="w">      </span><span class="n">encryption</span><span class="o">:</span><span class="w"> </span><span class="n">required</span>
+
+<span class="w">  </span><span class="n">data_to_classified</span><span class="o">:</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">protocol</span><span class="o">:</span><span class="w"> </span><span class="n">NONE</span>
+<span class="w">      </span><span class="n">description</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Air-gapped, no network connection&quot;</span>
+<span class="w">      </span><span class="n">transfer</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Automated data diode only&quot;</span>
+</code></pre></div>
+
+<hr />
+<h1 id="cloud-native-deployment">CLOUD NATIVE DEPLOYMENT</h1>
+<h2 id="kubernetes-architecture">Kubernetes Architecture</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">apiVersion</span><span class="o">:</span><span class="w"> </span><span class="n">v1</span>
+<span class="n">kind</span><span class="o">:</span><span class="w"> </span><span class="n">Namespace</span>
+<span class="n">metadata</span><span class="o">:</span>
+<span class="w">  </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span><span class="o">-</span><span class="n">system</span>
+<span class="o">---</span>
+<span class="n">apiVersion</span><span class="o">:</span><span class="w"> </span><span class="n">apps</span><span class="o">/</span><span class="n">v1</span>
+<span class="n">kind</span><span class="o">:</span><span class="w"> </span><span class="n">StatefulSet</span>
+<span class="n">metadata</span><span class="o">:</span>
+<span class="w">  </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span><span class="o">-</span><span class="n">core</span>
+<span class="w">  </span><span class="kd">namespace</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span><span class="o">-</span><span class="n">system</span>
+<span class="n">spec</span><span class="o">:</span>
+<span class="w">  </span><span class="n">serviceName</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span>
+<span class="w">  </span><span class="n">replicas</span><span class="o">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">  </span><span class="n">selector</span><span class="o">:</span>
+<span class="w">    </span><span class="n">matchLabels</span><span class="o">:</span>
+<span class="w">      </span><span class="n">app</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span>
+<span class="w">  </span><span class="n">template</span><span class="o">:</span>
+<span class="w">    </span><span class="n">metadata</span><span class="o">:</span>
+<span class="w">      </span><span class="n">labels</span><span class="o">:</span>
+<span class="w">        </span><span class="n">app</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span>
+<span class="w">    </span><span class="n">spec</span><span class="o">:</span>
+<span class="w">      </span><span class="n">containers</span><span class="o">:</span>
+<span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span>
+<span class="w">        </span><span class="n">image</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span><span class="o">/</span><span class="n">quantum</span><span class="o">-</span><span class="n">defense</span><span class="o">:</span><span class="n">v2</span><span class="o">.</span><span class="mi">0</span>
+<span class="w">        </span><span class="n">resources</span><span class="o">:</span>
+<span class="w">          </span><span class="n">requests</span><span class="o">:</span>
+<span class="w">            </span><span class="n">memory</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;32Gi&quot;</span>
+<span class="w">            </span><span class="n">cpu</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;8&quot;</span>
+<span class="w">            </span><span class="n">ephemeral</span><span class="o">-</span><span class="n">storage</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;100Gi&quot;</span>
+<span class="w">          </span><span class="n">limits</span><span class="o">:</span>
+<span class="w">            </span><span class="n">memory</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;64Gi&quot;</span>
+<span class="w">            </span><span class="n">cpu</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;16&quot;</span>
+<span class="w">        </span><span class="n">env</span><span class="o">:</span>
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">MWRASP_MODE</span>
+<span class="w">          </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;QUANTUM_DEFENSE&quot;</span>
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">AGENT_COUNT</span>
+<span class="w">          </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;50&quot;</span>
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">FRAGMENT_LIFETIME_MS</span>
+<span class="w">          </span><span class="n">value</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;100&quot;</span>
+<span class="w">        </span><span class="n">volumeMounts</span><span class="o">:</span>
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">config</span>
+<span class="w">          </span><span class="n">mountPath</span><span class="o">:</span><span class="w"> </span><span class="sr">/etc/</span><span class="n">mwrasp</span>
+<span class="w">        </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">ephemeral</span>
+<span class="w">          </span><span class="n">mountPath</span><span class="o">:</span><span class="w"> </span><span class="sr">/tmp/</span><span class="n">fragments</span>
+<span class="w">      </span><span class="n">volumes</span><span class="o">:</span>
+<span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">config</span>
+<span class="w">        </span><span class="n">configMap</span><span class="o">:</span>
+<span class="w">          </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span><span class="o">-</span><span class="n">config</span>
+<span class="w">      </span><span class="o">-</span><span class="w"> </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">ephemeral</span>
+<span class="w">        </span><span class="n">emptyDir</span><span class="o">:</span>
+<span class="w">          </span><span class="n">sizeLimit</span><span class="o">:</span><span class="w"> </span><span class="mi">100</span><span class="n">Gi</span>
+<span class="o">---</span>
+<span class="n">apiVersion</span><span class="o">:</span><span class="w"> </span><span class="n">v1</span>
+<span class="n">kind</span><span class="o">:</span><span class="w"> </span><span class="n">Service</span>
+<span class="n">metadata</span><span class="o">:</span>
+<span class="w">  </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span><span class="o">-</span><span class="n">service</span>
+<span class="w">  </span><span class="kd">namespace</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span><span class="o">-</span><span class="n">system</span>
+<span class="n">spec</span><span class="o">:</span>
+<span class="w">  </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">LoadBalancer</span>
+<span class="w">  </span><span class="n">ports</span><span class="o">:</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">port</span><span class="o">:</span><span class="w"> </span><span class="mi">443</span>
+<span class="w">    </span><span class="n">targetPort</span><span class="o">:</span><span class="w"> </span><span class="mi">8443</span>
+<span class="w">    </span><span class="n">protocol</span><span class="o">:</span><span class="w"> </span><span class="n">TCP</span>
+<span class="w">    </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">https</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">port</span><span class="o">:</span><span class="w"> </span><span class="mi">8080</span>
+<span class="w">    </span><span class="n">targetPort</span><span class="o">:</span><span class="w"> </span><span class="mi">8080</span>
+<span class="w">    </span><span class="n">protocol</span><span class="o">:</span><span class="w"> </span><span class="n">TCP</span>
+<span class="w">    </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">metrics</span>
+<span class="w">  </span><span class="n">selector</span><span class="o">:</span>
+<span class="w">    </span><span class="n">app</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span>
+<span class="o">---</span>
+<span class="n">apiVersion</span><span class="o">:</span><span class="w"> </span><span class="n">autoscaling</span><span class="o">/</span><span class="n">v2</span>
+<span class="n">kind</span><span class="o">:</span><span class="w"> </span><span class="n">HorizontalPodAutoscaler</span>
+<span class="n">metadata</span><span class="o">:</span>
+<span class="w">  </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span><span class="o">-</span><span class="n">autoscaler</span>
+<span class="w">  </span><span class="kd">namespace</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span><span class="o">-</span><span class="n">system</span>
+<span class="n">spec</span><span class="o">:</span>
+<span class="w">  </span><span class="n">scaleTargetRef</span><span class="o">:</span>
+<span class="w">    </span><span class="n">apiVersion</span><span class="o">:</span><span class="w"> </span><span class="n">apps</span><span class="o">/</span><span class="n">v1</span>
+<span class="w">    </span><span class="n">kind</span><span class="o">:</span><span class="w"> </span><span class="n">StatefulSet</span>
+<span class="w">    </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">mwrasp</span><span class="o">-</span><span class="n">core</span>
+<span class="w">  </span><span class="n">minReplicas</span><span class="o">:</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">  </span><span class="n">maxReplicas</span><span class="o">:</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">  </span><span class="n">metrics</span><span class="o">:</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">Resource</span>
+<span class="w">    </span><span class="n">resource</span><span class="o">:</span>
+<span class="w">      </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">cpu</span>
+<span class="w">      </span><span class="n">target</span><span class="o">:</span>
+<span class="w">        </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">Utilization</span>
+<span class="w">        </span><span class="n">averageUtilization</span><span class="o">:</span><span class="w"> </span><span class="mi">50</span>
+<span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">Resource</span>
+<span class="w">    </span><span class="n">resource</span><span class="o">:</span>
+<span class="w">      </span><span class="n">name</span><span class="o">:</span><span class="w"> </span><span class="n">memory</span>
+<span class="w">      </span><span class="n">target</span><span class="o">:</span>
+<span class="w">        </span><span class="n">type</span><span class="o">:</span><span class="w"> </span><span class="n">Utilization</span>
+<span class="w">        </span><span class="n">averageUtilization</span><span class="o">:</span><span class="w"> </span><span class="mi">70</span>
+</code></pre></div>
+
+<h2 id="helm-chart-structure">Helm Chart Structure</h2>
+<div class="codehilite"><pre><span></span><code>mwrasp-chart/
+  Chart.yaml
+  values.yaml
+  templates/
+      deployment.yaml
+      service.yaml
+      configmap.yaml
+      secret.yaml
+      ingress.yaml
+      hpa.yaml
+      networkpolicy.yaml
+      serviceaccount.yaml
+  charts/
+      postgresql/
+      redis/
+      prometheus/
+  tests/
+      test-connection.yaml
+</code></pre></div>
+
+<hr />
+<h1 id="edge-computing-architecture">EDGE COMPUTING ARCHITECTURE</h1>
+<h2 id="edge-node-deployment">Edge Node Deployment</h2>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="n">MWRASPEdgeNode:</span>
+    <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    Lightweight edge deployment for distributed operations</span>
+<span class="s">    &quot;&quot;&quot;</span>
+
+    <span class="n">def</span> <span class="n">__init__</span>(<span class="nb">self</span>, <span class="n">location</span>, <span class="n">parent_cluster</span>):
+        <span class="nb">self</span>.<span class="n">location</span> = <span class="n">location</span>
+        <span class="nb">self</span>.<span class="nb">parent</span> = <span class="n">parent_cluster</span>
+        <span class="nb">self</span>.<span class="n">local_agents</span> = <span class="mi">5</span>  <span class="c1"># Minimal agent count</span>
+        <span class="nb">self</span>.<span class="n">cache_size</span> = <span class="s">&quot;10GB&quot;</span>
+        <span class="nb">self</span>.<span class="n">sync_interval</span> = <span class="mi">60</span>  <span class="c1"># seconds</span>
+
+    <span class="n">def</span> <span class="n">deploy_configuration</span>(<span class="nb">self</span>):
+        <span class="k">return</span> {
+            <span class="s">&quot;mode&quot;</span>: <span class="s">&quot;edge&quot;</span>,
+            <span class="s">&quot;features&quot;</span>: {
+                <span class="s">&quot;quantum_detection&quot;</span>: <span class="nb">True</span>,
+                <span class="s">&quot;temporal_fragmentation&quot;</span>: <span class="nb">True</span>,
+                <span class="s">&quot;behavioral_auth&quot;</span>: <span class="nb">True</span>,
+                <span class="s">&quot;legal_barriers&quot;</span>: <span class="nb">False</span>,  <span class="c1"># Centralized only</span>
+                <span class="s">&quot;agent_spawning&quot;</span>: <span class="nb">False</span>  <span class="c1"># Limited at edge</span>
+            },
+            <span class="s">&quot;resources&quot;</span>: {
+                <span class="s">&quot;cpu&quot;</span>: <span class="s">&quot;4 cores&quot;</span>,
+                <span class="s">&quot;ram&quot;</span>: <span class="s">&quot;16GB&quot;</span>,
+                <span class="s">&quot;storage&quot;</span>: <span class="s">&quot;500GB SSD&quot;</span>,
+                <span class="s">&quot;network&quot;</span>: <span class="s">&quot;1Gbps&quot;</span>
+            },
+            <span class="s">&quot;sync&quot;</span>: {
+                <span class="s">&quot;parent&quot;</span>: <span class="nb">self</span>.<span class="nb">parent</span>,
+                <span class="s">&quot;interval&quot;</span>: <span class="nb">self</span>.<span class="n">sync_interval</span>,
+                <span class="s">&quot;priority_data_only&quot;</span>: <span class="nb">True</span>
+            }
+        }
+</code></pre></div>
+
+<h2 id="edge-locations">Edge Locations</h2>
+<ul>
+<li><strong>Aircraft Carriers</strong>: 1 edge node per carrier</li>
+<li><strong>Embassies</strong>: 1 edge node per embassy</li>
+<li><strong>Forward Bases</strong>: 1 edge node per base</li>
+<li><strong>Satellites</strong>: Micro-nodes for space assets</li>
+<li><strong>Submarines</strong>: Isolated nodes with delayed sync</li>
+</ul>
+<hr />
+<h1 id="classified-network-deployment">CLASSIFIED NETWORK DEPLOYMENT</h1>
+<h2 id="cross-domain-solution-integration">Cross-Domain Solution Integration</h2>
+<div class="codehilite"><pre><span></span><code><span class="w">           </span><span class="n">UNCLASSIFIED</span><span class="w"> </span><span class="p">(</span><span class="n">NIPR</span><span class="p">)</span><span class="w">              </span>
+<span class="w">          </span><span class="n">MWRASP</span><span class="w"> </span><span class="n">Public</span><span class="w"> </span><span class="n">Instance</span><span class="w">            </span>
+
+<span class="w">             </span><span class="n">Cross</span><span class="o">-</span><span class="n">Domain</span><span class="w">    </span>
+<span class="w">             </span><span class="n">Solution</span><span class="w"> </span><span class="p">(</span><span class="n">CDS</span><span class="p">)</span><span class="w">  </span>
+<span class="w">             </span><span class="p">[</span><span class="n">Forcepoint</span><span class="p">]</span><span class="w">    </span>
+
+<span class="w">             </span><span class="n">SECRET</span><span class="w"> </span><span class="p">(</span><span class="n">SIPR</span><span class="p">)</span><span class="w">                  </span>
+<span class="w">         </span><span class="n">MWRASP</span><span class="w"> </span><span class="n">Secret</span><span class="w"> </span><span class="n">Instance</span><span class="w">             </span>
+
+<span class="w">              </span><span class="n">Raise</span><span class="w"> </span><span class="n">CDS</span><span class="w">      </span>
+<span class="w">             </span><span class="p">[</span><span class="n">Owl</span><span class="w"> </span><span class="n">DualDiode</span><span class="p">]</span><span class="w"> </span>
+
+<span class="w">           </span><span class="n">TOP</span><span class="w"> </span><span class="n">SECRET</span><span class="w"> </span><span class="p">(</span><span class="n">JWICS</span><span class="p">)</span><span class="w">               </span>
+<span class="w">       </span><span class="n">MWRASP</span><span class="w"> </span><span class="n">TS</span><span class="o">/</span><span class="n">SCI</span><span class="w"> </span><span class="n">Instance</span><span class="w">              </span>
+</code></pre></div>
+
+<h2 id="security-controls-for-classified">Security Controls for Classified</h2>
+<ul>
+<li><strong>Physical</strong>: SCIFs, two-person control</li>
+<li><strong>Network</strong>: Air-gapped, TEMPEST certified</li>
+<li><strong>Crypto</strong>: NSA Type 1 encryption</li>
+<li><strong>Access</strong>: PKI certificates, clearance verification</li>
+<li><strong>Audit</strong>: 100% logging, 7-year retention</li>
+</ul>
+<hr />
+<h1 id="scaling-strategies">SCALING STRATEGIES</h1>
+<h2 id="horizontal-scaling">Horizontal Scaling</h2>
+<div class="codehilite"><pre><span></span><code>def calculate_scaling_requirements(metrics):
+    &quot;&quot;&quot;
+    Dynamic scaling algorithm for MWRASP
+    &quot;&quot;&quot;
+
+    scaling_decision = {
+        &#39;scale_up&#39;: False,
+        &#39;scale_down&#39;: False,
+        &#39;new_nodes&#39;: 0
+    }
+
+    # Scale up triggers
+    if metrics[&#39;cpu_usage&#39;] &gt; 70:
+        scaling_decision[&#39;scale_up&#39;] = True
+        scaling_decision[&#39;new_nodes&#39;] = math.ceil((metrics[&#39;cpu_usage&#39;] - 70) / 10)
+
+    if metrics[&#39;threat_level&#39;] == &#39;CRITICAL&#39;:
+        scaling_decision[&#39;scale_up&#39;] = True
+        scaling_decision[&#39;new_nodes&#39;] += 5
+
+    if metrics[&#39;response_time&#39;] &gt; 100:  # ms
+        scaling_decision[&#39;scale_up&#39;] = True
+        scaling_decision[&#39;new_nodes&#39;] += 3
+
+    # Scale down triggers
+    if metrics[&#39;cpu_usage&#39;] &lt; 30 and metrics[&#39;threat_level&#39;] == &#39;LOW&#39;:
+        scaling_decision[&#39;scale_down&#39;] = True
+        scaling_decision[&#39;new_nodes&#39;] = -2
+
+    return scaling_decision
+</code></pre></div>
+
+<h2 id="vertical-scaling">Vertical Scaling</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Threshold</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memory Usage</td>
+<td>&gt;80%</td>
+<td>Add 64GB RAM</td>
+</tr>
+<tr>
+<td>Agent Count</td>
+<td>&gt;100</td>
+<td>Upgrade CPU (2x cores)</td>
+</tr>
+<tr>
+<td>Fragment Rate</td>
+<td>&gt;10K/sec</td>
+<td>Add NVMe storage</td>
+</tr>
+<tr>
+<td>Network I/O</td>
+<td>&gt;80%</td>
+<td>Upgrade to 100Gbps</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="disaster-recovery">DISASTER RECOVERY</h1>
+<h2 id="backup-and-recovery-strategy">Backup and Recovery Strategy</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">backup_strategy</span><span class="o">:</span>
+<span class="w">  </span><span class="n">configuration</span><span class="o">:</span>
+<span class="w">    </span><span class="n">frequency</span><span class="o">:</span><span class="w"> </span><span class="n">every_change</span>
+<span class="w">    </span><span class="n">retention</span><span class="o">:</span><span class="w"> </span><span class="n">unlimited</span>
+<span class="w">    </span><span class="n">replication</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="n">_sites</span>
+
+<span class="w">  </span><span class="n">operational_data</span><span class="o">:</span>
+<span class="w">    </span><span class="n">frequency</span><span class="o">:</span><span class="w"> </span><span class="n">continuous</span>
+<span class="w">    </span><span class="n">retention</span><span class="o">:</span><span class="w"> </span><span class="mi">30</span><span class="n">_days</span>
+<span class="w">    </span><span class="n">method</span><span class="o">:</span><span class="w"> </span><span class="n">streaming_replication</span>
+
+<span class="w">  </span><span class="n">audit_logs</span><span class="o">:</span>
+<span class="w">    </span><span class="n">frequency</span><span class="o">:</span><span class="w"> </span><span class="n">real_time</span>
+<span class="w">    </span><span class="n">retention</span><span class="o">:</span><span class="w"> </span><span class="mi">7</span><span class="n">_years</span>
+<span class="w">    </span><span class="n">compliance</span><span class="o">:</span><span class="w"> </span><span class="n">NIST_800</span><span class="o">-</span><span class="mi">53</span>
+
+<span class="n">recovery_targets</span><span class="o">:</span>
+<span class="w">  </span><span class="n">rto</span><span class="o">:</span><span class="w"> </span><span class="mi">15</span><span class="n">_minutes</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">Recovery</span><span class="w"> </span><span class="n">Time</span><span class="w"> </span><span class="n">Objective</span>
+<span class="w">  </span><span class="n">rpo</span><span class="o">:</span><span class="w"> </span><span class="mi">5</span><span class="n">_minutes</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="n">Recovery</span><span class="w"> </span><span class="n">Point</span><span class="w"> </span><span class="n">Objective</span>
+
+<span class="n">failover_process</span><span class="o">:</span>
+<span class="w">  </span><span class="n">automatic</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="n">detection_time</span><span class="o">:</span><span class="w"> </span><span class="mi">10</span><span class="n">_seconds</span>
+<span class="w">  </span><span class="n">failover_time</span><span class="o">:</span><span class="w"> </span><span class="mi">30</span><span class="n">_seconds</span>
+<span class="w">  </span><span class="n">data_validation</span><span class="o">:</span><span class="w"> </span><span class="n">cryptographic_hash</span>
+</code></pre></div>
+
+<h2 id="disaster-scenarios-and-responses">Disaster Scenarios and Responses</h2>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Detection</th>
+<th>Response</th>
+<th>Recovery</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Site Failure</td>
+<td>&lt;10s</td>
+<td>Auto-failover</td>
+<td>15 min</td>
+</tr>
+<tr>
+<td>Cyber Attack</td>
+<td>&lt;1ms</td>
+<td>Fragmentation</td>
+<td>Immediate</td>
+</tr>
+<tr>
+<td>EMP/Nuclear</td>
+<td>N/A</td>
+<td>Hardened backup</td>
+<td>1 hour</td>
+</tr>
+<tr>
+<td>Insider Threat</td>
+<td>&lt;100ms</td>
+<td>Isolation</td>
+<td>5 min</td>
+</tr>
+<tr>
+<td>Natural Disaster</td>
+<td>Predictive</td>
+<td>Pre-migration</td>
+<td>0 min</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="deployment-automation">DEPLOYMENT AUTOMATION</h1>
+<h2 id="infrastructure-as-code">Infrastructure as Code</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># main.tf - MWRASP Infrastructure</span>
+
+<span class="n">provider</span><span class="w"> </span><span class="s2">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">var</span><span class="o">.</span><span class="n">aws_region</span>
+<span class="p">}</span>
+
+<span class="n">module</span><span class="w"> </span><span class="s2">&quot;mwrasp_cluster&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;./modules/mwrasp&quot;</span>
+
+<span class="w">  </span><span class="n">cluster_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;mwrasp-production&quot;</span>
+<span class="w">  </span><span class="n">node_count</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">  </span><span class="n">node_type</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;c6i.8xlarge&quot;</span>
+
+<span class="w">  </span><span class="n">network</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">vpc_cidr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.0.0/16&quot;</span>
+<span class="w">    </span><span class="n">private_subnets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;10.0.1.0/24&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;10.0.2.0/24&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;10.0.3.0/24&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="n">public_subnets</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;10.0.101.0/24&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;10.0.102.0/24&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;10.0.103.0/24&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">security</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">enable_encryption</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+<span class="w">    </span><span class="n">kms_key_id</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="n">aws_kms_key</span><span class="o">.</span><span class="n">mwrasp</span><span class="o">.</span><span class="n">id</span>
+<span class="w">    </span><span class="n">enable_flow_logs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="n">monitoring</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">enable_cloudwatch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+<span class="w">    </span><span class="n">enable_prometheus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">true</span>
+<span class="w">    </span><span class="n">alert_email</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;soc@organization.mil&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">output</span><span class="w"> </span><span class="s2">&quot;mwrasp_endpoints&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">api_endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="o">.</span><span class="n">mwrasp_cluster</span><span class="o">.</span><span class="n">api_endpoint</span>
+<span class="w">    </span><span class="n">dashboard</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="o">.</span><span class="n">mwrasp_cluster</span><span class="o">.</span><span class="n">dashboard_url</span>
+<span class="w">    </span><span class="n">metrics</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">module</span><span class="o">.</span><span class="n">mwrasp_cluster</span><span class="o">.</span><span class="n">metrics_endpoint</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="ansible-playbooks">Ansible Playbooks</h2>
+<div class="codehilite"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="nx">deploy</span><span class="o">-</span><span class="nx">mwrasp</span><span class="p">.</span><span class="nx">yml</span>
+<span class="o">---</span>
+<span class="o">-</span><span class="w"> </span><span class="nx">name</span><span class="p">:</span><span class="w"> </span><span class="nx">Deploy</span><span class="w"> </span><span class="nx">MWRASP</span><span class="w"> </span><span class="nx">Quantum</span><span class="w"> </span><span class="nx">Defense</span><span class="w"> </span><span class="nx">System</span>
+<span class="w">  </span><span class="nx">hosts</span><span class="p">:</span><span class="w"> </span><span class="nx">mwrasp_nodes</span>
+<span class="w">  </span><span class="nx">become</span><span class="p">:</span><span class="w"> </span><span class="nx">yes</span>
+
+<span class="w">  </span><span class="nx">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">name</span><span class="p">:</span><span class="w"> </span><span class="nx">Install</span><span class="w"> </span><span class="nx">system</span><span class="w"> </span><span class="nx">dependencies</span>
+<span class="w">      </span><span class="kn">package</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">name</span><span class="p">:</span>
+<span class="w">          </span><span class="o">-</span><span class="w"> </span><span class="nx">python3</span><span class="m m-Double">.9</span>
+<span class="w">          </span><span class="o">-</span><span class="w"> </span><span class="nx">python3</span><span class="o">-</span><span class="nx">pip</span>
+<span class="w">          </span><span class="o">-</span><span class="w"> </span><span class="nx">docker</span>
+<span class="w">          </span><span class="o">-</span><span class="w"> </span><span class="nx">nginx</span>
+<span class="w">        </span><span class="nx">state</span><span class="p">:</span><span class="w"> </span><span class="nx">present</span>
+
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">name</span><span class="p">:</span><span class="w"> </span><span class="nx">Deploy</span><span class="w"> </span><span class="nx">MWRASP</span><span class="w"> </span><span class="nx">containers</span>
+<span class="w">      </span><span class="nx">docker_container</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">name</span><span class="p">:</span><span class="w"> </span><span class="nx">mwrasp</span><span class="o">-</span><span class="nx">core</span>
+<span class="w">        </span><span class="nx">image</span><span class="p">:</span><span class="w"> </span><span class="nx">mwrasp</span><span class="o">/</span><span class="nx">quantum</span><span class="o">-</span><span class="nx">defense</span><span class="p">:</span><span class="nx">latest</span>
+<span class="w">        </span><span class="nx">state</span><span class="p">:</span><span class="w"> </span><span class="nx">started</span>
+<span class="w">        </span><span class="nx">restart_policy</span><span class="p">:</span><span class="w"> </span><span class="nx">unless</span><span class="o">-</span><span class="nx">stopped</span>
+<span class="w">        </span><span class="nx">ports</span><span class="p">:</span>
+<span class="w">          </span><span class="o">-</span><span class="w"> </span><span class="s">&quot;8443:8443&quot;</span>
+<span class="w">        </span><span class="nx">env</span><span class="p">:</span>
+<span class="w">          </span><span class="nx">MWRASP_MODE</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;PRODUCTION&quot;</span>
+<span class="w">          </span><span class="nx">AGENT_COUNT</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{ agent_count }}&quot;</span>
+
+<span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="nx">name</span><span class="p">:</span><span class="w"> </span><span class="nx">Configure</span><span class="w"> </span><span class="nx">monitoring</span>
+<span class="w">      </span><span class="nx">template</span><span class="p">:</span>
+<span class="w">        </span><span class="nx">src</span><span class="p">:</span><span class="w"> </span><span class="nx">prometheus</span><span class="p">.</span><span class="nx">yml</span><span class="p">.</span><span class="nx">j2</span>
+<span class="w">        </span><span class="nx">dest</span><span class="p">:</span><span class="w"> </span><span class="o">/</span><span class="nx">etc</span><span class="o">/</span><span class="nx">prometheus</span><span class="o">/</span><span class="nx">prometheus</span><span class="p">.</span><span class="nx">yml</span>
+<span class="w">      </span><span class="nx">notify</span><span class="p">:</span><span class="w"> </span><span class="nx">restart</span><span class="w"> </span><span class="nx">prometheus</span>
+</code></pre></div>
+
+<hr />
+<h1 id="deployment-checklist">DEPLOYMENT CHECKLIST</h1>
+<h2 id="pre-deployment">Pre-Deployment</h2>
+<ul>
+<li>[ ] Hardware provisioned and tested</li>
+<li>[ ] Network connectivity verified</li>
+<li>[ ] Security clearances confirmed</li>
+<li>[ ] Backup systems operational</li>
+<li>[ ] Monitoring infrastructure ready</li>
+</ul>
+<h2 id="deployment">Deployment</h2>
+<ul>
+<li>[ ] Base OS hardened (STIG compliance)</li>
+<li>[ ] MWRASP software installed</li>
+<li>[ ] Certificates deployed</li>
+<li>[ ] Initial configuration applied</li>
+<li>[ ] Agent network initialized</li>
+</ul>
+<h2 id="post-deployment">Post-Deployment</h2>
+<ul>
+<li>[ ] Health checks passing</li>
+<li>[ ] Performance baselines established</li>
+<li>[ ] Security scan completed</li>
+<li>[ ] Documentation updated</li>
+<li>[ ] Team training completed</li>
+</ul>
+<h2 id="go-live">Go-Live</h2>
+<ul>
+<li>[ ] Threat detection active</li>
+<li>[ ] Response times validated</li>
+<li>[ ] Failover tested</li>
+<li>[ ] 24/7 monitoring active</li>
+<li>[ ] Incident response team ready</li>
+</ul>
+<hr />
+<h1 id="architecture-decision-records">ARCHITECTURE DECISION RECORDS</h1>
+<h2 id="adr-001-microservices-vs-monolithic">ADR-001: Microservices vs Monolithic</h2>
+<p><strong>Decision</strong>: Hybrid approach with monolithic core and microservice extensions
+<strong>Rationale</strong>: Critical response times require tight integration</p>
+<h2 id="adr-002-container-orchestration-platform">ADR-002: Container Orchestration Platform</h2>
+<p><strong>Decision</strong>: Kubernetes for cloud, Docker Swarm for edge
+<strong>Rationale</strong>: K8s for scale, Swarm for simplicity at edge</p>
+<h2 id="adr-003-message-queue-technology">ADR-003: Message Queue Technology</h2>
+<p><strong>Decision</strong>: Redis Streams for internal, Kafka for external
+<strong>Rationale</strong>: Redis for speed, Kafka for durability</p>
+<h2 id="adr-004-database-strategy">ADR-004: Database Strategy</h2>
+<p><strong>Decision</strong>: In-memory primary, PostgreSQL for audit only
+<strong>Rationale</strong>: 100ms data expiration makes persistence unnecessary</p>
+<hr />
+<p><strong>Document Version</strong>: 2.0
+<strong>Classification</strong>: UNCLASSIFIED // FOUO
+<strong>Last Updated</strong>: February 2024
+<strong>Next Review</strong>: Quarterly</p>
+    
+    <div class="document-footer">
+        <p><strong>Document:</strong> 01_DEPLOYMENT_ARCHITECTURE.md | <strong>Generated:</strong> 2025-08-24 18:15:10</p>
+        <p>MWRASP Quantum Defense System - Confidential and Proprietary</p>
+    </div>
+</body>
+</html>

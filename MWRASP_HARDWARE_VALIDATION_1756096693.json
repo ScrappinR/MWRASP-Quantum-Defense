@@ -1,0 +1,10 @@
+{
+  "timestamp": "2025-08-24T23:38:07.823117",
+  "api_key": "fS60NeqIGQ9k1ZCMu6-i...",
+  "mwrasp_instance": "crn:v1:bluemix:public:quantum-computing:us-east:a/...",
+  "hardware_validation": true,
+  "test_results": {},
+  "performance_metrics": {},
+  "validation_successful": false,
+  "error": "SamplerV2.__init__() got an unexpected keyword argument 'backend'"
+}

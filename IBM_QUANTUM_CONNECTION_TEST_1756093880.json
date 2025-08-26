@@ -1,0 +1,9 @@
+{
+  "connection_timestamp": 1756093876.2390525,
+  "api_key_configured": true,
+  "connection_successful": false,
+  "available_backends": [],
+  "hardware_access": false,
+  "test_results": {},
+  "connection_error": "'Unable to retrieve instances.'"
+}

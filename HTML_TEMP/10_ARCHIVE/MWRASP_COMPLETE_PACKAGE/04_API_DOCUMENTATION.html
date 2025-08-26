@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>04 Api Documentation</title>
+    <style>
+        @media print {
+            @page { 
+                size: A4; 
+                margin: 1in;
+                @top-center { content: "MWRASP Quantum Defense System"; }
+                @bottom-right { content: "Page " counter(page); }
+            }
+        }
+        
+        body {
+            font-family: "Segoe UI", "Helvetica", "Arial", sans-serif;
+            font-size: 11pt;
+            line-height: 1.5;
+            color: #333;
+            max-width: 100%;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: #1e3a8a;
+            font-size: 24pt;
+            font-weight: bold;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 10pt;
+            margin-bottom: 20pt;
+        }
+        
+        h2 {
+            color: #2563eb;
+            font-size: 18pt;
+            font-weight: bold;
+            margin-top: 25pt;
+            margin-bottom: 15pt;
+        }
+        
+        h3 {
+            color: #3b82f6;
+            font-size: 14pt;
+            font-weight: bold;
+            margin-top: 20pt;
+            margin-bottom: 10pt;
+        }
+        
+        h4 {
+            color: #60a5fa;
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 15pt;
+            margin-bottom: 8pt;
+        }
+        
+        p {
+            margin-bottom: 10pt;
+            text-align: justify;
+        }
+        
+        ul, ol {
+            margin-bottom: 12pt;
+            padding-left: 25pt;
+        }
+        
+        li {
+            margin-bottom: 5pt;
+        }
+        
+        code {
+            background-color: #f1f5f9;
+            padding: 3pt 6pt;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 10pt;
+            border-radius: 3pt;
+        }
+        
+        pre {
+            background-color: #f8fafc;
+            border: 1pt solid #e2e8f0;
+            border-radius: 5pt;
+            padding: 15pt;
+            font-family: "Consolas", "Courier New", monospace;
+            font-size: 9pt;
+            line-height: 1.3;
+            overflow-x: auto;
+            margin-bottom: 15pt;
+            white-space: pre-wrap;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20pt;
+            font-size: 10pt;
+        }
+        
+        th, td {
+            border: 1pt solid #d1d5db;
+            padding: 8pt 10pt;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f3f4f6;
+            font-weight: bold;
+            color: #1f2937;
+        }
+        
+        .classification {
+            text-align: center;
+            font-weight: bold;
+            color: #dc2626;
+            font-size: 14pt;
+            margin-bottom: 30pt;
+            padding: 15pt;
+            border: 2pt solid #dc2626;
+            background-color: #fef2f2;
+        }
+        
+        .document-header {
+            text-align: center;
+            margin-bottom: 30pt;
+            padding-bottom: 20pt;
+            border-bottom: 2pt solid #3b82f6;
+        }
+        
+        .document-footer {
+            border-top: 1pt solid #d1d5db;
+            padding-top: 15pt;
+            margin-top: 30pt;
+            font-size: 9pt;
+            color: #6b7280;
+            text-align: center;
+        }
+        
+        blockquote {
+            border-left: 4pt solid #3b82f6;
+            padding-left: 20pt;
+            margin-left: 15pt;
+            font-style: italic;
+            color: #475569;
+            margin-bottom: 15pt;
+        }
+    </style>
+</head>
+<body>
+    <div class="document-header">
+        <h1>04 Api Documentation</h1>
+        <p><strong>MWRASP Quantum Defense System</strong></p>
+        <p>Generated: 2025-08-24 18:15:12</p>
+    </div>
+    
+    <div class="classification">TOP SECRET//SCI - HANDLE VIA SPECIAL ACCESS CHANNELS</div>
+    
+    <h1 id="mwrasp-api-documentation">MWRASP API DOCUMENTATION</h1>
+<h2 id="complete-rest-api-websocket-and-sdk-reference">Complete REST API, WebSocket, and SDK Reference</h2>
+<hr />
+<h1 id="api-overview">API OVERVIEW</h1>
+<p><strong>Base URL</strong>: <code>https://mwrasp.{environment}.mil/api/v2</code>
+<strong>Protocol</strong>: HTTPS only (TLS 1.3 minimum)
+<strong>Authentication</strong>: OAuth 2.0 / PKI Certificate / API Key
+<strong>Rate Limiting</strong>: 10,000 requests/minute per client
+<strong>Timeout</strong>: 30 seconds default, 5 minutes for async operations</p>
+<h2 id="environments">Environments</h2>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>URL</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Production</td>
+<td><code>https://mwrasp.prod.mil/api/v2</code></td>
+<td>Live operations</td>
+</tr>
+<tr>
+<td>Staging</td>
+<td><code>https://mwrasp.staging.mil/api/v2</code></td>
+<td>Pre-production testing</td>
+</tr>
+<tr>
+<td>Development</td>
+<td><code>https://mwrasp.dev.mil/api/v2</code></td>
+<td>Development</td>
+</tr>
+<tr>
+<td>Sandbox</td>
+<td><code>https://sandbox.mwrasp.io/api/v2</code></td>
+<td>Public testing</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="authentication">AUTHENTICATION</h1>
+<h2 id="oauth-20-flow">OAuth 2.0 Flow</h2>
+<div class="codehilite"><pre><span></span><code><span class="nx">POST</span><span class="w"> </span><span class="o">/</span><span class="nx">auth</span><span class="o">/</span><span class="nx">token</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="p">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">x</span><span class="o">-</span><span class="nx">www</span><span class="o">-</span><span class="nx">form</span><span class="o">-</span><span class="nx">urlencoded</span>
+
+<span class="nx">grant_type</span><span class="p">=</span><span class="nx">client_credentials</span><span class="o">&amp;</span>
+<span class="nx">client_id</span><span class="p">=</span><span class="nx">your_client_id</span><span class="o">&amp;</span>
+<span class="nx">client_secret</span><span class="p">=</span><span class="nx">your_client_secret</span><span class="o">&amp;</span>
+<span class="nx">scope</span><span class="p">=</span><span class="nx">read</span><span class="w"> </span><span class="nx">write</span><span class="w"> </span><span class="nx">admin</span>
+</code></pre></div>
+
+<h3 id="response">Response</h3>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s">&quot;access_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;token_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Bearer&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;expires_in&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;refresh_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;read write admin&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="pki-certificate-authentication">PKI Certificate Authentication</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v2</span><span class="o">/</span><span class="n">system</span><span class="o">/</span><span class="n">status</span>
+<span class="n">X</span><span class="o">-</span><span class="n">Client</span><span class="o">-</span><span class="n">Certificate</span><span class="p">:</span> <span class="o">-----</span><span class="kr">BEGIN</span> <span class="n">CERTIFICATE</span><span class="o">-----</span>
+<span class="n">MIIDQTCCAimgAwIBAgITBmyfz5m</span><span class="o">/</span><span class="n">jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF</span>
+<span class="p">...</span>
+<span class="o">-----</span><span class="kr">END</span> <span class="n">CERTIFICATE</span><span class="o">-----</span>
+</code></pre></div>
+
+<h2 id="api-key-authentication">API Key Authentication</h2>
+<div class="codehilite"><pre><span></span><code>GET /api/v2/system/status
+Authorization: ApiKey mwrasp_k_live_4242424242424242
+</code></pre></div>
+
+<hr />
+<h1 id="core-endpoints">CORE ENDPOINTS</h1>
+<h2 id="system-management">System Management</h2>
+<h3 id="get-system-status">Get System Status</h3>
+<div class="codehilite"><pre><span></span><code>GET /system/status
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;status&quot;: &quot;operational&quot;,
+  &quot;mode&quot;: &quot;quantum_defense&quot;,
+  &quot;threat_level&quot;: &quot;elevated&quot;,
+  &quot;uptime_seconds&quot;: 8640000,
+  &quot;version&quot;: &quot;2.0.1&quot;,
+  &quot;components&quot;: {
+    &quot;quantum_detector&quot;: &quot;active&quot;,
+    &quot;fragmentation&quot;: &quot;active&quot;,
+    &quot;agents&quot;: &quot;127 active&quot;,
+    &quot;legal_barriers&quot;: &quot;deployed&quot;
+  },
+  &quot;metrics&quot;: {
+    &quot;threats_detected&quot;: 1847,
+    &quot;attacks_prevented&quot;: 1847,
+    &quot;false_positives&quot;: 2,
+    &quot;response_time_ms&quot;: 0.73
+  }
+}
+</code></pre></div>
+
+<h3 id="enable-system">Enable System</h3>
+<div class="codehilite"><pre><span></span><code>POST /system/enable
+Content-Type: application/json
+
+{
+  &quot;mode&quot;: &quot;quantum_defense&quot;,
+  &quot;threat_level&quot;: &quot;high&quot;,
+  &quot;auto_response&quot;: true,
+  &quot;reason&quot;: &quot;Elevated threat intelligence&quot;
+}
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="err">{</span>
+<span class="w">  </span><span class="ss">&quot;success&quot;</span><span class="err">:</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
+<span class="w">  </span><span class="ss">&quot;previous_state&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;maintenance&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="ss">&quot;current_state&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;operational&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="ss">&quot;timestamp&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;2024-02-01T12:00:00Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="ss">&quot;initiated_by&quot;</span><span class="err">:</span><span class="w"> </span><span class="ss">&quot;admin@organization.mil&quot;</span>
+<span class="err">}</span>
+</code></pre></div>
+
+<h3 id="emergency-shutdown">Emergency Shutdown</h3>
+<div class="codehilite"><pre><span></span><code>POST /system/emergency-shutdown
+Content-Type: application/json
+
+{
+  &quot;confirmation&quot;: &quot;CONFIRM_EMERGENCY_SHUTDOWN&quot;,
+  &quot;reason&quot;: &quot;Compromised credentials suspected&quot;,
+  &quot;preserve_data&quot;: true,
+  &quot;notify_contacts&quot;: true
+}
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;success&quot;: true,
+  &quot;shutdown_initiated&quot;: &quot;2024-02-01T12:00:00Z&quot;,
+  &quot;data_preserved&quot;: true,
+  &quot;notifications_sent&quot;: 5,
+  &quot;recovery_token&quot;: &quot;recovery_8f7g6h5j4k3l2m1n&quot;
+}
+</code></pre></div>
+
+<hr />
+<h2 id="quantum-threat-detection">Quantum Threat Detection</h2>
+<h3 id="get-active-threats">Get Active Threats</h3>
+<div class="codehilite"><pre><span></span><code>GET /threats?status=active&amp;severity=critical&amp;limit=100
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s">&quot;threats&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;threat_q7h8i9j0k1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;quantum_computation&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;algorithm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;shors_factoring&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="m m-Double">0.97</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;severity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;critical&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;detected_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2024-02-01T12:00:00.073Z&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;ip&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;203.0.113.42&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;location&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Unknown&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;quantum_signature&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;IBM_Q_System&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;system&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;authentication_server&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;RSA_4096_keys&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="s">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;temporal_fragmentation&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;completed&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;time_to_respond_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">73</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="s">&quot;pagination&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;per_page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;has_more&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="analyze-threat">Analyze Threat</h3>
+<div class="codehilite"><pre><span></span><code>POST /threats/analyze
+Content-Type: application/json
+
+{
+  &quot;data&quot;: &quot;base64_encoded_suspicious_data&quot;,
+  &quot;context&quot;: {
+    &quot;source&quot;: &quot;network_monitor&quot;,
+    &quot;protocol&quot;: &quot;TLS_1.3&quot;,
+    &quot;timestamp&quot;: &quot;2024-02-01T12:00:00Z&quot;
+  },
+  &quot;deep_analysis&quot;: true
+}
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s">&quot;analysis_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;analysis_a1b2c3d4&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;threat_detected&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;threat_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;quantum_key_extraction&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="m m-Double">0.92</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;quantum_indicators&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s">&quot;superposition_collapse_detected&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;bell_inequality_violation&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;speedup_factor_10000x&quot;</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="s">&quot;algorithm_match&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;grovers_search&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;estimated_qubits&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">256</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;time_to_compromise&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;8_seconds&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s">&quot;recommendations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s">&quot;immediate_fragmentation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;key_rotation&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;increase_monitoring&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="submit-quantum-canary-token">Submit Quantum Canary Token</h3>
+<div class="codehilite"><pre><span></span><code><span class="nx">POST</span><span class="w"> </span><span class="o">/</span><span class="nx">threats</span><span class="o">/</span><span class="nx">canary</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="p">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+
+<span class="p">{</span>
+<span class="w">  </span><span class="s">&quot;token_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;quantum_superposition&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;sensitivity&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;high&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;lifetime_seconds&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3600</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;notification_webhook&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://soc.organization.mil/webhook&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;canary_id&quot;: &quot;canary_x9y8z7w6&quot;,
+  &quot;token&quot;: &quot;eyJzdXBlcnBvc2l0aW9uIjpbMC43MDcsMC43MDdd...&quot;,
+  &quot;expires_at&quot;: &quot;2024-02-01T13:00:00Z&quot;,
+  &quot;monitoring_active&quot;: true,
+  &quot;detection_endpoint&quot;: &quot;/threats/canary/canary_x9y8z7w6/status&quot;
+}
+</code></pre></div>
+
+<hr />
+<h2 id="data-fragmentation">Data Fragmentation</h2>
+<h3 id="fragment-data">Fragment Data</h3>
+<div class="codehilite"><pre><span></span><code>POST /fragment/create
+Content-Type: application/json
+
+{
+  &quot;data&quot;: &quot;base64_encoded_sensitive_data&quot;,
+  &quot;fragment_count&quot;: 7,
+  &quot;lifetime_ms&quot;: 100,
+  &quot;overlap_percentage&quot;: 15,
+  &quot;jurisdictions&quot;: [&quot;Switzerland&quot;, &quot;Iceland&quot;, &quot;Sealand&quot;],
+  &quot;quantum_noise&quot;: true
+}
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;fragmentation_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;frag_f5g6h7i8&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;fragments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fragment_001&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;size_bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1450</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;jurisdiction&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Switzerland&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;expires_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-02-01T12:00:00.100Z&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;checksum&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sha3_256:abcdef...&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="s2">&quot;reconstruction_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;recon_r4s5t6u7&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;total_fragments&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;expiration_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3 id="reconstruct-data">Reconstruct Data</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">POST</span><span class="w"> </span><span class="o">/</span><span class="n">fragment</span><span class="o">/</span><span class="n">reconstruct</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span><span class="w"> </span><span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;reconstruction_token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;recon_r4s5t6u7&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;fragment_ids&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="s2">&quot;fragment_001&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;fragment_002&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;fragment_003&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;fragment_004&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;fragment_005&quot;</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Response (Success)</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="bp">true</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;base64_encoded_reconstructed_data&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;fragments_used&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span>
+<span class="w">  </span><span class="s2">&quot;reconstruction_time_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">8.3</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Response (Failure - Expired)</strong></p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;success&quot;: false,
+  &quot;error&quot;: &quot;FRAGMENTS_EXPIRED&quot;,
+  &quot;message&quot;: &quot;Fragments expired 47ms ago&quot;,
+  &quot;expired_fragments&quot;: [&quot;fragment_002&quot;, &quot;fragment_004&quot;]
+}
+</code></pre></div>
+
+<hr />
+<h2 id="agent-management">Agent Management</h2>
+<h3 id="list-agents">List Agents</h3>
+<div class="codehilite"><pre><span></span><code>GET /agents?status=active&amp;role=defender&amp;sort=trust_score
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;agents&quot;: [
+    {
+      &quot;id&quot;: &quot;agent_alpha_001&quot;,
+      &quot;role&quot;: &quot;defender&quot;,
+      &quot;status&quot;: &quot;active&quot;,
+      &quot;trust_score&quot;: 0.98,
+      &quot;spawn_generation&quot;: 3,
+      &quot;parent&quot;: &quot;agent_prime&quot;,
+      &quot;metrics&quot;: {
+        &quot;threats_handled&quot;: 432,
+        &quot;success_rate&quot;: 0.997,
+        &quot;response_time_avg_ms&quot;: 12.3
+      },
+      &quot;capabilities&quot;: [
+        &quot;quantum_detection&quot;,
+        &quot;fragmentation&quot;,
+        &quot;behavioral_analysis&quot;
+      ]
+    }
+  ],
+  &quot;total_agents&quot;: 127,
+  &quot;by_role&quot;: {
+    &quot;coordinator&quot;: 5,
+    &quot;defender&quot;: 45,
+    &quot;monitor&quot;: 40,
+    &quot;analyzer&quot;: 30,
+    &quot;recovery&quot;: 7
+  }
+}
+</code></pre></div>
+
+<h3 id="spawn-agent">Spawn Agent</h3>
+<div class="codehilite"><pre><span></span><code>POST /agents/spawn
+Content-Type: application/json
+
+{
+  &quot;role&quot;: &quot;defender&quot;,
+  &quot;inherit_from&quot;: &quot;agent_alpha_001&quot;,
+  &quot;mutation_rate&quot;: 0.2,
+  &quot;resources&quot;: {
+    &quot;cpu_cores&quot;: 4,
+    &quot;memory_gb&quot;: 16
+  }
+}
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;agent_id&quot;: &quot;agent_beta_042&quot;,
+  &quot;role&quot;: &quot;defender&quot;,
+  &quot;parent&quot;: &quot;agent_alpha_001&quot;,
+  &quot;generation&quot;: 4,
+  &quot;status&quot;: &quot;initializing&quot;,
+  &quot;estimated_ready&quot;: &quot;2024-02-01T12:00:05Z&quot;
+}
+</code></pre></div>
+
+<h3 id="agent-consensus-query">Agent Consensus Query</h3>
+<div class="codehilite"><pre><span></span><code>POST /agents/consensus
+Content-Type: application/json
+
+{
+  &quot;question&quot;: &quot;Should we escalate to critical threat level?&quot;,
+  &quot;timeout_ms&quot;: 500,
+  &quot;minimum_participants&quot;: 20,
+  &quot;weight_by_trust&quot;: true
+}
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;consensus_reached&quot;: true,
+  &quot;decision&quot;: &quot;escalate&quot;,
+  &quot;confidence&quot;: 0.89,
+  &quot;participants&quot;: 67,
+  &quot;voting_breakdown&quot;: {
+    &quot;escalate&quot;: 58,
+    &quot;maintain&quot;: 9,
+    &quot;de-escalate&quot;: 0
+  },
+  &quot;time_to_consensus_ms&quot;: 423
+}
+</code></pre></div>
+
+<hr />
+<h2 id="legal-barriers">Legal Barriers</h2>
+<h3 id="deploy-legal-protection">Deploy Legal Protection</h3>
+<div class="codehilite"><pre><span></span><code>POST /legal/deploy
+Content-Type: application/json
+
+{
+  &quot;data_id&quot;: &quot;frag_f5g6h7i8&quot;,
+  &quot;jurisdictions&quot;: [&quot;auto_select&quot;],
+  &quot;hop_interval_ms&quot;: 50,
+  &quot;legal_challenges&quot;: true
+}
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;deployment_id&quot;: &quot;legal_l8m9n0o1&quot;,
+  &quot;jurisdictions_selected&quot;: [
+    &quot;Switzerland&quot;,
+    &quot;Iceland&quot;, 
+    &quot;Principality of Sealand&quot;,
+    &quot;International Waters&quot;,
+    &quot;Vatican City&quot;
+  ],
+  &quot;hop_schedule&quot;: [
+    {&quot;time&quot;: &quot;T+50ms&quot;, &quot;to&quot;: &quot;Iceland&quot;},
+    {&quot;time&quot;: &quot;T+100ms&quot;, &quot;to&quot;: &quot;Sealand&quot;},
+    {&quot;time&quot;: &quot;T+150ms&quot;, &quot;to&quot;: &quot;International Waters&quot;}
+  ],
+  &quot;legal_complexity_score&quot;: 9.8,
+  &quot;prosecution_difficulty&quot;: &quot;technically_infeasible&quot;
+}
+</code></pre></div>
+
+<h3 id="jurisdiction-status">Jurisdiction Status</h3>
+<div class="codehilite"><pre><span></span><code>GET /legal/jurisdictions
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s">&quot;jurisdictions&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="s">&quot;name&quot;</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Switzerland&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;privacy_regime&quot;</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Enhanced GDPR&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;data_retention_limit_ms&quot;</span><span class="o">:</span><span class="w"> </span><span class="mh">100</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;warrant_required&quot;</span><span class="o">:</span><span class="w"> </span><span class="n">true</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;mlat_treaties&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;EU&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;US&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="s">&quot;response_time_days&quot;</span><span class="o">:</span><span class="w"> </span><span class="mh">180</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;current_fragments&quot;</span><span class="o">:</span><span class="w"> </span><span class="mh">42</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="s">&quot;total_jurisdictions&quot;</span><span class="o">:</span><span class="w"> </span><span class="mh">10</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;fragments_distributed&quot;</span><span class="o">:</span><span class="w"> </span><span class="mh">284</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;legal_challenges_active&quot;</span><span class="o">:</span><span class="w"> </span><span class="mh">7</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h2 id="behavioral-authentication">Behavioral Authentication</h2>
+<h3 id="verify-behavioral-pattern">Verify Behavioral Pattern</h3>
+<div class="codehilite"><pre><span></span><code><span class="nx">POST</span><span class="w"> </span><span class="o">/</span><span class="nx">auth</span><span class="o">/</span><span class="nx">behavioral</span><span class="o">/</span><span class="nx">verify</span>
+<span class="nx">Content</span><span class="o">-</span><span class="nx">Type</span><span class="p">:</span><span class="w"> </span><span class="nx">application</span><span class="o">/</span><span class="nx">json</span>
+
+<span class="p">{</span>
+<span class="w">  </span><span class="s">&quot;agent_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;agent_alpha_001&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;observed_behavior&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;protocol_order&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s">&quot;TLS_1.3&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;AES_256&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;RSA_4096&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="s">&quot;packet_rhythm&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">],</span>
+<span class="w">    </span><span class="s">&quot;buffer_size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8192</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;error_response_time_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">150</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="s">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;normal_operations&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><strong>Response</strong></p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;authenticated&quot;: true,
+  &quot;similarity_score&quot;: 0.94,
+  &quot;confidence&quot;: &quot;high&quot;,
+  &quot;behavioral_match&quot;: {
+    &quot;protocol_order&quot;: 0.95,
+    &quot;packet_rhythm&quot;: 0.92,
+    &quot;buffer_size&quot;: 1.0,
+    &quot;error_timing&quot;: 0.89
+  },
+  &quot;anomalies&quot;: []
+}
+</code></pre></div>
+
+<hr />
+<h1 id="websocket-api">WEBSOCKET API</h1>
+<h2 id="connection">Connection</h2>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="n">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">WebSocket</span><span class="p">(</span><span class="s1">&#39;wss://mwrasp.prod.mil/ws&#39;</span><span class="p">);</span>
+
+<span class="n">ws</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;open&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">ws</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span>
+<span class="w">    </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;AUTH&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">token</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;your_jwt_token&#39;</span>
+<span class="w">  </span><span class="p">}));</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h2 id="event-subscriptions">Event Subscriptions</h2>
+<div class="codehilite"><pre><span></span><code><span class="o">//</span><span class="w"> </span><span class="n">Subscribe</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">threat</span><span class="w"> </span><span class="n">events</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span>
+<span class="w">  </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;SUBSCRIBE&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">events</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;THREAT_DETECTED&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;QUANTUM_ATTACK&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;AGENT_SPAWNED&#39;</span><span class="p">]</span>
+<span class="p">}));</span>
+
+<span class="o">//</span><span class="w"> </span><span class="n">Receive</span><span class="w"> </span><span class="n">events</span>
+<span class="n">ws</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">switch</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">case</span><span class="w"> </span><span class="s1">&#39;THREAT_DETECTED&#39;</span><span class="p">:</span>
+<span class="w">      </span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">Threat</span><span class="p">:</span><span class="w"> </span><span class="o">$</span><span class="p">{</span><span class="n">event</span><span class="o">.</span><span class="n">threat_id</span><span class="p">},</span><span class="w"> </span><span class="n">Severity</span><span class="p">:</span><span class="w"> </span><span class="o">$</span><span class="p">{</span><span class="n">event</span><span class="o">.</span><span class="n">severity</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">case</span><span class="w"> </span><span class="s1">&#39;QUANTUM_ATTACK&#39;</span><span class="p">:</span>
+<span class="w">      </span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">QUANTUM</span><span class="w"> </span><span class="n">ATTACK</span><span class="w"> </span><span class="n">DETECTED</span><span class="o">!</span><span class="w"> </span><span class="n">Algorithm</span><span class="p">:</span><span class="w"> </span><span class="o">$</span><span class="p">{</span><span class="n">event</span><span class="o">.</span><span class="n">algorithm</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+<span class="w">      </span><span class="o">//</span><span class="w"> </span><span class="n">Automatic</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">initiated</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+
+<span class="w">    </span><span class="n">case</span><span class="w"> </span><span class="s1">&#39;AGENT_SPAWNED&#39;</span><span class="p">:</span>
+<span class="w">      </span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">New</span><span class="w"> </span><span class="n">agent</span><span class="p">:</span><span class="w"> </span><span class="o">$</span><span class="p">{</span><span class="n">event</span><span class="o">.</span><span class="n">agent_id</span><span class="p">},</span><span class="w"> </span><span class="n">Role</span><span class="p">:</span><span class="w"> </span><span class="o">$</span><span class="p">{</span><span class="n">event</span><span class="o">.</span><span class="n">role</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<h2 id="real-time-metrics-stream">Real-time Metrics Stream</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">ws</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">JSON</span><span class="o">.</span><span class="n">stringify</span><span class="p">({</span>
+<span class="w">  </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;METRICS_STREAM&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">interval_ms</span><span class="p">:</span><span class="w"> </span><span class="mi">1000</span>
+<span class="p">}));</span>
+
+<span class="n">ws</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">metrics</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">type</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;METRICS&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">updateDashboard</span><span class="p">({</span>
+<span class="w">      </span><span class="n">threats_per_second</span><span class="p">:</span><span class="w"> </span><span class="n">metrics</span><span class="o">.</span><span class="n">threats_per_second</span><span class="p">,</span>
+<span class="w">      </span><span class="n">fragments_active</span><span class="p">:</span><span class="w"> </span><span class="n">metrics</span><span class="o">.</span><span class="n">fragments_active</span><span class="p">,</span>
+<span class="w">      </span><span class="n">agents_count</span><span class="p">:</span><span class="w"> </span><span class="n">metrics</span><span class="o">.</span><span class="n">agents_count</span><span class="p">,</span>
+<span class="w">      </span><span class="n">response_time_ms</span><span class="p">:</span><span class="w"> </span><span class="n">metrics</span><span class="o">.</span><span class="n">response_time_ms</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+
+<hr />
+<h1 id="sdk-examples">SDK EXAMPLES</h1>
+<h2 id="python-sdk">Python SDK</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">mwrasp</span><span class="w"> </span><span class="kn">import</span> <span class="n">MWRASPClient</span>
+
+<span class="c1"># Initialize client</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">MWRASPClient</span><span class="p">(</span>
+    <span class="n">api_key</span><span class="o">=</span><span class="s1">&#39;mwrasp_k_live_4242424242424242&#39;</span><span class="p">,</span>
+    <span class="n">environment</span><span class="o">=</span><span class="s1">&#39;production&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Protect sensitive data</span>
+<span class="n">protection</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">protect_data</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">classified_document</span><span class="p">,</span>
+    <span class="n">threat_level</span><span class="o">=</span><span class="s1">&#39;critical&#39;</span><span class="p">,</span>
+    <span class="n">fragment_count</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">lifetime_ms</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">jurisdictions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Switzerland&#39;</span><span class="p">,</span> <span class="s1">&#39;Iceland&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data protected: </span><span class="si">{</span><span class="n">protection</span><span class="o">.</span><span class="n">fragmentation_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expires in: </span><span class="si">{</span><span class="n">protection</span><span class="o">.</span><span class="n">lifetime_ms</span><span class="si">}</span><span class="s2">ms&quot;</span><span class="p">)</span>
+
+<span class="c1"># Monitor for threats</span>
+<span class="nd">@client</span><span class="o">.</span><span class="n">on_threat_detected</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">handle_threat</span><span class="p">(</span><span class="n">threat</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Threat detected: </span><span class="si">{</span><span class="n">threat</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Confidence: </span><span class="si">{</span><span class="n">threat</span><span class="o">.</span><span class="n">confidence</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Response: </span><span class="si">{</span><span class="n">threat</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Start monitoring</span>
+<span class="n">client</span><span class="o">.</span><span class="n">start_monitoring</span><span class="p">()</span>
+</code></pre></div>
+
+<h2 id="javascriptnodejs-sdk">JavaScript/Node.js SDK</h2>
+<div class="codehilite"><pre><span></span><code><span class="k">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">MWRASPClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">require</span><span class="p">(</span><span class="s1">&#39;@mwrasp/sdk&#39;</span><span class="p">);</span>
+
+<span class="k">const</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">MWRASPClient</span><span class="p">({</span>
+<span class="w">  </span><span class="n">apiKey</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;mwrasp_k_live_4242424242424242&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="n">environment</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;production&#39;</span>
+<span class="p">});</span>
+
+<span class="o">//</span><span class="w"> </span><span class="n">Async</span><span class="o">/</span><span class="n">await</span><span class="w"> </span><span class="n">pattern</span>
+<span class="n">async</span><span class="w"> </span><span class="n">function</span><span class="w"> </span><span class="n">protectData</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">protection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">await</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">fragmentData</span><span class="p">({</span>
+<span class="w">      </span><span class="n">data</span><span class="p">:</span><span class="w"> </span><span class="n">Buffer</span><span class="o">.</span><span class="n">from</span><span class="p">(</span><span class="s1">&#39;sensitive data&#39;</span><span class="p">),</span>
+<span class="w">      </span><span class="n">fragmentCount</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
+<span class="w">      </span><span class="n">lifetimeMs</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">      </span><span class="n">quantumNoise</span><span class="p">:</span><span class="w"> </span><span class="bp">true</span>
+<span class="w">    </span><span class="p">});</span>
+
+<span class="w">    </span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">Protected</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="o">$</span><span class="p">{</span><span class="n">protection</span><span class="o">.</span><span class="n">fragmentCount</span><span class="p">}</span><span class="w"> </span><span class="n">fragments</span><span class="err">`</span><span class="p">);</span>
+
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">Attempt</span><span class="w"> </span><span class="n">reconstruction</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">expiry</span>
+<span class="w">    </span><span class="n">setTimeout</span><span class="p">(</span><span class="n">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">const</span><span class="w"> </span><span class="n">reconstructed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">await</span><span class="w"> </span><span class="n">client</span><span class="o">.</span><span class="n">reconstructData</span><span class="p">(</span>
+<span class="w">        </span><span class="n">protection</span><span class="o">.</span><span class="n">reconstructionToken</span>
+<span class="w">      </span><span class="p">);</span>
+<span class="w">      </span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;Data reconstructed successfully&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="mi">50</span><span class="p">);</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="mi">50</span><span class="n">ms</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">100</span><span class="n">ms</span><span class="w"> </span><span class="n">expiry</span>
+
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">catch</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">console</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Protection failed:&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">error</span><span class="o">.</span><span class="n">message</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="w"> </span><span class="n">Event</span><span class="o">-</span><span class="n">driven</span><span class="w"> </span><span class="n">pattern</span>
+<span class="n">client</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;quantumAttackDetected&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">attack</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">QUANTUM</span><span class="w"> </span><span class="n">ATTACK</span><span class="p">:</span><span class="w"> </span><span class="o">$</span><span class="p">{</span><span class="n">attack</span><span class="o">.</span><span class="n">algorithm</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+<span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">MWRASP</span><span class="w"> </span><span class="n">automatically</span><span class="w"> </span><span class="n">responds</span>
+<span class="p">});</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s1">&#39;agentSpawned&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">agent</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="err">`</span><span class="n">New</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="o">$</span><span class="p">{</span><span class="n">agent</span><span class="o">.</span><span class="n">id</span><span class="p">}</span><span class="w"> </span><span class="n">spawned</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">role</span><span class="w"> </span><span class="o">$</span><span class="p">{</span><span class="n">agent</span><span class="o">.</span><span class="n">role</span><span class="p">}</span><span class="err">`</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">startMonitoring</span><span class="p">();</span>
+</code></pre></div>
+
+<h2 id="java-sdk">Java SDK</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">mil.mwrasp.sdk.MWRASPClient</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">mil.mwrasp.sdk.models.</span><span class="o">*</span><span class="p">;</span>
+
+<span class="n">public</span> <span class="k">class</span><span class="w"> </span><span class="nc">MWRASPExample</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">Initialize</span> <span class="n">client</span>
+        <span class="n">MWRASPClient</span> <span class="n">client</span> <span class="o">=</span> <span class="n">MWRASPClient</span><span class="o">.</span><span class="n">builder</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">apiKey</span><span class="p">(</span><span class="s2">&quot;mwrasp_k_live_4242424242424242&quot;</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">environment</span><span class="p">(</span><span class="n">Environment</span><span class="o">.</span><span class="n">PRODUCTION</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">build</span><span class="p">();</span>
+
+        <span class="o">//</span> <span class="n">Protect</span> <span class="n">data</span>
+        <span class="n">ProtectionRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="n">ProtectionRequest</span><span class="o">.</span><span class="n">builder</span><span class="p">()</span>
+            <span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">sensitiveData</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">fragmentCount</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">lifetimeMs</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">jurisdictions</span><span class="p">(</span><span class="n">Arrays</span><span class="o">.</span><span class="n">asList</span><span class="p">(</span><span class="s2">&quot;Switzerland&quot;</span><span class="p">,</span> <span class="s2">&quot;Iceland&quot;</span><span class="p">))</span>
+            <span class="o">.</span><span class="n">build</span><span class="p">();</span>
+
+        <span class="n">ProtectionResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">protectData</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
+
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Fragmentation ID: &quot;</span> <span class="o">+</span> <span class="n">response</span><span class="o">.</span><span class="n">getFragmentationId</span><span class="p">());</span>
+        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Expires at: &quot;</span> <span class="o">+</span> <span class="n">response</span><span class="o">.</span><span class="n">getExpiresAt</span><span class="p">());</span>
+
+        <span class="o">//</span> <span class="n">Set</span> <span class="n">up</span> <span class="n">threat</span> <span class="n">listener</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">onThreatDetected</span><span class="p">(</span><span class="n">threat</span> <span class="o">-&gt;</span> <span class="p">{</span>
+            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Threat detected: &quot;</span> <span class="o">+</span> <span class="n">threat</span><span class="o">.</span><span class="n">getType</span><span class="p">());</span>
+            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Algorithm: &quot;</span> <span class="o">+</span> <span class="n">threat</span><span class="o">.</span><span class="n">getAlgorithm</span><span class="p">());</span>
+            <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Response: &quot;</span> <span class="o">+</span> <span class="n">threat</span><span class="o">.</span><span class="n">getResponse</span><span class="p">()</span><span class="o">.</span><span class="n">getAction</span><span class="p">());</span>
+        <span class="p">});</span>
+
+        <span class="o">//</span> <span class="n">Start</span> <span class="n">monitoring</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">startMonitoring</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="go-sdk">Go SDK</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">package</span> <span class="n">main</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+    <span class="s2">&quot;fmt&quot;</span>
+    <span class="s2">&quot;log&quot;</span>
+    <span class="s2">&quot;github.com/mwrasp/go-sdk&quot;</span>
+<span class="p">)</span>
+
+<span class="n">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="n">Create</span> <span class="n">client</span>
+    <span class="n">client</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">mwrasp</span><span class="o">.</span><span class="n">NewClient</span><span class="p">(</span>
+        <span class="n">mwrasp</span><span class="o">.</span><span class="n">WithAPIKey</span><span class="p">(</span><span class="s2">&quot;mwrasp_k_live_4242424242424242&quot;</span><span class="p">),</span>
+        <span class="n">mwrasp</span><span class="o">.</span><span class="n">WithEnvironment</span><span class="p">(</span><span class="s2">&quot;production&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="n">nil</span> <span class="p">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="o">//</span> <span class="n">Protect</span> <span class="n">data</span>
+    <span class="n">protection</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">client</span><span class="o">.</span><span class="n">FragmentData</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mwrasp</span><span class="o">.</span><span class="n">FragmentRequest</span><span class="p">{</span>
+        <span class="n">Data</span><span class="p">:</span>           <span class="p">[]</span><span class="n">byte</span><span class="p">(</span><span class="s2">&quot;sensitive data&quot;</span><span class="p">),</span>
+        <span class="n">FragmentCount</span><span class="p">:</span>  <span class="mi">7</span><span class="p">,</span>
+        <span class="n">LifetimeMs</span><span class="p">:</span>     <span class="mi">100</span><span class="p">,</span>
+        <span class="n">Jurisdictions</span><span class="p">:</span>  <span class="p">[]</span><span class="n">string</span><span class="p">{</span><span class="s2">&quot;Switzerland&quot;</span><span class="p">,</span> <span class="s2">&quot;Iceland&quot;</span><span class="p">},</span>
+        <span class="n">QuantumNoise</span><span class="p">:</span>   <span class="n">true</span><span class="p">,</span>
+    <span class="p">})</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="n">nil</span> <span class="p">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s2">&quot;Protected with ID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">protection</span><span class="o">.</span><span class="n">FragmentationID</span><span class="p">)</span>
+
+    <span class="o">//</span> <span class="n">Monitor</span> <span class="n">threats</span>
+    <span class="n">threats</span> <span class="o">:=</span> <span class="n">client</span><span class="o">.</span><span class="n">MonitorThreats</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">threat</span> <span class="o">:=</span> <span class="nb">range</span> <span class="n">threats</span> <span class="p">{</span>
+        <span class="n">fmt</span><span class="o">.</span><span class="n">Printf</span><span class="p">(</span><span class="s2">&quot;Threat: </span><span class="si">%s</span><span class="s2">, Confidence: </span><span class="si">%.2f</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> 
+            <span class="n">threat</span><span class="o">.</span><span class="n">Type</span><span class="p">,</span> <span class="n">threat</span><span class="o">.</span><span class="n">Confidence</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<hr />
+<h1 id="error-handling">ERROR HANDLING</h1>
+<h2 id="error-response-format">Error Response Format</h2>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;error&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;FRAGMENTS_EXPIRED&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The requested fragments have expired and cannot be reconstructed&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;expired_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-02-01T12:00:00.100Z&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;attempted_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-02-01T12:00:00.247Z&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;expired_fragments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;fragment_002&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;fragment_004&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="s2">&quot;request_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;req_r5s6t7u8v9&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;documentation_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://docs.mwrasp.mil/errors/FRAGMENTS_EXPIRED&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="common-error-codes">Common Error Codes</h2>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>HTTP Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UNAUTHORIZED</td>
+<td>401</td>
+<td>Invalid or missing authentication</td>
+</tr>
+<tr>
+<td>FORBIDDEN</td>
+<td>403</td>
+<td>Insufficient permissions</td>
+</tr>
+<tr>
+<td>NOT_FOUND</td>
+<td>404</td>
+<td>Resource not found</td>
+</tr>
+<tr>
+<td>RATE_LIMITED</td>
+<td>429</td>
+<td>Too many requests</td>
+</tr>
+<tr>
+<td>FRAGMENTS_EXPIRED</td>
+<td>410</td>
+<td>Data fragments have expired</td>
+</tr>
+<tr>
+<td>QUANTUM_ATTACK_ACTIVE</td>
+<td>503</td>
+<td>System defending against quantum attack</td>
+</tr>
+<tr>
+<td>INVALID_PARAMETERS</td>
+<td>400</td>
+<td>Invalid request parameters</td>
+</tr>
+<tr>
+<td>INTERNAL_ERROR</td>
+<td>500</td>
+<td>Internal server error</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="rate-limiting">RATE LIMITING</h1>
+<h2 id="default-limits">Default Limits</h2>
+<table>
+<thead>
+<tr>
+<th>Endpoint Category</th>
+<th>Requests/Minute</th>
+<th>Burst</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System Status</td>
+<td>600</td>
+<td>100</td>
+</tr>
+<tr>
+<td>Threat Detection</td>
+<td>1000</td>
+<td>200</td>
+</tr>
+<tr>
+<td>Data Fragmentation</td>
+<td>500</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Agent Operations</td>
+<td>300</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Legal Barriers</td>
+<td>100</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<h2 id="rate-limit-headers">Rate Limit Headers</h2>
+<div class="codehilite"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">X-RateLimit-Limit</span><span class="o">:</span> <span class="l">1000</span>
+<span class="na">X-RateLimit-Remaining</span><span class="o">:</span> <span class="l">999</span>
+<span class="na">X-RateLimit-Reset</span><span class="o">:</span> <span class="l">1706788860</span>
+<span class="na">X-RateLimit-Burst-Limit</span><span class="o">:</span> <span class="l">200</span>
+<span class="na">X-RateLimit-Burst-Remaining</span><span class="o">:</span> <span class="l">199</span>
+</code></pre></div>
+
+<hr />
+<h1 id="webhooks">WEBHOOKS</h1>
+<h2 id="webhook-configuration">Webhook Configuration</h2>
+<div class="codehilite"><pre><span></span><code>POST /webhooks
+Content-Type: application/json
+
+{
+  &quot;url&quot;: &quot;https://soc.organization.mil/mwrasp-webhook&quot;,
+  &quot;events&quot;: [
+    &quot;threat.detected&quot;,
+    &quot;quantum.attack&quot;,
+    &quot;fragment.expired&quot;,
+    &quot;agent.spawned&quot;,
+    &quot;system.emergency&quot;
+  ],
+  &quot;secret&quot;: &quot;webhook_secret_key&quot;,
+  &quot;active&quot;: true
+}
+</code></pre></div>
+
+<h2 id="webhook-payload">Webhook Payload</h2>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;evt_e1f2g3h4&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;quantum.attack&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2024-02-01T12:00:00.073Z&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="s">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s">&quot;threat_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;threat_q7h8i9j0k1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;algorithm&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;shors_factoring&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;confidence&quot;</span><span class="p">:</span><span class="w"> </span><span class="m m-Double">0.97</span><span class="p">,</span>
+<span class="w">    </span><span class="s">&quot;response&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s">&quot;action&quot;</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;temporal_fragmentation&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s">&quot;completed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="webhook-signature-verification">Webhook Signature Verification</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">hmac</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">verify_webhook</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">secret</span><span class="p">):</span>
+    <span class="n">expected</span> <span class="o">=</span> <span class="n">hmac</span><span class="o">.</span><span class="n">new</span><span class="p">(</span>
+        <span class="n">secret</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
+        <span class="n">payload</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span>
+        <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">hmac</span><span class="o">.</span><span class="n">compare_digest</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">signature</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h1 id="api-versioning">API VERSIONING</h1>
+<h2 id="version-strategy">Version Strategy</h2>
+<ul>
+<li><strong>Current Version</strong>: v2</li>
+<li><strong>Deprecated</strong>: v1 (sunset date: 2024-12-31)</li>
+<li><strong>Beta</strong>: v3-beta (experimental features)</li>
+</ul>
+<h2 id="version-selection">Version Selection</h2>
+<div class="codehilite"><pre><span></span><code># Via URL
+GET https://mwrasp.prod.mil/api/v2/system/status
+
+# Via Header
+GET https://mwrasp.prod.mil/api/system/status
+API-Version: 2
+
+# Via Query Parameter
+GET https://mwrasp.prod.mil/api/system/status?version=2
+</code></pre></div>
+
+<hr />
+<h1 id="changelog">CHANGELOG</h1>
+<h2 id="version-201-current">Version 2.0.1 (Current)</h2>
+<ul>
+<li>Added quantum canary token endpoints</li>
+<li>Improved fragmentation performance</li>
+<li>Enhanced behavioral authentication</li>
+<li>Added jurisdiction hopping automation</li>
+</ul>
+<h2 id="version-200">Version 2.0.0</h2>
+<ul>
+<li>Major rewrite for quantum defense</li>
+<li>Added temporal fragmentation</li>
+<li>Introduced agent system</li>
+<li>Legal barriers implementation</li>
+</ul>
+<hr />
+<p><strong>API Documentation Version</strong>: 2.0.1
+<strong>Last Updated</strong>: February 2024
+<strong>Support</strong>: api-support@mwrasp.mil
+<strong>Status Page</strong>: https://status.mwrasp.mil</p>
+    
+    <div class="document-footer">
+        <p><strong>Document:</strong> 04_API_DOCUMENTATION.md | <strong>Generated:</strong> 2025-08-24 18:15:12</p>
+        <p>MWRASP Quantum Defense System - Confidential and Proprietary</p>
+    </div>
+</body>
+</html>

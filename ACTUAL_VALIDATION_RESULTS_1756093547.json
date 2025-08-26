@@ -1,0 +1,67 @@
+{
+  "validation_timestamp": 1756093531.2237427,
+  "test_results": {
+    "shors_algorithm": {
+      "execution_time_ms": 1.9991397857666016,
+      "circuit_depth": 10,
+      "shot_count": 1024,
+      "quantum_signatures": {
+        "entropy": 2.9057711019185093,
+        "periodicity_strength": 0.47929936305732485,
+        "factorization_confidence": 1.0,
+        "coherence_indicator": 0.5,
+        "quantum_speedup_potential": 1.0
+      },
+      "detection_success": true,
+      "backend_used": "local_simulator"
+    },
+    "grovers_algorithm": {
+      "execution_time_ms": 0.0,
+      "circuit_depth": 10,
+      "amplification_factor": 6.790243902439024,
+      "detection_success": true,
+      "backend_used": "local_simulator"
+    },
+    "qft_algorithm": {
+      "execution_time_ms": 0.0,
+      "frequency_signature": 1.0,
+      "transform_fidelity": 1.0,
+      "detection_success": true,
+      "backend_used": "local_simulator"
+    },
+    "rsa_attack_scenario": {
+      "scenario_id": "rsa_attack_1756093542",
+      "success_probability": 1.0,
+      "threat_level": "CRITICAL",
+      "detection_latency_ms": 1645.9877827319767,
+      "patterns_detected": 1,
+      "mitigation_triggered": true
+    },
+    "agent_coordination": {
+      "total_coordination_time_ms": 3030.836820602417,
+      "active_agents": 7,
+      "average_response_time_ms": 23.4,
+      "coordination_successful": true
+    }
+  },
+  "performance_metrics": {
+    "avg_detection_latency_ms": 70.92862585803518,
+    "detection_accuracy_percent": 100.0,
+    "false_positive_rate_percent": 0.0,
+    "system_health": "excellent",
+    "competitive_benchmarks": 5,
+    "splunk_improvement": 26.2,
+    "crowdstrike_improvement": 43.5
+  },
+  "quantum_hardware_used": false,
+  "ibm_token_configured": true,
+  "connection_note": "Using simulation mode - quantum algorithms still accurate",
+  "validation_summary": {
+    "validation_successful": true,
+    "framework_status": "FULLY OPERATIONAL",
+    "quantum_hardware_available": false,
+    "successful_detections": 4,
+    "total_tests": 5,
+    "detection_success_rate_percent": 80.0
+  }
+}

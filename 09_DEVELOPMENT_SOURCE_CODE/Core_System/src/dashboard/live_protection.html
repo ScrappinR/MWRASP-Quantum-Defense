@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWRASP Live Protection Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .dashboard-container {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            min-height: 100vh;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .header {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid #00ff41;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            animation: scan 3s infinite;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #00ff41;
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .org-selector {
+            margin-top: 15px;
+        }
+
+        .org-selector select {
+            background: rgba(0, 0, 0, 0.7);
+            color: #00ff41;
+            border: 1px solid #00ff41;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .main-dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto;
+            gap: 15px;
+            grid-template-areas:
+                "status threats agents"
+                "tokens barriers actions"
+                "timeline timeline timeline";
+        }
+
+        .panel {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .panel h2 {
+            color: #00ff41;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status-panel { grid-area: status; }
+        .threats-panel { grid-area: threats; }
+        .agents-panel { grid-area: agents; }
+        .tokens-panel { grid-area: tokens; }
+        .barriers-panel { grid-area: barriers; }
+        .actions-panel { grid-area: actions; }
+        .timeline-panel { grid-area: timeline; }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            border-left: 3px solid #00ff41;
+        }
+
+        .metric-value {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .metric-value.high { color: #ff4444; }
+        .metric-value.medium { color: #ffaa00; }
+        .metric-value.normal { color: #00ff41; }
+
+        .threat-item {
+            padding: 10px;
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid #ff4444;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .threat-id {
+            color: #ff4444;
+            font-family: monospace;
+        }
+
+        .agent-item {
+            padding: 8px 12px;
+            background: rgba(0, 255, 65, 0.1);
+            border-left: 3px solid #00ff41;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        .token-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+        }
+
+        .token-status {
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+        }
+
+        .token-status.active { background: #00ff41; color: #000; }
+        .token-status.triggered { background: #ff4444; color: #fff; }
+
+        .barrier-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            margin-bottom: 5px;
+            font-size: 0.85rem;
+        }
+
+        .barrier-status {
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+            background: #ff4444;
+            color: #fff;
+        }
+
+        .action-item {
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            margin-bottom: 6px;
+            font-size: 0.85rem;
+            border-left: 3px solid #ffaa00;
+        }
+
+        .timestamp {
+            color: #888;
+            font-size: 0.75rem;
+        }
+
+        .timeline {
+            height: 200px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .timeline-item {
+            padding: 8px;
+            border-left: 3px solid #00ff41;
+            margin-left: 10px;
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 0 5px 5px 0;
+        }
+
+        .timeline-item.threat { border-left-color: #ff4444; }
+        .timeline-item.agent { border-left-color: #00ff41; }
+        .timeline-item.system { border-left-color: #ffaa00; }
+
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-start {
+            background: #00ff41;
+            color: #000;
+        }
+
+        .btn-stop {
+            background: #ff4444;
+            color: #fff;
+        }
+
+        .btn-simulate {
+            background: #ffaa00;
+            color: #000;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .protection-level {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ff41;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+            margin-bottom: 15px;
+        }
+
+        .alert {
+            background: rgba(255, 68, 68, 0.2);
+            border: 1px solid #ff4444;
+            color: #ff4444;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>MWRASP Live Protection Center</h1>
+            <div class="protection-level" id="protectionLevel">MAXIMUM SECURITY</div>
+            <div class="org-selector">
+                <label for="orgType">Organization Type: </label>
+                <select id="orgType" onchange="changeOrganization()">
+                    <option value="financial">Financial Institution</option>
+                    <option value="government">Government Agency</option>
+                </select>
+            </div>
+        </header>
+
+        <main class="main-dashboard">
+            <!-- System Status -->
+            <div class="panel status-panel">
+                <h2>System Status</h2>
+                <div id="alertContainer"></div>
+                <div class="metric">
+                    <span>Protection Status</span>
+                    <span class="metric-value normal" id="protectionStatus">ACTIVE</span>
+                </div>
+                <div class="metric">
+                    <span>AI Agents Online</span>
+                    <span class="metric-value normal" id="agentsOnline">5/5</span>
+                </div>
+                <div class="metric">
+                    <span>Quantum Detection</span>
+                    <span class="metric-value normal" id="quantumStatus">MONITORING</span>
+                </div>
+                <div class="metric">
+                    <span>Legal Barriers</span>
+                    <span class="metric-value normal" id="legalStatus">6 ACTIVE</span>
+                </div>
+                <div class="metric">
+                    <span>System Uptime</span>
+                    <span class="metric-value normal" id="systemUptime">00:00:00</span>
+                </div>
+            </div>
+
+            <!-- Active Threats -->
+            <div class="panel threats-panel">
+                <h2>Active Threats</h2>
+                <div id="threatsContainer">
+                    <div style="color: #888; text-align: center; padding: 20px;">
+                        No active threats detected
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI Agents -->
+            <div class="panel agents-panel">
+                <h2>AI Defense Agents</h2>
+                <div id="agentsContainer">
+                    <div class="agent-item">Monitor Agent - Scanning networks</div>
+                    <div class="agent-item">Defender Agent - Perimeter secure</div>
+                    <div class="agent-item">Analyzer Agent - Processing intelligence</div>
+                    <div class="agent-item">Coordinator Agent - Managing response</div>
+                    <div class="agent-item">Recovery Agent - Systems nominal</div>
+                </div>
+            </div>
+
+            <!-- Canary Tokens -->
+            <div class="panel tokens-panel">
+                <h2>Canary Tokens</h2>
+                <div id="tokensContainer">
+                    <!-- Populated by JavaScript based on organization type -->
+                </div>
+            </div>
+
+            <!-- Legal Barriers -->
+            <div class="panel barriers-panel">
+                <h2>Legal Barriers</h2>
+                <div id="barriersContainer">
+                    <div class="barrier-item">
+                        <span>US - CLOUD Act</span>
+                        <span class="barrier-status">ACTIVE</span>
+                    </div>
+                    <div class="barrier-item">
+                        <span>CN - Data Security Law</span>
+                        <span class="barrier-status">ACTIVE</span>
+                    </div>
+                    <div class="barrier-item">
+                        <span>RU - Data Localization</span>
+                        <span class="barrier-status">ACTIVE</span>
+                    </div>
+                    <div class="barrier-item">
+                        <span>EU - GDPR</span>
+                        <span class="barrier-status">ACTIVE</span>
+                    </div>
+                    <div class="barrier-item">
+                        <span>CH - Banking Secrecy</span>
+                        <span class="barrier-status">ACTIVE</span>
+                    </div>
+                    <div class="barrier-item">
+                        <span>IR - Sanctions Regime</span>
+                        <span class="barrier-status">ACTIVE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agent Actions -->
+            <div class="panel actions-panel">
+                <h2>Recent Agent Actions</h2>
+                <div id="actionsContainer">
+                    <div style="color: #888; text-align: center; padding: 20px;">
+                        Awaiting threat activity...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="panel timeline-panel">
+                <h2>Live Activity Timeline</h2>
+                <div class="timeline" id="timeline">
+                    <div class="timeline-item system">
+                        <div><strong>System Initialization</strong></div>
+                        <div class="timestamp">MWRASP protection systems online</div>
+                    </div>
+                </div>
+                <div class="control-buttons">
+                    <button class="btn btn-start" onclick="startProtection()">Start Protection</button>
+                    <button class="btn btn-simulate" onclick="simulateThreats()">Simulate Threats</button>
+                    <button class="btn btn-stop" onclick="stopProtection()">Stop Protection</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Global state
+        let protectionActive = false;
+        let simulationRunning = false;
+        let startTime = Date.now();
+        let threatCount = 0;
+        let actionCount = 0;
+        
+        // Organization data
+        const orgData = {
+            financial: {
+                name: "Financial Institution",
+                tokens: [
+                    "SWIFT_TRANSACTIONS", "CUSTOMER_ACCOUNTS", "TRADING_ALGORITHMS",
+                    "CREDIT_CARD_DATA", "WIRE_TRANSFERS", "REGULATORY_REPORTS",
+                    "BLOCKCHAIN_KEYS", "HFT_STRATEGIES"
+                ],
+                threats: [
+                    "Quantum computer attempting to break RSA encryption on SWIFT messages",
+                    "Advanced persistent threat targeting trading algorithms", 
+                    "State actor trying to access customer account database",
+                    "Quantum attack on cryptocurrency wallet infrastructure",
+                    "High-frequency trading system infiltration attempt",
+                    "Cross-border financial intelligence gathering"
+                ]
+            },
+            government: {
+                name: "Government Agency",
+                tokens: [
+                    "CLASSIFIED_INTEL", "MILITARY_PLANS", "DIPLOMATIC_CABLES",
+                    "CITIZEN_DATA", "SECURITY_CLEARANCES", "DEFENSE_CONTRACTS",
+                    "SURVEILLANCE_DATA", "CYBER_OPERATIONS"
+                ],
+                threats: [
+                    "Foreign quantum computer attacking encrypted military communications",
+                    "Nation-state APT targeting classified intelligence databases",
+                    "Quantum cryptanalysis of diplomatic communications", 
+                    "Advanced malware infiltrating defense contractor networks",
+                    "Quantum-enabled espionage against government agencies",
+                    "Coordinated cyber warfare against critical infrastructure"
+                ]
+            }
+        };
+
+        // Initialize dashboard
+        function initializeDashboard() {
+            updateUptime();
+            setInterval(updateUptime, 1000);
+            changeOrganization();
+        }
+
+        function updateUptime() {
+            const uptime = Date.now() - startTime;
+            const hours = Math.floor(uptime / 3600000);
+            const minutes = Math.floor((uptime % 3600000) / 60000);
+            const seconds = Math.floor((uptime % 60000) / 1000);
+            document.getElementById('systemUptime').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function changeOrganization() {
+            const orgType = document.getElementById('orgType').value;
+            const org = orgData[orgType];
+            
+            // Update tokens display
+            const tokensContainer = document.getElementById('tokensContainer');
+            tokensContainer.innerHTML = '';
+            org.tokens.forEach(token => {
+                const tokenDiv = document.createElement('div');
+                tokenDiv.className = 'token-item';
+                tokenDiv.innerHTML = `
+                    <span>${token}</span>
+                    <span class="token-status active">ACTIVE</span>
+                `;
+                tokensContainer.appendChild(tokenDiv);
+            });
+
+            addTimelineItem(`Switched to ${org.name} protection mode`, 'system');
+        }
+
+        function startProtection() {
+            if (protectionActive) return;
+            
+            protectionActive = true;
+            document.getElementById('protectionStatus').textContent = 'ACTIVE';
+            document.getElementById('protectionLevel').textContent = 'MAXIMUM SECURITY';
+            
+            // Deploy canary tokens
+            const orgType = document.getElementById('orgType').value;
+            const org = orgData[orgType];
+            
+            addTimelineItem(`Protection activated for ${org.name}`, 'system');
+            addTimelineItem(`${org.tokens.length} canary tokens deployed`, 'system');
+            addTimelineItem(`6 legal barriers activated across jurisdictions`, 'system');
+            addTimelineItem(`5 AI defense agents coordinating autonomous protection`, 'agent');
+            
+            // Update status
+            updateAgentStatus('Protection systems fully operational');
+        }
+
+        function simulateThreats() {
+            if (!protectionActive) {
+                alert('Please start protection first');
+                return;
+            }
+            
+            if (simulationRunning) return;
+            simulationRunning = true;
+            
+            const orgType = document.getElementById('orgType').value;
+            const org = orgData[orgType];
+            
+            addTimelineItem('Threat simulation initiated', 'system');
+            
+            // Simulate multiple realistic threats
+            org.threats.forEach((threat, index) => {
+                setTimeout(() => simulateThreat(threat, index), (index + 1) * 3000);
+            });
+            
+            setTimeout(() => {
+                simulationRunning = false;
+                addTimelineItem('Threat simulation completed', 'system');
+            }, (org.threats.length + 1) * 3000);
+        }
+
+        function simulateThreat(threatDescription, threatIndex) {
+            threatCount++;
+            const threatId = `THR-${Date.now().toString(36).toUpperCase()}`;
+            
+            // Add threat to threats panel
+            const threatsContainer = document.getElementById('threatsContainer');
+            if (threatsContainer.children[0]?.textContent.includes('No active threats')) {
+                threatsContainer.innerHTML = '';
+            }
+            
+            const threatDiv = document.createElement('div');
+            threatDiv.className = 'threat-item';
+            threatDiv.innerHTML = `
+                <div class="threat-id">${threatId}</div>
+                <div style="margin-top: 5px;">${threatDescription}</div>
+                <div class="timestamp">Detected: ${new Date().toLocaleTimeString()}</div>
+            `;
+            threatsContainer.appendChild(threatDiv);
+            
+            // Add timeline entry
+            addTimelineItem(`🚨 THREAT DETECTED: ${threatDescription}`, 'threat');
+            
+            // Trigger agent responses
+            setTimeout(() => triggerAgentResponse(threatId, threatDescription), 500);
+            
+            // Update system alerts
+            showAlert(`Quantum threat detected: ${threatId}`);
+        }
+
+        function triggerAgentResponse(threatId, threatDescription) {
+            const agentActions = [
+                'Monitor Agent: Enhanced surveillance activated on affected systems',
+                'Defender Agent: Isolating compromised network segments',
+                'Analyzer Agent: Performing deep threat intelligence analysis', 
+                'Coordinator Agent: Escalating to incident response team',
+                'Recovery Agent: Preparing rollback procedures'
+            ];
+            
+            agentActions.forEach((action, index) => {
+                setTimeout(() => {
+                    actionCount++;
+                    addAgentAction(action);
+                    addTimelineItem(`🤖 ${action}`, 'agent');
+                    
+                    if (index === agentActions.length - 1) {
+                        // Final response
+                        setTimeout(() => {
+                            addTimelineItem(`⚖️ Legal barriers activated - Data routing through hostile jurisdictions`, 'system');
+                            addTimelineItem(`🛡️ Impossible compliance scenario created for threat actor`, 'system');
+                            updateTokenStatus(threatId);
+                        }, 1000);
+                    }
+                }, index * 800);
+            });
+        }
+
+        function addAgentAction(action) {
+            const actionsContainer = document.getElementById('actionsContainer');
+            if (actionsContainer.children[0]?.textContent.includes('Awaiting')) {
+                actionsContainer.innerHTML = '';
+            }
+            
+            const actionDiv = document.createElement('div');
+            actionDiv.className = 'action-item';
+            actionDiv.innerHTML = `
+                <div>${action}</div>
+                <div class="timestamp">${new Date().toLocaleTimeString()}</div>
+            `;
+            actionsContainer.insertBefore(actionDiv, actionsContainer.firstChild);
+            
+            // Keep only last 5 actions
+            while (actionsContainer.children.length > 5) {
+                actionsContainer.removeChild(actionsContainer.lastChild);
+            }
+        }
+
+        function updateTokenStatus(threatId) {
+            // Randomly trigger a token
+            const tokens = document.querySelectorAll('.token-status');
+            if (tokens.length > 0) {
+                const randomToken = tokens[Math.floor(Math.random() * tokens.length)];
+                randomToken.textContent = 'TRIGGERED';
+                randomToken.className = 'token-status triggered';
+            }
+        }
+
+        function updateAgentStatus(message) {
+            const agentsContainer = document.getElementById('agentsContainer');
+            const agents = [
+                'Monitor Agent - ' + message,
+                'Defender Agent - Threat mitigation active',
+                'Analyzer Agent - Processing threat intelligence', 
+                'Coordinator Agent - Managing coordinated response',
+                'Recovery Agent - Standby for recovery operations'
+            ];
+            
+            agentsContainer.innerHTML = '';
+            agents.forEach(agent => {
+                const agentDiv = document.createElement('div');
+                agentDiv.className = 'agent-item';
+                agentDiv.textContent = agent;
+                agentsContainer.appendChild(agentDiv);
+            });
+        }
+
+        function showAlert(message) {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert';
+            alertDiv.textContent = message;
+            alertContainer.appendChild(alertDiv);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                if (alertDiv.parentNode) {
+                    alertDiv.parentNode.removeChild(alertDiv);
+                }
+            }, 5000);
+        }
+
+        function addTimelineItem(message, type) {
+            const timeline = document.getElementById('timeline');
+            const timelineItem = document.createElement('div');
+            timelineItem.className = `timeline-item ${type}`;
+            timelineItem.innerHTML = `
+                <div><strong>${message}</strong></div>
+                <div class="timestamp">${new Date().toLocaleTimeString()}</div>
+            `;
+            timeline.appendChild(timelineItem);
+            
+            // Auto-scroll to bottom
+            timeline.scrollTop = timeline.scrollHeight;
+        }
+
+        function stopProtection() {
+            protectionActive = false;
+            simulationRunning = false;
+            
+            document.getElementById('protectionStatus').textContent = 'STOPPED';
+            document.getElementById('protectionLevel').textContent = 'PROTECTION DISABLED';
+            
+            // Reset displays
+            document.getElementById('threatsContainer').innerHTML = 
+                '<div style="color: #888; text-align: center; padding: 20px;">No active threats detected</div>';
+            document.getElementById('actionsContainer').innerHTML = 
+                '<div style="color: #888; text-align: center; padding: 20px;">Awaiting threat activity...</div>';
+            
+            // Reset token statuses
+            document.querySelectorAll('.token-status').forEach(status => {
+                status.textContent = 'ACTIVE';
+                status.className = 'token-status active';
+            });
+            
+            addTimelineItem('Protection systems deactivated', 'system');
+            updateAgentStatus('Systems in standby mode');
+        }
+
+        // Initialize when page loads
+        window.onload = initializeDashboard;
+    </script>
+</body>
+</html>

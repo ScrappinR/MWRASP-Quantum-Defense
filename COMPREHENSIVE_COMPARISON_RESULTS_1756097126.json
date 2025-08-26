@@ -1,0 +1,15 @@
+{
+  "timestamp": "2025-08-24T23:45:23.275795",
+  "claimed_metrics": {
+    "detection_latency_ms": 70.9,
+    "detection_accuracy_percent": 100.0,
+    "false_positive_rate_percent": 2.3,
+    "splunk_improvement_factor": 26.2,
+    "crowdstrike_improvement_factor": 43.5
+  },
+  "simulation_results": {},
+  "hardware_results": {},
+  "comparison_analysis": {},
+  "validation_successful": false,
+  "error": "No module named 'qiskit_aer'"
+}

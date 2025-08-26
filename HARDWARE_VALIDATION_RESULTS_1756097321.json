@@ -1,0 +1,33 @@
+{
+  "timestamp": "2025-08-24T23:47:23.287743",
+  "claimed_metrics": {
+    "detection_latency_ms": 70.9,
+    "detection_accuracy_percent": 100.0,
+    "false_positive_rate_percent": 2.3,
+    "system_health": "OPTIMAL"
+  },
+  "hardware_test_results": {
+    "basic_detection": {
+      "execution_time_ms": 62619.680643081665,
+      "circuit_depth": 8,
+      "detection_fidelity": 0.939453125,
+      "total_measurements": 1024,
+      "results_distribution": {
+        "00": 479,
+        "11": 483,
+        "10": 11,
+        "01": 51
+      }
+    },
+    "shors_detection": {
+      "execution_time_ms": 6778.382062911987,
+      "circuit_depth": 12,
+      "unique_states": 8,
+      "periodicity_strength": 2.109375,
+      "detection_successful": true
+    }
+  },
+  "performance_analysis": {},
+  "validation_successful": false,
+  "error": "'DataBin' object has no attribute 'meus'"
+}

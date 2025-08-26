@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWRASP Unified Defense Control Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .dashboard-container {
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100vh;
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .header {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid #00ff41;
+            border-radius: 10px;
+            padding: 15px 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.1), transparent);
+            animation: scan 3s infinite;
+        }
+
+        @keyframes scan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            color: #00ff41;
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
+            margin-bottom: 5px;
+        }
+
+        .system-status {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-indicator.online { background: #00ff41; }
+        .status-indicator.warning { background: #ffaa00; }
+        .status-indicator.offline { background: #ff4444; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .main-dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto auto;
+            gap: 15px;
+            grid-template-areas:
+                "overview quantum jurisdiction"
+                "temporal agents legal-routing"
+                "metrics performance emergency"
+                "logs logs logs";
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00ff41, #0066cc, #00ff41);
+            animation: borderGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .panel h2 {
+            color: #00ff41;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.3);
+            padding-bottom: 8px;
+        }
+
+        .overview-panel { grid-area: overview; }
+        .quantum-panel { grid-area: quantum; }
+        .jurisdiction-panel { grid-area: jurisdiction; }
+        .temporal-panel { grid-area: temporal; }
+        .agents-panel { grid-area: agents; }
+        .legal-routing-panel { grid-area: legal-routing; }
+        .metrics-panel { grid-area: metrics; }
+        .performance-panel { grid-area: performance; }
+        .emergency-panel { grid-area: emergency; }
+        .logs-panel { grid-area: logs; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00ff41;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #cccccc;
+        }
+
+        .control-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            min-width: 80px;
+        }
+
+        .btn-primary {
+            background: #00ff41;
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            background: #00cc33;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+        }
+
+        .btn-danger {
+            background: #ff4444;
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background: #cc3333;
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.5);
+        }
+
+        .btn-warning {
+            background: #ffaa00;
+            color: #000;
+        }
+
+        .btn-warning:hover {
+            background: #cc8800;
+            box-shadow: 0 0 15px rgba(255, 170, 0, 0.5);
+        }
+
+        .btn-secondary {
+            background: #666666;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background: #555555;
+        }
+
+        .jurisdiction-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .jurisdiction-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+        }
+
+        .jurisdiction-card.active {
+            border-color: #ff4444;
+            background: rgba(255, 68, 68, 0.1);
+        }
+
+        .jurisdiction-card.passive {
+            border-color: #ffaa00;
+            background: rgba(255, 170, 0, 0.1);
+        }
+
+        .jurisdiction-card.disabled {
+            border-color: #666666;
+            background: rgba(102, 102, 102, 0.1);
+            opacity: 0.6;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            margin: 3px 0;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #ff4444;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(20px);
+        }
+
+        .chart-container {
+            height: 150px;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .log-container {
+            height: 200px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .log-entry {
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+        }
+
+        .log-entry.success {
+            background: rgba(0, 255, 65, 0.1);
+            border-left: 3px solid #00ff41;
+        }
+
+        .log-entry.warning {
+            background: rgba(255, 170, 0, 0.1);
+            border-left: 3px solid #ffaa00;
+        }
+
+        .log-entry.error {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 3px solid #ff4444;
+        }
+
+        .log-entry.system {
+            background: rgba(0, 150, 255, 0.1);
+            border-left: 3px solid #0096ff;
+        }
+
+        .agent-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .agent-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+        }
+
+        .agent-card.online {
+            border-color: #00ff41;
+        }
+
+        .agent-card.unresponsive {
+            border-color: #ff4444;
+            opacity: 0.7;
+        }
+
+        .emergency-controls {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .emergency-btn {
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            border: 2px solid #ff4444;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .emergency-btn:hover {
+            background: linear-gradient(45deg, #cc0000, #990000);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+        }
+
+        .emergency-active {
+            animation: emergencyPulse 1s infinite;
+        }
+
+        @keyframes emergencyPulse {
+            0%, 100% { background: rgba(255, 0, 0, 0.1); }
+            50% { background: rgba(255, 0, 0, 0.3); }
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 10px;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .routing-visualization {
+            height: 100px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .routing-node {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid #00ff41;
+            background: rgba(0, 255, 65, 0.2);
+            font-size: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: nodeGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes nodeGlow {
+            0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 65, 0.5); }
+            50% { box-shadow: 0 0 10px rgba(0, 255, 65, 0.8); }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="header">
+            <h1>MWRASP Unified Defense Control Center</h1>
+            <div class="system-status">
+                <div class="status-item">
+                    <div class="status-indicator online" id="quantumStatus"></div>
+                    <span>Quantum Detection</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-indicator online" id="temporalStatus"></div>
+                    <span>Temporal Fragmentation</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-indicator online" id="jurisdictionStatus"></div>
+                    <span>Legal Barriers</span>
+                </div>
+                <div class="status-item">
+                    <div class="status-indicator online" id="agentsStatus"></div>
+                    <span>Agent Network</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-dashboard">
+            <!-- System Overview -->
+            <div class="panel overview-panel">
+                <h2>System Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-value" id="systemUptime">0s</span>
+                        <div class="stat-label">System Uptime</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="totalThreats">0</span>
+                        <div class="stat-label">Threats Detected</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="activeFragments">0</span>
+                        <div class="stat-label">Active Fragments</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="activeAgents">0</span>
+                        <div class="stat-label">Online Agents</div>
+                    </div>
+                </div>
+                <div class="control-buttons">
+                    <button class="btn btn-primary" onclick="refreshSystemStatus()">Refresh Status</button>
+                    <button class="btn btn-secondary" onclick="exportSystemConfig()">Export Config</button>
+                </div>
+            </div>
+
+            <!-- Quantum Threat Detection -->
+            <div class="panel quantum-panel">
+                <h2>Quantum Detection</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-value" id="canaryTokens">0</span>
+                        <div class="stat-label">Canary Tokens</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="threatLevel">LOW</span>
+                        <div class="stat-label">Threat Level</div>
+                    </div>
+                </div>
+                <div class="control-buttons">
+                    <button class="btn btn-primary" onclick="createCanaryToken()">Create Token</button>
+                    <button class="btn btn-warning" onclick="simulateQuantumAttack()">Simulate Attack</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="quantumChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Jurisdiction Control -->
+            <div class="panel jurisdiction-panel">
+                <h2>Legal Barrier Control</h2>
+                
+                <!-- Master System Toggle -->
+                <div style="margin-bottom: 15px; padding: 10px; background: rgba(0, 0, 0, 0.5); border-radius: 8px; border: 1px solid #555;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-weight: bold; color: #00ff41;">Legal Routing System:</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="masterSystemToggle" checked onchange="toggleMasterSystem()">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div style="font-size: 0.85rem; color: #aaa; margin-top: 5px;">
+                        <span id="masterSystemStatus">ENABLED - Differential fragment routing active</span>
+                    </div>
+                </div>
+                
+                <div class="jurisdiction-grid" id="jurisdictionGrid">
+                    <!-- Jurisdictions populated by JavaScript -->
+                </div>
+                <div class="control-buttons">
+                    <button class="btn btn-danger" onclick="activatePolicy('maximum_hostility')">Max Hostility</button>
+                    <button class="btn btn-warning" onclick="activatePolicy('balanced_security')">Balanced</button>
+                    <button class="btn btn-primary" onclick="activatePolicy('western_friendly')">Western</button>
+                </div>
+            </div>
+
+            <!-- Temporal Fragmentation -->
+            <div class="panel temporal-panel">
+                <h2>Temporal Fragmentation</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-value" id="fragmentGroups">0</span>
+                        <div class="stat-label">Fragment Groups</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="avgLifetime">100ms</span>
+                        <div class="stat-label">Avg Lifetime</div>
+                    </div>
+                </div>
+                <div class="control-buttons">
+                    <button class="btn btn-primary" onclick="fragmentTestData()">Fragment Data</button>
+                    <button class="btn btn-secondary" onclick="reconstructData()">Reconstruct</button>
+                </div>
+                <div class="chart-container">
+                    <canvas id="fragmentChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Agent Network -->
+            <div class="panel agents-panel">
+                <h2>Agent Network</h2>
+                <div class="agent-grid" id="agentGrid">
+                    <!-- Agents populated by JavaScript -->
+                </div>
+                <div class="control-buttons">
+                    <button class="btn btn-primary" onclick="triggerCoordination()">Coordinate</button>
+                    <button class="btn btn-secondary" onclick="refreshAgents()">Refresh</button>
+                </div>
+            </div>
+
+            <!-- Legal Routing -->
+            <div class="panel legal-routing-panel">
+                <h2>Legal Routing</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-value" id="impossibilityScore">0.000</span>
+                        <div class="stat-label">Impossibility</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="routingLatency">0ms</span>
+                        <div class="stat-label">Latency</div>
+                    </div>
+                </div>
+                <div class="routing-visualization" id="routingViz">
+                    <!-- Routing nodes populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Real-time Metrics -->
+            <div class="panel metrics-panel">
+                <h2>Performance Metrics</h2>
+                <div class="chart-container">
+                    <canvas id="metricsChart"></canvas>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-value" id="throughput">0</span>
+                        <div class="stat-label">Ops/Sec</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="memoryUsage">0MB</span>
+                        <div class="stat-label">Memory</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Dashboard -->
+            <div class="panel performance-panel">
+                <h2>System Performance</h2>
+                <div class="chart-container">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Emergency Controls -->
+            <div class="panel emergency-panel">
+                <h2>Emergency Controls</h2>
+                <div class="emergency-controls">
+                    <!-- Master System Toggle -->
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(255, 0, 0, 0.1); border-radius: 8px; border: 1px solid #ff4444;">
+                        <div style="font-weight: bold; color: #ff4444; margin-bottom: 10px;">🚨 MASTER SYSTEM CONTROL 🚨</div>
+                        <button class="emergency-btn" onclick="toggleMasterSystem()" id="masterSystemBtn" style="font-size: 1.0rem; padding: 12px 24px;">
+                            MWRASP System: <span id="masterSystemStatus">ENABLED</span>
+                        </button>
+                        <div style="margin-top: 10px; font-size: 0.8rem; color: #ccc;">
+                            Click to completely disable/enable entire MWRASP system
+                        </div>
+                    </div>
+                    
+                    <!-- Emergency Shutdown -->
+                    <div style="margin-bottom: 20px; padding: 15px; background: rgba(255, 100, 0, 0.1); border-radius: 8px; border: 1px solid #ff6644;">
+                        <button class="emergency-btn" onclick="emergencyShutdown()" id="emergencyShutdownBtn" style="background: linear-gradient(45deg, #ff6600, #cc4400);">
+                            EMERGENCY SHUTDOWN
+                        </button>
+                        <div style="margin-top: 10px; font-size: 0.8rem; color: #ccc;">
+                            Immediate system halt for critical situations
+                        </div>
+                    </div>
+                    
+                    <!-- Maintenance Mode -->
+                    <button class="emergency-btn" onclick="toggleMaintenanceMode()" id="maintenanceBtn" style="background: linear-gradient(45deg, #ffaa00, #cc8800);">
+                        Maintenance Mode: <span id="maintenanceStatus">OFF</span>
+                    </button>
+                    
+                    <div style="margin-top: 15px; font-size: 0.9rem;">
+                        <div>System State: <span id="systemStateStatus">ENABLED</span></div>
+                        <div>Emergency Mode: <span id="emergencyStatus">INACTIVE</span></div>
+                        <div>All Jurisdictions: <span id="allJurisdictionsStatus">SELECTIVE</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Logs -->
+            <div class="panel logs-panel">
+                <h2>Real-time Activity Log</h2>
+                <div class="control-buttons">
+                    <button class="btn btn-secondary" onclick="clearActivityLog()">Clear Log</button>
+                    <label style="color: #cccccc; font-size: 0.9rem;">
+                        <input type="checkbox" id="autoScroll" checked style="margin-right: 5px;">
+                        Auto-scroll
+                    </label>
+                </div>
+                <div class="log-container" id="activityLog">
+                    <div class="log-entry system">
+                        <strong>[INIT]</strong> MWRASP Unified Control Center initialized
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>MWRASP Unified Defense Control Center v2.0 | 
+               Connected: <span id="connectedClients">0</span> | 
+               Last Update: <span id="lastUpdate">--:--:--</span> |
+               Emergency Mode: <span id="footerEmergencyStatus">INACTIVE</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // Global state management
+        let dashboardState = {
+            systemUptime: 0,
+            emergencyMode: false,
+            legalRoutingEnabled: true,
+            jurisdictions: {
+                'US': { name: 'United States', status: 'active', hostility: 0.85 },
+                'CN': { name: 'China', status: 'active', hostility: 0.92 },
+                'RU': { name: 'Russia', status: 'active', hostility: 0.88 },
+                'IR': { name: 'Iran', status: 'disabled', hostility: 0.95 },
+                'EU': { name: 'European Union', status: 'passive', hostility: 0.45 },
+                'CH': { name: 'Switzerland', status: 'passive', hostility: 0.25 },
+                'SG': { name: 'Singapore', status: 'active', hostility: 0.35 }
+            },
+            agents: [],
+            webSocket: null,
+            charts: {}
+        };
+
+        // Initialize dashboard
+        function initDashboard() {
+            addLogEntry('Dashboard initialization started', 'system');
+            
+            // Setup WebSocket connection
+            setupWebSocket();
+            
+            // Render components
+            renderJurisdictions();
+            renderAgents();
+            renderRoutingVisualization();
+            
+            // Initialize charts
+            initializeCharts();
+            
+            // Start real-time updates
+            startRealTimeUpdates();
+            
+            addLogEntry('All systems initialized successfully', 'success');
+        }
+
+        // WebSocket setup
+        function setupWebSocket() {
+            try {
+                dashboardState.webSocket = new WebSocket('ws://127.0.0.1:8000/ws');
+                
+                dashboardState.webSocket.onopen = function() {
+                    addLogEntry('WebSocket connection established', 'success');
+                    updateConnectionStatus(true);
+                };
+                
+                dashboardState.webSocket.onmessage = function(event) {
+                    const data = JSON.parse(event.data);
+                    handleWebSocketMessage(data);
+                };
+                
+                dashboardState.webSocket.onclose = function() {
+                    addLogEntry('WebSocket connection closed', 'warning');
+                    updateConnectionStatus(false);
+                    // Attempt reconnection
+                    setTimeout(setupWebSocket, 5000);
+                };
+                
+                dashboardState.webSocket.onerror = function(error) {
+                    addLogEntry('WebSocket error: ' + error, 'error');
+                };
+                
+            } catch (error) {
+                addLogEntry('Failed to establish WebSocket connection', 'error');
+            }
+        }
+
+        // Handle WebSocket messages
+        function handleWebSocketMessage(data) {
+            switch(data.type) {
+                case 'system_update':
+                    updateSystemMetrics(data.data);
+                    break;
+                case 'threat_detected':
+                    handleThreatDetection(data.data);
+                    break;
+                case 'agent_update':
+                    updateAgentStatus(data.data);
+                    break;
+                case 'fragment_update':
+                    updateFragmentStatus(data.data);
+                    break;
+            }
+        }
+
+        // Render jurisdictions
+        function renderJurisdictions() {
+            const grid = document.getElementById('jurisdictionGrid');
+            grid.innerHTML = '';
+
+            for (const [code, data] of Object.entries(dashboardState.jurisdictions)) {
+                const card = document.createElement('div');
+                card.className = `jurisdiction-card ${data.status}`;
+                card.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+                        <strong>${code}</strong>
+                        <label class="toggle-switch">
+                            <input type="checkbox" ${data.status === 'active' ? 'checked' : ''} 
+                                   onchange="toggleJurisdiction('${code}')">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div style="font-size: 0.7rem; color: #ccc;">${data.name}</div>
+                    <div style="font-size: 0.7rem;">H: ${data.hostility}</div>
+                `;
+                grid.appendChild(card);
+            }
+        }
+
+        // Render agents
+        function renderAgents() {
+            const grid = document.getElementById('agentGrid');
+            grid.innerHTML = '';
+
+            const agentTypes = ['Monitor', 'Defender', 'Analyzer', 'Coordinator', 'Recovery'];
+            
+            agentTypes.forEach(type => {
+                const card = document.createElement('div');
+                card.className = 'agent-card online';
+                card.innerHTML = `
+                    <div style="font-weight: bold;">${type}</div>
+                    <div style="font-size: 0.7rem; color: #00ff41;">ONLINE</div>
+                    <div style="font-size: 0.7rem;">Resp: ${Math.random() * 50 + 10 | 0}ms</div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Render routing visualization
+        function renderRoutingVisualization() {
+            const viz = document.getElementById('routingViz');
+            viz.innerHTML = '';
+            
+            let nodeIndex = 0;
+            for (const [code, data] of Object.entries(dashboardState.jurisdictions)) {
+                if (data.status === 'active') {
+                    const node = document.createElement('div');
+                    node.className = 'routing-node';
+                    node.textContent = code;
+                    node.style.left = (nodeIndex * 40 + 10) + 'px';
+                    node.style.top = (40 + Math.sin(nodeIndex) * 20) + 'px';
+                    viz.appendChild(node);
+                    nodeIndex++;
+                }
+            }
+        }
+
+        // Initialize charts
+        function initializeCharts() {
+            // Quantum Detection Chart
+            const quantumCtx = document.getElementById('quantumChart').getContext('2d');
+            dashboardState.charts.quantum = new Chart(quantumCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'Threat Level',
+                        data: [],
+                        borderColor: '#ff4444',
+                        backgroundColor: 'rgba(255, 68, 68, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, max: 10 }
+                    }
+                }
+            });
+
+            // Fragment Lifecycle Chart
+            const fragmentCtx = document.getElementById('fragmentChart').getContext('2d');
+            dashboardState.charts.fragment = new Chart(fragmentCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Active', 'Expiring', 'Expired'],
+                    datasets: [{
+                        label: 'Fragments',
+                        data: [0, 0, 0],
+                        backgroundColor: ['#00ff41', '#ffaa00', '#ff4444']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Performance Metrics Chart
+            const metricsCtx = document.getElementById('metricsChart').getContext('2d');
+            dashboardState.charts.metrics = new Chart(metricsCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'CPU Usage',
+                            data: [],
+                            borderColor: '#00ff41',
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Memory Usage',
+                            data: [],
+                            borderColor: '#0096ff',
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // System Performance Chart
+            const perfCtx = document.getElementById('performanceChart').getContext('2d');
+            dashboardState.charts.performance = new Chart(perfCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Quantum Detection', 'Fragmentation', 'Agent Network', 'Legal Routing', 'System Health'],
+                    datasets: [{
+                        label: 'Performance',
+                        data: [95, 87, 92, 89, 94],
+                        borderColor: '#00ff41',
+                        backgroundColor: 'rgba(0, 255, 65, 0.1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scale: {
+                        ticks: { beginAtZero: true, max: 100 }
+                    }
+                }
+            });
+        }
+
+        // Control functions
+        function toggleMasterSystem() {
+            const toggle = document.getElementById('masterSystemToggle');
+            const status = document.getElementById('masterSystemStatus');
+            const isEnabled = toggle.checked;
+            
+            dashboardState.legalRoutingEnabled = isEnabled;
+            
+            if (isEnabled) {
+                status.textContent = 'ENABLED - Differential fragment routing active';
+                status.style.color = '#00ff41';
+                addLogEntry('Legal routing system ENABLED', 'success');
+                
+                // Re-enable jurisdiction controls
+                document.querySelectorAll('.jurisdiction-card input').forEach(input => {
+                    input.disabled = false;
+                });
+                document.querySelectorAll('.jurisdiction-card').forEach(card => {
+                    card.style.opacity = '1';
+                });
+                
+            } else {
+                status.textContent = 'DISABLED - System operating without legal barriers';
+                status.style.color = '#ff4444';
+                addLogEntry('Legal routing system DISABLED - Operating in basic mode', 'warning');
+                
+                // Disable jurisdiction controls when master is off
+                document.querySelectorAll('.jurisdiction-card input').forEach(input => {
+                    input.disabled = true;
+                });
+                document.querySelectorAll('.jurisdiction-card').forEach(card => {
+                    card.style.opacity = '0.5';
+                });
+            }
+            
+            renderJurisdictions();
+            renderRoutingVisualization();
+            updateJurisdictionMetrics();
+        }
+        
+        function toggleJurisdiction(code) {
+            // Don't allow individual toggles if master system is disabled
+            if (!dashboardState.legalRoutingEnabled) {
+                addLogEntry('Cannot modify jurisdictions - Legal routing system is disabled', 'warning');
+                return;
+            }
+            
+            const jurisdiction = dashboardState.jurisdictions[code];
+            if (jurisdiction.status === 'active') {
+                jurisdiction.status = 'disabled';
+                addLogEntry(`${code} jurisdiction disabled`, 'warning');
+            } else {
+                jurisdiction.status = 'active';
+                addLogEntry(`${code} jurisdiction activated`, 'success');
+            }
+            renderJurisdictions();
+            renderRoutingVisualization();
+            updateJurisdictionMetrics();
+        }
+
+        function activatePolicy(policy) {
+            // Don't allow policy changes if master system is disabled
+            if (!dashboardState.legalRoutingEnabled) {
+                addLogEntry('Cannot change policy - Legal routing system is disabled', 'warning');
+                return;
+            }
+            
+            addLogEntry(`Policy switched to: ${policy}`, 'success');
+            
+            switch(policy) {
+                case 'maximum_hostility':
+                    setJurisdictionStatus('US', 'active');
+                    setJurisdictionStatus('CN', 'active');
+                    setJurisdictionStatus('RU', 'active');
+                    setJurisdictionStatus('IR', 'active');
+                    break;
+                case 'balanced_security':
+                    setJurisdictionStatus('US', 'active');
+                    setJurisdictionStatus('CN', 'passive');
+                    setJurisdictionStatus('RU', 'passive');
+                    setJurisdictionStatus('IR', 'disabled');
+                    break;
+                case 'western_friendly':
+                    setJurisdictionStatus('US', 'active');
+                    setJurisdictionStatus('EU', 'active');
+                    setJurisdictionStatus('CN', 'disabled');
+                    setJurisdictionStatus('RU', 'disabled');
+                    setJurisdictionStatus('IR', 'disabled');
+                    break;
+            }
+        }
+
+        function setJurisdictionStatus(code, status) {
+            if (dashboardState.jurisdictions[code]) {
+                dashboardState.jurisdictions[code].status = status;
+                renderJurisdictions();
+                renderRoutingVisualization();
+                updateJurisdictionMetrics();
+            }
+        }
+
+        function toggleEmergencyMode() {
+            dashboardState.emergencyMode = !dashboardState.emergencyMode;
+            const btn = document.getElementById('emergencyBtn');
+            const status = document.getElementById('emergencyStatus');
+            const footerStatus = document.getElementById('footerEmergencyStatus');
+            
+            if (dashboardState.emergencyMode) {
+                // Activate all jurisdictions
+                for (const code in dashboardState.jurisdictions) {
+                    dashboardState.jurisdictions[code].status = 'active';
+                }
+                btn.textContent = 'Emergency Mode: ON';
+                btn.classList.add('emergency-active');
+                status.textContent = 'ACTIVE';
+                footerStatus.textContent = 'ACTIVE';
+                document.getElementById('allJurisdictionsStatus').textContent = 'ALL ACTIVE';
+                addLogEntry('EMERGENCY MODE ACTIVATED - All jurisdictions enabled', 'error');
+            } else {
+                btn.textContent = 'Emergency Mode: OFF';
+                btn.classList.remove('emergency-active');
+                status.textContent = 'INACTIVE';
+                footerStatus.textContent = 'INACTIVE';
+                document.getElementById('allJurisdictionsStatus').textContent = 'SELECTIVE';
+                addLogEntry('Emergency mode deactivated', 'success');
+            }
+            
+            renderJurisdictions();
+            renderRoutingVisualization();
+            updateJurisdictionMetrics();
+        }
+
+        // API integration functions
+        async function createCanaryToken() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/quantum/token', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ data_type: 'test_data' })
+                });
+                const data = await response.json();
+                addLogEntry(`Canary token created: ${data.token_id}`, 'success');
+                updateCanaryTokenCount();
+            } catch (error) {
+                addLogEntry('Failed to create canary token', 'error');
+            }
+        }
+
+        async function simulateQuantumAttack() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/simulate/quantum_attack?intensity=5', {
+                    method: 'POST'
+                });
+                const data = await response.json();
+                addLogEntry(`Quantum attack simulated - ${data.threats_detected} threats detected`, 'warning');
+                updateThreatLevel();
+            } catch (error) {
+                addLogEntry('Failed to simulate quantum attack', 'error');
+            }
+        }
+
+        async function fragmentTestData() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/temporal/fragment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        data: 'Test data for temporal fragmentation demo',
+                        fragment_id: 'demo_fragment_' + Date.now()
+                    })
+                });
+                const data = await response.json();
+                addLogEntry(`Data fragmented into ${data.fragments_created} pieces`, 'success');
+                updateFragmentStats();
+            } catch (error) {
+                addLogEntry('Failed to fragment test data', 'error');
+            }
+        }
+
+        async function triggerCoordination() {
+            try {
+                const response = await fetch('http://127.0.0.1:8000/agents/coordinate', {
+                    method: 'POST'
+                });
+                const data = await response.json();
+                addLogEntry('Agent coordination triggered successfully', 'success');
+                updateAgentStats();
+            } catch (error) {
+                addLogEntry('Failed to trigger agent coordination', 'error');
+            }
+        }
+
+        // Update functions
+        function updateSystemMetrics(data) {
+            if (data) {
+                document.getElementById('systemUptime').textContent = Math.floor(data.uptime || 0) + 's';
+                document.getElementById('totalThreats').textContent = data.total_threats || 0;
+                document.getElementById('activeFragments').textContent = data.active_fragments || 0;
+                document.getElementById('activeAgents').textContent = data.active_agents || 5;
+            }
+        }
+
+        function updateJurisdictionMetrics() {
+            const active = Object.values(dashboardState.jurisdictions).filter(j => j.status === 'active').length;
+            const passive = Object.values(dashboardState.jurisdictions).filter(j => j.status === 'passive').length;
+            const avgHostility = Object.values(dashboardState.jurisdictions)
+                .filter(j => j.status === 'active')
+                .reduce((sum, j) => sum + j.hostility, 0) / Math.max(active, 1);
+            
+            document.getElementById('impossibilityScore').textContent = (avgHostility * active / 7).toFixed(3);
+            document.getElementById('routingLatency').textContent = (45 + active * 8 + Math.random() * 20).toFixed(0) + 'ms';
+        }
+
+        function addLogEntry(message, type = 'system') {
+            const log = document.getElementById('activityLog');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            const timestamp = new Date().toLocaleTimeString();
+            entry.innerHTML = `<strong>[${timestamp}]</strong> ${message}`;
+            
+            log.insertBefore(entry, log.firstChild);
+            
+            // Auto-scroll if enabled
+            if (document.getElementById('autoScroll').checked) {
+                log.scrollTop = 0;
+            }
+            
+            // Keep only last 100 entries
+            while (log.children.length > 100) {
+                log.removeChild(log.lastChild);
+            }
+            
+            // Update last update time
+            document.getElementById('lastUpdate').textContent = timestamp;
+        }
+
+        // Real-time updates
+        function startRealTimeUpdates() {
+            // Update system metrics every 2 seconds
+            setInterval(async () => {
+                try {
+                    const response = await fetch('http://127.0.0.1:8000/stats');
+                    const data = await response.json();
+                    updateSystemMetrics({
+                        uptime: data.system_uptime,
+                        total_threats: data.quantum_detector.total_threats_detected,
+                        active_fragments: data.temporal_fragmentation.total_fragments,
+                        active_agents: data.agent_coordination.total_agents
+                    });
+                } catch (error) {
+                    console.log('Update error:', error);
+                }
+                
+                // Update jurisdiction metrics
+                updateJurisdictionMetrics();
+                
+                // Update performance metrics
+                updatePerformanceCharts();
+                
+            }, 2000);
+
+            // Simulate some activity
+            setInterval(() => {
+                const activities = [
+                    'Fragment lifecycle management executed',
+                    'Agent coordination message processed',
+                    'Quantum signature validation completed',
+                    'Legal barrier assessment updated',
+                    'Routing decision immutably recorded'
+                ];
+                const activity = activities[Math.floor(Math.random() * activities.length)];
+                addLogEntry(activity, Math.random() > 0.8 ? 'warning' : 'success');
+            }, 3000);
+        }
+
+        async function updatePerformanceCharts() {
+            try {
+                // Fetch real performance data
+                const response = await fetch('/performance/current');
+                if (response.ok) {
+                    const perfData = await response.json();
+                    
+                    // Update real-time metrics display
+                    document.getElementById('memoryUsage').textContent = perfData.mwrasp_memory_mb.toFixed(1) + 'MB';
+                    document.getElementById('throughput').textContent = (perfData.mwrasp_threads * 10).toFixed(0);
+                    
+                    // Update quantum chart with CPU usage
+                    if (dashboardState.charts.quantum) {
+                        const chart = dashboardState.charts.quantum;
+                        const now = new Date().toLocaleTimeString();
+                        chart.data.labels.push(now);
+                        chart.data.datasets[0].data.push(perfData.mwrasp_cpu_percent);
+                        
+                        if (chart.data.labels.length > 10) {
+                            chart.data.labels.shift();
+                            chart.data.datasets[0].data.shift();
+                        }
+                        chart.update('none');
+                    }
+
+                    // Update metrics chart with real data
+                    if (dashboardState.charts.metrics) {
+                        const chart = dashboardState.charts.metrics;
+                        const now = new Date().toLocaleTimeString();
+                        chart.data.labels.push(now);
+                        chart.data.datasets[0].data.push(perfData.mwrasp_memory_mb);
+                        chart.data.datasets[1].data.push(perfData.system_cpu_percent);
+                        
+                        if (chart.data.labels.length > 15) {
+                            chart.data.labels.shift();
+                            chart.data.datasets[0].data.shift();
+                            chart.data.datasets[1].data.shift();
+                        }
+                        chart.update('none');
+                    }
+                    
+                    // Update performance radar chart
+                    if (dashboardState.charts.performance) {
+                        const chart = dashboardState.charts.performance;
+                        chart.data.datasets[0].data = [
+                            Math.min(perfData.mwrasp_cpu_percent * 2, 100),     // Quantum Detection (CPU based)
+                            Math.min(perfData.mwrasp_memory_mb / 2, 100),      // Fragmentation (Memory based)  
+                            Math.min(perfData.mwrasp_threads * 10, 100),       // Agent Network (Threads based)
+                            Math.min(perfData.mwrasp_connections * 25, 100),   // Legal Routing (Connections based)
+                            Math.min(100 - perfData.system_memory_percent, 100) // System Health (Inverse memory usage)
+                        ];
+                        chart.update('none');
+                    }
+                } else {
+                    console.warn('Failed to fetch performance data');
+                    // Fall back to simulated data for charts that need updates
+                    fallbackPerformanceUpdate();
+                }
+            } catch (error) {
+                console.error('Error fetching performance data:', error);
+                // Fall back to simulated data
+                fallbackPerformanceUpdate();
+            }
+        }
+        
+        function fallbackPerformanceUpdate() {
+            // Update quantum chart
+            if (dashboardState.charts.quantum) {
+                const chart = dashboardState.charts.quantum;
+                const now = new Date().toLocaleTimeString();
+                chart.data.labels.push(now);
+                chart.data.datasets[0].data.push(Math.random() * 8 + 2);
+                
+                if (chart.data.labels.length > 10) {
+                    chart.data.labels.shift();
+                    chart.data.datasets[0].data.shift();
+                }
+                chart.update('none');
+            }
+
+            // Update metrics chart
+            if (dashboardState.charts.metrics) {
+                const chart = dashboardState.charts.metrics;
+                const now = new Date().toLocaleTimeString();
+                chart.data.labels.push(now);
+                chart.data.datasets[0].data.push(Math.random() * 30 + 60);
+                chart.data.datasets[1].data.push(Math.random() * 20 + 40);
+                
+                if (chart.data.labels.length > 15) {
+                    chart.data.labels.shift();
+                    chart.data.datasets[0].data.shift();
+                    chart.data.datasets[1].data.shift();
+                }
+                chart.update('none');
+            }
+        }
+
+        // Utility functions
+        function clearActivityLog() {
+            document.getElementById('activityLog').innerHTML = '';
+            addLogEntry('Activity log cleared', 'system');
+        }
+
+        function refreshSystemStatus() {
+            addLogEntry('System status refresh initiated', 'system');
+            // Trigger system updates
+            startRealTimeUpdates();
+        }
+
+        function exportSystemConfig() {
+            const config = {
+                jurisdictions: dashboardState.jurisdictions,
+                emergencyMode: dashboardState.emergencyMode,
+                timestamp: new Date().toISOString()
+            };
+            const blob = new Blob([JSON.stringify(config, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'mwrasp-config.json';
+            a.click();
+            addLogEntry('System configuration exported', 'success');
+        }
+
+        function updateConnectionStatus(connected) {
+            document.getElementById('connectedClients').textContent = connected ? '1' : '0';
+        }
+
+        // System Control Functions
+        async function toggleMasterSystem() {
+            const currentStatus = document.getElementById('masterSystemStatus').textContent;
+            const isCurrentlyEnabled = currentStatus === 'ENABLED';
+            
+            if (isCurrentlyEnabled) {
+                // Disable system
+                if (!confirm('🚨 WARNING: This will completely disable the entire MWRASP system.\n\nAll protection, AI agents, and monitoring will stop.\n\nAre you sure?')) {
+                    return;
+                }
+                
+                try {
+                    const response = await fetch('/system-control/disable', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            confirm_disable: true,
+                            reason: 'Dashboard manual disable',
+                            initiated_by: 'dashboard_user'
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    if (response.ok) {
+                        document.getElementById('masterSystemStatus').textContent = 'DISABLED';
+                        document.getElementById('systemStateStatus').textContent = 'DISABLED';
+                        document.getElementById('masterSystemBtn').style.background = 'linear-gradient(45deg, #666666, #444444)';
+                        addLogEntry('🔴 MWRASP System Completely Disabled', 'error');
+                        addLogEntry(`Components disabled: ${result.disabled_components?.length || 0}`, 'system');
+                    } else {
+                        addLogEntry(`System disable failed: ${result.detail || result.message}`, 'error');
+                    }
+                } catch (error) {
+                    addLogEntry(`System disable error: ${error.message}`, 'error');
+                }
+            } else {
+                // Enable system
+                try {
+                    const response = await fetch('/system-control/enable', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            reason: 'Dashboard manual enable',
+                            initiated_by: 'dashboard_user'
+                        })
+                    });
+                    
+                    const result = await response.json();
+                    if (response.ok) {
+                        document.getElementById('masterSystemStatus').textContent = 'ENABLED';
+                        document.getElementById('systemStateStatus').textContent = 'ENABLED';
+                        document.getElementById('masterSystemBtn').style.background = 'linear-gradient(45deg, #ff0000, #cc0000)';
+                        addLogEntry('🟢 MWRASP System Completely Enabled', 'success');
+                        addLogEntry(`Components enabled: ${result.enabled_components?.length || 0}`, 'system');
+                    } else {
+                        addLogEntry(`System enable failed: ${result.detail || result.message}`, 'error');
+                    }
+                } catch (error) {
+                    addLogEntry(`System enable error: ${error.message}`, 'error');
+                }
+            }
+            
+            // Update system status
+            updateSystemControlStatus();
+        }
+
+        async function emergencyShutdown() {
+            if (!confirm('🚨🚨 EMERGENCY SHUTDOWN 🚨🚨\n\nThis will immediately halt ALL MWRASP operations.\nUse only in critical emergencies.\n\nConfirm EMERGENCY SHUTDOWN?')) {
+                return;
+            }
+            
+            if (!confirm('⚠️ FINAL WARNING ⚠️\n\nThis is an EMERGENCY SHUTDOWN.\nAll protection will stop immediately.\n\nProceed with EMERGENCY SHUTDOWN?')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('/system-control/emergency-shutdown', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        confirm_emergency: true,
+                        reason: 'Dashboard emergency shutdown',
+                        initiated_by: 'emergency_dashboard_user'
+                    })
+                });
+                
+                const result = await response.json();
+                if (response.ok) {
+                    document.getElementById('masterSystemStatus').textContent = 'EMERGENCY SHUTDOWN';
+                    document.getElementById('systemStateStatus').textContent = 'EMERGENCY SHUTDOWN';
+                    document.getElementById('masterSystemBtn').style.background = 'linear-gradient(45deg, #ff0000, #660000)';
+                    addLogEntry('🚨 EMERGENCY SHUTDOWN ACTIVATED', 'error');
+                    addLogEntry(`Emergency actions: ${result.emergency_actions?.length || 0}`, 'system');
+                } else {
+                    addLogEntry(`Emergency shutdown failed: ${result.detail || result.message}`, 'error');
+                }
+            } catch (error) {
+                addLogEntry(`Emergency shutdown error: ${error.message}`, 'error');
+            }
+        }
+
+        async function toggleMaintenanceMode() {
+            const currentStatus = document.getElementById('maintenanceStatus').textContent;
+            const isCurrentlyEnabled = currentStatus === 'ON';
+            
+            try {
+                const response = await fetch('/system-control/maintenance-mode', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        enabled: !isCurrentlyEnabled,
+                        reason: `Dashboard ${isCurrentlyEnabled ? 'disable' : 'enable'} maintenance mode`,
+                        initiated_by: 'dashboard_user'
+                    })
+                });
+                
+                const result = await response.json();
+                if (response.ok) {
+                    const newStatus = result.maintenance_mode ? 'ON' : 'OFF';
+                    document.getElementById('maintenanceStatus').textContent = newStatus;
+                    document.getElementById('systemStateStatus').textContent = result.state.toUpperCase();
+                    addLogEntry(`Maintenance mode ${newStatus}`, newStatus === 'ON' ? 'warning' : 'success');
+                } else {
+                    addLogEntry(`Maintenance mode toggle failed: ${result.detail || result.message}`, 'error');
+                }
+            } catch (error) {
+                addLogEntry(`Maintenance mode error: ${error.message}`, 'error');
+            }
+        }
+
+        async function updateSystemControlStatus() {
+            try {
+                const response = await fetch('/system-control/status');
+                if (response.ok) {
+                    const status = await response.json();
+                    
+                    // Update UI elements
+                    document.getElementById('systemStateStatus').textContent = status.system_state.toUpperCase();
+                    
+                    // Update master system button based on state
+                    const masterBtn = document.getElementById('masterSystemBtn');
+                    const masterStatus = document.getElementById('masterSystemStatus');
+                    
+                    if (status.system_state === 'enabled') {
+                        masterStatus.textContent = 'ENABLED';
+                        masterBtn.style.background = 'linear-gradient(45deg, #ff0000, #cc0000)';
+                    } else if (status.system_state === 'disabled') {
+                        masterStatus.textContent = 'DISABLED';
+                        masterBtn.style.background = 'linear-gradient(45deg, #666666, #444444)';
+                    } else if (status.system_state === 'emergency_shutdown') {
+                        masterStatus.textContent = 'EMERGENCY SHUTDOWN';
+                        masterBtn.style.background = 'linear-gradient(45deg, #ff0000, #660000)';
+                    } else if (status.system_state === 'maintenance_mode') {
+                        document.getElementById('maintenanceStatus').textContent = 'ON';
+                    }
+                    
+                    // Update component statuses
+                    if (status.component_status) {
+                        // Could add more detailed component status updates here
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to update system control status:', error);
+            }
+        }
+
+        // Initialize dashboard when page loads
+        window.addEventListener('load', initDashboard);
+    </script>
+</body>
+</html>

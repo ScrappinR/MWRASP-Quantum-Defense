@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWRASP Financial Services Defense Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a4c50 0%, #2d5016 100%);
+            border-bottom: 3px solid #00ff41;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #00ff41;
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.7);
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .financial-status {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 65, 0.3);
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .status-dot.secure { background: #00ff41; }
+        .status-dot.monitoring { background: #ffaa00; }
+        .status-dot.threat { background: #ff4444; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .main-dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: auto auto auto auto;
+            gap: 20px;
+            padding: 20px;
+            grid-template-areas:
+                "trading swift crypto compliance"
+                "fraud regulatory threats emergency"
+                "metrics metrics performance performance"
+                "logs logs logs logs";
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .panel:hover {
+            border-color: rgba(0, 255, 65, 0.6);
+            box-shadow: 0 5px 25px rgba(0, 255, 65, 0.2);
+        }
+
+        .panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00ff41, #ffaa00, #00ff41);
+            animation: borderScan 3s ease-in-out infinite;
+        }
+
+        @keyframes borderScan {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .panel h2 {
+            color: #00ff41;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .panel-icon {
+            width: 20px;
+            height: 20px;
+            background: #00ff41;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .trading-panel { grid-area: trading; }
+        .swift-panel { grid-area: swift; }
+        .crypto-panel { grid-area: crypto; }
+        .compliance-panel { grid-area: compliance; }
+        .fraud-panel { grid-area: fraud; }
+        .regulatory-panel { grid-area: regulatory; }
+        .threats-panel { grid-area: threats; }
+        .emergency-panel { grid-area: emergency; }
+        .metrics-panel { grid-area: metrics; }
+        .performance-panel { grid-area: performance; }
+        .logs-panel { grid-area: logs; }
+
+        .financial-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #00ff41;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #cccccc;
+        }
+
+        .financial-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            min-width: 70px;
+        }
+
+        .btn-secure {
+            background: #00ff41;
+            color: #000;
+        }
+
+        .btn-secure:hover {
+            background: #00cc33;
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+        }
+
+        .btn-alert {
+            background: #ff4444;
+            color: #fff;
+        }
+
+        .btn-alert:hover {
+            background: #cc3333;
+            box-shadow: 0 0 15px rgba(255, 68, 68, 0.5);
+        }
+
+        .btn-warning {
+            background: #ffaa00;
+            color: #000;
+        }
+
+        .btn-warning:hover {
+            background: #cc8800;
+            box-shadow: 0 0 15px rgba(255, 170, 0, 0.5);
+        }
+
+        .threat-list {
+            max-height: 120px;
+            overflow-y: auto;
+        }
+
+        .threat-item {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 3px solid #ff4444;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .compliance-item {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        .compliance-item.active {
+            border-color: #00ff41;
+            background: rgba(0, 255, 65, 0.1);
+        }
+
+        .chart-container {
+            height: 120px;
+            margin: 10px 0;
+        }
+
+        .log-container {
+            height: 200px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .log-entry {
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.8rem;
+            position: relative;
+        }
+
+        .log-entry.financial {
+            background: rgba(0, 255, 65, 0.1);
+            border-left: 3px solid #00ff41;
+        }
+
+        .log-entry.fraud {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 3px solid #ff4444;
+        }
+
+        .log-entry.compliance {
+            background: rgba(0, 150, 255, 0.1);
+            border-left: 3px solid #0096ff;
+        }
+
+        .log-entry.trading {
+            background: rgba(255, 170, 0, 0.1);
+            border-left: 3px solid #ffaa00;
+        }
+
+        .emergency-controls {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .emergency-btn {
+            font-size: 1.1rem;
+            padding: 12px 24px;
+            background: linear-gradient(45deg, #ff0000, #cc0000);
+            border: 2px solid #ff4444;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .emergency-btn:hover {
+            background: linear-gradient(45deg, #cc0000, #990000);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
+        }
+
+        .emergency-active {
+            animation: emergencyFlash 1s infinite;
+        }
+
+        @keyframes emergencyFlash {
+            0%, 100% { background: rgba(255, 0, 0, 0.1); }
+            50% { background: rgba(255, 0, 0, 0.4); }
+        }
+
+        .financial-metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .metric-card {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00ff41;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .transaction-flow {
+            height: 80px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .flow-node {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #00ff41;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+            color: #000;
+            animation: flowPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes flowPulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(0, 255, 65, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 65, 0.9); }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>MWRASP Financial Services Defense Center</h1>
+        <div class="subtitle">Quantum-Resistant Protection for Banking & Trading Systems</div>
+        <div class="financial-status">
+            <div class="status-indicator">
+                <div class="status-dot secure" id="tradingStatus"></div>
+                <span>Trading Systems</span>
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot secure" id="swiftStatus"></div>
+                <span>SWIFT Network</span>
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot monitoring" id="cryptoStatus"></div>
+                <span>Crypto Exchange</span>
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot secure" id="complianceStatus"></div>
+                <span>Compliance</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-dashboard">
+        <!-- Trading Systems -->
+        <div class="panel trading-panel">
+            <h2><div class="panel-icon">HFT</div>High-Frequency Trading</h2>
+            <div class="financial-stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="tradingVolume">$2.4B</span>
+                    <div class="stat-label">Daily Volume</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="algorithmsProtected">15</span>
+                    <div class="stat-label">Algorithms</div>
+                </div>
+            </div>
+            <div class="financial-controls">
+                <button class="btn btn-secure" onclick="protectTradingAlgorithms()">Protect Algos</button>
+                <button class="btn btn-warning" onclick="simulateTradingAttack()">Test Security</button>
+            </div>
+            <div class="transaction-flow">
+                <div class="flow-node">NYSE</div>
+                <div class="flow-node">ALGO</div>
+                <div class="flow-node">EXEC</div>
+            </div>
+        </div>
+
+        <!-- SWIFT Network -->
+        <div class="panel swift-panel">
+            <h2><div class="panel-icon">MT</div>SWIFT Network</h2>
+            <div class="financial-stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="swiftMessages">1,247</span>
+                    <div class="stat-label">Messages/Hour</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="wireTransfers">$890M</span>
+                    <div class="stat-label">Wire Volume</div>
+                </div>
+            </div>
+            <div class="financial-controls">
+                <button class="btn btn-secure" onclick="secureSwiftMessages()">Secure MT103</button>
+                <button class="btn btn-alert" onclick="emergencySwiftShutdown()">Emergency Stop</button>
+            </div>
+            <div class="chart-container">
+                <canvas id="swiftChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Cryptocurrency -->
+        <div class="panel crypto-panel">
+            <h2><div class="panel-icon">₿</div>Crypto Exchange</h2>
+            <div class="financial-stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="cryptoVolume">$1.8B</span>
+                    <div class="stat-label">24h Volume</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="userAccounts">450K</span>
+                    <div class="stat-label">Active Users</div>
+                </div>
+            </div>
+            <div class="financial-controls">
+                <button class="btn btn-secure" onclick="protectCryptoExchange()">Secure Wallets</button>
+                <button class="btn btn-warning" onclick="testCryptoSecurity()">Test Defense</button>
+            </div>
+            <div class="transaction-flow">
+                <div class="flow-node">BTC</div>
+                <div class="flow-node">ETH</div>
+                <div class="flow-node">USDC</div>
+            </div>
+        </div>
+
+        <!-- Regulatory Compliance -->
+        <div class="panel compliance-panel">
+            <h2><div class="panel-icon">§</div>Compliance</h2>
+            <div class="compliance-grid">
+                <div class="compliance-item active">PCI-DSS</div>
+                <div class="compliance-item active">MiFID II</div>
+                <div class="compliance-item active">GDPR</div>
+                <div class="compliance-item active">Basel III</div>
+                <div class="compliance-item active">SOX</div>
+                <div class="compliance-item active">AML/BSA</div>
+            </div>
+            <div class="financial-controls">
+                <button class="btn btn-secure" onclick="runComplianceCheck()">Full Audit</button>
+                <button class="btn btn-warning" onclick="updateRegulations()">Update Rules</button>
+            </div>
+        </div>
+
+        <!-- Fraud Detection -->
+        <div class="panel fraud-panel">
+            <h2><div class="panel-icon">🔍</div>Fraud Detection</h2>
+            <div class="financial-stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="fraudAttempts">0</span>
+                    <div class="stat-label">Attempts Today</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="fraudBlocked">$2.3M</span>
+                    <div class="stat-label">Prevented Loss</div>
+                </div>
+            </div>
+            <div class="threat-list" id="fraudThreats">
+                <div class="threat-item">No active fraud detected</div>
+            </div>
+            <div class="financial-controls">
+                <button class="btn btn-secure" onclick="scanForFraud()">Scan Now</button>
+            </div>
+        </div>
+
+        <!-- Regulatory Panel -->
+        <div class="panel regulatory-panel">
+            <h2><div class="panel-icon">🌍</div>Global Regulations</h2>
+            <div class="financial-stats">
+                <div class="stat-item">
+                    <span class="stat-value" id="activeJurisdictions">7</span>
+                    <div class="stat-label">Jurisdictions</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="regulatoryBarriers">23</span>
+                    <div class="stat-label">Legal Barriers</div>
+                </div>
+            </div>
+            <div class="financial-controls">
+                <button class="btn btn-secure" onclick="optimizeRegulatory()">Optimize Routing</button>
+                <button class="btn btn-warning" onclick="regulatoryEmergency()">Emergency Mode</button>
+            </div>
+        </div>
+
+        <!-- Threat Monitor -->
+        <div class="panel threats-panel">
+            <h2><div class="panel-icon">⚠</div>Quantum Threats</h2>
+            <div class="threat-list" id="quantumThreats">
+                <div class="threat-item">System monitoring...</div>
+            </div>
+            <div class="financial-controls">
+                <button class="btn btn-alert" onclick="activateQuantumDefense()">Quantum Shield</button>
+                <button class="btn btn-warning" onclick="simulateQuantumAttack()">Test Response</button>
+            </div>
+        </div>
+
+        <!-- Emergency Controls -->
+        <div class="panel emergency-panel">
+            <h2><div class="panel-icon">🚨</div>Emergency Response</h2>
+            <div class="emergency-controls">
+                <button class="emergency-btn" onclick="toggleFinancialEmergency()" id="emergencyBtn">
+                    Emergency Mode: OFF
+                </button>
+                <div style="margin-top: 10px; font-size: 0.9rem;">
+                    <div>System Status: <span id="systemStatus">NORMAL</span></div>
+                    <div>Protection Level: <span id="protectionLevel">STANDARD</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Financial Metrics -->
+        <div class="panel metrics-panel">
+            <h2><div class="panel-icon">📊</div>Financial System Metrics</h2>
+            <div class="financial-metrics">
+                <div class="metric-card">
+                    <span class="metric-value" id="transactionThroughput">15,432</span>
+                    <div class="stat-label">Transactions/Sec</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value" id="quantumResistance">99.8%</span>
+                    <div class="stat-label">Quantum Resistance</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value" id="fragmentationRate">847</span>
+                    <div class="stat-label">Fragments/Min</div>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-value" id="complianceScore">100%</span>
+                    <div class="stat-label">Compliance Score</div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="metricsChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Performance Dashboard -->
+        <div class="panel performance-panel">
+            <h2><div class="panel-icon">⚡</div>System Performance</h2>
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Activity Logs -->
+        <div class="panel logs-panel">
+            <h2><div class="panel-icon">📋</div>Financial Activity Log</h2>
+            <div class="financial-controls">
+                <button class="btn btn-secure" onclick="clearFinancialLog()">Clear Log</button>
+                <button class="btn btn-warning" onclick="exportAuditTrail()">Export Audit</button>
+                <label style="color: #cccccc; font-size: 0.9rem; margin-left: 10px;">
+                    <input type="checkbox" id="autoScroll" checked style="margin-right: 5px;">
+                    Auto-scroll
+                </label>
+            </div>
+            <div class="log-container" id="financialLog">
+                <div class="log-entry financial">
+                    <strong>[INIT]</strong> Financial Services Defense Center initialized
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Financial dashboard state
+        let financialState = {
+            emergencyMode: false,
+            charts: {},
+            tradingVolume: 2400000000,
+            protectedAlgorithms: 15,
+            fraudAttempts: 0,
+            blockedFraud: 2300000
+        };
+
+        // Initialize financial dashboard
+        function initFinancialDashboard() {
+            addFinancialLog('Financial Defense Center initialization started', 'financial');
+            
+            // Initialize charts
+            initializeFinancialCharts();
+            
+            // Start real-time updates
+            startFinancialUpdates();
+            
+            addFinancialLog('All financial defense systems online', 'financial');
+        }
+
+        // Initialize charts
+        function initializeFinancialCharts() {
+            // SWIFT Messages Chart
+            const swiftCtx = document.getElementById('swiftChart').getContext('2d');
+            financialState.charts.swift = new Chart(swiftCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [{
+                        label: 'SWIFT Messages',
+                        data: [],
+                        borderColor: '#00ff41',
+                        backgroundColor: 'rgba(0, 255, 65, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+
+            // Financial Metrics Chart
+            const metricsCtx = document.getElementById('metricsChart').getContext('2d');
+            financialState.charts.metrics = new Chart(metricsCtx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Transaction Volume',
+                            data: [],
+                            borderColor: '#00ff41',
+                            tension: 0.4
+                        },
+                        {
+                            label: 'Security Score',
+                            data: [],
+                            borderColor: '#0096ff',
+                            tension: 0.4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // System Performance Chart
+            const perfCtx = document.getElementById('performanceChart').getContext('2d');
+            financialState.charts.performance = new Chart(perfCtx, {
+                type: 'radar',
+                data: {
+                    labels: ['Trading', 'SWIFT', 'Crypto', 'Compliance', 'Fraud Detection', 'Quantum Defense'],
+                    datasets: [{
+                        label: 'System Performance',
+                        data: [98, 95, 92, 100, 96, 99],
+                        borderColor: '#00ff41',
+                        backgroundColor: 'rgba(0, 255, 65, 0.1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { r: { beginAtZero: true, max: 100 } }
+                }
+            });
+        }
+
+        // Financial control functions
+        async function protectTradingAlgorithms() {
+            addFinancialLog('Activating quantum protection for trading algorithms', 'trading');
+            
+            try {
+                // Simulate API call to protect trading algorithms
+                const response = await fetch('http://127.0.0.1:8000/temporal/fragment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        data: 'TRADING_ALGORITHM_PROTECTION_DATA',
+                        fragment_id: 'hft_algo_' + Date.now()
+                    })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    addFinancialLog(`Trading algorithms protected with ${data.fragments_created} fragments`, 'trading');
+                    updateTradingStats();
+                }
+            } catch (error) {
+                addFinancialLog('Failed to protect trading algorithms', 'fraud');
+            }
+        }
+
+        async function secureSwiftMessages() {
+            addFinancialLog('Securing SWIFT MT103 messages with quantum resistance', 'financial');
+            
+            try {
+                const response = await fetch('http://127.0.0.1:8000/quantum/token', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ data_type: 'SWIFT_MESSAGE' })
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    addFinancialLog(`SWIFT monitoring token deployed: ${data.token_id.substring(0, 16)}...`, 'financial');
+                    updateSwiftStats();
+                }
+            } catch (error) {
+                addFinancialLog('SWIFT security deployment failed', 'fraud');
+            }
+        }
+
+        async function protectCryptoExchange() {
+            addFinancialLog('Activating cryptocurrency exchange quantum defense', 'financial');
+            
+            const cryptoTokens = ['BTC_WALLET', 'ETH_WALLET', 'EXCHANGE_API', 'USER_ACCOUNTS'];
+            
+            for (const tokenType of cryptoTokens) {
+                try {
+                    const response = await fetch('http://127.0.0.1:8000/quantum/token', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ data_type: tokenType })
+                    });
+                    
+                    if (response.ok) {
+                        addFinancialLog(`${tokenType} protection token deployed`, 'financial');
+                    }
+                } catch (error) {
+                    addFinancialLog(`Failed to protect ${tokenType}`, 'fraud');
+                }
+            }
+            
+            updateCryptoStats();
+        }
+
+        async function scanForFraud() {
+            addFinancialLog('Initiating comprehensive fraud detection scan', 'compliance');
+            
+            try {
+                const response = await fetch('http://127.0.0.1:8000/simulate/quantum_attack?intensity=3', {
+                    method: 'POST'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    
+                    if (data.threats_detected > 0) {
+                        financialState.fraudAttempts += data.threats_detected;
+                        addFinancialLog(`FRAUD DETECTED: ${data.threats_detected} suspicious activities`, 'fraud');
+                        updateFraudDisplay();
+                    } else {
+                        addFinancialLog('Fraud scan complete - no threats detected', 'financial');
+                    }
+                }
+            } catch (error) {
+                addFinancialLog('Fraud detection scan failed', 'fraud');
+            }
+        }
+
+        async function simulateQuantumAttack() {
+            addFinancialLog('Simulating quantum attack on financial systems', 'fraud');
+            
+            try {
+                const response = await fetch('http://127.0.0.1:8000/simulate/quantum_attack?intensity=7', {
+                    method: 'POST'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    addFinancialLog(`Quantum attack simulation: ${data.threats_detected} threats detected`, 'fraud');
+                    updateThreatDisplay(data);
+                }
+            } catch (error) {
+                addFinancialLog('Quantum attack simulation failed', 'fraud');
+            }
+        }
+
+        function toggleFinancialEmergency() {
+            financialState.emergencyMode = !financialState.emergencyMode;
+            const btn = document.getElementById('emergencyBtn');
+            const status = document.getElementById('systemStatus');
+            const protection = document.getElementById('protectionLevel');
+            
+            if (financialState.emergencyMode) {
+                btn.textContent = 'Emergency Mode: ON';
+                btn.classList.add('emergency-active');
+                status.textContent = 'EMERGENCY';
+                protection.textContent = 'MAXIMUM';
+                addFinancialLog('FINANCIAL EMERGENCY MODE ACTIVATED', 'fraud');
+            } else {
+                btn.textContent = 'Emergency Mode: OFF';
+                btn.classList.remove('emergency-active');
+                status.textContent = 'NORMAL';
+                protection.textContent = 'STANDARD';
+                addFinancialLog('Emergency mode deactivated', 'financial');
+            }
+        }
+
+        // Update functions
+        function updateTradingStats() {
+            document.getElementById('algorithmsProtected').textContent = financialState.protectedAlgorithms;
+        }
+
+        function updateSwiftStats() {
+            const messages = Math.floor(Math.random() * 200) + 1200;
+            document.getElementById('swiftMessages').textContent = messages.toLocaleString();
+        }
+
+        function updateCryptoStats() {
+            const volume = (Math.random() * 0.5 + 1.5).toFixed(1);
+            document.getElementById('cryptoVolume').textContent = `$${volume}B`;
+        }
+
+        function updateFraudDisplay() {
+            document.getElementById('fraudAttempts').textContent = financialState.fraudAttempts;
+            const fraudList = document.getElementById('fraudThreats');
+            
+            if (financialState.fraudAttempts > 0) {
+                fraudList.innerHTML = `
+                    <div class="threat-item">High-frequency trading manipulation detected</div>
+                    <div class="threat-item">Suspicious cryptocurrency transfers</div>
+                    <div class="threat-item">Potential SWIFT message interception</div>
+                `;
+            }
+        }
+
+        function updateThreatDisplay(data) {
+            const threatsList = document.getElementById('quantumThreats');
+            threatsList.innerHTML = `
+                <div class="threat-item">Quantum threats detected: ${data.threats_detected}</div>
+                <div class="threat-item">Tokens compromised: ${data.threat_tokens?.length || 0}</div>
+                <div class="threat-item">Defense systems: ACTIVE</div>
+            `;
+        }
+
+        // Real-time updates
+        function startFinancialUpdates() {
+            setInterval(() => {
+                // Update charts
+                updateFinancialCharts();
+                
+                // Update metrics
+                updateFinancialMetrics();
+                
+                // Simulate activity
+                simulateFinancialActivity();
+                
+            }, 3000);
+
+            // More frequent metric updates
+            setInterval(updateFinancialMetrics, 1000);
+        }
+
+        function updateFinancialCharts() {
+            // Update SWIFT chart
+            if (financialState.charts.swift) {
+                const chart = financialState.charts.swift;
+                const now = new Date().toLocaleTimeString();
+                const messages = Math.floor(Math.random() * 300) + 1200;
+                
+                chart.data.labels.push(now);
+                chart.data.datasets[0].data.push(messages);
+                
+                if (chart.data.labels.length > 10) {
+                    chart.data.labels.shift();
+                    chart.data.datasets[0].data.shift();
+                }
+                chart.update('none');
+            }
+
+            // Update metrics chart
+            if (financialState.charts.metrics) {
+                const chart = financialState.charts.metrics;
+                const now = new Date().toLocaleTimeString();
+                
+                chart.data.labels.push(now);
+                chart.data.datasets[0].data.push(Math.random() * 20000 + 10000);
+                chart.data.datasets[1].data.push(Math.random() * 10 + 90);
+                
+                if (chart.data.labels.length > 15) {
+                    chart.data.labels.shift();
+                    chart.data.datasets[0].data.shift();
+                    chart.data.datasets[1].data.shift();
+                }
+                chart.update('none');
+            }
+        }
+
+        function updateFinancialMetrics() {
+            // Update throughput
+            const throughput = Math.floor(Math.random() * 5000) + 12000;
+            document.getElementById('transactionThroughput').textContent = throughput.toLocaleString();
+            
+            // Update fragmentation rate
+            const fragRate = Math.floor(Math.random() * 200) + 750;
+            document.getElementById('fragmentationRate').textContent = fragRate;
+            
+            // Update trading volume
+            const volume = (financialState.tradingVolume / 1000000000).toFixed(1);
+            document.getElementById('tradingVolume').textContent = `$${volume}B`;
+        }
+
+        function simulateFinancialActivity() {
+            const activities = [
+                'SWIFT MT103 message processed securely',
+                'High-frequency trading algorithm execution completed',
+                'Cryptocurrency transaction fragments expired safely',
+                'Regulatory compliance check passed',
+                'Quantum resistance validation successful',
+                'Cross-border payment routing optimized',
+                'Fraud detection pattern updated',
+                'Emergency response system tested'
+            ];
+            
+            const types = ['financial', 'trading', 'compliance', 'financial'];
+            const activity = activities[Math.floor(Math.random() * activities.length)];
+            const type = types[Math.floor(Math.random() * types.length)];
+            
+            addFinancialLog(activity, type);
+        }
+
+        // Utility functions
+        function addFinancialLog(message, type = 'financial') {
+            const log = document.getElementById('financialLog');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            const timestamp = new Date().toLocaleTimeString();
+            entry.innerHTML = `<strong>[${timestamp}]</strong> ${message}`;
+            
+            log.insertBefore(entry, log.firstChild);
+            
+            // Auto-scroll if enabled
+            if (document.getElementById('autoScroll').checked) {
+                log.scrollTop = 0;
+            }
+            
+            // Keep only last 50 entries
+            while (log.children.length > 50) {
+                log.removeChild(log.lastChild);
+            }
+        }
+
+        function clearFinancialLog() {
+            document.getElementById('financialLog').innerHTML = '';
+            addFinancialLog('Financial activity log cleared', 'compliance');
+        }
+
+        function exportAuditTrail() {
+            addFinancialLog('Audit trail export initiated', 'compliance');
+            // Simulate audit export
+            setTimeout(() => {
+                addFinancialLog('Audit trail exported successfully', 'compliance');
+            }, 1000);
+        }
+
+        // Initialize dashboard when page loads
+        window.addEventListener('load', initFinancialDashboard);
+    </script>
+</body>
+</html>

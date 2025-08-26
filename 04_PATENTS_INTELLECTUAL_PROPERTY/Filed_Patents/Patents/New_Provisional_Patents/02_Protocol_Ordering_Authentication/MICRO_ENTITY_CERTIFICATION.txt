@@ -1,0 +1,59 @@
+PTO/SB/15A (07-13)
+Approved for use through 03/31/2016. OMB 0651-0032
+U.S. Patent and Trademark Office; U.S. DEPARTMENT OF COMMERCE
+
+                    CERTIFICATION OF MICRO ENTITY STATUS
+                         (GROSS INCOME BASIS)
+
+Application Number: To be assigned
+Filing Date: [DATE]
+First Named Inventor: Brian James Rutherford
+Title: PROTOCOL PRESENTATION ORDER AS AUTHENTICATION MECHANISM FOR AI AGENTS 
+      IN CYBERSECURITY SYSTEMS
+
+Attorney Docket Number: RUTHERFORD-022-PROV
+
+I hereby certify that:
+
+(1) I qualify as a micro entity as defined in 37 CFR 1.29(a) because I am an applicant 
+    who is an inventor or joint inventor.
+
+(2) I have not been named as an inventor on more than four previously filed patent 
+    applications, excluding:
+    • Applications filed in another country;
+    • Provisional applications under 35 U.S.C. 111(b); and
+    • International applications for which the basic national fee under 35 U.S.C. 41(a) 
+      was not paid.
+
+(3) I have not, in the calendar year preceding the calendar year in which the examination 
+    fee is being paid, had a gross income, as defined in section 61(a) of the Internal 
+    Revenue Code of 1986, exceeding three times the median household income for that 
+    preceding calendar year, as most recently reported by the Bureau of the Census 
+    (currently $212,300 for 2024).
+
+(4) I have not assigned, granted, or conveyed, and am not under obligation by contract 
+    or law to assign, grant, or convey, a license or other ownership interest in the 
+    application concerned to an entity that, in the calendar year preceding the calendar 
+    year in which the examination fee is being paid, had a gross income, as defined in 
+    section 61(a) of the Internal Revenue Code of 1986, exceeding three times the median 
+    household income for that preceding calendar year.
+
+I acknowledge the duty to file, in this application or patent, notification of any change 
+in status resulting in the loss of entitlement to micro entity status prior to paying, or 
+at the time of paying, the lowest amount of a fee due at the time the fee is paid.
+
+I hereby acknowledge that any willful false statement made in this certification is 
+punishable under 18 U.S.C. 1001 by fine or imprisonment of not more than five (5) years, 
+or both.
+
+SIGNATURE: /Brian Rutherford/                  DATE: [DATE]
+
+NAME (Print/Type): Brian James Rutherford
+
+ADDRESS: 
+6 Country Place Drive
+Wimberley, Texas 78676-3114
+United States
+
+TELEPHONE: (512) 648-0219
+EMAIL: Actual@ScrappinR.com

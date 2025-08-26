@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWRASP Command Center - Quantum Defense Platform</title>
+    <link rel="stylesheet" href="/dashboard/style_v2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <div class="nav-brand">
+            <div class="brand-logo">
+                <div class="quantum-spinner"></div>
+                <span class="brand-text">MWRASP</span>
+            </div>
+            <div class="system-status">
+                <span class="status-indicator active"></span>
+                <span class="status-text">QUANTUM DEFENSE ACTIVE</span>
+            </div>
+        </div>
+        <div class="nav-controls">
+            <button class="nav-btn" onclick="toggleFullscreen()">
+                <i class="fas fa-expand"></i>
+            </button>
+            <button class="nav-btn alert-btn" onclick="openAgentVerification()">
+                <i class="fas fa-user-shield"></i>
+                <span class="alert-badge">!</span>
+            </button>
+            <button class="nav-btn" onclick="openSettings()">
+                <i class="fas fa-cog"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard Container -->
+    <div class="dashboard-container">
+        
+        <!-- Left Sidebar - System Controls -->
+        <aside class="control-sidebar">
+            <div class="control-section">
+                <h3 class="section-title">Defense Protocols</h3>
+                <div class="protocol-controls">
+                    <div class="protocol-toggle">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="quantum-defense" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span>Quantum Defense</span>
+                    </div>
+                    <div class="protocol-toggle">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="behavioral-crypto" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span>Behavioral Crypto</span>
+                    </div>
+                    <div class="protocol-toggle">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="temporal-frag" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span>Temporal Fragmentation</span>
+                    </div>
+                    <div class="protocol-toggle">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="evolution-mode" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span>Agent Evolution</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h3 class="section-title">Security Levels</h3>
+                <div class="security-selector">
+                    <select id="security-level" class="control-select">
+                        <option value="UNCLASSIFIED">UNCLASSIFIED</option>
+                        <option value="CONFIDENTIAL">CONFIDENTIAL</option>
+                        <option value="SECRET" selected>SECRET</option>
+                        <option value="TOP_SECRET">TOP SECRET</option>
+                        <option value="QUANTUM_CLASSIFIED">QUANTUM CLASSIFIED</option>
+                    </select>
+                </div>
+                <div class="security-metrics">
+                    <div class="metric-item">
+                        <span class="metric-label">Threat Level</span>
+                        <div class="threat-meter">
+                            <div class="threat-fill" style="width: 35%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h3 class="section-title">Quick Actions</h3>
+                <div class="action-buttons">
+                    <button class="action-btn primary" onclick="runAgentHeadcount()">
+                        <i class="fas fa-users"></i>
+                        Agent Headcount
+                    </button>
+                    <button class="action-btn warning" onclick="initiateVerification()">
+                        <i class="fas fa-fingerprint"></i>
+                        Verify All Agents
+                    </button>
+                    <button class="action-btn danger" onclick="emergencyProtocol()">
+                        <i class="fas fa-shield-alt"></i>
+                        Emergency Protocol
+                    </button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Top Stats Bar -->
+            <div class="stats-bar">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="agent-count">127</div>
+                        <div class="stat-label">Active Agents</div>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="fas fa-arrow-up"></i> 12%
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="response-time">87μs</div>
+                        <div class="stat-label">Response Time</div>
+                    </div>
+                    <div class="stat-trend down">
+                        <i class="fas fa-arrow-down"></i> 15%
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="threats-blocked">1,247</div>
+                        <div class="stat-label">Threats Blocked</div>
+                    </div>
+                    <div class="stat-trend up">
+                        <i class="fas fa-arrow-up"></i> 8%
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-value" id="evolution-gen">Gen 3</div>
+                        <div class="stat-label">Evolution Stage</div>
+                    </div>
+                    <div class="stat-trend">
+                        <i class="fas fa-equals"></i> Stable
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Grid -->
+            <div class="dashboard-grid">
+                
+                <!-- Agent Network Visualization -->
+                <div class="panel panel-large">
+                    <div class="panel-header">
+                        <h3>Agent Network Topology</h3>
+                        <div class="panel-controls">
+                            <button class="panel-btn" onclick="refreshNetwork()">
+                                <i class="fas fa-sync"></i>
+                            </button>
+                            <button class="panel-btn" onclick="toggleNetworkView()">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div id="network-visualization" class="visualization-container">
+                            <canvas id="network-canvas"></canvas>
+                            <div class="network-overlay">
+                                <div class="cluster-info">
+                                    <span class="cluster-label">Active Clusters</span>
+                                    <span class="cluster-count">8</span>
+                                </div>
+                                <div class="evolution-info">
+                                    <span class="evolution-label">Collective Intelligence</span>
+                                    <span class="evolution-level">NETWORK</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Behavioral Authentication Monitor -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Behavioral Authentication</h3>
+                        <span class="panel-badge success">ACTIVE</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="behavioral-monitor">
+                            <div class="behavior-metric">
+                                <span class="metric-name">Protocol Order Verification</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill success" style="width: 98%"></div>
+                                </div>
+                                <span class="metric-value">98%</span>
+                            </div>
+                            <div class="behavior-metric">
+                                <span class="metric-name">Digital Body Language</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill success" style="width: 95%"></div>
+                                </div>
+                                <span class="metric-value">95%</span>
+                            </div>
+                            <div class="behavior-metric">
+                                <span class="metric-name">Handshake Evolution</span>
+                                <div class="metric-bar">
+                                    <div class="metric-fill warning" style="width: 87%"></div>
+                                </div>
+                                <span class="metric-value">87%</span>
+                            </div>
+                            <div class="impostor-detection">
+                                <div class="detection-header">
+                                    <i class="fas fa-user-secret"></i>
+                                    <span>Impostor Detection</span>
+                                </div>
+                                <div class="detection-stats">
+                                    <div class="detection-item">
+                                        <span class="detection-value">3</span>
+                                        <span class="detection-label">Last 24h</span>
+                                    </div>
+                                    <div class="detection-item">
+                                        <span class="detection-value">99.2%</span>
+                                        <span class="detection-label">Accuracy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quantum Defense Status -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Quantum Defense Status</h3>
+                        <span class="panel-badge info">PQC ACTIVE</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="quantum-status">
+                            <div class="quantum-algorithms">
+                                <div class="algo-item active">
+                                    <span class="algo-name">KYBER-1024</span>
+                                    <span class="algo-status">✓</span>
+                                </div>
+                                <div class="algo-item active">
+                                    <span class="algo-name">DILITHIUM-5</span>
+                                    <span class="algo-status">✓</span>
+                                </div>
+                                <div class="algo-item active">
+                                    <span class="algo-name">FALCON-1024</span>
+                                    <span class="algo-status">✓</span>
+                                </div>
+                                <div class="algo-item">
+                                    <span class="algo-name">SPHINCS-256</span>
+                                    <span class="algo-status">•</span>
+                                </div>
+                            </div>
+                            <div class="quantum-metrics">
+                                <div class="q-metric">
+                                    <span class="q-label">Entanglement Detection</span>
+                                    <span class="q-value">NOMINAL</span>
+                                </div>
+                                <div class="q-metric">
+                                    <span class="q-label">Superposition Analysis</span>
+                                    <span class="q-value">0.023</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Temporal Fragmentation Monitor -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Temporal Fragmentation</h3>
+                        <div class="panel-controls">
+                            <span class="fragment-timer">TTL: 87ms</span>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="fragmentation-monitor">
+                            <div class="fragment-visualization">
+                                <div class="fragment-grid">
+                                    <div class="fragment active" data-ttl="95"></div>
+                                    <div class="fragment active" data-ttl="87"></div>
+                                    <div class="fragment active" data-ttl="73"></div>
+                                    <div class="fragment expiring" data-ttl="45"></div>
+                                    <div class="fragment active" data-ttl="92"></div>
+                                    <div class="fragment expired" data-ttl="0"></div>
+                                    <div class="fragment active" data-ttl="88"></div>
+                                    <div class="fragment active" data-ttl="76"></div>
+                                </div>
+                            </div>
+                            <div class="fragment-stats">
+                                <div class="frag-stat">
+                                    <span class="frag-label">Active Fragments</span>
+                                    <span class="frag-value">847</span>
+                                </div>
+                                <div class="frag-stat">
+                                    <span class="frag-label">Reconstruction Rate</span>
+                                    <span class="frag-value">99.8%</span>
+                                </div>
+                                <div class="frag-stat">
+                                    <span class="frag-label">Avg Lifetime</span>
+                                    <span class="frag-value">94ms</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agent Evolution Tracker -->
+                <div class="panel panel-wide">
+                    <div class="panel-header">
+                        <h3>Agent Evolution & Specialization</h3>
+                        <div class="panel-controls">
+                            <button class="panel-btn" onclick="toggleEvolutionView()">
+                                <i class="fas fa-chart-line"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="evolution-tracker">
+                            <div class="generation-timeline">
+                                <div class="timeline-item">
+                                    <div class="gen-marker">Gen 1</div>
+                                    <div class="gen-count">127</div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="gen-marker">Gen 2</div>
+                                    <div class="gen-count">156</div>
+                                </div>
+                                <div class="timeline-item current">
+                                    <div class="gen-marker">Gen 3</div>
+                                    <div class="gen-count">203</div>
+                                </div>
+                                <div class="timeline-item projected">
+                                    <div class="gen-marker">Gen 4</div>
+                                    <div class="gen-count">~250</div>
+                                </div>
+                            </div>
+                            <div class="specialization-breakdown">
+                                <div class="spec-category">
+                                    <span class="spec-name">Defenders</span>
+                                    <div class="spec-bar">
+                                        <div class="spec-fill defender" style="width: 30%"></div>
+                                    </div>
+                                    <span class="spec-count">61</span>
+                                </div>
+                                <div class="spec-category">
+                                    <span class="spec-name">Monitors</span>
+                                    <div class="spec-bar">
+                                        <div class="spec-fill monitor" style="width: 25%"></div>
+                                    </div>
+                                    <span class="spec-count">51</span>
+                                </div>
+                                <div class="spec-category">
+                                    <span class="spec-name">Analyzers</span>
+                                    <div class="spec-bar">
+                                        <div class="spec-fill analyzer" style="width: 20%"></div>
+                                    </div>
+                                    <span class="spec-count">41</span>
+                                </div>
+                                <div class="spec-category">
+                                    <span class="spec-name">Quantum Specialists</span>
+                                    <div class="spec-bar">
+                                        <div class="spec-fill quantum" style="width: 15%"></div>
+                                    </div>
+                                    <span class="spec-count">30</span>
+                                </div>
+                                <div class="spec-category">
+                                    <span class="spec-name">Behavioral Analysts</span>
+                                    <div class="spec-bar">
+                                        <div class="spec-fill behavioral" style="width: 10%"></div>
+                                    </div>
+                                    <span class="spec-count">20</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real-time Activity Feed -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Activity Feed</h3>
+                        <span class="live-indicator">
+                            <span class="live-dot"></span>
+                            LIVE
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="activity-feed" id="activity-feed">
+                            <div class="activity-item success">
+                                <span class="activity-time">12:34:56</span>
+                                <span class="activity-icon"><i class="fas fa-check"></i></span>
+                                <span class="activity-text">Agent ALPHA_023 authenticated via behavioral signature</span>
+                            </div>
+                            <div class="activity-item warning">
+                                <span class="activity-time">12:34:52</span>
+                                <span class="activity-icon"><i class="fas fa-exclamation"></i></span>
+                                <span class="activity-text">Anomaly detected in protocol sequence from BETA_017</span>
+                            </div>
+                            <div class="activity-item info">
+                                <span class="activity-time">12:34:48</span>
+                                <span class="activity-icon"><i class="fas fa-info"></i></span>
+                                <span class="activity-text">New agent spawned: QUANTUM_SPECIALIST_042</span>
+                            </div>
+                            <div class="activity-item success">
+                                <span class="activity-time">12:34:45</span>
+                                <span class="activity-icon"><i class="fas fa-shield-alt"></i></span>
+                                <span class="activity-text">Quantum threat neutralized in 73μs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Performance Metrics -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>System Performance</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="performance-metrics">
+                            <div class="perf-chart">
+                                <canvas id="performance-chart"></canvas>
+                            </div>
+                            <div class="perf-stats">
+                                <div class="perf-item">
+                                    <span class="perf-label">CPU Usage</span>
+                                    <span class="perf-value">34%</span>
+                                </div>
+                                <div class="perf-item">
+                                    <span class="perf-label">Memory</span>
+                                    <span class="perf-value">2.8 GB</span>
+                                </div>
+                                <div class="perf-item">
+                                    <span class="perf-label">Network I/O</span>
+                                    <span class="perf-value">847 Mb/s</span>
+                                </div>
+                                <div class="perf-item">
+                                    <span class="perf-label">Cache Hit Rate</span>
+                                    <span class="perf-value">94.2%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Right Sidebar - Agent Details -->
+        <aside class="details-sidebar">
+            <div class="agent-inspector">
+                <h3 class="inspector-title">Agent Inspector</h3>
+                <div class="inspector-content">
+                    <div class="agent-select">
+                        <select id="agent-selector" class="control-select">
+                            <option>Select Agent...</option>
+                            <option>ALPHA_001</option>
+                            <option>BETA_002</option>
+                            <option>QUANTUM_003</option>
+                        </select>
+                    </div>
+                    <div class="agent-details" id="agent-details">
+                        <div class="detail-group">
+                            <span class="detail-label">Status</span>
+                            <span class="detail-value status-active">ACTIVE</span>
+                        </div>
+                        <div class="detail-group">
+                            <span class="detail-label">Generation</span>
+                            <span class="detail-value">3</span>
+                        </div>
+                        <div class="detail-group">
+                            <span class="detail-label">Specialization</span>
+                            <span class="detail-value">Quantum Defense</span>
+                        </div>
+                        <div class="detail-group">
+                            <span class="detail-label">Trust Score</span>
+                            <span class="detail-value">0.94</span>
+                        </div>
+                        <div class="detail-group">
+                            <span class="detail-label">Relationships</span>
+                            <span class="detail-value">47 Active</span>
+                        </div>
+                        <div class="behavioral-signature">
+                            <h4>Behavioral Signature</h4>
+                            <div class="signature-item">
+                                <span>Packet Rhythm</span>
+                                <span class="signature-value">[100, 100, 200]ms</span>
+                            </div>
+                            <div class="signature-item">
+                                <span>Buffer Preference</span>
+                                <span class="signature-value">1.2x</span>
+                            </div>
+                            <div class="signature-item">
+                                <span>Hash Truncation</span>
+                                <span class="signature-value">12 chars</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="threat-radar">
+                <h3 class="radar-title">Threat Radar</h3>
+                <div class="radar-container">
+                    <canvas id="threat-radar"></canvas>
+                </div>
+                <div class="threat-list">
+                    <div class="threat-item">
+                        <span class="threat-type">Quantum</span>
+                        <span class="threat-level low">LOW</span>
+                    </div>
+                    <div class="threat-item">
+                        <span class="threat-type">Behavioral</span>
+                        <span class="threat-level medium">MEDIUM</span>
+                    </div>
+                    <div class="threat-item">
+                        <span class="threat-type">Network</span>
+                        <span class="threat-level low">LOW</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Agent Verification Modal -->
+    <div id="verification-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Agent Verification Protocol</h2>
+                <button class="modal-close" onclick="closeVerificationModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="verification-status">
+                    <div class="verification-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="verification-progress"></div>
+                        </div>
+                        <span class="progress-text">Verifying <span id="verify-count">0</span> / <span id="total-agents">203</span> agents</span>
+                    </div>
+                </div>
+                <div class="verification-results" id="verification-results">
+                    <!-- Results will be populated here -->
+                </div>
+                <div class="verification-actions">
+                    <button class="btn primary" onclick="startVerification()">Start Verification</button>
+                    <button class="btn secondary" onclick="exportResults()">Export Results</button>
+                    <button class="btn danger" onclick="quarantineSuspicious()">Quarantine Suspicious</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Emergency Protocol Modal -->
+    <div id="emergency-modal" class="modal">
+        <div class="modal-content emergency">
+            <div class="modal-header">
+                <h2>EMERGENCY PROTOCOL ACTIVATION</h2>
+            </div>
+            <div class="modal-body">
+                <div class="emergency-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>This will activate all defensive measures and may impact system performance.</p>
+                </div>
+                <div class="emergency-options">
+                    <label class="emergency-option">
+                        <input type="checkbox" checked>
+                        <span>Maximize encryption strength</span>
+                    </label>
+                    <label class="emergency-option">
+                        <input type="checkbox" checked>
+                        <span>Accelerate agent evolution</span>
+                    </label>
+                    <label class="emergency-option">
+                        <input type="checkbox" checked>
+                        <span>Enable paranoid fragmentation</span>
+                    </label>
+                    <label class="emergency-option">
+                        <input type="checkbox">
+                        <span>Isolate network segments</span>
+                    </label>
+                </div>
+                <div class="emergency-actions">
+                    <button class="btn danger large" onclick="activateEmergency()">ACTIVATE</button>
+                    <button class="btn secondary" onclick="closeEmergencyModal()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app_v2.js"></script>
+</body>
+</html>

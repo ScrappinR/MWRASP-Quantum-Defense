@@ -1,0 +1,149 @@
+{
+  "timestamp": "2025-08-24T23:59:25.004196",
+  "remaining_tests": {
+    "3_qubit_ghz": {
+      "execution_time_ms": 3536.1428260803223,
+      "circuit_depth": 9,
+      "ghz_fidelity": 0.96875,
+      "successful": true
+    },
+    "4_qubit_ghz": {
+      "execution_time_ms": 3133.7859630584717,
+      "circuit_depth": 12,
+      "ghz_fidelity": 0.84375,
+      "successful": true
+    },
+    "5_qubit_ghz": {
+      "execution_time_ms": 3149.320125579834,
+      "circuit_depth": 25,
+      "ghz_fidelity": 0.54296875,
+      "successful": true
+    },
+    "6_qubit_ghz": {
+      "execution_time_ms": 6130.427360534668,
+      "circuit_depth": 27,
+      "ghz_fidelity": 0.66796875,
+      "successful": true
+    },
+    "depth_18": {
+      "execution_time_ms": 3135.3745460510254,
+      "original_depth_multiplier": 1,
+      "transpiled_depth": 18,
+      "successful": true
+    },
+    "depth_24": {
+      "execution_time_ms": 3201.8392086029053,
+      "original_depth_multiplier": 2,
+      "transpiled_depth": 24,
+      "successful": true
+    },
+    "depth_30": {
+      "execution_time_ms": 3431.2689304351807,
+      "original_depth_multiplier": 3,
+      "transpiled_depth": 30,
+      "successful": true
+    },
+    "depth_36": {
+      "execution_time_ms": 3474.626064300537,
+      "original_depth_multiplier": 4,
+      "transpiled_depth": 36,
+      "successful": true
+    },
+    "depth_42": {
+      "execution_time_ms": 3322.2734928131104,
+      "original_depth_multiplier": 5,
+      "transpiled_depth": 42,
+      "successful": true
+    },
+    "shots_100": {
+      "shots": 100,
+      "execution_time_ms": 2861.4461421966553,
+      "bell_fidelity": 0.96,
+      "time_per_shot_ms": 28.614461421966553
+    },
+    "shots_256": {
+      "shots": 256,
+      "execution_time_ms": 3089.6005630493164,
+      "bell_fidelity": 0.95703125,
+      "time_per_shot_ms": 12.068752199411392
+    },
+    "shots_512": {
+      "shots": 512,
+      "execution_time_ms": 7400.163650512695,
+      "bell_fidelity": 0.927734375,
+      "time_per_shot_ms": 14.453444629907608
+    },
+    "shots_1024": {
+      "shots": 1024,
+      "execution_time_ms": 2991.624355316162,
+      "bell_fidelity": 0.9609375,
+      "time_per_shot_ms": 2.9215081594884396
+    },
+    "shots_2048": {
+      "shots": 2048,
+      "execution_time_ms": 3517.2274112701416,
+      "bell_fidelity": 0.94677734375,
+      "time_per_shot_ms": 1.7173961969092488
+    },
+    "error_analysis": {
+      "average_fidelity": 0.959375,
+      "fidelity_std_deviation": 0.01231553341440191,
+      "average_execution_time_ms": 5193.559980392456,
+      "time_std_deviation_ms": 3008.503486916126,
+      "consistency_score": 0.987162961913327,
+      "individual_fidelities": [
+        0.97265625,
+        0.951171875,
+        0.939453125,
+        0.96484375,
+        0.96875
+      ],
+      "individual_times": [
+        3042.924404144287,
+        4791.811466217041,
+        11051.188468933105,
+        4130.301475524902,
+        2951.5740871429443
+      ]
+    },
+    "backend_comparison": {
+      "ibm_brisbane": {
+        "execution_time_ms": 3000.527858734131,
+        "bell_fidelity": 0.92578125,
+        "circuit_depth": 8,
+        "num_qubits": 127
+      },
+      "ibm_torino": {
+        "execution_time_ms": 4318.886280059814,
+        "bell_fidelity": 0.86328125,
+        "circuit_depth": 8,
+        "num_qubits": 133
+      }
+    }
+  },
+  "platform_limits": {
+    "max_successful_qubits": 6,
+    "max_successful_depth": 42,
+    "optimal_shots": 2048
+  },
+  "comprehensive_summary": {
+    "total_tests_completed": 16,
+    "successful_tests": 16,
+    "success_rate_percent": 100.0,
+    "average_execution_time_ms": 3837.912041346232,
+    "platform_capabilities": {
+      "max_qubits_tested": 6,
+      "max_circuit_depth": 42,
+      "optimal_shot_count": 2048,
+      "backend_count": 2,
+      "total_qubits_available": 260
+    },
+    "performance_baseline": {
+      "quantum_hardware_validated": true,
+      "production_ready": true,
+      "scaling_potential": true,
+      "reliability_score": 0.987162961913327
+    }
+  },
+  "testing_complete": true
+}

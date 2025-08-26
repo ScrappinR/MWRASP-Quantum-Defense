@@ -1,0 +1,73 @@
+PTO/AIA/14 (07-13)
+Approved for use through 01/31/2014. OMB 0651-0032
+U.S. Patent and Trademark Office; U.S. DEPARTMENT OF COMMERCE
+
+                              APPLICATION DATA SHEET 37 CFR 1.76
+                                      
+Title of Invention: MULTI-JURISDICTIONAL DATA DISTRIBUTION SYSTEM WITH AUTOMATED LEGAL 
+                   COMPLEXITY GENERATION FOR DEFENSIVE CYBERSECURITY
+
+The application data sheet is part of the provisional or nonprovisional application for which it is being submitted.
+
+This application is for: ☒ Provisional ☐ Nonprovisional
+
+Attorney Docket Number: MWRASP-001-PROV
+
+APPLICANT INFORMATION:
+
+Applicant 1
+Applicant Authority: ☒ Inventor ☐ Legal Representative ☐ Party of Interest ☐ Assignee
+
+Prefix: Mr.    Given Name: Brian    Middle Name: James    Family Name: Rutherford    Suffix: 
+
+Residence Information:
+City: [City]                        State/Province: [State]
+Country of Residence: United States    Postal Code: [ZIP]
+
+Mailing Address:
+Address 1: [Street Address]
+Address 2: 
+City: [City]                        State/Province: [State]
+Country: United States               Postal Code: [ZIP]
+
+CORRESPONDENCE INFORMATION:
+
+Enter either Customer Number or complete the Correspondence Information section below.
+
+Email Address: [Email]
+Telephone: [Phone]                  Fax: 
+
+PUBLICATION INFORMATION:
+
+☐ Request Early Publication (Fee required at time of Request, 37 CFR 1.219)
+☒ Request Not to Publish. I hereby request that the attached application not be published under 35 U.S.C. 122(b) and certify that the invention disclosed in the attached application has not and will not be the subject of an application filed in another country, or under a multilateral international agreement, that requires publication at eighteen months after filing.
+
+REPRESENTATIVE INFORMATION:
+
+Representative information should be provided for all practitioners having a power of attorney in the application.
+
+Customer Number: N/A (Pro Se Applicant)
+
+DOMESTIC PRIORITY INFORMATION:
+
+This application claims priority to:
+None (First Filing)
+
+FOREIGN PRIORITY INFORMATION:
+
+This application claims priority to:
+None
+
+ASSIGNEE INFORMATION:
+
+Assignee 1
+Name of Assignee: Not Applicable (Inventor Owned)
+
+SIGNATURE:
+
+Signature: /Brian James Rutherford/            Date: [DATE]
+
+Name: Brian James Rutherford
+Title: Inventor
+
+This collection of information is required by 37 CFR 1.76. The information is required to obtain or retain a benefit by the public which is to file (and by the USPTO to process) an application. Confidentiality is governed by 35 U.S.C. 122 and 37 CFR 1.14. This collection is estimated to take 23 minutes to complete.

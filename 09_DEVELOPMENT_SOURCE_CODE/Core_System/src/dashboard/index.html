@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWRASP Quantum Defense Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">MWRASP Quantum Defense System</h1>
+                <div class="status-indicator">
+                    <div class="status-dot" id="systemStatus"></div>
+                    <span id="systemStatusText">Initializing...</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Grid -->
+        <main class="main-grid">
+            <!-- System Overview -->
+            <section class="panel system-overview">
+                <h2>System Overview</h2>
+                <div class="overview-stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="systemUptime">--</div>
+                        <div class="stat-label">Uptime (seconds)</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalThreats">--</div>
+                        <div class="stat-label">Threats Detected</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="activeFragments">--</div>
+                        <div class="stat-label">Active Fragments</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="activeAgents">--</div>
+                        <div class="stat-label">Active Agents</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quantum Threat Monitor -->
+            <section class="panel quantum-threats">
+                <h2>Quantum Threat Detection</h2>
+                <div class="threat-controls">
+                    <button id="simulateAttack" class="btn btn-warning">Simulate Attack</button>
+                    <button id="createToken" class="btn btn-primary">Create Canary Token</button>
+                </div>
+                <div class="threat-chart-container">
+                    <canvas id="threatChart"></canvas>
+                </div>
+                <div class="recent-threats" id="recentThreats">
+                    <h3>Recent Threats</h3>
+                    <div class="threats-list">
+                        <p class="no-data">No threats detected</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Temporal Fragmentation Status -->
+            <section class="panel fragmentation-status">
+                <h2>Temporal Fragmentation</h2>
+                <div class="fragment-controls">
+                    <button id="fragmentData" class="btn btn-primary">Fragment Test Data</button>
+                    <button id="reconstructData" class="btn btn-secondary">Reconstruct Data</button>
+                </div>
+                <div class="fragmentation-stats">
+                    <div class="fragment-stat">
+                        <span class="stat-label">Total Fragments:</span>
+                        <span class="stat-value" id="totalFragments">0</span>
+                    </div>
+                    <div class="fragment-stat">
+                        <span class="stat-label">Fragment Groups:</span>
+                        <span class="stat-value" id="fragmentGroups">0</span>
+                    </div>
+                    <div class="fragment-stat">
+                        <span class="stat-label">Cleanup Active:</span>
+                        <span class="stat-value" id="cleanupStatus">No</span>
+                    </div>
+                </div>
+                <div class="fragment-timeline">
+                    <h3>Fragment Lifecycle</h3>
+                    <div class="timeline-container">
+                        <canvas id="fragmentTimeline"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Agent Coordination -->
+            <section class="panel agent-coordination">
+                <h2>Autonomous Agent Network</h2>
+                <div class="agent-controls">
+                    <button id="triggerCoordination" class="btn btn-primary">Trigger Coordination</button>
+                    <button id="refreshAgents" class="btn btn-secondary">Refresh Status</button>
+                </div>
+                <div class="agent-grid" id="agentGrid">
+                    <!-- Agents will be populated dynamically -->
+                </div>
+                <div class="coordination-stats">
+                    <div class="coord-stat">
+                        <span class="stat-label">Total Coordinations:</span>
+                        <span class="stat-value" id="totalCoordinations">0</span>
+                    </div>
+                    <div class="coord-stat">
+                        <span class="stat-label">Success Rate:</span>
+                        <span class="stat-value" id="successRate">100%</span>
+                    </div>
+                    <div class="coord-stat">
+                        <span class="stat-label">Avg Response Time:</span>
+                        <span class="stat-value" id="avgResponseTime">0ms</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Real-time Activity Log -->
+            <section class="panel activity-log">
+                <h2>Real-time Activity</h2>
+                <div class="log-controls">
+                    <button id="clearLog" class="btn btn-secondary">Clear Log</button>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="autoScroll" checked>
+                        Auto-scroll
+                    </label>
+                </div>
+                <div class="log-container" id="logContainer">
+                    <div class="log-entry system">
+                        <span class="timestamp">[--:--:--]</span>
+                        <span class="message">Initializing dashboard...</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- System Health Monitor -->
+            <section class="panel health-monitor">
+                <h2>System Health</h2>
+                <div class="health-indicators">
+                    <div class="health-item">
+                        <div class="health-label">Quantum Detector</div>
+                        <div class="health-status" id="detectorHealth">
+                            <div class="health-dot unknown"></div>
+                            <span>Unknown</span>
+                        </div>
+                    </div>
+                    <div class="health-item">
+                        <div class="health-label">Fragmentation System</div>
+                        <div class="health-status" id="fragmentationHealth">
+                            <div class="health-dot unknown"></div>
+                            <span>Unknown</span>
+                        </div>
+                    </div>
+                    <div class="health-item">
+                        <div class="health-label">Agent Coordinator</div>
+                        <div class="health-status" id="coordinatorHealth">
+                            <div class="health-dot unknown"></div>
+                            <span>Unknown</span>
+                        </div>
+                    </div>
+                    <div class="health-item">
+                        <div class="health-label">WebSocket Connection</div>
+                        <div class="health-status" id="websocketHealth">
+                            <div class="health-dot unknown"></div>
+                            <span>Connecting...</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="performance-chart-container">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>MWRASP Quantum Defense System v1.0 | 
+                   Connected Clients: <span id="connectedClients">0</span> | 
+                   Last Update: <span id="lastUpdate">--:--:--</span></p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal for detailed views -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Details</h2>
+                <span class="modal-close" id="modalClose">&times;</span>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

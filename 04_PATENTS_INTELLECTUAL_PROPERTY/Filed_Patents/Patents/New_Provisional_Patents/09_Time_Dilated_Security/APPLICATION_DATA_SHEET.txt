@@ -1,0 +1,71 @@
+PTO/AIA/14 (02-18)
+Approved for use through 11/30/2020. OMB 0651-0032
+U.S. Patent and Trademark Office; U.S. DEPARTMENT OF COMMERCE
+
+                        APPLICATION DATA SHEET - 37 CFR 1.76
+                           Application Information
+
+Title of Invention: TIME-DILATED SECURITY ZONE SYSTEM FOR TEMPORAL DATA PROTECTION
+
+Attorney Docket Number: RUTHERFORD-031-PROV
+Application Type: Provisional
+
+Subject Matter: Utility
+
+Suggested Technology Center: 2400 (Computer Networks, Multiplex, Cable, and Cryptography)
+
+Total Drawing Sheets: 5        Large Entity: ☐
+Total Claims: 8               Small Entity: ☐
+                              Micro Entity: ☒
+
+Suggested Class: 726           Subclass: 1
+
+APPLICANT INFORMATION:
+
+Given Name: Brian             Middle Name: James
+Family Name: Rutherford
+Name Suffix: 
+City of Residence: Wimberley
+State/Province: TX            Country of Residence: US
+Street Address: 6 Country Place Drive
+City: Wimberley               State/Province: TX
+Country: US                   Postal Code: 78676-3114
+
+Mailing Address (if different from Residence):
+☐ Same as Residence Above
+
+Applicant Authority:
+☒ Inventor
+☐ Legal Representative (37 CFR 1.43)
+☐ Party of Interest (37 CFR 1.46)
+☐ Assignee
+
+CORRESPONDENCE INFORMATION:
+
+Name: Brian James Rutherford
+Customer Number (if applicable): 
+Street Address: 6 Country Place Drive
+City: Wimberley               State/Province: TX
+Country: US                   Postal Code: 78676-3114
+Telephone: (512) 648-0219
+Email: Actual@ScrappinR.com
+
+APPLICATION INFORMATION:
+
+Application Type: Provisional
+☒ National Stage Entry       ☐ Continuation        ☐ Divisional
+☐ Continuation-in-part      ☐ Substitute          ☐ Reissue
+
+DOMESTIC PRIORITY: N/A
+
+FOREIGN PRIORITY: N/A
+
+AUTHORIZATION TO PERMIT ACCESS:
+☒ Authorization to Permit Access to Application by Participating Offices
+
+APPLICANT SIGNATURE:
+
+Signature: /Brian Rutherford/              Date: [DATE]
+
+Name: Brian James Rutherford
+Title: Inventor (Pro Se)

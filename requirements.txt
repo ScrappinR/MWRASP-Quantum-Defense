@@ -1,0 +1,47 @@
+# MWRASP Quantum Defense Platform Requirements
+
+# Core Python packages
+asyncio>=3.4.3
+numpy>=1.21.0
+statistics>=1.0.3
+
+# Cryptography and Security
+cryptography>=3.4.8
+hashlib>=3.8.0
+secrets>=3.8.0
+
+# Network and Communications  
+requests>=2.25.1
+socket>=3.8.0
+ssl>=3.8.0
+
+# Data Processing
+sqlite3>=3.8.0
+json>=2.0.9
+pickle>=4.0
+
+# Concurrency and Threading
+threading>=3.8.0
+concurrent.futures>=3.8.0
+
+# Time and Date
+datetime>=3.8.0
+time>=3.8.0
+
+# System and OS
+os>=3.8.0
+uuid>=3.8.0
+logging>=3.8.0
+re>=3.8.0
+
+# Collections and Data Structures
+collections>=3.8.0
+typing>=3.8.0
+dataclasses>=3.7.0
+enum>=3.8.0
+
+# Abstract Base Classes
+abc>=3.8.0
+
+# Random number generation
+random>=3.8.0

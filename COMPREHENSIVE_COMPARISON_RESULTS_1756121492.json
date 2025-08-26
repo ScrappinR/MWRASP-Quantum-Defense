@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-08-25T06:31:23.623221",
+  "claimed_metrics": {
+    "detection_latency_ms": 70.9,
+    "detection_accuracy_percent": 100.0,
+    "false_positive_rate_percent": 2.3,
+    "splunk_improvement_factor": 26.2,
+    "crowdstrike_improvement_factor": 43.5
+  },
+  "simulation_results": {
+    "shors_detection": {
+      "execution_time_ms": 77.58045196533203,
+      "periodicity_signature": 1.0,
+      "unique_outcomes": 16,
+      "total_shots": 1024
+    }
+  },
+  "hardware_results": {
+    "shors_detection": {
+      "execution_time_ms": 4063.809633255005,
+      "periodicity_signature": 1.0,
+      "unique_outcomes": 13,
+      "total_shots": 512,
+      "circuit_depth_optimized": 8
+    }
+  },
+  "comparison_analysis": {},
+  "validation_successful": false,
+  "error": "name 'execute' is not defined"
+}

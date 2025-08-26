@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWRASP Jurisdiction Control Panel</title>
+    
+    <!-- Styling -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+        }
+        
+        .control-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .control-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,255,65,0.2);
+        }
+        
+        .jurisdiction-toggle {
+            appearance: none;
+            width: 50px;
+            height: 25px;
+            background: #374151;
+            border-radius: 25px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .jurisdiction-toggle:checked {
+            background: #10b981;
+        }
+        
+        .jurisdiction-toggle::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border-radius: 50%;
+            top: 2.5px;
+            left: 2.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .jurisdiction-toggle:checked::before {
+            transform: translateX(25px);
+        }
+        
+        .status-active { background: #10b981; }
+        .status-passive { background: #f59e0b; }
+        .status-disabled { background: #ef4444; }
+        .status-conditional { background: #8b5cf6; }
+        .status-emergency { background: #ec4899; }
+        
+        .policy-card {
+            border-left: 4px solid #10b981;
+            background: rgba(16, 185, 129, 0.1);
+        }
+        
+        .policy-card.inactive {
+            border-left-color: #6b7280;
+            background: rgba(107, 114, 128, 0.1);
+        }
+        
+        .hostility-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #374151;
+            overflow: hidden;
+        }
+        
+        .hostility-fill {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+        
+        .hostility-critical { background: #ef4444; }
+        .hostility-high { background: #f97316; }
+        .hostility-medium { background: #eab308; }
+        .hostility-low { background: #22c55e; }
+        
+        .emergency-mode {
+            animation: pulse-red 2s infinite;
+        }
+        
+        @keyframes pulse-red {
+            0%, 100% { background-color: rgba(239, 68, 68, 0.2); }
+            50% { background-color: rgba(239, 68, 68, 0.4); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-gray-900 bg-opacity-80 backdrop-blur border-b border-gray-700 px-6 py-4">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-gavel text-xl text-white"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold">Jurisdiction Control Panel</h1>
+                    <p class="text-sm text-gray-400">Selective Legal Barrier Management</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div id="emergency-status" class="px-4 py-2 rounded-lg bg-gray-700">
+                    <span class="text-sm font-medium">Normal Mode</span>
+                </div>
+                <button id="emergency-toggle" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg transition-colors">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    Emergency Mode
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-6 py-8">
+        
+        <!-- Current Policy Status -->
+        <div class="control-card p-6 mb-8">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-xl font-bold flex items-center">
+                    <i class="fas fa-map-marked-alt mr-3 text-blue-400"></i>
+                    Active Routing Policy
+                </h2>
+                <div class="flex items-center space-x-4">
+                    <select id="policy-selector" class="bg-gray-700 border border-gray-600 rounded-lg px-4 py-2">
+                        <option value="maximum_hostility">Maximum Hostility</option>
+                        <option value="balanced_security">Balanced Security</option>
+                        <option value="western_friendly">Western Friendly</option>
+                        <option value="financial_protection">Financial Protection</option>
+                    </select>
+                    <button id="apply-policy" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
+                        Apply Policy
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-green-400" id="active-count">5</div>
+                    <div class="text-sm text-gray-400">Active Jurisdictions</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-yellow-400" id="passive-count">1</div>
+                    <div class="text-sm text-gray-400">Passive Monitor</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-red-400" id="disabled-count">0</div>
+                    <div class="text-sm text-gray-400">Disabled</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-bold text-purple-400" id="impossibility-score">99.99</div>
+                    <div class="text-sm text-gray-400">% Impossibility</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Individual Jurisdiction Controls -->
+        <div class="control-card p-6 mb-8">
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <i class="fas fa-globe mr-3 text-green-400"></i>
+                Individual Jurisdiction Controls
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="jurisdiction-grid">
+                <!-- Jurisdiction cards will be populated here -->
+            </div>
+        </div>
+
+        <!-- Routing Policies Management -->
+        <div class="control-card p-6 mb-8">
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <i class="fas fa-cogs mr-3 text-purple-400"></i>
+                Routing Policies
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="policies-grid">
+                <!-- Policy cards will be populated here -->
+            </div>
+        </div>
+
+        <!-- Real-time Effectiveness Monitor -->
+        <div class="control-card p-6">
+            <h2 class="text-xl font-bold mb-6 flex items-center">
+                <i class="fas fa-chart-line mr-3 text-cyan-400"></i>
+                Legal Barrier Effectiveness
+            </h2>
+            
+            <div class="space-y-4" id="effectiveness-monitor">
+                <!-- Effectiveness metrics will be populated here -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- JavaScript for Control Panel -->
+    <script>
+        class JurisdictionControlPanel {
+            constructor() {
+                this.ws = null;
+                this.currentPolicy = 'maximum_hostility';
+                this.emergencyMode = false;
+                this.jurisdictions = new Map();
+                
+                this.initializeWebSocket();
+                this.initializeEventHandlers();
+                this.loadInitialData();
+            }
+
+            initializeWebSocket() {
+                try {
+                    this.ws = new WebSocket('ws://localhost:8000/ws');
+                    
+                    this.ws.onopen = () => {
+                        console.log('Connected to jurisdiction control system');
+                        this.subscribeToUpdates();
+                    };
+                    
+                    this.ws.onmessage = (event) => {
+                        const data = JSON.parse(event.data);
+                        this.handleWebSocketMessage(data);
+                    };
+                    
+                    this.ws.onclose = () => {
+                        console.log('Disconnected from jurisdiction control system');
+                        setTimeout(() => this.initializeWebSocket(), 5000);
+                    };
+                } catch (error) {
+                    console.error('WebSocket connection failed:', error);
+                    this.simulateData();
+                }
+            }
+
+            subscribeToUpdates() {
+                this.ws.send(JSON.stringify({
+                    type: 'subscribe',
+                    channels: ['jurisdiction_control', 'routing_policy', 'legal_effectiveness']
+                }));
+            }
+
+            handleWebSocketMessage(data) {
+                switch(data.type) {
+                    case 'jurisdiction_status_update':
+                        this.updateJurisdictionStatus(data);
+                        break;
+                    case 'policy_change':
+                        this.updateActivePolicy(data);
+                        break;
+                    case 'effectiveness_metrics':
+                        this.updateEffectivenessMetrics(data);
+                        break;
+                }
+            }
+
+            initializeEventHandlers() {
+                // Emergency mode toggle
+                document.getElementById('emergency-toggle').addEventListener('click', () => {
+                    this.toggleEmergencyMode();
+                });
+
+                // Policy selector
+                document.getElementById('apply-policy').addEventListener('click', () => {
+                    const policySelector = document.getElementById('policy-selector');
+                    this.activatePolicy(policySelector.value);
+                });
+            }
+
+            loadInitialData() {
+                // Simulate initial jurisdiction data
+                const mockJurisdictions = [
+                    {
+                        code: 'US', name: 'United States', status: 'active', 
+                        priority: 8, hostility: 0.75, fragments: 247
+                    },
+                    {
+                        code: 'CN', name: 'China', status: 'active', 
+                        priority: 9, hostility: 0.89, fragments: 312
+                    },
+                    {
+                        code: 'RU', name: 'Russia', status: 'active', 
+                        priority: 9, hostility: 0.94, fragments: 198
+                    },
+                    {
+                        code: 'EU', name: 'European Union', status: 'active', 
+                        priority: 6, hostility: 0.45, fragments: 156
+                    },
+                    {
+                        code: 'CH', name: 'Switzerland', status: 'passive', 
+                        priority: 7, hostility: 0.25, fragments: 89
+                    },
+                    {
+                        code: 'IR', name: 'Iran', status: 'active', 
+                        priority: 10, hostility: 0.98, fragments: 143
+                    }
+                ];
+
+                mockJurisdictions.forEach(jurisdiction => {
+                    this.jurisdictions.set(jurisdiction.code, jurisdiction);
+                });
+
+                this.renderJurisdictionGrid();
+                this.renderPoliciesGrid();
+                this.renderEffectivenessMonitor();
+                this.updateStatusCounters();
+            }
+
+            renderJurisdictionGrid() {
+                const grid = document.getElementById('jurisdiction-grid');
+                grid.innerHTML = '';
+
+                this.jurisdictions.forEach((jurisdiction, code) => {
+                    const card = document.createElement('div');
+                    card.className = 'control-card p-4';
+                    
+                    const statusColor = this.getStatusColor(jurisdiction.status);
+                    const hostilityClass = this.getHostilityClass(jurisdiction.hostility);
+                    
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-full ${statusColor} flex items-center justify-center">
+                                    <span class="text-xs font-bold text-white">${code}</span>
+                                </div>
+                                <div>
+                                    <div class="font-semibold">${jurisdiction.name}</div>
+                                    <div class="text-xs text-gray-400">${jurisdiction.status.toUpperCase()}</div>
+                                </div>
+                            </div>
+                            <label class="jurisdiction-toggle-container">
+                                <input type="checkbox" class="jurisdiction-toggle" 
+                                       ${jurisdiction.status === 'active' ? 'checked' : ''} 
+                                       data-jurisdiction="${code}">
+                            </label>
+                        </div>
+                        
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span>Priority:</span>
+                                <span class="font-mono">${jurisdiction.priority}/10</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Hostility:</span>
+                                <span class="font-mono">${jurisdiction.hostility.toFixed(2)}</span>
+                            </div>
+                            <div class="hostility-bar">
+                                <div class="hostility-fill ${hostilityClass}" 
+                                     style="width: ${jurisdiction.hostility * 100}%"></div>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Fragments:</span>
+                                <span class="font-mono">${jurisdiction.fragments}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-3 pt-3 border-t border-gray-600">
+                            <select class="w-full bg-gray-700 border border-gray-600 rounded px-2 py-1 text-xs"
+                                    data-jurisdiction="${code}">
+                                <option value="active" ${jurisdiction.status === 'active' ? 'selected' : ''}>Active</option>
+                                <option value="passive" ${jurisdiction.status === 'passive' ? 'selected' : ''}>Passive</option>
+                                <option value="disabled" ${jurisdiction.status === 'disabled' ? 'selected' : ''}>Disabled</option>
+                                <option value="conditional" ${jurisdiction.status === 'conditional' ? 'selected' : ''}>Conditional</option>
+                            </select>
+                        </div>
+                    `;
+                    
+                    // Add event listeners
+                    const toggle = card.querySelector('.jurisdiction-toggle');
+                    toggle.addEventListener('change', (e) => {
+                        this.toggleJurisdiction(code, e.target.checked);
+                    });
+                    
+                    const select = card.querySelector('select');
+                    select.addEventListener('change', (e) => {
+                        this.changeJurisdictionStatus(code, e.target.value);
+                    });
+                    
+                    grid.appendChild(card);
+                });
+            }
+
+            renderPoliciesGrid() {
+                const grid = document.getElementById('policies-grid');
+                grid.innerHTML = '';
+
+                const policies = [
+                    {
+                        name: 'maximum_hostility',
+                        title: 'Maximum Hostility',
+                        description: 'Use all hostile jurisdictions for maximum impossibility',
+                        active: ['US', 'CN', 'RU', 'IR'],
+                        passive: ['EU', 'CH'],
+                        impossibility: 99.99
+                    },
+                    {
+                        name: 'balanced_security',
+                        title: 'Balanced Security',
+                        description: 'Balanced approach with moderate impossibility',
+                        active: ['US', 'CN', 'EU'],
+                        passive: ['RU', 'CH'],
+                        impossibility: 94.5
+                    },
+                    {
+                        name: 'western_friendly',
+                        title: 'Western Friendly',
+                        description: 'Avoid sanctions targets, use Western allies',
+                        active: ['US', 'EU', 'CH'],
+                        passive: ['CN'],
+                        impossibility: 78.3
+                    },
+                    {
+                        name: 'financial_protection',
+                        title: 'Financial Protection',
+                        description: 'Optimized for financial data protection',
+                        active: ['CH', 'EU', 'CN'],
+                        passive: ['US'],
+                        impossibility: 89.7
+                    }
+                ];
+
+                policies.forEach(policy => {
+                    const card = document.createElement('div');
+                    card.className = `policy-card p-4 rounded-lg cursor-pointer transition-all ${policy.name === this.currentPolicy ? '' : 'inactive'}`;
+                    
+                    card.innerHTML = `
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="font-semibold">${policy.title}</h3>
+                            <div class="text-2xl font-bold ${policy.name === this.currentPolicy ? 'text-green-400' : 'text-gray-400'}">
+                                ${policy.impossibility}%
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-3">${policy.description}</p>
+                        <div class="space-y-2 text-xs">
+                            <div>
+                                <span class="text-green-400">Active:</span> ${policy.active.join(', ')}
+                            </div>
+                            <div>
+                                <span class="text-yellow-400">Passive:</span> ${policy.passive.join(', ')}
+                            </div>
+                        </div>
+                    `;
+                    
+                    card.addEventListener('click', () => {
+                        this.activatePolicy(policy.name);
+                    });
+                    
+                    grid.appendChild(card);
+                });
+            }
+
+            renderEffectivenessMonitor() {
+                const monitor = document.getElementById('effectiveness-monitor');
+                monitor.innerHTML = '';
+
+                const effectiveness = [
+                    { metric: 'Legal Impossibility Rate', value: 99.99, unit: '%', status: 'excellent' },
+                    { metric: 'Routing Decisions/Second', value: 2847, unit: 'ops/sec', status: 'excellent' },
+                    { metric: 'Average Latency', value: 23, unit: 'ms', status: 'good' },
+                    { metric: 'Active Legal Barriers', value: 847, unit: 'barriers', status: 'excellent' },
+                    { metric: 'Poison Pills Armed', value: 6, unit: 'systems', status: 'excellent' },
+                    { metric: 'Diplomatic Conflicts', value: 15, unit: 'pairs', status: 'good' }
+                ];
+
+                effectiveness.forEach(metric => {
+                    const row = document.createElement('div');
+                    row.className = 'flex items-center justify-between p-3 bg-gray-800 bg-opacity-50 rounded-lg';
+                    
+                    const statusColor = metric.status === 'excellent' ? 'text-green-400' : 
+                                       metric.status === 'good' ? 'text-yellow-400' : 'text-red-400';
+                    
+                    row.innerHTML = `
+                        <div class="flex-1">
+                            <div class="font-medium">${metric.metric}</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold ${statusColor}">
+                                ${metric.value.toLocaleString()}
+                            </div>
+                            <div class="text-sm text-gray-400">${metric.unit}</div>
+                        </div>
+                    `;
+                    
+                    monitor.appendChild(row);
+                });
+            }
+
+            getStatusColor(status) {
+                const colors = {
+                    'active': 'status-active',
+                    'passive': 'status-passive',
+                    'disabled': 'status-disabled',
+                    'conditional': 'status-conditional',
+                    'emergency': 'status-emergency'
+                };
+                return colors[status] || 'bg-gray-500';
+            }
+
+            getHostilityClass(hostility) {
+                if (hostility >= 0.8) return 'hostility-critical';
+                if (hostility >= 0.6) return 'hostility-high';
+                if (hostility >= 0.4) return 'hostility-medium';
+                return 'hostility-low';
+            }
+
+            toggleJurisdiction(code, enabled) {
+                const jurisdiction = this.jurisdictions.get(code);
+                if (jurisdiction) {
+                    jurisdiction.status = enabled ? 'active' : 'disabled';
+                    this.updateJurisdiction(code, jurisdiction);
+                }
+            }
+
+            changeJurisdictionStatus(code, status) {
+                const jurisdiction = this.jurisdictions.get(code);
+                if (jurisdiction) {
+                    jurisdiction.status = status;
+                    this.updateJurisdiction(code, jurisdiction);
+                }
+            }
+
+            updateJurisdiction(code, jurisdiction) {
+                this.jurisdictions.set(code, jurisdiction);
+                this.renderJurisdictionGrid();
+                this.updateStatusCounters();
+                
+                // Send update to server
+                if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                    this.ws.send(JSON.stringify({
+                        type: 'jurisdiction_control',
+                        action: 'set_status',
+                        jurisdiction: code,
+                        status: jurisdiction.status
+                    }));
+                }
+            }
+
+            activatePolicy(policyName) {
+                this.currentPolicy = policyName;
+                document.getElementById('policy-selector').value = policyName;
+                this.renderPoliciesGrid();
+                
+                // Send policy change to server
+                if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                    this.ws.send(JSON.stringify({
+                        type: 'jurisdiction_control',
+                        action: 'activate_policy',
+                        policy: policyName
+                    }));
+                }
+                
+                console.log(`Activated policy: ${policyName}`);
+            }
+
+            toggleEmergencyMode() {
+                this.emergencyMode = !this.emergencyMode;
+                
+                const statusElement = document.getElementById('emergency-status');
+                const toggleButton = document.getElementById('emergency-toggle');
+                
+                if (this.emergencyMode) {
+                    statusElement.innerHTML = '<span class="text-red-400 font-medium">EMERGENCY MODE</span>';
+                    statusElement.className = 'px-4 py-2 rounded-lg emergency-mode';
+                    toggleButton.innerHTML = '<i class="fas fa-times mr-2"></i>Exit Emergency';
+                    
+                    // Activate all jurisdictions in emergency mode
+                    this.jurisdictions.forEach((jurisdiction, code) => {
+                        jurisdiction.status = 'active';
+                    });
+                } else {
+                    statusElement.innerHTML = '<span class="text-sm font-medium">Normal Mode</span>';
+                    statusElement.className = 'px-4 py-2 rounded-lg bg-gray-700';
+                    toggleButton.innerHTML = '<i class="fas fa-exclamation-triangle mr-2"></i>Emergency Mode';
+                }
+                
+                this.renderJurisdictionGrid();
+                this.updateStatusCounters();
+                
+                // Send emergency mode change to server
+                if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                    this.ws.send(JSON.stringify({
+                        type: 'jurisdiction_control',
+                        action: 'emergency_mode',
+                        enabled: this.emergencyMode
+                    }));
+                }
+                
+                console.log(`Emergency mode: ${this.emergencyMode ? 'ON' : 'OFF'}`);
+            }
+
+            updateStatusCounters() {
+                let active = 0, passive = 0, disabled = 0;
+                
+                this.jurisdictions.forEach(jurisdiction => {
+                    switch(jurisdiction.status) {
+                        case 'active': active++; break;
+                        case 'passive': passive++; break;
+                        case 'disabled': disabled++; break;
+                    }
+                });
+                
+                document.getElementById('active-count').textContent = active;
+                document.getElementById('passive-count').textContent = passive;
+                document.getElementById('disabled-count').textContent = disabled;
+                
+                // Update impossibility score based on active jurisdictions
+                const avgHostility = Array.from(this.jurisdictions.values())
+                    .filter(j => j.status === 'active')
+                    .reduce((sum, j) => sum + j.hostility, 0) / active;
+                
+                const impossibility = Math.min(99.99, avgHostility * 100);
+                document.getElementById('impossibility-score').textContent = impossibility.toFixed(2);
+            }
+
+            simulateData() {
+                // Simulate real-time updates
+                setInterval(() => {
+                    this.jurisdictions.forEach((jurisdiction, code) => {
+                        // Simulate small changes in fragment counts
+                        jurisdiction.fragments += Math.floor(Math.random() * 10) - 5;
+                        jurisdiction.fragments = Math.max(0, jurisdiction.fragments);
+                    });
+                    
+                    if (Math.random() < 0.1) { // 10% chance to update display
+                        this.renderJurisdictionGrid();
+                    }
+                }, 2000);
+            }
+        }
+
+        // Initialize the control panel when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new JurisdictionControlPanel();
+        });
+    </script>
+</body>
+</html>

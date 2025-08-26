@@ -1,0 +1,63 @@
+Doc Code: COVER.PROV                                                    PTO/SB/16 (07-09)
+Document Description: Provisional Cover Sheet                          Approved for use through 07/31/2012
+                                                                       OMB 0651-0032
+
+                        PROVISIONAL APPLICATION FOR PATENT COVER SHEET
+                                    Page 1 of 1
+
+This is a request for filing a PROVISIONAL APPLICATION FOR PATENT under 37 CFR 1.53(c).
+
+INVENTOR(S)/APPLICANT(S)
+
+Given Name (first and middle [if any])     Family Name or Surname        Residence
+                                                                          (City and State or Foreign Country)
+
+Brian James                                 Rutherford                    Wimberley, Texas
+
+TITLE OF THE INVENTION (500 characters max):
+
+CROSS-ALGORITHM CORRELATION SYSTEM FOR QUANTUM ATTACK PATTERN DETECTION
+
+CORRESPONDENCE ADDRESS:
+
+Brian James Rutherford
+6 Country Place Drive
+Wimberley, Texas 78676-3114
+United States
+Telephone: (512) 648-0219
+Email: Actual@ScrappinR.com
+
+ATTORNEY DOCKET NUMBER: RUTHERFORD-026-PROV
+
+ENTITY STATUS (check one):
+☐ Large Entity
+☐ Small Entity (verify applicant qualifies under 37 CFR 1.27)
+☒ Micro Entity (verify applicant qualifies under 37 CFR 1.29)
+
+FILING FEE CALCULATION:
+
+Provisional Filing Fee (Micro Entity): $65.00
+Method of Payment: 
+☒ Credit Card (complete PTO-2038)
+☐ Check or money order made payable to: Commissioner for Patents
+☐ Deposit Account: 
+
+The invention was made by an agency of the United States Government or under a contract with an agency of the United States Government.
+☒ No
+☐ Yes, the invention was made by an agency of the U.S. Government
+☐ Yes, the invention was made under a contract with an agency of the U.S. Government
+
+ENCLOSED APPLICATION PARTS (check all that apply):
+☒ Specification                    Number of Pages: 42
+☒ Drawing(s)                       Number of Sheets: 5
+☒ Application Data Sheet           See 37 CFR 1.76
+☒ Micro Entity Certification      PTO/SB/15A
+☐ CD(s), Number of CDs:
+
+APPLICANT SIGNATURE:
+
+Signature: /Brian Rutherford/                    Date: [DATE]
+
+Name (Print/Type): Brian James Rutherford
+
+Registration Number (if applicable): N/A (Pro Se)
