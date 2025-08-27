@@ -44,6 +44,7 @@ class SecurityIncidentManager:
         self.incident_database = self._initialize_incident_database()
         self.notification_channels = {}
         self.incident_history = []
+        self.db_lock = threading.Lock()  # Thread safety for database operations
         self.alert_thresholds = {
             'fragment_compromise': 0.3,      # 30% fragment loss triggers alert
             'access_failure_rate': 0.1,      # 10% access failures triggers alert
@@ -54,7 +55,8 @@ class SecurityIncidentManager:
         
     def _initialize_incident_database(self):
         """Initialize SQLite database for incident tracking"""
-        conn = sqlite3.connect(':memory:')
+        conn = sqlite3.connect(':memory:', check_same_thread=False)
+        conn.execute('PRAGMA journal_mode=WAL')  # WAL mode for better concurrency
         cursor = conn.cursor()
         
         # Create incidents table
@@ -112,19 +114,20 @@ class SecurityIncidentManager:
         incident_id = f"inc_{secrets.token_hex(8)}"
         timestamp = time.time()
         
-        # Insert into database
-        cursor = self.incident_database.cursor()
-        cursor.execute('''
-            INSERT INTO incidents (id, type, severity, description, affected_resource, timestamp)
-            VALUES (?, ?, ?, ?, ?, ?)
-        ''', (incident_id, incident_type, severity, description, affected_resource, timestamp))
+        # Thread-safe database access
+        with self.db_lock:
+            cursor = self.incident_database.cursor()
+            cursor.execute('''
+                INSERT INTO incidents (id, type, severity, description, affected_resource, timestamp)
+                VALUES (?, ?, ?, ?, ?, ?)
+            ''', (incident_id, incident_type, severity, description, affected_resource, timestamp))
         
-        # Log breach events if provided
-        if additional_details:
-            for event_type, details in additional_details.items():
-                self._log_breach_event(incident_id, event_type, details)
-        
-        self.incident_database.commit()
+            # Log breach events if provided
+            if additional_details:
+                for event_type, details in additional_details.items():
+                    self._log_breach_event(incident_id, event_type, details)
+            
+            self.incident_database.commit()
         
         # Add to active incidents
         self.active_incidents[incident_id] = {

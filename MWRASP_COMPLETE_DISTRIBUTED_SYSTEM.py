@@ -929,6 +929,19 @@ class DeceptionAgent(DistributedAgent):
             
             self.active_honeypots[honeypot_id] = honeypot
             logger.info(f"Deception {self.agent_id} deployed honeypot: {strategy_name}")
+    
+    async def _deploy_threat_specific_honeypot(self, threat_type: str):
+        """Deploy honeypot tailored to specific threat type"""
+        strategy_map = {
+            'behavioral_anomaly': 'database_honeypot',
+            'system_alert': 'admin_panel_honeypot', 
+            'network_intrusion': 'file_server_honeypot',
+            'api_abuse': 'api_honeypot'
+        }
+        
+        strategy = strategy_map.get(threat_type, 'database_honeypot')
+        await self._deploy_honeypot(strategy)
+        logger.info(f"Deception {self.agent_id} deployed {strategy} for threat: {threat_type}")
 
 # ============================================================================
 # AGENT ORCHESTRATION AND COMMUNICATION SYSTEM

@@ -1,0 +1,484 @@
+{
+  "test_summary": {
+    "total_tests": 19,
+    "passed_tests": 13,
+    "failed_tests": 6,
+    "overall_success_rate": 0.6842105263157895,
+    "total_execution_time": 51.26635527610779,
+    "system_grade": "D"
+  },
+  "component_results": {
+    "ThreatDetector": {
+      "passed": 1,
+      "total": 1,
+      "execution_time": 0.7127118110656738,
+      "success_rate": 1.0
+    },
+    "Framework": {
+      "passed": 0,
+      "total": 3,
+      "execution_time": 0.0,
+      "success_rate": 0.0
+    },
+    "BehavioralAuth": {
+      "passed": 1,
+      "total": 2,
+      "execution_time": 0.0039980411529541016,
+      "success_rate": 0.5
+    },
+    "QuantumCrypto": {
+      "passed": 1,
+      "total": 2,
+      "execution_time": 5.806748390197754,
+      "success_rate": 0.5
+    },
+    "TemporalFragmentation": {
+      "passed": 3,
+      "total": 3,
+      "execution_time": 0.004975795745849609,
+      "success_rate": 1.0
+    },
+    "ByzantineConsensus": {
+      "passed": 3,
+      "total": 4,
+      "execution_time": 0.0009996891021728516,
+      "success_rate": 0.75
+    },
+    "NetworkMonitor": {
+      "passed": 2,
+      "total": 2,
+      "execution_time": 5.052571535110474,
+      "success_rate": 1.0
+    },
+    "LoadTesting": {
+      "passed": 1,
+      "total": 1,
+      "execution_time": 0.6297426223754883,
+      "success_rate": 1.0
+    },
+    "SecurityStress": {
+      "passed": 1,
+      "total": 1,
+      "execution_time": 0.0,
+      "success_rate": 1.0
+    }
+  },
+  "system_assessment": {
+    "ready_for_production": false,
+    "critical_components_success": false,
+    "performance_acceptable": false,
+    "security_validated": true
+  },
+  "detailed_results": [
+    {
+      "test_name": "ML Model Training",
+      "component": "ThreatDetector",
+      "passed": true,
+      "execution_time": 0.7127118110656738,
+      "details": {
+        "training_samples": 1000
+      },
+      "error": null
+    },
+    {
+      "test_name": "Machine Learning Threat Detection",
+      "component": "Framework",
+      "passed": false,
+      "execution_time": 0.0,
+      "details": {},
+      "error": "too many values to unpack (expected 2)"
+    },
+    {
+      "test_name": "User Enrollment",
+      "component": "BehavioralAuth",
+      "passed": true,
+      "execution_time": 0.0019986629486083984,
+      "details": {
+        "enrolled_users": 5,
+        "total_users": 5,
+        "avg_enrollment_time": 0.00039973258972167967
+      },
+      "error": null
+    },
+    {
+      "test_name": "Authentication Accuracy",
+      "component": "BehavioralAuth",
+      "passed": false,
+      "execution_time": 0.001999378204345703,
+      "details": {
+        "accuracy": 0.72,
+        "correct_authentications": 18,
+        "total_attempts": 25,
+        "avg_auth_time": 7.997512817382812e-05
+      },
+      "error": null
+    },
+    {
+      "test_name": "Kyber Key Generation",
+      "component": "QuantumCrypto",
+      "passed": true,
+      "execution_time": 5.806748390197754,
+      "details": {
+        "successful_generations": 10,
+        "avg_keygen_time": 0.5806748390197753
+      },
+      "error": null
+    },
+    {
+      "test_name": "Kyber Encap/Decap",
+      "component": "QuantumCrypto",
+      "passed": false,
+      "execution_time": 0,
+      "details": {
+        "successful_operations": 0,
+        "avg_encap_time": 0.0,
+        "avg_decap_time": 0.0
+      },
+      "error": null
+    },
+    {
+      "test_name": "Quantum-Resistant Cryptography",
+      "component": "Framework",
+      "passed": false,
+      "execution_time": 0.0,
+      "details": {},
+      "error": "QuantumResistantXMSS.__init__() got an unexpected keyword argument 'height'"
+    },
+    {
+      "test_name": "Temporal Fragment Creation",
+      "component": "TemporalFragmentation",
+      "passed": true,
+      "execution_time": 0.00099945068359375,
+      "details": {
+        "protection_id": "test_protection_001",
+        "fragment_count": 5,
+        "total_size": 82,
+        "protection_level": 2,
+        "fragments": [
+          {
+            "fragment_id": "test_protection_001_fragment_000",
+            "size": 16,
+            "quantum_entropy": 1.5,
+            "expiration_time": 1756187194.76811,
+            "entanglement_id": "7c42e03b74b5ef21ca3c305b6e52b579"
+          },
+          {
+            "fragment_id": "test_protection_001_fragment_001",
+            "size": 16,
+            "quantum_entropy": 2.0,
+            "expiration_time": 1756187194.7691095,
+            "entanglement_id": "c19416ed736c39e368f721fcb61982d9"
+          },
+          {
+            "fragment_id": "test_protection_001_fragment_002",
+            "size": 16,
+            "quantum_entropy": 2.0,
+            "expiration_time": 1756187194.7691095,
+            "entanglement_id": "9b91701edb2bdfb2b54c6f1d39da11cf"
+          },
+          {
+            "fragment_id": "test_protection_001_fragment_003",
+            "size": 16,
+            "quantum_entropy": 2.0,
+            "expiration_time": 1756187194.7691095,
+            "entanglement_id": "86ec86be241331c319b61ec03ba4c14f"
+          },
+          {
+            "fragment_id": "test_protection_001_fragment_004",
+            "size": 18,
+            "quantum_entropy": 1.9910760598382222,
+            "expiration_time": 1756187194.7691095,
+            "entanglement_id": "d19eb4bf3ba20c2ad1a4bd45922c2a7a"
+          }
+        ],
+        "creation_time": 1756187154.7691095,
+        "estimated_expiration": 1756187194.76811
+      },
+      "error": null
+    },
+    {
+      "test_name": "Data Reconstruction",
+      "component": "TemporalFragmentation",
+      "passed": true,
+      "execution_time": 0.0,
+      "details": {
+        "original_size": 82,
+        "reconstructed_size": 82,
+        "data_integrity": true
+      },
+      "error": null
+    },
+    {
+      "test_name": "Fragment Access Control",
+      "component": "TemporalFragmentation",
+      "passed": true,
+      "execution_time": 0.003976345062255859,
+      "details": {
+        "access_attempts": [
+          {
+            "attempt": 1,
+            "success": true,
+            "access_time": 0.0009701251983642578
+          },
+          {
+            "attempt": 2,
+            "success": true,
+            "access_time": 0.0
+          },
+          {
+            "attempt": 3,
+            "success": true,
+            "access_time": 0.0
+          },
+          {
+            "attempt": 4,
+            "success": true,
+            "access_time": 0.0
+          },
+          {
+            "attempt": 5,
+            "success": true,
+            "access_time": 0.0
+          },
+          {
+            "attempt": 6,
+            "success": false,
+            "access_time": 0.001007080078125
+          },
+          {
+            "attempt": 7,
+            "success": false,
+            "access_time": 0.0
+          },
+          {
+            "attempt": 8,
+            "success": false,
+            "access_time": 0.0009996891021728516
+          },
+          {
+            "attempt": 9,
+            "success": false,
+            "access_time": 0.0
+          },
+          {
+            "attempt": 10,
+            "success": false,
+            "access_time": 0.00099945068359375
+          }
+        ],
+        "protection_status": {
+          "protection_id": "test_protection_001",
+          "fragment_count": 5,
+          "fragments_status": [
+            {
+              "fragment_id": "test_protection_001_fragment_000",
+              "creation_time": 1756187154.76811,
+              "expiration_time": 1756187194.76811,
+              "remaining_time": 37.9836847782135,
+              "access_count": 6,
+              "max_accesses": 6,
+              "is_expired": false,
+              "is_exhausted": true,
+              "protection_level": 2,
+              "integrity_valid": true,
+              "entanglement_id": "7c42e03b74b5ef21ca3c305b6e52b579",
+              "quantum_entropy": 1.5
+            },
+            {
+              "fragment_id": "test_protection_001_fragment_001",
+              "creation_time": 1756187154.7691095,
+              "expiration_time": 1756187194.7691095,
+              "remaining_time": 37.984684228897095,
+              "access_count": 6,
+              "max_accesses": 6,
+              "is_expired": false,
+              "is_exhausted": true,
+              "protection_level": 2,
+              "integrity_valid": true,
+              "entanglement_id": "c19416ed736c39e368f721fcb61982d9",
+              "quantum_entropy": 2.0
+            },
+            {
+              "fragment_id": "test_protection_001_fragment_002",
+              "creation_time": 1756187154.7691095,
+              "expiration_time": 1756187194.7691095,
+              "remaining_time": 37.984684228897095,
+              "access_count": 6,
+              "max_accesses": 6,
+              "is_expired": false,
+              "is_exhausted": true,
+              "protection_level": 2,
+              "integrity_valid": true,
+              "entanglement_id": "9b91701edb2bdfb2b54c6f1d39da11cf",
+              "quantum_entropy": 2.0
+            },
+            {
+              "fragment_id": "test_protection_001_fragment_003",
+              "creation_time": 1756187154.7691095,
+              "expiration_time": 1756187194.7691095,
+              "remaining_time": 37.984684228897095,
+              "access_count": 6,
+              "max_accesses": 6,
+              "is_expired": false,
+              "is_exhausted": true,
+              "protection_level": 2,
+              "integrity_valid": true,
+              "entanglement_id": "86ec86be241331c319b61ec03ba4c14f",
+              "quantum_entropy": 2.0
+            },
+            {
+              "fragment_id": "test_protection_001_fragment_004",
+              "creation_time": 1756187154.7691095,
+              "expiration_time": 1756187194.7691095,
+              "remaining_time": 37.984684228897095,
+              "access_count": 6,
+              "max_accesses": 6,
+              "is_expired": false,
+              "is_exhausted": true,
+              "protection_level": 2,
+              "integrity_valid": true,
+              "entanglement_id": "d19eb4bf3ba20c2ad1a4bd45922c2a7a",
+              "quantum_entropy": 1.9910760598382222
+            }
+          ],
+          "total_accesses": 30,
+          "minimum_remaining_time": 37.9836847782135,
+          "quantum_entanglement_valid": true,
+          "all_fragments_valid": true
+        }
+      },
+      "error": null
+    },
+    {
+      "test_name": "Proposal Submission",
+      "component": "ByzantineConsensus",
+      "passed": true,
+      "execution_time": 0.0,
+      "details": {
+        "proposal_id": "prop_1756187156785_cd6eae9ad5525d9d"
+      },
+      "error": null
+    },
+    {
+      "test_name": "Consensus Voting",
+      "component": "ByzantineConsensus",
+      "passed": false,
+      "execution_time": 0.0009996891021728516,
+      "details": {
+        "successful_votes": 5,
+        "total_agents": 7,
+        "avg_vote_time": 0.00014281272888183594
+      },
+      "error": null
+    },
+    {
+      "test_name": "Consensus Decision",
+      "component": "ByzantineConsensus",
+      "passed": true,
+      "execution_time": 0.0,
+      "details": {
+        "proposal_id": "prop_1756187156785_cd6eae9ad5525d9d",
+        "proposal_type": "threat_detected",
+        "result": "approved",
+        "total_votes": 5,
+        "approve_weight": 5.0,
+        "reject_weight": 0,
+        "finalized_at": 1756187156.7854252,
+        "execution_required": true
+      },
+      "error": null
+    },
+    {
+      "test_name": "Byzantine Detection",
+      "component": "ByzantineConsensus",
+      "passed": true,
+      "execution_time": 0.0,
+      "details": {
+        "total_agents": 7,
+        "max_byzantine_agents": 2,
+        "required_votes": 5,
+        "active_proposals": 5,
+        "completed_decisions": 1,
+        "byzantine_suspects": 0,
+        "agent_reputations": {
+          "agent_001": 1.1,
+          "agent_002": 1.1,
+          "agent_003": 1.1,
+          "agent_004": 1.1,
+          "agent_005": 1.1
+        },
+        "average_reputation": 1.1
+      },
+      "error": null
+    },
+    {
+      "test_name": "Network Interface Detection",
+      "component": "NetworkMonitor",
+      "passed": true,
+      "execution_time": 0.018973350524902344,
+      "details": {
+        "interfaces_found": 6
+      },
+      "error": null
+    },
+    {
+      "test_name": "Traffic Monitoring",
+      "component": "NetworkMonitor",
+      "passed": true,
+      "execution_time": 5.033598184585571,
+      "details": {
+        "total_packets": 2588288,
+        "total_bytes": 2134578112,
+        "packets_sent": 821167,
+        "packets_recv": 1767121,
+        "bytes_sent": 859405565,
+        "bytes_recv": 1275172547,
+        "connections": 173,
+        "monitoring_duration": 5.033598184585571
+      },
+      "error": null
+    },
+    {
+      "test_name": "System Integration",
+      "component": "Framework",
+      "passed": false,
+      "execution_time": 0.0,
+      "details": {},
+      "error": "too many values to unpack (expected 2)"
+    },
+    {
+      "test_name": "Performance Under Load",
+      "component": "LoadTesting",
+      "passed": true,
+      "execution_time": 0.6297426223754883,
+      "details": {
+        "concurrent_operations": 10,
+        "avg_detection_time": 0.14783937931060792,
+        "max_detection_time": 0.3398609161376953,
+        "throughput": 15.879503220344887
+      },
+      "error": null
+    },
+    {
+      "test_name": "Security Stress Test",
+      "component": "SecurityStress",
+      "passed": true,
+      "execution_time": 0.0,
+      "details": {
+        "successful_accesses": 9,
+        "total_attempts": 10,
+        "avg_access_time": 0.0,
+        "access_exhausted": true
+      },
+      "error": null
+    }
+  ],
+  "recommendations": [
+    "CRITICAL: Overall success rate below 85% - system not ready for production",
+    "Component Framework needs improvement - 0.0% success rate",
+    "Component BehavioralAuth needs improvement - 50.0% success rate",
+    "Component QuantumCrypto needs improvement - 50.0% success rate",
+    "Component ByzantineConsensus needs improvement - 75.0% success rate"
+  ],
+  "performance_metrics": []
+}
