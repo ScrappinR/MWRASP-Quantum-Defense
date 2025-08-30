@@ -41,7 +41,8 @@ try:
         ByzantineFaultTolerantConsensus,
         GenuineNetworkMonitor
     )
-    from MWRASP_QUANTUM_RESISTANT_CRYPTO import (
+    sys.path.append('./CORE_SYSTEM_IMPLEMENTATIONS')
+    from CORE_SYSTEM_IMPLEMENTATIONS.MWRASP_QUANTUM_RESISTANT_CRYPTO import (
         QuantumResistantKyber,
         QuantumResistantXMSS as XMSSHashSignatures,
         QuantumResistantTemporalProtection as QuantumNoiseInjector
@@ -348,7 +349,7 @@ class ComprehensiveTestingFramework:
             ))
             
         # Test XMSS signatures
-        xmss = XMSSHashSignatures(height=10)
+        xmss = QuantumResistantXMSS(tree_height=10)
         
         # Test signature generation and verification
         sign_times = []

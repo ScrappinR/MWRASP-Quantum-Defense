@@ -48,6 +48,34 @@ MWRASP is a revolutionary cybersecurity platform that combines:
 └─────────────────────────────────────────────────────────────┘
 ```
 
+## 📁 Project Organization
+
+### Core Directories
+- `01_EXECUTIVE_SUMMARY/` - Executive summaries and business overviews
+- `02_FUNDING_MATERIALS/` - Government and private funding proposals  
+- `03_TECHNICAL_DOCUMENTATION/` - System architecture and technical specs
+- `04_PATENTS_INTELLECTUAL_PROPERTY/` - Patent applications and IP strategy
+- `05_DEMONSTRATIONS_PROTOTYPES/` - Working demos and proof-of-concepts
+- `06_IMPLEMENTATION_GUIDES/` - Deployment and operational guides
+- `07_COMPLIANCE_CERTIFICATIONS/` - FedRAMP, CMMC, and compliance materials
+- `08_BUSINESS_DEVELOPMENT/` - Marketing, partnerships, and sales materials
+- `09_DEVELOPMENT_SOURCE_CODE/` - Primary development source code
+- `10_ARCHIVE/` - Archived materials and legacy components
+
+### Root Level Organization
+- `CORE_SYSTEM_IMPLEMENTATIONS/` - Complete system implementations
+- `VALIDATION_AND_TESTING/` - Testing frameworks and validation scripts
+- `UTILITIES_AND_SCRIPTS/` - Conversion tools and utility scripts
+- `BUSINESS_REPORTS_AND_ANALYSIS/` - Business analysis and strategic reports
+- `DEVELOPMENT_TOOLS/` - Debug tools and development utilities
+- `SYSTEM_LOGS_AND_DATA/` - System logs, databases, and runtime data
+
+### Patent Portfolio
+- `FILED_PROVISIONAL_PATENTS/` - **34 Filed Patent Applications**
+  - `TIER_1_CRITICAL_PATENTS/` - Core quantum-safe architectures (4 patents)
+  - `TIER_2_HIGH_PRIORITY_PATENTS/` - Advanced security systems (4 patents)
+  - `TIER_3_MEDIUM_PRIORITY_PATENTS/` - Supporting technologies (26 patents)
+
 ## 🔧 Quick Start
 
 ### Prerequisites
@@ -63,12 +91,21 @@ pip install -r requirements.txt
 
 ### Run Complete System
 ```bash
-python MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py
+python CORE_SYSTEM_IMPLEMENTATIONS/MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py
 ```
 
 ### Run Enhanced Security Demo
 ```bash
-python MWRASP_ENHANCED_SECURITY_SYSTEM.py
+python CORE_SYSTEM_IMPLEMENTATIONS/MWRASP_ENHANCED_SECURITY_SYSTEM.py
+```
+
+### Run Quick Start Script
+```bash
+# Windows
+UTILITIES_AND_SCRIPTS/quick_start.bat
+
+# or use Python launcher
+python CORE_SYSTEM_IMPLEMENTATIONS/MWRASP_DASHBOARD_LAUNCHER.py
 ```
 
 ## 📊 Performance Metrics
@@ -89,9 +126,11 @@ python MWRASP_ENHANCED_SECURITY_SYSTEM.py
 - ✅ **Working security incident management** with breach detection
 
 ### Current Components
-1. `MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py` - Complete distributed AI agent system
-2. `MWRASP_ENHANCED_SECURITY_SYSTEM.py` - Advanced security with breach detection
-3. `MWRASP_COMPLETE_WORKING_SYSTEM.py` - Unified cybersecurity platform
+1. `CORE_SYSTEM_IMPLEMENTATIONS/MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py` - Complete distributed AI agent system
+2. `CORE_SYSTEM_IMPLEMENTATIONS/MWRASP_ENHANCED_SECURITY_SYSTEM.py` - Advanced security with breach detection
+3. `CORE_SYSTEM_IMPLEMENTATIONS/MWRASP_COMPLETE_WORKING_SYSTEM.py` - Unified cybersecurity platform
+4. `CORE_SYSTEM_IMPLEMENTATIONS/MWRASP_GENUINE_AI_SYSTEM.py` - Advanced AI-powered security system
+5. `VALIDATION_AND_TESTING/MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py` - Complete testing suite
 
 ## 🏢 Use Cases
 
