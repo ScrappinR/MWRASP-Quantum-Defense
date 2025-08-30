@@ -1,0 +1,45 @@
+{
+  "application_data_sheet": {
+    "application_info": {
+      "application_type": "provisional",
+      "title": "Quantum-Resistant Behavioral Authentication System Using Non-Mathematical Identity Verification",
+      "filing_date": "2025-08-29",
+      "patent_number": "04",
+      "tier": "Tier 1",
+      "priority": "CRITICAL"
+    },
+    "inventors": [
+      {
+        "sequence": 1,
+        "name": {
+          "first_name": "Brian",
+          "last_name": "Rutherford"
+        },
+        "address": {
+          "street": "6 Country Place Drive",
+          "city": "Wimberley",
+          "state": "Texas",
+          "postal_code": "78676-3114",
+          "country": "US"
+        },
+        "citizenship": "US"
+      }
+    ],
+    "assignee": null,
+    "correspondence": {
+      "name": "Brian James Rutherford",
+      "address": {
+        "street": "6 Country Place Drive",
+        "city": "Wimberley",
+        "state": "Texas",
+        "postal_code": "78676-3114",
+        "country": "US"
+      },
+      "phone": "(512)648-0219",
+      "email": "Actual@ScrappinR.com"
+    },
+    "entity_status": "micro",
+    "technical_field": "This invention relates to cybersecurity authentication systems that achieve quantum-resistant identity verification through behavioral pattern analysis based on non-mathematical security principles, specifically eliminating reliance on cryptographic assumptions vulnerable to quantum computing attacks while maintaining secure entity authentication.",
+    "estimated_value": null
+  }
+}

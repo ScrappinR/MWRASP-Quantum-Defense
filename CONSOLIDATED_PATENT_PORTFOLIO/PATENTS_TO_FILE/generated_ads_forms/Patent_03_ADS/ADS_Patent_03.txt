@@ -1,0 +1,36 @@
+
+APPLICATION DATA SHEET (ADS)
+Patent Application No.: [TO BE ASSIGNED]
+Filing Date: 08/29/2025
+
+TITLE OF INVENTION:
+Protocol Order Authentication System Using Communication Sequence Patterns as Cryptographic Identity
+
+INVENTORS:
+
+Inventor 1:
+  Name: Brian Rutherford
+  Address: 6 Country Place Drive
+           Wimberley, Texas 78676-3114
+           US
+  Citizenship: US
+
+ASSIGNEE: None (Individual Inventor)
+
+CORRESPONDENCE ADDRESS:
+  Brian James Rutherford
+  6 Country Place Drive
+  Wimberley, Texas 78676-3114
+  Phone: (512)648-0219
+  Email: Actual@ScrappinR.com
+
+ENTITY STATUS: MICRO ENTITY
+
+APPLICATION TYPE: PROVISIONAL
+
+TECHNICAL FIELD:
+This invention relates to cybersecurity authentication systems that utilize the temporal sequence of communication protocols as a novel form of cryptographic identity, eliminating reliance on traditional username/password combinations, digital certificates, or biometric data.
+
+PRIORITY: CRITICAL
+TIER: Tier 1
+ESTIMATED VALUE: TBD

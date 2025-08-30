@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- USPTO Patent Drawing - Figure 3: Protocol Order Authentication Process Flow -->
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">
+    FIG. 3 - PROTOCOL ORDER AUTHENTICATION PROCESS FLOW
+  </text>
+  
+  <!-- Main System Container -->
+  <rect x="50" y="50" width="700" height="500" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="70" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">
+    TEMPORAL EVOLUTION AND CONTEXT-ADAPTIVE AUTHENTICATION WORKFLOW
+  </text>
+  
+  <!-- Step 1: Communication Initiation -->
+  <rect x="80" y="100" width="140" height="60" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="150" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    STEP 1: INITIATION
+  </text>
+  <text x="150" y="135" text-anchor="middle" font-family="Arial" font-size="9">
+    Entity A begins
+  </text>
+  <text x="150" y="148" text-anchor="middle" font-family="Arial" font-size="9">
+    communication session
+  </text>
+  <text x="150" y="155" text-anchor="middle" font-family="Arial" font-size="8">
+    (10)
+  </text>
+  
+  <!-- Step 2: Context Detection -->
+  <rect x="260" y="100" width="140" height="60" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="330" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    STEP 2: CONTEXT
+  </text>
+  <text x="330" y="135" text-anchor="middle" font-family="Arial" font-size="9">
+    Detect communication
+  </text>
+  <text x="330" y="148" text-anchor="middle" font-family="Arial" font-size="9">
+    context (routine/emergency)
+  </text>
+  <text x="330" y="155" text-anchor="middle" font-family="Arial" font-size="8">
+    (20)
+  </text>
+  
+  <!-- Step 3: Pattern Generation -->
+  <rect x="440" y="100" width="140" height="60" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="510" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    STEP 3: PATTERN
+  </text>
+  <text x="510" y="135" text-anchor="middle" font-family="Arial" font-size="9">
+    Generate expected
+  </text>
+  <text x="510" y="148" text-anchor="middle" font-family="Arial" font-size="9">
+    behavioral sequence
+  </text>
+  <text x="510" y="155" text-anchor="middle" font-family="Arial" font-size="8">
+    (30)
+  </text>
+  
+  <!-- Horizontal arrows -->
+  <path d="M 220 130 L 250 130" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 400 130 L 430 130" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Step 4: Protocol Sequence Capture -->
+  <rect x="80" y="200" width="140" height="60" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="150" y="220" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    STEP 4: CAPTURE
+  </text>
+  <text x="150" y="235" text-anchor="middle" font-family="Arial" font-size="9">
+    Monitor actual protocol
+  </text>
+  <text x="150" y="248" text-anchor="middle" font-family="Arial" font-size="9">
+    sequence from Entity A
+  </text>
+  <text x="150" y="255" text-anchor="middle" font-family="Arial" font-size="8">
+    (40)
+  </text>
+  
+  <!-- Step 5: Behavioral Analysis -->
+  <rect x="260" y="200" width="140" height="60" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="330" y="220" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    STEP 5: ANALYSIS
+  </text>
+  <text x="330" y="235" text-anchor="middle" font-family="Arial" font-size="9">
+    Extract behavioral
+  </text>
+  <text x="330" y="248" text-anchor="middle" font-family="Arial" font-size="9">
+    features & timing
+  </text>
+  <text x="330" y="255" text-anchor="middle" font-family="Arial" font-size="8">
+    (50)
+  </text>
+  
+  <!-- Step 6: Similarity Calculation -->
+  <rect x="440" y="200" width="140" height="60" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="510" y="220" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    STEP 6: SIMILARITY
+  </text>
+  <text x="510" y="235" text-anchor="middle" font-family="Arial" font-size="9">
+    Calculate multi-dimensional
+  </text>
+  <text x="510" y="248" text-anchor="middle" font-family="Arial" font-size="9">
+    similarity score
+  </text>
+  <text x="510" y="255" text-anchor="middle" font-family="Arial" font-size="8">
+    (60)
+  </text>
+  
+  <!-- Vertical arrows from top to middle -->
+  <path d="M 150 160 L 150 200" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 330 160 L 330 200" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 510 160 L 510 200" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Horizontal arrows in middle row -->
+  <path d="M 220 230 L 250 230" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 400 230 L 430 230" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Authentication Decision Diamond -->
+  <polygon points="400,300 450,325 400,350 350,325" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="400" y="320" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">
+    AUTHENTICATION
+  </text>
+  <text x="400" y="335" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">
+    DECISION
+  </text>
+  <text x="400" y="370" text-anchor="middle" font-family="Arial" font-size="8">
+    (70)
+  </text>
+  
+  <!-- Arrow to decision -->
+  <path d="M 510 260 L 425 300" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Success Path -->
+  <rect x="520" y="300" width="140" height="60" fill="none" stroke="black" stroke-width="1.5" stroke="green"/>
+  <text x="590" y="320" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    SUCCESS PATH
+  </text>
+  <text x="590" y="335" text-anchor="middle" font-family="Arial" font-size="9">
+    Score ≥ Threshold
+  </text>
+  <text x="590" y="348" text-anchor="middle" font-family="Arial" font-size="9">
+    Authentication Success
+  </text>
+  <text x="590" y="355" text-anchor="middle" font-family="Arial" font-size="8">
+    (80)
+  </text>
+  
+  <!-- Failure Path -->
+  <rect x="180" y="300" width="140" height="60" fill="none" stroke="black" stroke-width="1.5" stroke="red"/>
+  <text x="250" y="320" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    FAILURE PATH
+  </text>
+  <text x="250" y="335" text-anchor="middle" font-family="Arial" font-size="9">
+    Score < Threshold
+  </text>
+  <text x="250" y="348" text-anchor="middle" font-family="Arial" font-size="9">
+    Authentication Denied
+  </text>
+  <text x="250" y="355" text-anchor="middle" font-family="Arial" font-size="8">
+    (90)
+  </text>
+  
+  <!-- Decision arrows -->
+  <path d="M 450 325 L 510 325" stroke="green" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 350 325 L 330 325" stroke="red" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="480" y="315" font-family="Arial" font-size="8" fill="green">YES</text>
+  <text x="340" y="315" font-family="Arial" font-size="8" fill="red">NO</text>
+  
+  <!-- Pattern Evolution (Success Path) -->
+  <rect x="520" y="400" width="140" height="60" fill="none" stroke="black" stroke-width="1"/>
+  <text x="590" y="420" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    PATTERN EVOLUTION
+  </text>
+  <text x="590" y="435" text-anchor="middle" font-family="Arial" font-size="9">
+    Update interaction count
+  </text>
+  <text x="590" y="448" text-anchor="middle" font-family="Arial" font-size="9">
+    Evolve timing tolerance
+  </text>
+  <text x="590" y="455" text-anchor="middle" font-family="Arial" font-size="8">
+    (100)
+  </text>
+  
+  <!-- Security Alert (Failure Path) -->
+  <rect x="180" y="400" width="140" height="60" fill="none" stroke="black" stroke-width="1"/>
+  <text x="250" y="420" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    SECURITY ALERT
+  </text>
+  <text x="250" y="435" text-anchor="middle" font-family="Arial" font-size="9">
+    Log failed attempt
+  </text>
+  <text x="250" y="448" text-anchor="middle" font-family="Arial" font-size="9">
+    Potential threat analysis
+  </text>
+  <text x="250" y="455" text-anchor="middle" font-family="Arial" font-size="8">
+    (110)
+  </text>
+  
+  <!-- Arrows to bottom components -->
+  <path d="M 590 360 L 590 400" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 250 360 L 250 400" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Process Timeline -->
+  <rect x="80" y="490" width="560" height="50" fill="none" stroke="black" stroke-width="1"/>
+  <text x="360" y="510" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">
+    TEMPORAL EVOLUTION TIMELINE
+  </text>
+  <text x="90" y="530" font-family="Arial" font-size="9">
+    Day 0: Base Pattern → Day 30: +5% complexity → Day 60: +10% complexity → Day 90: Context adaptation
+  </text>
+  
+  <!-- Context Adaptation Examples -->
+  <rect x="100" y="380" width="320" height="50" fill="none" stroke="black" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="260" y="395" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">
+    CONTEXT-SPECIFIC ADAPTATIONS
+  </text>
+  <text x="110" y="410" font-family="Arial" font-size="8">
+    EMERGENCY: Minimal protocols, ±10% timing tolerance, 0.8 security depth
+  </text>
+  <text x="110" y="420" font-family="Arial" font-size="8">
+    FINANCIAL: Maximum verification, ±20% timing tolerance, 0.95 security depth
+  </text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+  </defs>
+  
+</svg>

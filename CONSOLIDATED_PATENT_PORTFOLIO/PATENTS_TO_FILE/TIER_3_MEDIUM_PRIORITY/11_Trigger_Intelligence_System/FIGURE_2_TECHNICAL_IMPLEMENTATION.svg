@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- USPTO Patent Drawing - Figure 2: Technical Implementation Details -->
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">
+    FIG. 2 - MACHINE LEARNING DECISION ENGINE TECHNICAL IMPLEMENTATION
+  </text>
+  
+  <!-- Main Container -->
+  <rect x="50" y="50" width="700" height="500" fill="none" stroke="black" stroke-width="2"/>
+  
+  <!-- Input Feature Layer -->
+  <rect x="80" y="80" width="640" height="80" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="100" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">
+    INPUT FEATURE EXTRACTION LAYER
+  </text>
+  <text x="400" y="115" text-anchor="middle" font-family="Arial" font-size="8">
+    (100)
+  </text>
+  
+  <!-- Feature Categories -->
+  <rect x="100" y="125" width="90" height="25" fill="none" stroke="black" stroke-width="1"/>
+  <text x="145" y="140" text-anchor="middle" font-family="Arial" font-size="8">
+    Threat Features (101)
+  </text>
+  
+  <rect x="210" y="125" width="90" height="25" fill="none" stroke="black" stroke-width="1"/>
+  <text x="255" y="140" text-anchor="middle" font-family="Arial" font-size="8">
+    System State (102)
+  </text>
+  
+  <rect x="320" y="125" width="90" height="25" fill="none" stroke="black" stroke-width="1"/>
+  <text x="365" y="140" text-anchor="middle" font-family="Arial" font-size="8">
+    Quantum Metrics (103)
+  </text>
+  
+  <rect x="430" y="125" width="90" height="25" fill="none" stroke="black" stroke-width="1"/>
+  <text x="475" y="140" text-anchor="middle" font-family="Arial" font-size="8">
+    Urgency Score (104)
+  </text>
+  
+  <rect x="540" y="125" width="90" height="25" fill="none" stroke="black" stroke-width="1"/>
+  <text x="585" y="140" text-anchor="middle" font-family="Arial" font-size="8">
+    History Data (105)
+  </text>
+  
+  <rect x="650" y="125" width="60" height="25" fill="none" stroke="black" stroke-width="1"/>
+  <text x="680" y="140" text-anchor="middle" font-family="Arial" font-size="8">
+    Context (106)
+  </text>
+  
+  <!-- Neural Network Architecture -->
+  <rect x="150" y="180" width="500" height="200" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="200" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">
+    MULTI-LAYER NEURAL NETWORK ARCHITECTURE
+  </text>
+  <text x="400" y="215" text-anchor="middle" font-family="Arial" font-size="8">
+    (200)
+  </text>
+  
+  <!-- Input Layer -->
+  <rect x="170" y="230" width="80" height="40" fill="none" stroke="black" stroke-width="1"/>
+  <text x="210" y="245" text-anchor="middle" font-family="Arial" font-size="9">
+    Input Layer
+  </text>
+  <text x="210" y="255" text-anchor="middle" font-family="Arial" font-size="8">
+    512 neurons
+  </text>
+  <text x="210" y="265" text-anchor="middle" font-family="Arial" font-size="8">
+    (201)
+  </text>
+  
+  <!-- Hidden Layer 1 -->
+  <rect x="270" y="230" width="80" height="40" fill="none" stroke="black" stroke-width="1"/>
+  <text x="310" y="245" text-anchor="middle" font-family="Arial" font-size="9">
+    Hidden 1
+  </text>
+  <text x="310" y="255" text-anchor="middle" font-family="Arial" font-size="8">
+    256 neurons
+  </text>
+  <text x="310" y="265" text-anchor="middle" font-family="Arial" font-size="8">
+    (202)
+  </text>
+  
+  <!-- Hidden Layer 2 -->
+  <rect x="370" y="230" width="80" height="40" fill="none" stroke="black" stroke-width="1"/>
+  <text x="410" y="245" text-anchor="middle" font-family="Arial" font-size="9">
+    Hidden 2
+  </text>
+  <text x="410" y="255" text-anchor="middle" font-family="Arial" font-size="8">
+    128 neurons
+  </text>
+  <text x="410" y="265" text-anchor="middle" font-family="Arial" font-size="8">
+    (203)
+  </text>
+  
+  <!-- Hidden Layer 3 -->
+  <rect x="470" y="230" width="80" height="40" fill="none" stroke="black" stroke-width="1"/>
+  <text x="510" y="245" text-anchor="middle" font-family="Arial" font-size="9">
+    Hidden 3
+  </text>
+  <text x="510" y="255" text-anchor="middle" font-family="Arial" font-size="8">
+    64 neurons
+  </text>
+  <text x="510" y="265" text-anchor="middle" font-family="Arial" font-size="8">
+    (204)
+  </text>
+  
+  <!-- Output Layer -->
+  <rect x="570" y="230" width="70" height="40" fill="none" stroke="black" stroke-width="1"/>
+  <text x="605" y="245" text-anchor="middle" font-family="Arial" font-size="9">
+    Output
+  </text>
+  <text x="605" y="255" text-anchor="middle" font-family="Arial" font-size="8">
+    3 outputs
+  </text>
+  <text x="605" y="265" text-anchor="middle" font-family="Arial" font-size="8">
+    (205)
+  </text>
+  
+  <!-- Activation Functions -->
+  <text x="310" y="285" text-anchor="middle" font-family="Arial" font-size="8">ReLU</text>
+  <text x="410" y="285" text-anchor="middle" font-family="Arial" font-size="8">ReLU</text>
+  <text x="510" y="285" text-anchor="middle" font-family="Arial" font-size="8">ReLU</text>
+  <text x="605" y="285" text-anchor="middle" font-family="Arial" font-size="8">Softmax</text>
+  
+  <!-- Dropout Layers -->
+  <rect x="270" y="290" width="80" height="15" fill="none" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="310" y="300" text-anchor="middle" font-family="Arial" font-size="8">Dropout 0.3</text>
+  
+  <rect x="470" y="290" width="80" height="15" fill="none" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="510" y="300" text-anchor="middle" font-family="Arial" font-size="8">Dropout 0.5</text>
+  
+  <!-- Output Processing -->
+  <rect x="200" y="400" width="400" height="80" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="420" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">
+    DECISION PROCESSING &amp; VALIDATION
+  </text>
+  <text x="400" y="435" text-anchor="middle" font-family="Arial" font-size="8">
+    (300)
+  </text>
+  
+  <!-- Decision Components -->
+  <rect x="220" y="445" width="90" height="25" fill="none" stroke="black" stroke-width="1"/>
+  <text x="265" y="460" text-anchor="middle" font-family="Arial" font-size="8">
+    Activation Prob. (301)
+  </text>
+  
+  <rect x="325" y="445" width="90" height="25" fill="none" stroke="black" stroke-width="1"/>
+  <text x="370" y="460" text-anchor="middle" font-family="Arial" font-size="8">
+    Confidence Score (302)
+  </text>
+  
+  <rect x="430" y="445" width="90" height="25" fill="none" stroke="black" stroke-width="1"/>
+  <text x="475" y="460" text-anchor="middle" font-family="Arial" font-size="8">
+    Optimal Timing (303)
+  </text>
+  
+  <rect x="535" y="445" width="55" height="25" fill="none" stroke="black" stroke-width="1"/>
+  <text x="562" y="460" text-anchor="middle" font-family="Arial" font-size="8">
+    Risk (304)
+  </text>
+  
+  <!-- Optimization Algorithms -->
+  <rect x="80" y="400" width="100" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="130" y="420" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    MULTI-OBJECTIVE
+  </text>
+  <text x="130" y="435" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    OPTIMIZATION
+  </text>
+  <text x="130" y="450" text-anchor="middle" font-family="Arial" font-size="8">
+    (400)
+  </text>
+  
+  <text x="130" y="465" text-anchor="middle" font-family="Arial" font-size="8">Pareto Front</text>
+  <text x="130" y="475" text-anchor="middle" font-family="Arial" font-size="8">Trade-off Analysis</text>
+  
+  <!-- Dynamic Threshold -->
+  <rect x="620" y="400" width="100" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="670" y="420" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    DYNAMIC
+  </text>
+  <text x="670" y="435" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    THRESHOLD
+  </text>
+  <text x="670" y="450" text-anchor="middle" font-family="Arial" font-size="8">
+    (500)
+  </text>
+  
+  <text x="670" y="465" text-anchor="middle" font-family="Arial" font-size="8">Adaptive Adj.</text>
+  <text x="670" y="475" text-anchor="middle" font-family="Arial" font-size="8">Performance</text>
+  
+  <!-- Final Decision Output -->
+  <rect x="300" y="500" width="200" height="40" fill="none" stroke="black" stroke-width="3"/>
+  <text x="400" y="520" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">
+    FINAL ACTIVATION DECISION
+  </text>
+  <text x="400" y="535" text-anchor="middle" font-family="Arial" font-size="8">
+    (600)
+  </text>
+  
+  <!-- Connection Arrows -->
+  <!-- Feature to Neural Network -->
+  <path d="M 400 160 L 400 180" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Neural Network Layers -->
+  <path d="M 250 250 L 270 250" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 350 250 L 370 250" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 450 250 L 470 250" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 550 250 L 570 250" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Neural Network to Decision Processing -->
+  <path d="M 605 270 L 605 320 L 400 320 L 400 400" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Optimization to Decision -->
+  <path d="M 180 440 L 200 440" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Threshold to Decision -->
+  <path d="M 620 440 L 600 440" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Decision Processing to Final -->
+  <path d="M 400 480 L 400 500" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Performance Labels -->
+  <text x="50" y="570" font-family="Arial" font-size="10" font-weight="bold">
+    PERFORMANCE METRICS:
+  </text>
+  <text x="50" y="585" font-family="Arial" font-size="9">
+    • Decision Time: &lt;100 microseconds
+  </text>
+  <text x="300" y="585" font-family="Arial" font-size="9">
+    • Accuracy: 94.7% optimal activation
+  </text>
+  <text x="550" y="585" font-family="Arial" font-size="9">
+    • Efficiency: 340% improvement
+  </text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+  </defs>
+  
+</svg>

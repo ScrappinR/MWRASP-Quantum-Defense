@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- USPTO Patent Drawing - Figure 2: CPU Priority Scheduling Technical Implementation -->
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">
+    FIG. 2 - CPU PRIORITY SCHEDULING TECHNICAL IMPLEMENTATION
+  </text>
+  
+  <!-- Main System Container -->
+  <rect x="50" y="50" width="700" height="500" fill="none" stroke="black" stroke-width="2"/>
+  
+  <!-- CPU Core Representation -->
+  <text x="400" y="75" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">
+    MULTI-CORE CPU TEMPORAL DOMAIN SCHEDULING
+  </text>
+  
+  <!-- CPU Core 1 -->
+  <rect x="80" y="100" width="120" height="100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="140" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CPU CORE 0
+  </text>
+  <text x="140" y="135" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    (HYPERSPACE)
+  </text>
+  <text x="90" y="155" font-family="Arial" font-size="8">
+    Nice: -20
+  </text>
+  <text x="90" y="170" font-family="Arial" font-size="8">
+    Priority: HIGH
+  </text>
+  <text x="90" y="185" font-family="Arial" font-size="8">
+    Security Processes
+  </text>
+  <text x="140" y="195" text-anchor="middle" font-family="Arial" font-size="8">
+    (10)
+  </text>
+  
+  <!-- CPU Core 2 -->
+  <rect x="220" y="100" width="120" height="100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="280" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CPU CORE 1
+  </text>
+  <text x="280" y="135" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    (REALTIME)
+  </text>
+  <text x="230" y="155" font-family="Arial" font-size="8">
+    Nice: 0
+  </text>
+  <text x="230" y="170" font-family="Arial" font-size="8">
+    Priority: NORMAL
+  </text>
+  <text x="230" y="185" font-family="Arial" font-size="8">
+    Standard Processes
+  </text>
+  <text x="280" y="195" text-anchor="middle" font-family="Arial" font-size="8">
+    (20)
+  </text>
+  
+  <!-- CPU Core 3 -->
+  <rect x="360" y="100" width="120" height="100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="420" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CPU CORE 2
+  </text>
+  <text x="420" y="135" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    (SLOWTIME)
+  </text>
+  <text x="370" y="155" font-family="Arial" font-size="8">
+    Nice: +10
+  </text>
+  <text x="370" y="170" font-family="Arial" font-size="8">
+    Priority: LOW
+  </text>
+  <text x="370" y="185" font-family="Arial" font-size="8">
+    Suspicious Processes
+  </text>
+  <text x="420" y="195" text-anchor="middle" font-family="Arial" font-size="8">
+    (30)
+  </text>
+  
+  <!-- CPU Core 4 -->
+  <rect x="500" y="100" width="120" height="100" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="560" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CPU CORE 3
+  </text>
+  <text x="560" y="135" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    (QUARANTINE)
+  </text>
+  <text x="510" y="155" font-family="Arial" font-size="8">
+    Nice: +19
+  </text>
+  <text x="510" y="170" font-family="Arial" font-size="8">
+    Priority: LOWEST
+  </text>
+  <text x="510" y="185" font-family="Arial" font-size="8">
+    Malicious Processes
+  </text>
+  <text x="560" y="195" text-anchor="middle" font-family="Arial" font-size="8">
+    (40)
+  </text>
+  
+  <!-- Process Classification Flow -->
+  <text x="400" y="235" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">
+    PROCESS CLASSIFICATION AND ASSIGNMENT WORKFLOW
+  </text>
+  
+  <!-- Input Process -->
+  <rect x="80" y="260" width="100" height="50" fill="none" stroke="black" stroke-width="1"/>
+  <text x="130" y="280" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    NEW PROCESS
+  </text>
+  <text x="130" y="295" text-anchor="middle" font-family="Arial" font-size="9">
+    PID: 1234
+  </text>
+  <text x="130" y="305" text-anchor="middle" font-family="Arial" font-size="8">
+    (100)
+  </text>
+  
+  <!-- Classification Analysis -->
+  <rect x="220" y="250" width="120" height="70" fill="none" stroke="black" stroke-width="1"/>
+  <text x="280" y="270" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CLASSIFICATION
+  </text>
+  <text x="280" y="285" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    ANALYSIS
+  </text>
+  <text x="230" y="300" font-family="Arial" font-size="8">
+    • Name Pattern
+  </text>
+  <text x="230" y="312" font-family="Arial" font-size="8">
+    • Behavior Indicators
+  </text>
+  <text x="280" y="325" text-anchor="middle" font-family="Arial" font-size="8">
+    (200)
+  </text>
+  
+  <!-- Domain Assignment Decision -->
+  <rect x="380" y="250" width="120" height="70" fill="none" stroke="black" stroke-width="1"/>
+  <text x="440" y="270" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    DOMAIN
+  </text>
+  <text x="440" y="285" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    ASSIGNMENT
+  </text>
+  <text x="390" y="300" font-family="Arial" font-size="8">
+    • Risk Assessment
+  </text>
+  <text x="390" y="312" font-family="Arial" font-size="8">
+    • Priority Level
+  </text>
+  <text x="440" y="325" text-anchor="middle" font-family="Arial" font-size="8">
+    (300)
+  </text>
+  
+  <!-- CPU Scheduler Configuration -->
+  <rect x="540" y="250" width="120" height="70" fill="none" stroke="black" stroke-width="1"/>
+  <text x="600" y="270" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    SCHEDULER
+  </text>
+  <text x="600" y="285" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CONFIG
+  </text>
+  <text x="550" y="300" font-family="Arial" font-size="8">
+    • Nice Value
+  </text>
+  <text x="550" y="312" font-family="Arial" font-size="8">
+    • CPU Affinity
+  </text>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial" font-size="8">
+    (400)
+  </text>
+  
+  <!-- Flow arrows -->
+  <path d="M 180 285 L 210 285" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 340 285 L 370 285" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 500 285 L 530 285" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Performance Optimization Details -->
+  <rect x="80" y="350" width="280" height="120" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="220" y="370" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">
+    HYPERSPACE OPTIMIZATION TECHNIQUES
+  </text>
+  <text x="90" y="390" font-family="Arial" font-size="9">
+    • CPU Cache Optimization: Assign to cores with largest L3 cache
+  </text>
+  <text x="90" y="405" font-family="Arial" font-size="9">
+    • Memory Prefetching: MADV_SEQUENTIAL hints for memory regions
+  </text>
+  <text x="90" y="420" font-family="Arial" font-size="9">
+    • Interrupt Priority: Elevated interrupt handling priority
+  </text>
+  <text x="90" y="435" font-family="Arial" font-size="9">
+    • Real-Time Scheduling: SCHED_FIFO policy for critical processes
+  </text>
+  <text x="90" y="450" font-family="Arial" font-size="9">
+    • Resource Isolation: Dedicated CPU cores for security processes
+  </text>
+  <text x="220" y="465" text-anchor="middle" font-family="Arial" font-size="8">
+    (500)
+  </text>
+  
+  <!-- Quarantine Restrictions Details -->
+  <rect x="400" y="350" width="280" height="120" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="540" y="370" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">
+    QUARANTINE RESTRICTION TECHNIQUES
+  </text>
+  <text x="410" y="390" font-family="Arial" font-size="9">
+    • CPU Throttling: Single slowest core assignment only
+  </text>
+  <text x="410" y="405" font-family="Arial" font-size="9">
+    • Memory Limitation: 100MB maximum memory allocation
+  </text>
+  <text x="410" y="420" font-family="Arial" font-size="9">
+    • I/O Throttling: IOPRIO_CLASS_IDLE for all disk operations
+  </text>
+  <text x="410" y="435" font-family="Arial" font-size="9">
+    • Network Restriction: Bandwidth limiting and connection limits
+  </text>
+  <text x="410" y="450" font-family="Arial" font-size="9">
+    • Filesystem Access: Read-only access with monitoring
+  </text>
+  <text x="540" y="465" text-anchor="middle" font-family="Arial" font-size="8">
+    (600)
+  </text>
+  
+  <!-- Performance Metrics Display -->
+  <rect x="80" y="490" width="600" height="50" fill="none" stroke="black" stroke-width="1"/>
+  <text x="380" y="510" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">
+    TEMPORAL DOMAIN PERFORMANCE METRICS
+  </text>
+  <text x="90" y="525" font-family="Arial" font-size="9">
+    Hyperspace: 8.3x avg performance | Realtime: 1.0x baseline | Slowtime: 0.1x constrained | Quarantine: 0.01x isolated
+  </text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+  </defs>
+  
+</svg>

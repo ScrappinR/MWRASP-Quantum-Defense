@@ -1,0 +1,36 @@
+
+APPLICATION DATA SHEET (ADS)
+Patent Application No.: [TO BE ASSIGNED]
+Filing Date: 08/29/2025
+
+TITLE OF INVENTION:
+Machine Learning-Based Adaptive Quantum Analysis Triggers for Real-Time Cybersecurity
+
+INVENTORS:
+
+Inventor 1:
+  Name: Brian Rutherford
+  Address: 6 Country Place Drive
+           Wimberley, Texas 78676-3114
+           US
+  Citizenship: US
+
+ASSIGNEE: None (Individual Inventor)
+
+CORRESPONDENCE ADDRESS:
+  Brian James Rutherford
+  6 Country Place Drive
+  Wimberley, Texas 78676-3114
+  Phone: (512)648-0219
+  Email: Actual@ScrappinR.com
+
+ENTITY STATUS: MICRO ENTITY
+
+APPLICATION TYPE: PROVISIONAL
+
+TECHNICAL FIELD:
+The present invention relates to intelligent triggering systems for quantum computing resources in cybersecurity applications, and more particularly to machine learning algorithms that dynamically determine optimal timing and conditions for engaging quantum processors in real-time cyber threat analysis.
+
+PRIORITY: MEDIUM
+TIER: Tier 3
+ESTIMATED VALUE: TBD

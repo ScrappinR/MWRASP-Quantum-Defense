@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- USPTO Patent Drawing - Figure 2: PyTorch Neural Network Technical Implementation -->
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">
+    FIG. 2 - PYTORCH NEURAL BEHAVIORAL AUTHENTICATION TECHNICAL IMPLEMENTATION
+  </text>
+  
+  <!-- Main System Container -->
+  <rect x="50" y="50" width="700" height="500" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="70" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">
+    NEURAL NETWORK ARCHITECTURE AND BEHAVIORAL PATTERN GENERATION
+  </text>
+  
+  <!-- Input Layer -->
+  <rect x="80" y="100" width="120" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="140" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    INPUT LAYER
+  </text>
+  <text x="140" y="135" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CONTEXT VECTOR
+  </text>
+  <text x="90" y="155" font-family="Arial" font-size="8">
+    partner_hash: 0.742
+  </text>
+  <text x="90" y="165" font-family="Arial" font-size="8">
+    context_value: 0.8 (financial)
+  </text>
+  <text x="90" y="175" font-family="Arial" font-size="8">
+    stress_level: 0.3
+  </text>
+  <text x="140" y="175" text-anchor="middle" font-family="Arial" font-size="8">
+    (10)
+  </text>
+  
+  <!-- Context Encoder -->
+  <rect x="240" y="100" width="120" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="300" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CONTEXT ENCODER
+  </text>
+  <text x="300" y="135" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    LINEAR(4→8)
+  </text>
+  <text x="250" y="155" font-family="Arial" font-size="8">
+    Tanh Activation
+  </text>
+  <text x="250" y="165" font-family="Arial" font-size="8">
+    8-dimensional output
+  </text>
+  <text x="300" y="175" text-anchor="middle" font-family="Arial" font-size="8">
+    (20)
+  </text>
+  
+  <!-- Hidden Layer -->
+  <rect x="400" y="100" width="120" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="460" y="115" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    HIDDEN LAYER
+  </text>
+  <text x="460" y="130" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    LINEAR(8→128)
+  </text>
+  <text x="410" y="150" font-family="Arial" font-size="8">
+    Tanh + Dropout(0.1)
+  </text>
+  <text x="410" y="160" font-family="Arial" font-size="8">
+    128 neurons
+  </text>
+  <text x="410" y="170" font-family="Arial" font-size="8">
+    Feature extraction
+  </text>
+  <text x="460" y="175" text-anchor="middle" font-family="Arial" font-size="8">
+    (30)
+  </text>
+  
+  <!-- Intermediate Layer -->
+  <rect x="560" y="100" width="120" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="620" y="115" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    INTERMEDIATE
+  </text>
+  <text x="620" y="130" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    LINEAR(128→16)
+  </text>
+  <text x="570" y="150" font-family="Arial" font-size="8">
+    Tanh Activation
+  </text>
+  <text x="570" y="160" font-family="Arial" font-size="8">
+    16 neurons
+  </text>
+  <text x="570" y="170" font-family="Arial" font-size="8">
+    Pattern compression
+  </text>
+  <text x="620" y="175" text-anchor="middle" font-family="Arial" font-size="8">
+    (40)
+  </text>
+  
+  <!-- Arrows between neural network layers -->
+  <path d="M 200 140 L 230 140" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 360 140 L 390 140" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 520 140 L 550 140" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Output Layer -->
+  <rect x="240" y="220" width="120" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="300" y="240" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    OUTPUT LAYER
+  </text>
+  <text x="300" y="255" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    LINEAR(16→20)
+  </text>
+  <text x="250" y="275" font-family="Arial" font-size="8">
+    20 behavioral traits
+  </text>
+  <text x="250" y="285" font-family="Arial" font-size="8">
+    Tanh normalized [-1,1]
+  </text>
+  <text x="300" y="295" text-anchor="middle" font-family="Arial" font-size="8">
+    (50)
+  </text>
+  
+  <!-- Behavioral Base Parameters -->
+  <rect x="400" y="220" width="120" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="460" y="235" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    BEHAVIORAL BASE
+  </text>
+  <text x="460" y="250" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    PARAMETERS
+  </text>
+  <text x="410" y="270" font-family="Arial" font-size="8">
+    Agent-specific traits
+  </text>
+  <text x="410" y="280" font-family="Arial" font-size="8">
+    Learned parameters
+  </text>
+  <text x="410" y="290" font-family="Arial" font-size="8">
+    20-dim tensor
+  </text>
+  <text x="460" y="295" text-anchor="middle" font-family="Arial" font-size="8">
+    (60)
+  </text>
+  
+  <!-- Arrows to output processing -->
+  <path d="M 620 180 L 320 220" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 460 220 L 380 260" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Behavioral Signature Generation -->
+  <rect x="280" y="340" width="160" height="80" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="360" y="360" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    BEHAVIORAL SIGNATURE
+  </text>
+  <text x="360" y="375" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    GENERATION
+  </text>
+  <text x="290" y="395" font-family="Arial" font-size="8">
+    Context + Base → Signature
+  </text>
+  <text x="290" y="405" font-family="Arial" font-size="8">
+    Temporal evolution applied
+  </text>
+  <text x="290" y="415" font-family="Arial" font-size="8">
+    20 behavioral dimensions
+  </text>
+  <text x="360" y="415" text-anchor="middle" font-family="Arial" font-size="8">
+    (70)
+  </text>
+  
+  <!-- Arrow from output to signature generation -->
+  <path d="M 320 300 L 340 340" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Behavioral Traits Interpretation -->
+  <rect x="80" y="450" width="300" height="80" fill="none" stroke="black" stroke-width="1"/>
+  <text x="230" y="470" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">
+    BEHAVIORAL TRAITS INTERPRETATION
+  </text>
+  <text x="90" y="485" font-family="Arial" font-size="8">
+    communication_formality: 0.73 → Formal communication style
+  </text>
+  <text x="90" y="495" font-family="Arial" font-size="8">
+    response_speed_preference: -0.21 → Deliberate response timing
+  </text>
+  <text x="90" y="505" font-family="Arial" font-size="8">
+    verification_thoroughness: 0.89 → High verification requirements
+  </text>
+  <text x="90" y="515" font-family="Arial" font-size="8">
+    security_paranoia: 0.65 → Heightened security awareness
+  </text>
+  <text x="230" y="525" text-anchor="middle" font-family="Arial" font-size="8">
+    (100)
+  </text>
+  
+  <!-- Neural Training Process -->
+  <rect x="420" y="450" width="300" height="80" fill="none" stroke="black" stroke-width="1"/>
+  <text x="570" y="470" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">
+    PYTORCH TRAINING PROCESS
+  </text>
+  <text x="430" y="485" font-family="Arial" font-size="8">
+    Optimizer: Adam(lr=0.001) • Loss: MSELoss()
+  </text>
+  <text x="430" y="495" font-family="Arial" font-size="8">
+    Training Data: agent behavioral observations
+  </text>
+  <text x="430" y="505" font-family="Arial" font-size="8">
+    Epochs: 100 • Convergence Rate: 95.7%
+  </text>
+  <text x="430" y="515" font-family="Arial" font-size="8">
+    Training Time: 2.3s average • GPU Acceleration: 8.7x
+  </text>
+  <text x="570" y="525" text-anchor="middle" font-family="Arial" font-size="8">
+    (200)
+  </text>
+  
+  <!-- Multi-Dimensional Analysis Components -->
+  <rect x="480" y="340" width="180" height="80" fill="none" stroke="black" stroke-width="1"/>
+  <text x="570" y="360" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    BEHAVIORAL ANALYSIS
+  </text>
+  <text x="570" y="375" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    DIMENSIONS
+  </text>
+  <text x="490" y="390" font-family="Arial" font-size="8">
+    • Communication Patterns (94.5% accuracy)
+  </text>
+  <text x="490" y="400" font-family="Arial" font-size="8">
+    • Timing Behaviors (91.7% accuracy)
+  </text>
+  <text x="490" y="410" font-family="Arial" font-size="8">
+    • Decision-Making (89.3% accuracy)
+  </text>
+  <text x="570" y="415" text-anchor="middle" font-family="Arial" font-size="8">
+    (300)
+  </text>
+  
+  <!-- Arrows to bottom components -->
+  <path d="M 320 420 L 250 450" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  <path d="M 400 380 L 550 450" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  <path d="M 440 380 L 550 340" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  
+  <!-- Neural Network Equations -->
+  <text x="80" y="580" font-family="Arial" font-size="10" font-weight="bold">
+    NEURAL COMPUTATION: signature = tanh(network(context_encoded) + behavioral_base)
+  </text>
+  <text x="480" y="580" font-family="Arial" font-size="10" font-weight="bold">
+    EVOLUTION: evolved_trait = base_trait + N(0, evolution_factor)
+  </text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+  </defs>
+  
+</svg>
