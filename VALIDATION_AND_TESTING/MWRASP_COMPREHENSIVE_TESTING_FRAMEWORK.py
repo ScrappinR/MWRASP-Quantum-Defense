@@ -168,9 +168,12 @@ class ComprehensiveTestingFramework:
         detection_times = []
         for sample in test_samples:
             start_time = time.time()
-            is_threat, confidence = detector.detect_threats(sample['network_data'])
+            result = detector.detect_threats(sample['network_data'])
             detection_time = time.time() - start_time
             detection_times.append(detection_time)
+            
+            is_threat = result.get('threat_detected', False)
+            confidence = result.get('confidence', 0.0)
             
             if is_threat:
                 total_detections += 1
