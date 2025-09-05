@@ -77,9 +77,13 @@ class Agent:
 
 
 class AutonomousDefenseCoordinator:
-    def __init__(self, quantum_detector: QuantumDetector, fragmentation_system: TemporalFragmentation):
+    def __init__(self, quantum_detector: QuantumDetector, fragmentation_system: TemporalFragmentation, 
+                 initial_agent_count: int = 10, max_agent_count: int = 127, spawn_threshold: float = 0.7):
         self.quantum_detector = quantum_detector
         self.fragmentation_system = fragmentation_system
+        self.initial_agent_count = initial_agent_count
+        self.max_agent_count = max_agent_count  
+        self.spawn_threshold = spawn_threshold
         self.agents: Dict[str, Agent] = {}
         self.defense_actions: List[DefenseAction] = []
         self.coordination_network = defaultdict(list)
@@ -104,10 +108,11 @@ class AutonomousDefenseCoordinator:
         }
     
     def _initialize_agent_fleet(self):
-        """Initialize the autonomous defense agent fleet"""
+        """Initialize the autonomous defense agent fleet with configured agent count"""
         current_time = time.time()
+        agents_created = 0
         
-        # Monitor Agent - Continuous surveillance
+        # Always create at least 1 monitor agent
         monitor_capabilities = [
             AgentCapability("scan_canary", "Canary Token Scanning", 10, 1),
             AgentCapability("pattern_analysis", "Pattern Analysis", 50, 3),
@@ -124,15 +129,23 @@ class AutonomousDefenseCoordinator:
             max_workload=15
         )
         self.agents[monitor_agent.agent_id] = monitor_agent
+        agents_created += 1
         
-        # Defender Agents - Active threat response
-        for i in range(3):
-            defender_capabilities = [
-                AgentCapability("isolate_threat", "Threat Isolation", 20, 2),
-                AgentCapability("fragment_data", "Emergency Fragmentation", 100, 5),
-                AgentCapability("counter_attack", "Quantum Counter-Attack", 200, 8)
-            ]
-            
+        # Create defender agents up to initial_agent_count
+        defender_capabilities = [
+            AgentCapability("isolate_threat", "Threat Isolation", 20, 2),
+            AgentCapability("fragment_data", "Emergency Fragmentation", 100, 5),
+            AgentCapability("counter_attack", "Quantum Counter-Attack", 200, 8)
+        ]
+        
+        # Reserve slots for analyzer and coordinator
+        max_defenders = self.initial_agent_count - 3  # monitor + analyzer + coordinator
+        defender_count = max(1, max_defenders)  # At least 1 defender
+        
+        for i in range(defender_count):
+            if agents_created >= self.initial_agent_count:
+                break
+                
             defender_agent = Agent(
                 agent_id=f"defender_{i}_{secrets.token_hex(4)}",
                 role=AgentRole.DEFENDER,
@@ -143,60 +156,69 @@ class AutonomousDefenseCoordinator:
                 max_workload=8
             )
             self.agents[defender_agent.agent_id] = defender_agent
+            agents_created += 1
         
-        # Analyzer Agent - Deep threat analysis
-        analyzer_capabilities = [
-            AgentCapability("quantum_analysis", "Quantum Threat Analysis", 500, 10),
-            AgentCapability("pattern_learning", "Pattern Learning", 300, 7),
-            AgentCapability("vulnerability_assessment", "Vulnerability Assessment", 400, 8)
-        ]
+        # Analyzer Agent - Deep threat analysis (if we have room)
+        if agents_created < self.initial_agent_count:
+            analyzer_capabilities = [
+                AgentCapability("quantum_analysis", "Quantum Threat Analysis", 500, 10),
+                AgentCapability("pattern_learning", "Pattern Learning", 300, 7),
+                AgentCapability("vulnerability_assessment", "Vulnerability Assessment", 400, 8)
+            ]
+            
+            analyzer_agent = Agent(
+                agent_id=f"analyzer_{secrets.token_hex(4)}",
+                role=AgentRole.ANALYZER,
+                status=AgentStatus.IDLE,
+                capabilities=analyzer_capabilities,
+                created_at=current_time,
+                last_active=current_time,
+                max_workload=5
+            )
+            self.agents[analyzer_agent.agent_id] = analyzer_agent
+            agents_created += 1
         
-        analyzer_agent = Agent(
-            agent_id=f"analyzer_{secrets.token_hex(4)}",
-            role=AgentRole.ANALYZER,
-            status=AgentStatus.IDLE,
-            capabilities=analyzer_capabilities,
-            created_at=current_time,
-            last_active=current_time,
-            max_workload=5
-        )
-        self.agents[analyzer_agent.agent_id] = analyzer_agent
+        # Recovery Agent - System recovery (if we have room)
+        if agents_created < self.initial_agent_count:
+            recovery_capabilities = [
+                AgentCapability("data_recovery", "Data Recovery", 1000, 15),
+                AgentCapability("system_repair", "System Repair", 2000, 20),
+                AgentCapability("integrity_restore", "Integrity Restoration", 800, 12)
+            ]
+            
+            recovery_agent = Agent(
+                agent_id=f"recovery_{secrets.token_hex(4)}",
+                role=AgentRole.RECOVERY,
+                status=AgentStatus.IDLE,
+                capabilities=recovery_capabilities,
+                created_at=current_time,
+                last_active=current_time,
+                max_workload=3
+            )
+            self.agents[recovery_agent.agent_id] = recovery_agent
+            agents_created += 1
         
-        # Recovery Agent - System recovery
-        recovery_capabilities = [
-            AgentCapability("data_recovery", "Data Recovery", 1000, 15),
-            AgentCapability("system_repair", "System Repair", 2000, 20),
-            AgentCapability("integrity_restore", "Integrity Restoration", 800, 12)
-        ]
+        # Coordinator Agent - Overall coordination (always create)
+        if agents_created < self.initial_agent_count:
+            coordinator_capabilities = [
+                AgentCapability("threat_prioritization", "Threat Prioritization", 50, 3),
+                AgentCapability("resource_allocation", "Resource Allocation", 100, 5),
+                AgentCapability("strategy_optimization", "Strategy Optimization", 200, 8)
+            ]
+            
+            coordinator_agent = Agent(
+                agent_id=f"coordinator_{secrets.token_hex(4)}",
+                role=AgentRole.COORDINATOR,
+                status=AgentStatus.ACTIVE,
+                capabilities=coordinator_capabilities,
+                created_at=current_time,
+                last_active=current_time,
+                max_workload=20
+            )
+            self.agents[coordinator_agent.agent_id] = coordinator_agent
+            agents_created += 1
         
-        recovery_agent = Agent(
-            agent_id=f"recovery_{secrets.token_hex(4)}",
-            role=AgentRole.RECOVERY,
-            status=AgentStatus.IDLE,
-            capabilities=recovery_capabilities,
-            created_at=current_time,
-            last_active=current_time,
-            max_workload=3
-        )
-        self.agents[recovery_agent.agent_id] = recovery_agent
-        
-        # Coordinator Agent - Overall coordination
-        coordinator_capabilities = [
-            AgentCapability("threat_prioritization", "Threat Prioritization", 50, 3),
-            AgentCapability("resource_allocation", "Resource Allocation", 100, 5),
-            AgentCapability("strategy_optimization", "Strategy Optimization", 200, 8)
-        ]
-        
-        coordinator_agent = Agent(
-            agent_id=f"coordinator_{secrets.token_hex(4)}",
-            role=AgentRole.COORDINATOR,
-            status=AgentStatus.ACTIVE,
-            capabilities=coordinator_capabilities,
-            created_at=current_time,
-            last_active=current_time,
-            max_workload=20
-        )
-        self.agents[coordinator_agent.agent_id] = coordinator_agent
+        print(f"[AGENTS] Initialized {agents_created}/{self.initial_agent_count} agents (max: {self.max_agent_count})")
     
     async def start_coordination(self):
         """Start the autonomous coordination system"""

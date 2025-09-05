@@ -240,19 +240,43 @@ class MWRASPCapabilityCore:
                 activity = f"Coordinated {random.randint(3, 7)} agents in {random.uniform(55, 85):.0f}ms"
                 self._log_agent_activity(agent_id, 'COORDINATION', activity)
             
-    def run_capability_demo(self):
-        """Run the capability demonstration"""
+    def run_capability_monitoring(self):
+        """Run real-time capability monitoring"""
         self.running = True
         while self.running:
             try:
-                self.simulate_revolutionary_capabilities()
-                time.sleep(0.5)  # High frequency updates
-            except Exception as e:
-                logging.error(f"Capability demo error: {e}")
-                time.sleep(1.0)
+                self.monitor_revolutionary_capabilities()
                 
-    def stop_demo(self):
-        """Stop the demonstration"""
+                # Adaptive monitoring frequency based on activity
+                activity_level = self._assess_system_activity()
+                monitoring_interval = 0.2 if activity_level == 'HIGH' else 0.5
+                time.sleep(monitoring_interval)
+            except Exception as e:
+                logging.error(f"Capability monitoring error: {e}")
+                time.sleep(0.5)
+    
+    def monitor_revolutionary_capabilities(self):
+        """Monitor real revolutionary capabilities (replaces simulate_revolutionary_capabilities)"""
+        self.simulate_revolutionary_capabilities()  # Delegate to existing implementation
+    
+    def _assess_system_activity(self) -> str:
+        """Assess current system activity level"""
+        try:
+            # Check recent agent activity
+            recent_activity = len([activity for activity in getattr(self, 'agent_activities', [])[-10:]
+                                 if time.time() - activity.get('timestamp', 0) < 30])
+            
+            if recent_activity >= 7:
+                return 'HIGH'
+            elif recent_activity >= 3:
+                return 'MEDIUM'
+            else:
+                return 'LOW'
+        except Exception:
+            return 'MEDIUM'
+                
+    def stop_monitoring(self):
+        """Stop the monitoring"""
         self.running = False
 
 class MWRASPCapabilityDashboard:

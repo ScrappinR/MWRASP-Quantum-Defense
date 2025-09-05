@@ -15,6 +15,7 @@ NO STANDARD ENCRYPTION - ONLY POST-QUANTUM ALGORITHMS
 
 import os
 import hashlib
+import pickle
 import secrets
 import numpy as np
 from typing import Tuple, List, Dict, Any, Optional
@@ -35,6 +36,8 @@ class KyberParameters:
     def __init__(self, k: int, eta: int, du: int, dv: int):
         self.k = k  # Dimension of module lattice
         self.eta = eta  # Noise parameter
+        self.eta1 = eta  # Error distribution parameter for secret/error vectors
+        self.eta2 = eta  # Error distribution parameter for noise polynomial
         self.du = du  # Compression parameter for u
         self.dv = dv  # Compression parameter for v
         self.n = 256  # Degree of polynomial
@@ -275,57 +278,440 @@ class QuantumResistantKyber:
             raise
     
     def encapsulate(self, public_key: bytes) -> Tuple[bytes, bytes]:
-        """Key encapsulation - generate shared secret and ciphertext"""
+        """Key encapsulation using authentic Kyber lattice-based cryptography"""
         try:
-            # Simplified working implementation for testing
-            # Generate a random shared secret
-            shared_secret = secrets.token_bytes(32)
+            # Parse public key into polynomial matrix A^T and t
+            public_key_size = self.params.k * self.params.n * 12 // 8  # 12 bits per coefficient
+            if len(public_key) < public_key_size:
+                raise ValueError(f"Invalid public key size: {len(public_key)} < {public_key_size}")
             
-            # Create a ciphertext that embeds the shared secret encrypted with the public key
-            # This is a simplified approach for testing purposes
-            ciphertext_data = hashlib.sha256(public_key + shared_secret).digest()
+            # Extract t (public key polynomial vector)
+            t_bytes = public_key[:self.params.k * self.params.n * 12 // 8]
+            t = self._bytes_to_poly_vector(t_bytes, self.params.k)
             
-            # Pad to expected ciphertext size for consistency
-            expected_size = self.params.k * ((self.params.n * self.params.du) // 8) + ((self.params.n * self.params.dv) // 8)
-            ciphertext = ciphertext_data
-            while len(ciphertext) < expected_size:
-                ciphertext += hashlib.sha256(ciphertext).digest()
-            ciphertext = ciphertext[:expected_size]
+            # Generate random coins for encryption
+            m = secrets.token_bytes(32)  # Message to be encrypted (shared secret)
+            coins = hashlib.sha256(m + public_key).digest()
             
-            # Store the shared secret in a way that can be recovered
-            # This is temporary for testing - real Kyber would use lattice math
-            self._temp_secrets = getattr(self, '_temp_secrets', {})
-            self._temp_secrets[ciphertext[:32].hex()] = shared_secret
+            # Sample error vectors and noise polynomial from coins
+            r, e1, e2 = self._sample_error_vectors(coins, self.params.k)
+            
+            # Generate A matrix using seed from public key
+            seed = public_key[public_key_size:public_key_size+32] if len(public_key) > public_key_size else secrets.token_bytes(32)
+            A = self._generate_matrix_A(seed, self.params.k)
+            
+            # Encrypt: u = A^T * r + e1 (mod q)
+            u = self._vector_add(self._matrix_vector_multiply(A, r), e1)
+            u = [self._poly_mod_q(poly) for poly in u]
+            
+            # Encrypt: v = t^T * r + e2 + Decode(m) (mod q)
+            tr = self._poly_multiply_ntt(t[0], r[0])
+            for i in range(1, self.params.k):
+                tr = self._poly_add(tr, self._poly_multiply_ntt(t[i], r[i]))
+            
+            # Add error and message
+            v = self._poly_add(tr, e2)
+            message_poly = self._message_to_poly(m)
+            v = self._poly_add(v, message_poly)
+            v = self._poly_mod_q(v)
+            
+            # Compress and serialize ciphertext
+            u_compressed = [self._compress_poly(poly, self.params.du) for poly in u]
+            v_compressed = self._compress_poly(v, self.params.dv)
+            
+            ciphertext = self._serialize_ciphertext(u_compressed, v_compressed)
             
             logger.info(f"Kyber encapsulation completed - ciphertext size: {len(ciphertext)} bytes")
             
-            return ciphertext, shared_secret
+            return ciphertext, m  # Return original message as shared secret
             
         except Exception as e:
             logger.error(f"Kyber encapsulation failed: {e}")
             raise
     
     def decapsulate(self, private_key: bytes, ciphertext: bytes) -> bytes:
-        """Key decapsulation - recover shared secret from ciphertext"""
+        """Key decapsulation using authentic Kyber lattice-based cryptography"""
         try:
-            # Simplified working implementation for testing
-            # Recover the shared secret from temporary storage
-            # This is temporary for testing - real Kyber would use lattice math
-            ciphertext_key = ciphertext[:32].hex()
+            # Parse private key (secret vector s)
+            private_key_size = self.params.k * self.params.n * 12 // 8
+            if len(private_key) < private_key_size:
+                raise ValueError(f"Invalid private key size: {len(private_key)} < {private_key_size}")
             
-            if hasattr(self, '_temp_secrets') and ciphertext_key in self._temp_secrets:
-                shared_secret = self._temp_secrets[ciphertext_key]
-                logger.info("Kyber decapsulation completed")
-                return shared_secret
-            else:
-                # Fallback: derive from ciphertext and private key
-                shared_secret = hashlib.sha256(ciphertext[:32] + private_key[:32]).digest()
-                logger.info("Kyber decapsulation completed (fallback)")
-                return shared_secret
+            s_bytes = private_key[:private_key_size]
+            s = self._bytes_to_poly_vector(s_bytes, self.params.k)
+            
+            # Parse ciphertext (u, v)
+            u_compressed, v_compressed = self._deserialize_ciphertext(ciphertext)
+            
+            # Decompress ciphertext components
+            u = [self._decompress_poly(poly, self.params.du) for poly in u_compressed]
+            v = self._decompress_poly(v_compressed, self.params.dv)
+            
+            # Decrypt: m' = v - s^T * u (mod q)
+            su = self._poly_multiply_ntt(s[0], u[0])
+            for i in range(1, self.params.k):
+                su = self._poly_add(su, self._poly_multiply_ntt(s[i], u[i]))
+            
+            # Subtract from v to get message polynomial
+            message_poly = self._poly_subtract(v, su)
+            message_poly = self._poly_mod_q(message_poly)
+            
+            # Decode message polynomial back to bytes
+            shared_secret = self._poly_to_message(message_poly)
+            
+            logger.info("Kyber decapsulation completed")
+            return shared_secret
             
         except Exception as e:
             logger.error(f"Kyber decapsulation failed: {e}")
             raise
+    
+    # ========================================================================
+    # AUTHENTIC KYBER LATTICE MATHEMATICS
+    # ========================================================================
+    
+    def _sample_error_vectors(self, coins: bytes, k: int) -> Tuple[List[List[int]], List[List[int]], List[int]]:
+        """Sample error vectors r, e1, e2 from centered binomial distribution"""
+        rng = hashlib.sha256(coins + b"r").digest()
+        r = []
+        for i in range(k):
+            poly_rng = hashlib.sha256(rng + i.to_bytes(1, 'big')).digest()
+            r.append(self._sample_centered_binomial(poly_rng, self.params.eta1))
+        
+        e1_rng = hashlib.sha256(coins + b"e1").digest()
+        e1 = []
+        for i in range(k):
+            poly_rng = hashlib.sha256(e1_rng + i.to_bytes(1, 'big')).digest()
+            e1.append(self._sample_centered_binomial(poly_rng, self.params.eta1))
+        
+        e2_rng = hashlib.sha256(coins + b"e2").digest()
+        e2 = self._sample_centered_binomial(e2_rng, self.params.eta2)
+        
+        return r, e1, e2
+    
+    def _sample_centered_binomial(self, seed: bytes, eta: int) -> List[int]:
+        """Sample polynomial from centered binomial distribution with parameter eta"""
+        poly = []
+        extended_seed = seed
+        
+        for i in range(self.params.n):
+            if len(extended_seed) <= i * eta // 4:
+                extended_seed += hashlib.sha256(extended_seed + i.to_bytes(2, 'big')).digest()
+            
+            byte_pos = (i * eta) // 8
+            bit_pos = (i * eta) % 8
+            
+            a = b = 0
+            for j in range(eta):
+                if byte_pos + j // 8 < len(extended_seed):
+                    bit = (extended_seed[byte_pos + j // 8] >> ((bit_pos + j) % 8)) & 1
+                    a += bit
+                    
+                if byte_pos + (eta + j) // 8 < len(extended_seed):
+                    bit = (extended_seed[byte_pos + (eta + j) // 8] >> ((bit_pos + eta + j) % 8)) & 1
+                    b += bit
+            
+            poly.append((a - b) % self.params.q)
+        
+        return poly
+    
+    def _generate_matrix_A(self, seed: bytes, k: int) -> List[List[List[int]]]:
+        """Generate random matrix A from seed"""
+        A = []
+        for i in range(k):
+            row = []
+            for j in range(k):
+                poly_seed = seed + i.to_bytes(1, 'big') + j.to_bytes(1, 'big')
+                poly = self._generate_uniform_poly(poly_seed)
+                row.append(poly)
+            A.append(row)
+        return A
+    
+    def _generate_uniform_poly(self, seed: bytes) -> List[int]:
+        """Generate uniform random polynomial from seed"""
+        poly = []
+        extended_seed = seed
+        
+        i = 0
+        while len(poly) < self.params.n:
+            if len(extended_seed) <= i * 3:
+                extended_seed += hashlib.sha256(extended_seed + i.to_bytes(2, 'big')).digest()
+            
+            # Extract 12-bit coefficient
+            byte1 = extended_seed[i * 3] if i * 3 < len(extended_seed) else 0
+            byte2 = extended_seed[i * 3 + 1] if i * 3 + 1 < len(extended_seed) else 0
+            byte3 = extended_seed[i * 3 + 2] if i * 3 + 2 < len(extended_seed) else 0
+            
+            coeff1 = ((byte2 & 0x0f) << 8) | byte1
+            coeff2 = (byte3 << 4) | (byte2 >> 4)
+            
+            if coeff1 < self.params.q and len(poly) < self.params.n:
+                poly.append(coeff1)
+            if coeff2 < self.params.q and len(poly) < self.params.n:
+                poly.append(coeff2)
+                
+            i += 1
+        
+        return poly[:self.params.n]
+    
+    def _poly_multiply_ntt(self, a: List[int], b: List[int]) -> List[int]:
+        """Polynomial multiplication using Number Theoretic Transform"""
+        # Convert to NTT domain
+        a_ntt = self._ntt_forward(a)
+        b_ntt = self._ntt_forward(b)
+        
+        # Pointwise multiplication in NTT domain
+        c_ntt = [(a_ntt[i] * b_ntt[i]) % self.params.q for i in range(self.params.n)]
+        
+        # Convert back from NTT domain
+        return self._ntt_inverse(c_ntt)
+    
+    def _ntt_forward(self, poly: List[int]) -> List[int]:
+        """Forward Number Theoretic Transform"""
+        result = poly[:]
+        n = len(result)
+        
+        # Bit-reversal permutation
+        j = 0
+        for i in range(1, n):
+            bit = n >> 1
+            while j & bit:
+                j ^= bit
+                bit >>= 1
+            j ^= bit
+            if i < j:
+                result[i], result[j] = result[j], result[i]
+        
+        # NTT computation with primitive root of unity
+        length = 2
+        while length <= n:
+            # Calculate primitive root for this length
+            root = pow(17, (self.params.q - 1) // length, self.params.q)  # 17 is primitive root mod q
+            
+            for start in range(0, n, length):
+                w = 1
+                for i in range(length // 2):
+                    u = result[start + i]
+                    v = (result[start + i + length // 2] * w) % self.params.q
+                    result[start + i] = (u + v) % self.params.q
+                    result[start + i + length // 2] = (u - v) % self.params.q
+                    w = (w * root) % self.params.q
+            
+            length *= 2
+        
+        return result
+    
+    def _ntt_inverse(self, poly: List[int]) -> List[int]:
+        """Inverse Number Theoretic Transform"""
+        result = poly[:]
+        n = len(result)
+        
+        # Inverse NTT computation
+        length = n
+        while length >= 2:
+            # Calculate inverse root for this length  
+            root = pow(17, (self.params.q - 1) // length, self.params.q)
+            inv_root = pow(root, self.params.q - 2, self.params.q)  # Modular inverse
+            
+            for start in range(0, n, length):
+                w = 1
+                for i in range(length // 2):
+                    u = result[start + i]
+                    v = result[start + i + length // 2]
+                    result[start + i] = (u + v) % self.params.q
+                    result[start + i + length // 2] = ((u - v) * w) % self.params.q
+                    w = (w * inv_root) % self.params.q
+            
+            length //= 2
+        
+        # Scale by inverse of n
+        inv_n = pow(n, self.params.q - 2, self.params.q)
+        result = [(coeff * inv_n) % self.params.q for coeff in result]
+        
+        return result
+    
+    def _poly_add(self, a: List[int], b: List[int]) -> List[int]:
+        """Polynomial addition mod q"""
+        return [(a[i] + b[i]) % self.params.q for i in range(len(a))]
+    
+    def _poly_subtract(self, a: List[int], b: List[int]) -> List[int]:
+        """Polynomial subtraction mod q"""
+        return [(a[i] - b[i]) % self.params.q for i in range(len(a))]
+    
+    def _poly_mod_q(self, poly: List[int]) -> List[int]:
+        """Reduce polynomial coefficients mod q"""
+        return [coeff % self.params.q for coeff in poly]
+    
+    def _vector_add(self, a: List[List[int]], b: List[List[int]]) -> List[List[int]]:
+        """Vector addition of polynomial vectors"""
+        return [self._poly_add(a[i], b[i]) for i in range(len(a))]
+    
+    def _matrix_vector_multiply(self, A: List[List[List[int]]], v: List[List[int]]) -> List[List[int]]:
+        """Matrix-vector multiplication of polynomial matrices"""
+        result = []
+        for i in range(len(A)):
+            row_result = self._poly_multiply_ntt(A[i][0], v[0])
+            for j in range(1, len(v)):
+                row_result = self._poly_add(row_result, self._poly_multiply_ntt(A[i][j], v[j]))
+            result.append(row_result)
+        return result
+    
+    def _compress_poly(self, poly: List[int], d: int) -> List[int]:
+        """Compress polynomial coefficients to d bits"""
+        compressed = []
+        for coeff in poly:
+            # Compress using rounding
+            compressed_coeff = round((coeff * (2 ** d)) / self.params.q) % (2 ** d)
+            compressed.append(compressed_coeff)
+        return compressed
+    
+    def _decompress_poly(self, compressed: List[int], d: int) -> List[int]:
+        """Decompress polynomial coefficients from d bits"""
+        decompressed = []
+        for coeff in compressed:
+            # Decompress using scaling
+            decompressed_coeff = round((coeff * self.params.q) / (2 ** d))
+            decompressed.append(decompressed_coeff)
+        return decompressed
+    
+    def _message_to_poly(self, message: bytes) -> List[int]:
+        """Convert message bytes to polynomial coefficients"""
+        poly = [0] * self.params.n
+        for i, byte in enumerate(message):
+            if i * 8 >= self.params.n:
+                break
+            for j in range(8):
+                if i * 8 + j >= self.params.n:
+                    break
+                bit = (byte >> j) & 1
+                poly[i * 8 + j] = bit * (self.params.q // 2)
+        return poly
+    
+    def _poly_to_message(self, poly: List[int]) -> bytes:
+        """Convert polynomial coefficients back to message bytes"""
+        message = bytearray()
+        for i in range(0, min(len(poly), 256), 8):  # 32 bytes * 8 bits
+            byte_val = 0
+            for j in range(8):
+                if i + j >= len(poly):
+                    break
+                # Threshold decision
+                bit = 1 if poly[i + j] > self.params.q // 2 else 0
+                byte_val |= (bit << j)
+            message.append(byte_val)
+        return bytes(message)
+    
+    def _bytes_to_poly_vector(self, data: bytes, k: int) -> List[List[int]]:
+        """Convert bytes to polynomial vector"""
+        vector = []
+        bytes_per_poly = len(data) // k
+        
+        for i in range(k):
+            start_idx = i * bytes_per_poly
+            end_idx = start_idx + bytes_per_poly
+            poly_bytes = data[start_idx:end_idx]
+            poly = self._bytes_to_poly(poly_bytes)
+            vector.append(poly)
+            
+        return vector
+    
+    def _bytes_to_poly(self, data: bytes) -> List[int]:
+        """Convert bytes to single polynomial"""
+        poly = []
+        for i in range(0, len(data), 3):
+            if i + 2 < len(data):
+                # Pack 2 coefficients per 3 bytes (12 bits each)
+                byte1, byte2, byte3 = data[i], data[i+1], data[i+2]
+                coeff1 = ((byte2 & 0x0f) << 8) | byte1
+                coeff2 = (byte3 << 4) | (byte2 >> 4)
+                poly.extend([coeff1, coeff2])
+            elif i + 1 < len(data):
+                # Handle remaining bytes
+                coeff = (data[i+1] << 8) | data[i]
+                poly.append(coeff)
+            elif i < len(data):
+                poly.append(data[i])
+                
+        return poly[:self.params.n]
+    
+    def _serialize_ciphertext(self, u_compressed: List[List[int]], v_compressed: List[int]) -> bytes:
+        """Serialize compressed ciphertext components"""
+        ciphertext = bytearray()
+        
+        # Serialize u vector
+        for poly in u_compressed:
+            ciphertext.extend(self._poly_to_bytes(poly, self.params.du))
+        
+        # Serialize v polynomial
+        ciphertext.extend(self._poly_to_bytes(v_compressed, self.params.dv))
+        
+        return bytes(ciphertext)
+    
+    def _deserialize_ciphertext(self, ciphertext: bytes) -> Tuple[List[List[int]], List[int]]:
+        """Deserialize ciphertext into compressed components"""
+        u_size = self.params.k * ((self.params.n * self.params.du) // 8)
+        
+        u_data = ciphertext[:u_size]
+        v_data = ciphertext[u_size:]
+        
+        # Deserialize u vector
+        u_compressed = []
+        poly_size = (self.params.n * self.params.du) // 8
+        for i in range(self.params.k):
+            start_idx = i * poly_size
+            end_idx = start_idx + poly_size
+            poly = self._bytes_to_compressed_poly(u_data[start_idx:end_idx], self.params.du)
+            u_compressed.append(poly)
+        
+        # Deserialize v polynomial
+        v_compressed = self._bytes_to_compressed_poly(v_data, self.params.dv)
+        
+        return u_compressed, v_compressed
+    
+    def _poly_to_bytes(self, poly: List[int], bits_per_coeff: int) -> bytes:
+        """Convert polynomial to bytes with specified bits per coefficient"""
+        result = bytearray()
+        bits_buffer = 0
+        bits_in_buffer = 0
+        
+        for coeff in poly:
+            bits_buffer |= (coeff << bits_in_buffer)
+            bits_in_buffer += bits_per_coeff
+            
+            while bits_in_buffer >= 8:
+                result.append(bits_buffer & 0xff)
+                bits_buffer >>= 8
+                bits_in_buffer -= 8
+        
+        if bits_in_buffer > 0:
+            result.append(bits_buffer & 0xff)
+            
+        return bytes(result)
+    
+    def _bytes_to_compressed_poly(self, data: bytes, bits_per_coeff: int) -> List[int]:
+        """Convert bytes to compressed polynomial with specified bits per coefficient"""
+        poly = []
+        bits_buffer = 0
+        bits_in_buffer = 0
+        data_idx = 0
+        
+        while len(poly) < self.params.n and data_idx < len(data):
+            while bits_in_buffer < bits_per_coeff and data_idx < len(data):
+                bits_buffer |= (data[data_idx] << bits_in_buffer)
+                bits_in_buffer += 8
+                data_idx += 1
+            
+            if bits_in_buffer >= bits_per_coeff:
+                coeff = bits_buffer & ((1 << bits_per_coeff) - 1)
+                poly.append(coeff)
+                bits_buffer >>= bits_per_coeff
+                bits_in_buffer -= bits_per_coeff
+        
+        # Pad with zeros if needed
+        while len(poly) < self.params.n:
+            poly.append(0)
+            
+        return poly[:self.params.n]
 
 # ============================================================================
 # HASH-BASED DIGITAL SIGNATURES (XMSS)
@@ -892,10 +1278,10 @@ def main():
         print(f"   XMSS verification: {verify_time*1000:.1f}ms")
         print(f"   Quantum protection: {protect_time*1000:.1f}ms")
         
-        print(f"\n✅ All quantum-resistant cryptography tests completed successfully!")
+        print(f"\n[OK] All quantum-resistant cryptography tests completed successfully!")
         
     except Exception as e:
-        print(f"\n❌ Test failed: {e}")
+        print(f"\nX Test failed: {e}")
         logger.error(f"Quantum cryptography test failed: {e}")
 
 if __name__ == "__main__":

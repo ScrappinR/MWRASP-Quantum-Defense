@@ -104,14 +104,57 @@ class RealQuantumIntegration:
     def _initialize_quantum_service(self):
         """Initialize IBM Quantum service"""
         try:
-            # Initialize with saved account or public access
-            self.service = QiskitRuntimeService()
+            # Try to initialize with API key from environment or saved account
+            import os
+            api_key = os.getenv('IBM_QUANTUM_API_KEY', 'Db5DJPp-PEdI-NcXMpwWzLDgkN5rc-ZS0aYuGXVNmbAb')
+            
+            # NEW MWRASP QUANTUM INSTANCE CREDENTIALS
+            mwrasp_crn = 'crn:v1:bluemix:public:quantum-computing:us-east:a/fd74c42f713945daa9f8d5278bbeef5e:a31cd4e9-7c3b-4d1a-b39f-735fd379abc1::'
+            
+            if api_key:
+                # Try MWRASP instance direct connection first
+                try:
+                    self.service = QiskitRuntimeService(
+                        channel='ibm_quantum_platform',
+                        token=api_key,
+                        instance=mwrasp_crn
+                    )
+                    print(f"[QUANTUM] ✅ Connected directly to MWRASP Quantum Instance!")
+                    print(f"[QUANTUM] ✅ Instance: {mwrasp_crn[:50]}...")
+                except Exception as e1:
+                    print(f"[QUANTUM] MWRASP direct connection failed: {e1}")
+                    # Try with IBM Cloud channel
+                    try:
+                        self.service = QiskitRuntimeService(
+                            channel='ibm_cloud',
+                            token=api_key
+                        )
+                        print(f"[QUANTUM] Connected to IBM Quantum Platform via IBM Cloud")
+                    except:
+                        # Try with IBM Quantum Platform channel
+                        try:
+                            self.service = QiskitRuntimeService(
+                                channel='ibm_quantum_platform', 
+                                token=api_key
+                            )
+                            print(f"[QUANTUM] Connected to IBM Quantum Platform via Quantum Platform")
+                        except:
+                            # Fall back to default initialization
+                            self.service = QiskitRuntimeService()
+                        print(f"[QUANTUM] Connected to IBM Quantum Platform via default method")
+            else:
+                # Initialize with saved account or public access
+                self.service = QiskitRuntimeService()
+                print(f"[QUANTUM] Connected to IBM Quantum Platform")
+            
             self.available_backends = self._get_available_backends()
-            print(f"[QUANTUM] Connected to IBM Quantum Platform")
             print(f"[QUANTUM] Available backends: {len(self.available_backends)}")
+            print(f"[QUANTUM] API Key configured: {api_key[:20]}..." if api_key else "[QUANTUM] No API key configured")
+            
         except Exception as e:
             print(f"[QUANTUM] Warning: Could not connect to IBM Quantum Platform: {e}")
             print("[QUANTUM] Using local simulation mode")
+            print("[QUANTUM] IBM hardware integration ready - account validation may be needed")
             self.qiskit_available = False
     
     def _get_available_backends(self) -> List[str]:

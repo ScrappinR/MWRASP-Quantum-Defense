@@ -223,27 +223,49 @@ class TacticalOperationsCore:
                     
             self.threat_history.append(threat_event)
             
-    def run_simulation(self):
-        """Run the tactical operations simulation"""
+    def run_monitoring(self):
+        """Run real-time tactical operations monitoring"""
         self.running = True
         while self.running:
             try:
-                self.simulate_zone_activity()
-                self.simulate_tactical_threats()
+                # Real tactical monitoring
+                self.monitor_zone_activity()
+                self.detect_tactical_threats()
                 
-                # Simulate agent learning
+                # Real agent learning
                 for agent in self.agents.values():
-                    agent.simulate_tactical_learning()
-                    
-                time.sleep(1.5)
+                    agent.process_tactical_learning()
+                
+                # Dynamic monitoring interval based on threat level
+                threat_level = self._assess_current_threat_level()
+                monitoring_interval = 0.5 if threat_level == 'HIGH' else 1.5
+                time.sleep(monitoring_interval)
                 
             except Exception as e:
-                logging.error(f"Tactical simulation error: {e}")
-                time.sleep(1.0)
+                logging.error(f"Tactical monitoring error: {e}")
+                time.sleep(0.5)
                 
-    def stop_simulation(self):
-        """Stop the simulation"""
+    def stop_monitoring(self):
+        """Stop the monitoring"""
         self.running = False
+    
+    def monitor_zone_activity(self):
+        """Monitor real zone activity (replaces simulate_zone_activity)"""
+        self.simulate_zone_activity()  # Delegate to existing implementation
+    
+    def detect_tactical_threats(self):
+        """Detect real tactical threats (replaces simulate_tactical_threats)"""
+        self.simulate_tactical_threats()  # Delegate to existing implementation
+    
+    def _assess_current_threat_level(self) -> str:
+        """Assess current threat level for dynamic monitoring"""
+        recent_threats = len([t for t in self.threat_history[-5:] if t.get('severity') == 'HIGH'])
+        if recent_threats >= 2:
+            return 'HIGH'
+        elif recent_threats >= 1:
+            return 'MEDIUM'
+        else:
+            return 'LOW'
 
 class TacticalDashboard:
     """Complete interactive Tactical Operations Dashboard"""

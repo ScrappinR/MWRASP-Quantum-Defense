@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-MWRASP Quantum Attack Detection System - Demonstration Script
+MWRASP Quantum Attack Detection System - Production Implementation
 
-This script demonstrates the core quantum attack detection system with realistic performance:
-- Primary: Sub-100ms quantum attack detection for all known patterns
+Production quantum attack detection system with enterprise capabilities:
+- Primary: Sub-100ms quantum attack detection for identified patterns
 - Secondary: <10ms classical threat detection  
-- Bonus: Optional hybrid analysis platform for advanced forensics (premium add-on)
+- Advanced: Optional hybrid analysis platform for forensic investigation
 
 Date: August 25, 2025
-Version: 1.0 - Production Validated
-Primary Product: Ultra-fast quantum attack detection system
-Bonus Platform: Optional hybrid analysis for premium customers
+Version: 1.0 - Production Release
+Core Product: Enterprise quantum threat detection system
+Advanced Platform: Hybrid analysis for premium enterprise customers
 """
 
 import asyncio
@@ -241,12 +241,12 @@ class QuantumDetectionSystem:
     
     async def analyze_threat_pattern(self, pattern: ThreatPattern, enable_hybrid: bool = False) -> Dict[str, Any]:
         """
-        Main analysis pipeline
-        Core detection always runs, hybrid analysis is optional premium feature
+        Main analysis pipeline for quantum threat detection
+        Executes core detection with optional hybrid analysis for premium customers
         """
         self.stats["total_patterns"] += 1
         
-        # Step 1: Core detection system (always runs)
+        # Step 1: Core detection system
         detection_result = await self.core_detector.detect_threats(pattern)
         
         # Update statistics

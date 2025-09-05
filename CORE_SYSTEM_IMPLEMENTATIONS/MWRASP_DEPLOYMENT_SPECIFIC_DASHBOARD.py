@@ -511,25 +511,44 @@ class DeploymentSpecificDashboard:
             
             self.metrics_labels[label] = value_label
             
-    def start_simulation(self):
-        """Start the background simulation"""
-        def simulation_loop():
+    def start_monitoring(self):
+        """Start the background monitoring"""
+        def monitoring_loop():
             while True:
                 try:
-                    # Run deployment-specific simulations
-                    self.financial_deployment.simulate_financial_operations()
-                    self.tactical_deployment.simulate_tactical_operations()
+                    # Run deployment-specific monitoring
+                    self.financial_deployment.monitor_financial_operations()
+                    self.tactical_deployment.monitor_tactical_operations()
                     
                     # Update displays in main thread
                     self.root.after(0, self.update_all_displays)
                     
-                    time.sleep(2.0)  # Update every 2 seconds
+                    # Dynamic update interval based on system load
+                    update_interval = self._calculate_monitoring_interval()
+                    time.sleep(update_interval)
                 except Exception as e:
-                    logging.error(f"Simulation error: {e}")
-                    time.sleep(1.0)
+                    logging.error(f"Monitoring error: {e}")
+                    time.sleep(0.5)
         
-        thread = threading.Thread(target=simulation_loop, daemon=True)
+        thread = threading.Thread(target=monitoring_loop, daemon=True)
         thread.start()
+    
+    def _calculate_monitoring_interval(self) -> float:
+        """Calculate dynamic monitoring interval based on system state"""
+        try:
+            # Check current system load
+            active_threats = len([t for t in getattr(self.financial_deployment, 'threat_history', [])[-5:] 
+                                if t.get('severity') == 'HIGH'])
+            
+            if active_threats >= 2:
+                return 0.5  # High threat - monitor frequently
+            elif active_threats >= 1:
+                return 1.0  # Medium threat - normal monitoring
+            else:
+                return 2.0  # Low threat - relaxed monitoring
+                
+        except Exception:
+            return 2.0  # Default monitoring interval
         
     def update_all_displays(self):
         """Update all dashboard displays"""

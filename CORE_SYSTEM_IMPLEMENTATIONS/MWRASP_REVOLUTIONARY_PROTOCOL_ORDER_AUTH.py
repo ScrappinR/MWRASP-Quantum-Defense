@@ -755,7 +755,7 @@ class ProtocolOrderAuthentication:
         
         for marker in markers:
             if marker['type'] == 'sequence':
-                # Specific sequence always appears
+                # Check for required sequence pattern
                 if not self._contains_sequence(order, marker['sequence']):
                     return False
                     
@@ -765,7 +765,7 @@ class ProtocolOrderAuthentication:
                     return False
                     
             elif marker['type'] == 'position':
-                # Protocol always in specific position range
+                # Check protocol position constraints
                 if not self._in_position_range(order, marker['protocol'], marker['range']):
                     return False
                     

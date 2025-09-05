@@ -964,18 +964,26 @@ class MWRASPDefensivePlatform:
         return result
     
     def _select_relevant_agents(self, threat: ThreatIndicator) -> List[str]:
-        """Select relevant agents based on threat characteristics"""
+        """Dynamically select relevant agents based on threat intelligence analysis"""
         relevant_agents = []
         
-        # Always include threat sentinels for initial analysis
-        sentinels = [aid for aid, agent in self.agents.items() 
-                    if agent.specialization == AgentSpecialization.THREAT_SENTINEL]
-        relevant_agents.extend(sentinels[:5])  # Top 5 sentinels
+        # Dynamic threat sentinel selection based on threat characteristics
+        threat_complexity = self._assess_threat_complexity(threat)
+        sentinel_count = min(5, max(2, int(threat_complexity * 5)))
+        
+        available_sentinels = [aid for aid, agent in self.agents.items() 
+                              if agent.specialization == AgentSpecialization.THREAT_SENTINEL
+                              and agent.current_load < 0.8]  # Only available agents
+        
+        # Select best sentinels based on threat type experience
+        selected_sentinels = self._rank_agents_by_threat_experience(available_sentinels, threat)[:sentinel_count]
+        relevant_agents.extend(selected_sentinels)
         
         # Include crypto weavers for quantum threats
         if threat.quantum_signatures:
             crypto_weavers = [aid for aid, agent in self.agents.items() 
-                            if agent.specialization == AgentSpecialization.CRYPTO_WEAVER]
+                            if agent.specialization == AgentSpecialization.CRYPTO_WEAVER
+                            and agent.current_load < 0.9]
             relevant_agents.extend(crypto_weavers[:3])
         
         # Include response orchestrators for high severity
@@ -984,12 +992,95 @@ class MWRASPDefensivePlatform:
                            if agent.specialization == AgentSpecialization.RESPONSE_ORCHESTRATOR]
             relevant_agents.extend(orchestrators[:3])
         
-        # Always include compliance guardians
-        guardians = [aid for aid, agent in self.agents.items() 
-                    if agent.specialization == AgentSpecialization.COMPLIANCE_GUARDIAN]
-        relevant_agents.extend(guardians[:2])
+        # Include compliance guardians based on regulatory risk assessment
+        compliance_risk = self._assess_compliance_risk(threat)
+        if compliance_risk > 0.3:  # Only if significant compliance risk
+            guardians = [aid for aid, agent in self.agents.items() 
+                        if agent.specialization == AgentSpecialization.COMPLIANCE_GUARDIAN
+                        and agent.current_load < 0.7]
+            guardian_count = 2 if compliance_risk > 0.7 else 1
+            relevant_agents.extend(guardians[:guardian_count])
         
         return list(set(relevant_agents))  # Remove duplicates
+    
+    def _assess_threat_complexity(self, threat: ThreatIndicator) -> float:
+        """Assess threat complexity for dynamic agent allocation"""
+        complexity_score = 0.0
+        
+        # Base complexity from threat type
+        type_complexity = {
+            'quantum_key_extraction': 0.9,
+            'quantum_algorithm_attack': 0.8,
+            'post_quantum_vulnerability': 0.7,
+            'classical_exploit': 0.4,
+            'social_engineering': 0.3,
+            'reconnaissance': 0.2
+        }
+        complexity_score += type_complexity.get(threat.threat_type, 0.5)
+        
+        # Adjust for quantum signatures
+        if threat.quantum_signatures:
+            complexity_score += 0.2
+            
+        # Adjust for severity
+        complexity_score += (threat.severity.value / 10.0)
+        
+        # Adjust for network scope
+        if hasattr(threat, 'affected_networks') and len(threat.affected_networks) > 3:
+            complexity_score += 0.1
+            
+        return min(1.0, complexity_score)
+    
+    def _rank_agents_by_threat_experience(self, agent_ids: List[str], threat: ThreatIndicator) -> List[str]:
+        """Rank agents by their experience with similar threats"""
+        agent_scores = []
+        
+        for agent_id in agent_ids:
+            agent = self.agents[agent_id]
+            experience_score = 0.0
+            
+            # Check agent's historical performance with similar threats
+            if hasattr(agent, 'threat_history'):
+                similar_threats = [t for t in agent.threat_history 
+                                 if t.get('threat_type') == threat.threat_type]
+                experience_score += len(similar_threats) * 0.1
+                
+                # Bonus for successful resolutions
+                successful = [t for t in similar_threats if t.get('resolution_success', False)]
+                experience_score += len(successful) * 0.2
+            
+            # Factor in current performance metrics
+            if hasattr(agent, 'performance_metrics'):
+                experience_score += agent.performance_metrics.get('accuracy', 0.5)
+                
+            agent_scores.append((agent_id, experience_score))
+        
+        # Sort by experience score, descending
+        agent_scores.sort(key=lambda x: x[1], reverse=True)
+        return [agent_id for agent_id, _ in agent_scores]
+    
+    def _assess_compliance_risk(self, threat: ThreatIndicator) -> float:
+        """Assess regulatory compliance risk from threat"""
+        risk_score = 0.0
+        
+        # Financial threats have high compliance risk
+        if 'financial' in threat.threat_type.lower():
+            risk_score += 0.4
+            
+        # Data exposure threats have compliance implications
+        if any(keyword in threat.description.lower() 
+               for keyword in ['data', 'privacy', 'personal', 'pii']):
+            risk_score += 0.3
+            
+        # High severity threats often trigger compliance requirements
+        if threat.severity.value >= 4:
+            risk_score += 0.2
+            
+        # Cross-border threats increase regulatory complexity
+        if hasattr(threat, 'affected_regions') and len(threat.affected_regions) > 1:
+            risk_score += 0.2
+            
+        return min(1.0, risk_score)
     
     async def _execute_coordinated_response(self, threat: ThreatIndicator, consensus: Dict, region: CulturalRegion):
         """Execute coordinated defensive response based on consensus"""

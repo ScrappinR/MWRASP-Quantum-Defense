@@ -125,13 +125,21 @@ class LegalConflictEngine:
         # Initialize real legal conflict checker
         self.real_legal_checker = RealLegalConflictChecker()
         
-        # Start real-time monitoring
-        if enable_real_time_tracking:
-            asyncio.create_task(self._start_diplomatic_tracking())
-            asyncio.create_task(self._update_temporal_constraints())
-            asyncio.create_task(self._update_real_legal_data())
+        # Defer real-time monitoring until event loop is available
+        self._monitoring_tasks = []
+        self._enable_real_time_tracking = enable_real_time_tracking
         
         print(f"[PATENT] Legal Conflict Engine initialized with {len(self.jurisdictions)} jurisdictions")
+    
+    async def start_monitoring(self):
+        """Start real-time monitoring tasks when event loop is available"""
+        if self._enable_real_time_tracking and not self._monitoring_tasks:
+            self._monitoring_tasks = [
+                asyncio.create_task(self._start_diplomatic_tracking()),
+                asyncio.create_task(self._update_temporal_constraints()),
+                asyncio.create_task(self._update_real_legal_data())
+            ]
+            print("[PATENT] Real-time legal monitoring started")
 
     def _initialize_jurisdiction_database(self):
         """Initialize comprehensive jurisdiction database with real legal conflicts"""

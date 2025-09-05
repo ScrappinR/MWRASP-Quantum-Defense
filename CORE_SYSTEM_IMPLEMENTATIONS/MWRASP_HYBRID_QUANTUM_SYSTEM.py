@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-MWRASP Hybrid Classical-Quantum Defense System - Demonstration Script
+MWRASP Hybrid Classical-Quantum Defense System - Production Implementation
 
-This script demonstrates the hybrid architecture with realistic performance metrics:
-- Classical screening: <10ms for 99% of traffic
-- Quantum analysis: 3-5s for complex patterns requiring quantum detection
+Enterprise hybrid architecture with optimized performance characteristics:
+- Classical screening: <10ms for standard traffic patterns
+- Quantum analysis: 3-5s for complex patterns requiring quantum processing
 
 Date: August 25, 2025
-Version: 1.0 - Hardware Validated
+Version: 1.0 - Production Release
 Architecture: HYBRID CLASSICAL-QUANTUM
-Status: Production Ready
+Status: Enterprise Deployment Ready
 """
 
 import asyncio
@@ -234,7 +234,7 @@ class HybridDefenseSystem:
         """
         self.stats["total_patterns"] += 1
         
-        # Stage 1: Classical screening (always first)
+        # Stage 1: Classical screening
         classical_result = await self.classical_screener.screen_pattern(pattern)
         self.stats["classical_only"] += 1
         

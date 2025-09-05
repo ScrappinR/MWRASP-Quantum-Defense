@@ -326,7 +326,124 @@ else:
         
         def record_interaction_outcome(self, context: Dict, partner_id: str, 
                                      success: bool, response_time: float):
-            pass  # No adaptation in fallback mode
+            """Record and analyze interaction outcomes for behavioral learning"""
+            try:
+                # Create interaction record
+                interaction_record = {
+                    'timestamp': time.time(),
+                    'partner_id': partner_id,
+                    'context_type': context.get('type', 'unknown'),
+                    'success': success,
+                    'response_time': response_time,
+                    'context_size': len(str(context)),
+                    'behavioral_markers': self._extract_behavioral_markers(context)
+                }
+                
+                # Store in behavioral history
+                if not hasattr(self, 'interaction_history'):
+                    self.interaction_history = []
+                self.interaction_history.append(interaction_record)
+                
+                # Maintain rolling window of recent interactions
+                max_history = 1000
+                if len(self.interaction_history) > max_history:
+                    self.interaction_history = self.interaction_history[-max_history:]
+                
+                # Update behavioral patterns
+                self._update_behavioral_patterns(interaction_record)
+                
+                # Update partner-specific learning
+                self._update_partner_behavioral_model(partner_id, interaction_record)
+                
+                # Adapt network weights based on outcome
+                if hasattr(self.network, 'adapt_weights'):
+                    self.network.adapt_weights(context, success, response_time)
+                    
+            except Exception as e:
+                import logging
+                logging.error(f"Error recording interaction outcome: {e}")
+        
+        def _extract_behavioral_markers(self, context: Dict) -> Dict[str, Any]:
+            """Extract behavioral markers from interaction context"""
+            markers = {}
+            
+            # Timing patterns
+            if 'timing' in context:
+                markers['timing_variance'] = context['timing'].get('variance', 0.0)
+                markers['response_rhythm'] = context['timing'].get('rhythm', 'normal')
+            
+            # Communication patterns  
+            if 'communication' in context:
+                markers['message_length'] = len(str(context['communication']))
+                markers['formality_level'] = context['communication'].get('formality', 'medium')
+                
+            # Technical patterns
+            if 'technical' in context:
+                markers['complexity_level'] = context['technical'].get('complexity', 0.5)
+                markers['error_patterns'] = context['technical'].get('errors', [])
+                
+            return markers
+        
+        def _update_behavioral_patterns(self, record: Dict):
+            """Update overall behavioral patterns based on interaction"""
+            if not hasattr(self, 'behavioral_patterns'):
+                self.behavioral_patterns = {
+                    'success_rate': 0.0,
+                    'avg_response_time': 0.0,
+                    'common_contexts': {},
+                    'adaptation_rate': 0.0
+                }
+            
+            # Update success rate (exponential moving average)
+            alpha = 0.1  # Learning rate
+            current_success = 1.0 if record['success'] else 0.0
+            self.behavioral_patterns['success_rate'] = (
+                alpha * current_success + 
+                (1 - alpha) * self.behavioral_patterns['success_rate']
+            )
+            
+            # Update average response time
+            self.behavioral_patterns['avg_response_time'] = (
+                alpha * record['response_time'] + 
+                (1 - alpha) * self.behavioral_patterns['avg_response_time']
+            )
+            
+            # Track context frequency
+            context_type = record['context_type']
+            if context_type not in self.behavioral_patterns['common_contexts']:
+                self.behavioral_patterns['common_contexts'][context_type] = 0
+            self.behavioral_patterns['common_contexts'][context_type] += 1
+        
+        def _update_partner_behavioral_model(self, partner_id: str, record: Dict):
+            """Update behavioral model for specific partner"""
+            if not hasattr(self, 'partner_models'):
+                self.partner_models = {}
+            
+            if partner_id not in self.partner_models:
+                self.partner_models[partner_id] = {
+                    'interaction_count': 0,
+                    'success_rate': 0.0,
+                    'avg_response_time': 0.0,
+                    'behavioral_signature': {},
+                    'trust_level': 0.5
+                }
+            
+            model = self.partner_models[partner_id]
+            model['interaction_count'] += 1
+            
+            # Update partner-specific metrics
+            alpha = min(0.2, 2.0 / model['interaction_count'])  # Adaptive learning rate
+            
+            current_success = 1.0 if record['success'] else 0.0
+            model['success_rate'] = alpha * current_success + (1 - alpha) * model['success_rate']
+            
+            model['avg_response_time'] = alpha * record['response_time'] + (1 - alpha) * model['avg_response_time']
+            
+            # Update trust level based on recent interactions
+            if record['success'] and record['response_time'] < model['avg_response_time'] * 1.2:
+                model['trust_level'] = min(1.0, model['trust_level'] + 0.05)
+            elif not record['success']:
+                model['trust_level'] = max(0.0, model['trust_level'] - 0.1)
 
 @dataclass
 class TechnicalBehavior:
@@ -462,7 +579,7 @@ class ClandestineAgentFingerprint:
             description='Exception stack trace depth limit'
         )
         
-        # Memory management (always present in systems)
+        # Memory management (adaptive based on system requirements)
         behaviors['gc_threshold_mb'] = TechnicalBehavior(
             parameter_name='gc_threshold_mb',
             category=TechnicalBehaviorCategory.MEMORY_MANAGEMENT,
