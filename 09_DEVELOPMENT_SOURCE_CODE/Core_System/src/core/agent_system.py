@@ -13,6 +13,14 @@ from .quantum_detector import QuantumDetector, ThreatLevel, QuantumThreat
 from .temporal_fragmentation import TemporalFragmentation, FragmentationPolicy
 from .ai_learning_engine import AILearningEngine, Experience, get_learning_engine
 
+# Import new patent implementations
+try:
+    from .personality_based_encryption import PersonalityKeyDerivation
+    from .behavioral_quantum_signatures import BehavioralQuantumSignatures, apply_behavioral_modifications_to_agent
+    PATENT_EXTENSIONS_AVAILABLE = True
+except ImportError:
+    PATENT_EXTENSIONS_AVAILABLE = False
+
 
 class AgentRole(Enum):
     MONITOR = "monitor"
@@ -90,6 +98,14 @@ class AutonomousDefenseCoordinator:
         # AI Learning integration
         self.learning_engine = get_learning_engine()
         self.customer_id = "default"  # Can be configured per deployment
+        
+        # Patent implementations integration
+        self.personality_encryption = None
+        self.behavioral_signatures = None
+        if PATENT_EXTENSIONS_AVAILABLE:
+            self.personality_encryption = PersonalityKeyDerivation(quantum_safe=True)
+            self.behavioral_signatures = BehavioralQuantumSignatures(quantum_detector)
+            self.behavioral_signatures.start_behavioral_monitoring()
         
         # Initialize default agents
         self._initialize_agent_fleet()
@@ -179,6 +195,11 @@ class AutonomousDefenseCoordinator:
             max_workload=3
         )
         self.agents[recovery_agent.agent_id] = recovery_agent
+        
+        # Register agents with patent systems if available
+        if PATENT_EXTENSIONS_AVAILABLE and self.behavioral_signatures:
+            for agent_id in self.agents.keys():
+                self.behavioral_signatures.register_agent(agent_id)
         
         # Coordinator Agent - Overall coordination
         coordinator_capabilities = [
@@ -524,6 +545,14 @@ class AutonomousDefenseCoordinator:
                     agent.status = AgentStatus.ERROR
                     print(f"Agent {agent.agent_id} marked as unresponsive")
             
+            # Apply behavioral modifications if patent systems available
+            if PATENT_EXTENSIONS_AVAILABLE and self.behavioral_signatures:
+                behavioral_state = self.behavioral_signatures.get_agent_behavioral_state(agent.agent_id)
+                if behavioral_state:
+                    signature = self.behavioral_signatures.agent_signatures.get(agent.agent_id)
+                    if signature:
+                        apply_behavioral_modifications_to_agent(agent, signature)
+            
             # Auto-recover error state agents (more aggressive recovery)
             elif agent.status == AgentStatus.ERROR:
                 # If the agent has had recent activity (heartbeat), recover immediately
@@ -606,6 +635,50 @@ class AutonomousDefenseCoordinator:
                     agent.role not in [AgentRole.COORDINATOR, AgentRole.MONITOR] and
                     agent.workload > 0):
                     agent.workload = max(0, agent.workload - 1)
+    
+    def encrypt_agent_communication(self, sender_id: str, receiver_id: str, message: Dict) -> Optional[Dict]:
+        """Encrypt agent-to-agent communication using personality-based encryption"""
+        if not PATENT_EXTENSIONS_AVAILABLE or not self.personality_encryption:
+            return message
+        
+        try:
+            # Serialize message
+            message_bytes = json.dumps(message).encode('utf-8')
+            
+            # Encrypt with personality-based key
+            encrypted_package = self.personality_encryption.encrypt_with_personality(
+                message_bytes, sender_id, receiver_id
+            )
+            
+            return {
+                'type': 'encrypted_agent_message',
+                'encrypted_data': encrypted_package,
+                'sender': sender_id,
+                'receiver': receiver_id,
+                'timestamp': time.time()
+            }
+        except Exception as e:
+            print(f"Encryption error: {e}")
+            return message
+    
+    def decrypt_agent_communication(self, encrypted_message: Dict) -> Optional[Dict]:
+        """Decrypt agent communication using personality-based encryption"""
+        if not PATENT_EXTENSIONS_AVAILABLE or not self.personality_encryption:
+            return encrypted_message
+        
+        try:
+            encrypted_package = encrypted_message.get('encrypted_data')
+            if not encrypted_package:
+                return encrypted_message
+            
+            # Decrypt message
+            decrypted_bytes = self.personality_encryption.decrypt_with_personality(encrypted_package)
+            decrypted_message = json.loads(decrypted_bytes.decode('utf-8'))
+            
+            return decrypted_message
+        except Exception as e:
+            print(f"Decryption error: {e}")
+            return encrypted_message
     
     async def _record_agent_experience(self, agent: Agent, threat: QuantumThreat, action: DefenseAction, success: bool, response_time: float):
         """Record agent experience for AI learning"""
