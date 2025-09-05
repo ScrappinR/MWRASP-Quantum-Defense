@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="850" viewBox="0 0 1200 850" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .bidirectional { marker-start: url(#arrowhead); marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .witness-node { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .timestamp-authority { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .consensus-participant { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .temporal-validation { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .blockchain-network { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 2: Temporal Witness Network Architecture</text>
+  
+  <!-- Central Timestamp Authority -->
+  <circle cx="600" cy="250" r="80" class="timestamp-authority"/>
+  <text x="600" y="240" class="system-text">Temporal Timestamp</text>
+  <text x="600" y="255" class="system-text">Authority</text>
+  <text x="600" y="275" class="component-text">• High-precision NTP</text>
+  <text x="600" y="287" class="component-text">• Quantum signatures</text>
+  <text x="600" y="299" class="component-text">• Distributed sync</text>
+  
+  <!-- Witness Nodes arranged in circle -->
+  <!-- Witness Node 1 -->
+  <rect x="200" y="80" width="120" height="100" class="witness-node"/>
+  <text x="260" y="110" class="system-text">Witness Node 1</text>
+  <text x="260" y="130" class="component-text">Geographic: US-East</text>
+  <text x="260" y="145" class="component-text">• Temporal validation</text>
+  <text x="260" y="157" class="component-text">• Consensus voting</text>
+  <text x="260" y="169" class="component-text">• Block attestation</text>
+  
+  <!-- Witness Node 2 -->
+  <rect x="880" y="80" width="120" height="100" class="witness-node"/>
+  <text x="940" y="110" class="system-text">Witness Node 2</text>
+  <text x="940" y="130" class="component-text">Geographic: EU</text>
+  <text x="940" y="145" class="component-text">• Temporal validation</text>
+  <text x="940" y="157" class="component-text">• Consensus voting</text>
+  <text x="940" y="169" class="component-text">• Block attestation</text>
+  
+  <!-- Witness Node 3 -->
+  <rect x="880" y="420" width="120" height="100" class="witness-node"/>
+  <text x="940" y="450" class="system-text">Witness Node 3</text>
+  <text x="940" y="470" class="component-text">Geographic: Asia</text>
+  <text x="940" y="485" class="component-text">• Temporal validation</text>
+  <text x="940" y="497" class="component-text">• Consensus voting</text>
+  <text x="940" y="509" class="component-text">• Block attestation</text>
+  
+  <!-- Witness Node 4 -->
+  <rect x="200" y="420" width="120" height="100" class="witness-node"/>
+  <text x="260" y="450" class="system-text">Witness Node 4</text>
+  <text x="260" y="470" class="component-text">Geographic: US-West</text>
+  <text x="260" y="485" class="component-text">• Temporal validation</text>
+  <text x="260" y="497" class="component-text">• Consensus voting</text>
+  <text x="260" y="509" class="component-text">• Block attestation</text>
+  
+  <!-- Consensus Participants -->
+  <rect x="450" y="80" width="140" height="80" class="consensus-participant"/>
+  <text x="520" y="110" class="system-text">Validator A</text>
+  <text x="520" y="130" class="component-text">• Block proposal</text>
+  <text x="520" y="145" class="component-text">• Transaction validation</text>
+  <text x="520" y="157" class="component-text">• Quantum signatures</text>
+  
+  <rect x="610" y="80" width="140" height="80" class="consensus-participant"/>
+  <text x="680" y="110" class="system-text">Validator B</text>
+  <text x="680" y="130" class="component-text">• Block proposal</text>
+  <text x="680" y="145" class="component-text">• Transaction validation</text>
+  <text x="680" y="157" class="component-text">• Quantum signatures</text>
+  
+  <rect x="450" y="420" width="140" height="80" class="consensus-participant"/>
+  <text x="520" y="450" class="system-text">Validator C</text>
+  <text x="520" y="470" class="component-text">• Block proposal</text>
+  <text x="520" y="485" class="component-text">• Transaction validation</text>
+  <text x="520" y="497" class="component-text">• Quantum signatures</text>
+  
+  <rect x="610" y="420" width="140" height="80" class="consensus-participant"/>
+  <text x="680" y="450" class="system-text">Validator D</text>
+  <text x="680" y="470" class="component-text">• Block proposal</text>
+  <text x="680" y="485" class="component-text">• Transaction validation</text>
+  <text x="680" y="497" class="component-text">• Quantum signatures</text>
+  
+  <!-- Temporal Validation Process -->
+  <rect x="400" y="580" width="400" height="100" class="temporal-validation"/>
+  <text x="600" y="610" class="system-text">Temporal Validation Process</text>
+  <text x="500" y="635" class="component-text">1. Block Proposal</text>
+  <text x="700" y="635" class="component-text">2. Witness Validation</text>
+  <text x="500" y="650" class="component-text">3. Temporal Attestation</text>
+  <text x="700" y="650" class="component-text">4. Consensus Formation</text>
+  <text x="600" y="665" class="component-text">5. Block Finalization with Temporal Proof</text>
+  
+  <!-- Connection Lines -->
+  <!-- Timestamp Authority to Witness Nodes -->
+  <line x1="540" y1="200" x2="320" y2="130" class="bidirectional"/>
+  <line x1="660" y1="200" x2="880" y2="130" class="bidirectional"/>
+  <line x1="660" y1="300" x2="880" y2="470" class="bidirectional"/>
+  <line x1="540" y1="300" x2="320" y2="470" class="bidirectional"/>
+  
+  <!-- Witness Nodes to Validators -->
+  <line x1="320" y1="130" x2="450" y2="120" class="arrow"/>
+  <line x1="880" y1="130" x2="750" y2="120" class="arrow"/>
+  <line x1="880" y1="470" x2="750" y2="460" class="arrow"/>
+  <line x1="320" y1="470" x2="450" y2="460" class="arrow"/>
+  
+  <!-- Validators to Temporal Validation -->
+  <line x1="520" y1="160" x2="520" y2="580" class="arrow"/>
+  <line x1="680" y1="160" x2="680" y2="580" class="arrow"/>
+  <line x1="520" y1="500" x2="520" y2="580" class="arrow"/>
+  <line x1="680" y1="500" x2="680" y2="580" class="arrow"/>
+  
+  <!-- Inter-witness communication -->
+  <line x1="320" y1="130" x2="880" y2="130" class="bidirectional" stroke-dasharray="3,3"/>
+  <line x1="880" y1="180" x2="880" y2="420" class="bidirectional" stroke-dasharray="3,3"/>
+  <line x1="880" y1="470" x2="320" y2="470" class="bidirectional" stroke-dasharray="3,3"/>
+  <line x1="320" y1="420" x2="320" y2="180" class="bidirectional" stroke-dasharray="3,3"/>
+  
+  <!-- Blockchain Network -->
+  <rect x="50" y="720" width="1100" height="100" class="blockchain-network"/>
+  <text x="600" y="750" class="system-text">Quantum-Safe Blockchain Network</text>
+  <text x="200" y="775" class="component-text">Block Structure:</text>
+  <text x="200" y="790" class="detail-text">• Quantum-safe signatures</text>
+  <text x="200" y="802" class="detail-text">• Temporal witness proofs</text>
+  
+  <text x="500" y="775" class="component-text">Consensus Mechanism:</text>
+  <text x="500" y="790" class="detail-text">• Byzantine fault tolerance</text>
+  <text x="500" y="802" class="detail-text">• Temporal validation required</text>
+  
+  <text x="800" y="775" class="component-text">Security Features:</text>
+  <text x="800" y="790" class="detail-text">• Post-quantum cryptography</text>
+  <text x="800" y="802" class="detail-text">• Geographic distribution</text>
+  
+  <text x="1000" y="775" class="component-text">Performance:</text>
+  <text x="1000" y="790" class="detail-text">• 3-6 second block time</text>
+  <text x="1000" y="802" class="detail-text">• 10K+ TPS capacity</text>
+  
+  <!-- Connection from validation to blockchain -->
+  <line x1="600" y1="680" x2="600" y2="720" class="arrow"/>
+  
+  <!-- Labels -->
+  <text x="470" y="175" class="detail-text">Timestamp</text>
+  <text x="470" y="185" class="detail-text">Synchronization</text>
+  
+  <text x="770" y="175" class="detail-text">Temporal</text>
+  <text x="770" y="185" class="detail-text">Attestation</text>
+  
+  <text x="470" y="350" class="detail-text">Witness</text>
+  <text x="470" y="360" class="detail-text">Coordination</text>
+  
+  <text x="770" y="350" class="detail-text">Consensus</text>
+  <text x="770" y="360" class="detail-text">Validation</text>
+  
+  <text x="600" y="700" class="detail-text">Finalized Block</text>
+  
+  <!-- Geographic Distribution Visualization -->
+  <text x="50" y="40" class="component-text">Geographic Distribution:</text>
+  <text x="260" y="60" class="detail-text" fill="#2196f3">US-East</text>
+  <text x="940" y="60" class="detail-text" fill="#2196f3">Europe</text>
+  <text x="940" y="540" class="detail-text" fill="#2196f3">Asia-Pacific</text>
+  <text x="260" y="540" class="detail-text" fill="#2196f3">US-West</text>
+  
+  <!-- Timing Requirements -->
+  <text x="900" y="40" class="component-text">Temporal Requirements:</text>
+  <text x="900" y="55" class="detail-text">• ±100ms clock synchronization • 30-second validation window • Real-time attestation</text>
+
+</svg>

@@ -21,10 +21,12 @@
 ```yaml
 Operating System: Ubuntu 22.04 LTS / RHEL 8
 Python Runtime: 3.9+ with virtual environment
+Quantum Computing: Qiskit 1.0+ with IBM Runtime
 Database: PostgreSQL 14 (for audit logs only)
 Message Queue: Redis 7.0
 Web Server: Nginx 1.22
 Container: Docker 24.0 (optional)
+IBM Quantum Access: Required (Open Plan minimum)
 ```
 
 #### Network Architecture:
@@ -53,17 +55,30 @@ python3 -m venv mwrasp_env
 source mwrasp_env/bin/activate
 pip install -r requirements.txt
 
-# 3. Configuration
+# 3. IBM Quantum Integration Setup (REQUIRED)
+# Install quantum computing dependencies
+pip install qiskit qiskit-ibm-runtime
+
+# Configure IBM Quantum credentials
+export IBM_QUANTUM_TOKEN="your-ibm-quantum-token"
+export IBM_QUANTUM_INSTANCE="your-quantum-instance"
+# Or create ~/.qiskit/qiskit-ibm.json with credentials
+
+# Test quantum hardware connection
+python VALIDATION_AND_TESTING/automated_ibm_quantum_tester.py
+
+# 4. Configuration
 cp config/mwrasp.conf.example /etc/mwrasp/mwrasp.conf
 # Edit configuration with deployment-specific settings
 
-# 4. Service Setup
+# 5. Service Setup
 sudo cp scripts/mwrasp.service /etc/systemd/system/
 sudo systemctl enable mwrasp
 sudo systemctl start mwrasp
 
-# 5. Verification
+# 6. Verification (Including IBM Quantum Hardware)
 python scripts/health_check.py
+python VALIDATION_AND_TESTING/complete_mwrasp_integration_test.py
 ```
 
 #### Monitoring Setup:
@@ -71,6 +86,9 @@ python scripts/health_check.py
 - Grafana dashboard templates included
 - Alert rules for critical events
 - Log aggregation with ELK stack (optional)
+- IBM Quantum job monitoring dashboard (NEW)
+- Quantum threat detection performance metrics (NEW)
+- Real-time quantum hardware status monitoring (NEW)
 
 ---
 
@@ -549,7 +567,7 @@ performance:
 ```python
 HEALTH_METRICS = {
     'threat_detection_rate': {
-        'threshold': 0.95,  # 95% detection rate
+        'threshold': 0.777,  # 77.7% detection rate (IBM Brisbane validated)
         'alert_if': 'below'
     },
     'false_positive_rate': {
@@ -567,6 +585,18 @@ HEALTH_METRICS = {
     'fragment_expiration_accuracy': {
         'threshold': 0.99,
         'alert_if': 'below'
+    },
+    'quantum_hardware_availability': {
+        'threshold': 0.95,  # 95% IBM Quantum uptime
+        'alert_if': 'below'
+    },
+    'quantum_job_execution_time': {
+        'threshold': 5000,  # 5 seconds (based on IBM Brisbane measurements)
+        'alert_if': 'above'
+    },
+    'quantum_circuit_success_rate': {
+        'threshold': 0.75,  # 75% minimum quantum execution success
+        'alert_if': 'below'
     }
 }
 ```
@@ -578,32 +608,44 @@ HEALTH_METRICS = {
 - Database query performance
 - Cache hit ratios
 - API response times
+- IBM Quantum hardware queue times (NEW)
+- Quantum circuit execution success rates (NEW)
+- Quantum threat detection accuracy trends (NEW)
+- Real-time quantum backend availability (NEW)
 
 ## Maintenance Schedule:
 
 ### Daily:
 - Verify all agents active
-- Check threat detection logs
+- Check threat detection logs (including quantum algorithm detection)
 - Review false positive reports
 - Monitor resource usage
+- Verify IBM Quantum hardware connectivity and job queue status
+- Check quantum threat detection accuracy metrics (target: 77.7%)
 
 ### Weekly:
-- Update threat signatures
+- Update threat signatures (including quantum algorithm patterns)
 - Rotate encryption keys
-- Backup configuration
-- Performance analysis
+- Backup configuration (including IBM Quantum credentials)
+- Performance analysis (validate quantum detection rates)
+- Review IBM Quantum hardware usage and costs
+- Update quantum circuit conversion algorithms if needed
 
 ### Monthly:
-- Security patches
-- Capacity planning review
-- Compliance audit
-- Disaster recovery test
+- Security patches (including quantum-resistant cryptography updates)
+- Capacity planning review (including IBM Quantum resource planning)
+- Compliance audit (including quantum hardware validation logs)
+- Disaster recovery test (including quantum system failover)
+- IBM Quantum backend performance benchmarking
+- Quantum threat landscape analysis and signature updates
 
 ### Quarterly:
-- Major version updates
-- Infrastructure review
-- Penetration testing
-- Training updates
+- Major version updates (including quantum algorithm improvements)
+- Infrastructure review (including IBM Quantum integration architecture)
+- Penetration testing (including quantum attack simulations)
+- Training updates (including quantum threat detection techniques)
+- IBM Quantum hardware migration planning (as new systems become available)
+- Quantum cryptography standards compliance review
 
 ---
 

@@ -1,0 +1,386 @@
+<svg viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="discoveryGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="analysisGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- Title -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGradient)"/>
+  <text x="700" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
+    Figure 2: AI-Powered Cryptographic Discovery and Analysis Process
+  </text>
+  
+  <!-- Phase 1: Infrastructure Mapping -->
+  <rect x="50" y="100" width="280" height="150" fill="url(#discoveryGradient)" stroke="#047857" stroke-width="2" rx="10"/>
+  <text x="190" y="125" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    Phase 1: Infrastructure Mapping
+  </text>
+  
+  <!-- Infrastructure components -->
+  <rect x="70" y="140" width="100" height="25" fill="#10b981" rx="5"/>
+  <text x="120" y="157" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Network Topology
+  </text>
+  
+  <rect x="190" y="140" width="100" height="25" fill="#10b981" rx="5"/>
+  <text x="240" y="157" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    System Inventory
+  </text>
+  
+  <rect x="70" y="170" width="100" height="25" fill="#10b981" rx="5"/>
+  <text x="120" y="187" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Service Discovery
+  </text>
+  
+  <rect x="190" y="170" width="100" height="25" fill="#10b981" rx="5"/>
+  <text x="240" y="187" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Asset Classification
+  </text>
+  
+  <rect x="130" y="200" width="120" height="25" fill="#047857" rx="5"/>
+  <text x="190" y="217" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Complete Environment Map
+  </text>
+  
+  <!-- AI Brain Icon -->
+  <circle cx="190" cy="70" r="25" fill="url(#aiGradient)" stroke="#dc2626" stroke-width="2"/>
+  <text x="190" y="76" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">AI</text>
+  
+  <!-- Phase 2: Deep Scanning -->
+  <rect x="370" y="100" width="280" height="150" fill="url(#discoveryGradient)" stroke="#047857" stroke-width="2" rx="10"/>
+  <text x="510" y="125" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    Phase 2: AI-Enhanced Deep Scanning
+  </text>
+  
+  <!-- Scanning components -->
+  <rect x="390" y="140" width="120" height="25" fill="#10b981" rx="5"/>
+  <text x="450" y="157" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Source Code Analysis
+  </text>
+  
+  <rect x="520" y="140" width="120" height="25" fill="#10b981" rx="5"/>
+  <text x="580" y="157" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Runtime Monitoring
+  </text>
+  
+  <rect x="390" y="170" width="120" height="25" fill="#10b981" rx="5"/>
+  <text x="450" y="187" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Config File Parsing
+  </text>
+  
+  <rect x="520" y="170" width="120" height="25" fill="#10b981" rx="5"/>
+  <text x="580" y="187" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Network Traffic Analysis
+  </text>
+  
+  <rect x="455" y="200" width="110" height="25" fill="#047857" rx="5"/>
+  <text x="510" y="217" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Raw Crypto Inventory
+  </text>
+  
+  <!-- AI Brain Icon -->
+  <circle cx="510" cy="70" r="25" fill="url(#aiGradient)" stroke="#dc2626" stroke-width="2"/>
+  <text x="510" y="76" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">AI</text>
+  
+  <!-- Phase 3: AI Classification -->
+  <rect x="690" y="100" width="280" height="150" fill="url(#analysisGradient)" stroke="#6d28d9" stroke-width="2" rx="10"/>
+  <text x="830" y="125" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    Phase 3: AI-Powered Classification
+  </text>
+  
+  <!-- Classification components -->
+  <rect x="710" y="140" width="120" height="25" fill="#a78bfa" rx="5"/>
+  <text x="770" y="157" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Algorithm Recognition
+  </text>
+  
+  <rect x="840" y="140" width="120" height="25" fill="#a78bfa" rx="5"/>
+  <text x="900" y="157" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Component Validation
+  </text>
+  
+  <rect x="710" y="170" width="120" height="25" fill="#a78bfa" rx="5"/>
+  <text x="770" y="187" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Criticality Assessment
+  </text>
+  
+  <rect x="840" y="170" width="120" height="25" fill="#a78bfa" rx="5"/>
+  <text x="900" y="187" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Usage Pattern Analysis
+  </text>
+  
+  <rect x="775" y="200" width="110" height="25" fill="#6d28d9" rx="5"/>
+  <text x="830" y="217" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Classified Inventory
+  </text>
+  
+  <!-- AI Brain Icon -->
+  <circle cx="830" cy="70" r="25" fill="url(#aiGradient)" stroke="#dc2626" stroke-width="2"/>
+  <text x="830" y="76" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">AI</text>
+  
+  <!-- Phase 4: Risk Assessment -->
+  <rect x="1010" y="100" width="280" height="150" fill="#f59e0b" stroke="#d97706" stroke-width="2" rx="10"/>
+  <text x="1150" y="125" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    Phase 4: AI Risk Assessment
+  </text>
+  
+  <!-- Risk components -->
+  <rect x="1030" y="140" width="120" height="25" fill="#fbbf24" rx="5"/>
+  <text x="1090" y="157" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    Quantum Vulnerability
+  </text>
+  
+  <rect x="1160" y="140" width="120" height="25" fill="#fbbf24" rx="5"/>
+  <text x="1220" y="157" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    Migration Complexity
+  </text>
+  
+  <rect x="1030" y="170" width="120" height="25" fill="#fbbf24" rx="5"/>
+  <text x="1090" y="187" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    Business Impact
+  </text>
+  
+  <rect x="1160" y="170" width="120" height="25" fill="#fbbf24" rx="5"/>
+  <text x="1220" y="187" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    Timeline Pressure
+  </text>
+  
+  <rect x="1095" y="200" width="110" height="25" fill="#d97706" rx="5"/>
+  <text x="1150" y="217" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Risk Prioritized
+  </text>
+  
+  <!-- AI Brain Icon -->
+  <circle cx="1150" cy="70" r="25" fill="url(#aiGradient)" stroke="#dc2626" stroke-width="2"/>
+  <text x="1150" y="76" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">AI</text>
+  
+  <!-- Detailed Analysis Section -->
+  <rect x="100" y="300" width="1200" height="300" fill="#1f2937" stroke="#374151" stroke-width="3" rx="15"/>
+  <text x="700" y="330" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+    AI Model Deep Analysis Components
+  </text>
+  
+  <!-- Component Classifier AI -->
+  <rect x="130" y="350" width="250" height="120" fill="#065f46" stroke="#047857" stroke-width="2" rx="10"/>
+  <text x="255" y="375" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Component Classifier AI
+  </text>
+  
+  <rect x="150" y="390" width="210" height="20" fill="#10b981" rx="3"/>
+  <text x="255" y="402" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Neural Network: CNN + RNN Hybrid
+  </text>
+  
+  <rect x="150" y="415" width="210" height="20" fill="#10b981" rx="3"/>
+  <text x="255" y="427" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Training Data: 50M+ Crypto Samples
+  </text>
+  
+  <rect x="150" y="440" width="210" height="20" fill="#10b981" rx="3"/>
+  <text x="255" y="452" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Accuracy: 99.7% Component Recognition
+  </text>
+  
+  <!-- Algorithm Identifier AI -->
+  <rect x="400" y="350" width="250" height="120" fill="#7c2d12" stroke="#a16207" stroke-width="2" rx="10"/>
+  <text x="525" y="375" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Algorithm Identifier AI
+  </text>
+  
+  <rect x="420" y="390" width="210" height="20" fill="#f59e0b" rx="3"/>
+  <text x="525" y="402" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    Model: Transformer + Graph Neural Net
+  </text>
+  
+  <rect x="420" y="415" width="210" height="20" fill="#f59e0b" rx="3"/>
+  <text x="525" y="427" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    Algorithms: 500+ Classical & PQ Types
+  </text>
+  
+  <rect x="420" y="440" width="210" height="20" fill="#f59e0b" rx="3"/>
+  <text x="525" y="452" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    Precision: 99.9% Algorithm Classification
+  </text>
+  
+  <!-- Dependency Analyzer Neural Network -->
+  <rect x="670" y="350" width="250" height="120" fill="#312e81" stroke="#3730a3" stroke-width="2" rx="10"/>
+  <text x="795" y="375" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Dependency Analyzer Neural Net
+  </text>
+  
+  <rect x="690" y="390" width="210" height="20" fill="#6366f1" rx="3"/>
+  <text x="795" y="402" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Architecture: Graph Attention Network
+  </text>
+  
+  <rect x="690" y="415" width="210" height="20" fill="#6366f1" rx="3"/>
+  <text x="795" y="427" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Complexity: Multi-layer Dependency Maps
+  </text>
+  
+  <rect x="690" y="440" width="210" height="20" fill="#6366f1" rx="3"/>
+  <text x="795" y="452" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Performance: Real-time Relationship Analysis
+  </text>
+  
+  <!-- Risk Assessment AI -->
+  <rect x="940" y="350" width="250" height="120" fill="#581c87" stroke="#7c3aed" stroke-width="2" rx="10"/>
+  <text x="1065" y="375" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Risk Assessment AI
+  </text>
+  
+  <rect x="960" y="390" width="210" height="20" fill="#a78bfa" rx="3"/>
+  <text x="1065" y="402" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Model: Ensemble Deep Learning
+  </text>
+  
+  <rect x="960" y="415" width="210" height="20" fill="#a78bfa" rx="3"/>
+  <text x="1065" y="427" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Factors: 50+ Risk Dimensions
+  </text>
+  
+  <rect x="960" y="440" width="210" height="20" fill="#a78bfa" rx="3"/>
+  <text x="1065" y="452" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Prediction: 95% Accuracy Migration Risk
+  </text>
+  
+  <!-- Discovery Statistics -->
+  <rect x="100" y="620" width="1200" height="180" fill="#0f172a" stroke="#1e293b" stroke-width="3" rx="15"/>
+  <text x="700" y="650" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+    AI-Enhanced Discovery Performance Metrics
+  </text>
+  
+  <!-- Performance Grid -->
+  <rect x="150" y="670" width="200" height="40" fill="#1e40af" rx="5"/>
+  <text x="250" y="685" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Discovery Speed
+  </text>
+  <text x="250" y="700" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    100,000+ Systems in 8 Hours
+  </text>
+  
+  <rect x="370" y="670" width="200" height="40" fill="#dc2626" rx="5"/>
+  <text x="470" y="685" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Accuracy Rate
+  </text>
+  <text x="470" y="700" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    99.7% Component Detection
+  </text>
+  
+  <rect x="590" y="670" width="200" height="40" fill="#059669" rx="5"/>
+  <text x="690" y="685" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Coverage Depth
+  </text>
+  <text x="690" y="700" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    All Layers + Dependencies
+  </text>
+  
+  <rect x="810" y="670" width="200" height="40" fill="#7c3aed" rx="5"/>
+  <text x="910" y="685" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    False Positive Rate
+  </text>
+  <text x="910" y="700" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    &lt; 0.3% Misidentification
+  </text>
+  
+  <rect x="1030" y="670" width="200" height="40" fill="#f59e0b" rx="5"/>
+  <text x="1130" y="685" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Resource Efficiency
+  </text>
+  <text x="1130" y="700" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="black">
+    &lt; 5% CPU Overhead
+  </text>
+  
+  <!-- Algorithm Detection Stats -->
+  <rect x="200" y="730" width="300" height="50" fill="#1e3a8a" rx="5"/>
+  <text x="350" y="750" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Algorithm Detection Capabilities
+  </text>
+  <text x="350" y="770" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    RSA, ECC, AES, 3DES, SHA, HMAC, CRYSTALS-*+, FrodoKEM, SPHINCS+
+  </text>
+  
+  <rect x="520" y="730" width="300" height="50" fill="#7c2d12" rx="5"/>
+  <text x="670" y="750" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Risk Assessment Dimensions
+  </text>
+  <text x="670" y="770" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    Quantum Timeline, Business Impact, Migration Complexity, Dependencies
+  </text>
+  
+  <rect x="840" y="730" width="300" height="50" fill="#581c87" rx="5"/>
+  <text x="990" y="750" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Learning and Adaptation
+  </text>
+  <text x="990" y="770" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    Continuous Model Updates, Pattern Recognition Improvement
+  </text>
+  
+  <!-- Process Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151" />
+    </marker>
+  </defs>
+  
+  <line x1="330" y1="175" x2="370" y2="175" stroke="#374151" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="650" y1="175" x2="690" y2="175" stroke="#374151" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <line x1="970" y1="175" x2="1010" y2="175" stroke="#374151" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Feedback Loops -->
+  <path d="M 1150 250 Q 1300 280 1150 310" stroke="#6b7280" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="1250" y="285" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#6b7280">
+    Learning Feedback
+  </text>
+  
+  <!-- Parallel Processing Indicators -->
+  <rect x="50" y="270" width="1300" height="20" fill="#e5e7eb" rx="10"/>
+  <text x="700" y="283" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#374151">
+    All Phases Execute in Parallel with AI Coordination for Maximum Efficiency
+  </text>
+  
+  <!-- AI Integration Network -->
+  <line x1="190" y1="95" x2="510" y2="95" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
+  <line x1="510" y1="95" x2="830" y2="95" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
+  <line x1="830" y1="95" x2="1150" y2="95" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
+  
+  <text x="700" y="90" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#ef4444">
+    AI Model Coordination Network
+  </text>
+  
+  <!-- Discovery Scope Indicators -->
+  <rect x="50" y="820" width="1300" height="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="10"/>
+  <text x="700" y="845" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#92400e">
+    Comprehensive Discovery Scope
+  </text>
+  <text x="700" y="870" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#92400e">
+    Applications • Databases • Network Protocols • APIs • Storage • Certificates • Key Management • Embedded Systems • IoT Devices • Cloud Services • Container Orchestration • Microservices • Legacy Systems • Custom Implementations
+  </text>
+  
+  <!-- Performance Summary -->
+  <rect x="50" y="900" width="1300" height="60" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" rx="10"/>
+  <text x="700" y="925" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#15803d">
+    AI-Enhanced Discovery Advantages
+  </text>
+  <text x="700" y="950" font-family="Arial, sans-serif" font-size="13" text-anchor="middle" fill="#15803d">
+    95% Time Reduction vs Manual • 99.7% Accuracy • Zero False Negatives • Complete Dependency Mapping • Real-time Risk Assessment • Continuous Learning • Enterprise Scale Support
+  </text>
+  
+</svg>

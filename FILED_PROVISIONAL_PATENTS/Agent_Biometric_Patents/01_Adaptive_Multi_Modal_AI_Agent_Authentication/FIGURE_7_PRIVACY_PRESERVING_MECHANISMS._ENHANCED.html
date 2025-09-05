@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FIGURE_7_PRIVACY_PRESERVING_MECHANISMS - Enhanced Scaling</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+            page-break-after: avoid;
+        }
+        
+        .controls button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: black;
+        }
+        
+        .container {
+            width: 7.5in;
+            height: 10in;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .svg-wrapper {
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+        }
+        
+        /* Scaling classes */
+        .scale-50 { transform: scale(0.5); }
+        .scale-60 { transform: scale(0.6); }
+        .scale-70 { transform: scale(0.7); }
+        .scale-75 { transform: scale(0.75); }
+        .scale-80 { transform: scale(0.8); }
+        .scale-85 { transform: scale(0.85); }
+        .scale-90 { transform: scale(0.9); }
+        .scale-95 { transform: scale(0.95); }
+        .scale-100 { transform: scale(1.0); }
+        
+        svg {
+            background: white !important;
+            display: block;
+        }
+        
+        .instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            font-size: 11pt;
+        }
+        
+        .instructions h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        @media print {
+            .controls, .instructions {
+                display: none !important;
+            }
+            
+            body {
+                margin: 0;
+                padding: 0.5in;
+            }
+            
+            .container {
+                border: none;
+                width: 7.5in;
+                height: 10in;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
+    <script>
+        function setScale(scale) {
+            const wrapper = document.querySelector('.svg-wrapper');
+            wrapper.className = 'svg-wrapper scale-' + scale;
+            
+            // Update button states
+            document.querySelectorAll('.scale-btn').forEach(btn => {
+                btn.style.backgroundColor = '#f0f0f0';
+            });
+            document.querySelector('[data-scale="' + scale + '"]').style.backgroundColor = '#007bff';
+            document.querySelector('[data-scale="' + scale + '"]').style.color = 'white';
+        }
+        
+        function fitToPage() {
+            const container = document.querySelector('.container');
+            const svg = document.querySelector('svg');
+            if (svg) {
+                const svgRect = svg.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                
+                const scaleX = (containerRect.width - 20) / svgRect.width;
+                const scaleY = (containerRect.height - 20) / svgRect.height;
+                const scale = Math.min(scaleX, scaleY, 1);
+                
+                const wrapper = document.querySelector('.svg-wrapper');
+                wrapper.style.transform = 'scale(' + scale + ')';
+            }
+        }
+        
+        window.onload = function() {
+            setScale('85'); // Default to 85%
+        };
+    </script>
+</head>
+<body>
+    <div class="controls">
+        <h2>Patent Figure Scaling Control</h2>
+        <p><strong>FIGURE_7_PRIVACY_PRESERVING_MECHANISMS</strong></p>
+        <div>
+            <button class="scale-btn" data-scale="50" onclick="setScale('50')">50%</button>
+            <button class="scale-btn" data-scale="60" onclick="setScale('60')">60%</button>
+            <button class="scale-btn" data-scale="70" onclick="setScale('70')">70%</button>
+            <button class="scale-btn" data-scale="75" onclick="setScale('75')">75%</button>
+            <button class="scale-btn" data-scale="80" onclick="setScale('80')">80%</button>
+            <button class="scale-btn" data-scale="85" onclick="setScale('85')">85%</button>
+            <button class="scale-btn" data-scale="90" onclick="setScale('90')">90%</button>
+            <button class="scale-btn" data-scale="95" onclick="setScale('95')">95%</button>
+            <button class="scale-btn" data-scale="100" onclick="setScale('100')">100%</button>
+            <button onclick="fitToPage()">Auto Fit</button>
+        </div>
+    </div>
+    
+    <div class="title">FIGURE 7 PRIVACY PRESERVING MECHANISMS</div>
+    
+    <div class="container">
+        <div class="svg-wrapper scale-85">
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="650" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .privacy-box { fill: #e6f3ff; stroke: black; stroke-width: 2; }
+      .encryption-box { fill: #fff2e6; stroke: black; stroke-width: 2; }
+      .zkp-box { fill: #e6ffe6; stroke: black; stroke-width: 1; }
+      .homomorphic-box { fill: #f0f0f0; stroke: black; stroke-width: 1; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .privacy-flow { stroke: purple; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+      .data-flow { stroke: blue; stroke-width: 2; fill: none; marker-end: url(#bluearrow); }
+    </style>
+    <defs>
+      <marker id="bluearrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="blue" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 7: PRIVACY-PRESERVING AUTHENTICATION MECHANISMS</text>
+  
+  <!-- Privacy Protection Layer -->
+  <rect x="100" y="50" width="600" height="60" class="privacy-box"/>
+  <text x="400" y="75" class="label-text">COMPREHENSIVE PRIVACY PRESERVATION FRAMEWORK</text>
+  <text x="400" y="95" class="small-text">• Data Minimization • Zero-Knowledge Protocols • Homomorphic Processing • Differential Privacy</text>
+  
+  <!-- Biometric Data Input (Sensitive) -->
+  <rect x="50" y="140" width="140" height="80" class="privacy-box"/>
+  <text x="120" y="165" class="label-text">RAW BIOMETRIC</text>
+  <text x="120" y="180" class="label-text">DATA</text>
+  <text x="120" y="200" class="tiny-text">• Behavioral Patterns</text>
+  <text x="120" y="215" class="tiny-text">• Identity Information</text>
+  
+  <!-- Homomorphic Encryption Engine -->
+  <rect x="220" y="140" width="160" height="80" class="homomorphic-box"/>
+  <text x="300" y="165" class="label-text">HOMOMORPHIC</text>
+  <text x="300" y="180" class="label-text">ENCRYPTION</text>
+  <text x="300" y="200" class="tiny-text">• Fully Homomorphic</text>
+  <text x="300" y="215" class="tiny-text">• Computation on Encrypted</text>
+  
+  <!-- Zero-Knowledge Proof System -->
+  <rect x="410" y="140" width="160" height="80" class="zkp-box"/>
+  <text x="490" y="165" class="label-text">ZERO-KNOWLEDGE</text>
+  <text x="490" y="180" class="label-text">PROOF SYSTEM</text>
+  <text x="490" y="200" class="tiny-text">• zk-SNARKs Protocol</text>
+  <text x="490" y="215" class="tiny-text">• Identity Verification</text>
+  
+  <!-- Differential Privacy Engine -->
+  <rect x="600" y="140" width="140" height="80" class="privacy-box"/>
+  <text x="670" y="165" class="label-text">DIFFERENTIAL</text>
+  <text x="670" y="180" class="label-text">PRIVACY</text>
+  <text x="670" y="200" class="tiny-text">• Noise Injection</text>
+  <text x="670" y="215" class="tiny-text">• ε = 0.1 Privacy Budget</text>
+  
+  <!-- Privacy-Preserving Computation Layer -->
+  <rect x="150" y="250" width="500" height="100" class="encryption-box"/>
+  <text x="400" y="275" class="label-text">PRIVACY-PRESERVING COMPUTATION ENGINE</text>
+  <text x="400" y="295" class="small-text">• Secure Multi-Party Computation • Federated Learning</text>
+  <text x="400" y="310" class="small-text">• Encrypted Machine Learning • Oblivious Transfer</text>
+  <text x="400" y="325" class="small-text">• Private Set Intersection • Secure Aggregation</text>
+  <text x="400" y="340" class="small-text">• Template Matching Without Decryption • Identity Proof Without Reveal</text>
+  
+  <!-- Privacy Mechanisms -->
+  <rect x="50" y="380" width="140" height="100" class="homomorphic-box"/>
+  <text x="120" y="405" class="label-text">SECURE</text>
+  <text x="120" y="420" class="label-text">ENCLAVES</text>
+  <text x="120" y="445" class="tiny-text">• Intel SGX</text>
+  <text x="120" y="460" class="tiny-text">• ARM TrustZone</text>
+  <text x="120" y="475" class="tiny-text">• Hardware Security</text>
+  
+  <rect x="210" y="380" width="140" height="100" class="zkp-box"/>
+  <text x="280" y="405" class="label-text">ANONYMOUS</text>
+  <text x="280" y="420" class="label-text">CREDENTIALS</text>
+  <text x="280" y="445" class="tiny-text">• Blind Signatures</text>
+  <text x="280" y="460" class="tiny-text">• Group Signatures</text>
+  <text x="280" y="475" class="tiny-text">• Ring Signatures</text>
+  
+  <rect x="370" y="380" width="140" height="100" class="privacy-box"/>
+  <text x="440" y="405" class="label-text">DATA</text>
+  <text x="440" y="420" class="label-text">MINIMIZATION</text>
+  <text x="440" y="445" class="tiny-text">• Feature Reduction</text>
+  <text x="440" y="460" class="tiny-text">• Selective Disclosure</text>
+  <text x="440" y="475" class="tiny-text">• Purpose Limitation</text>
+  
+  <rect x="530" y="380" width="140" height="100" class="encryption-box"/>
+  <text x="600" y="405" class="label-text">CRYPTOGRAPHIC</text>
+  <text x="600" y="420" class="label-text">PROTOCOLS</text>
+  <text x="600" y="445" class="tiny-text">• Commitment Schemes</text>
+  <text x="600" y="460" class="tiny-text">• Hash Functions</text>
+  <text x="600" y="475" class="tiny-text">• Merkle Trees</text>
+  
+  <!-- Privacy Compliance Layer -->
+  <rect x="100" y="510" width="200" height="80" class="privacy-box"/>
+  <text x="200" y="535" class="label-text">GDPR COMPLIANCE</text>
+  <text x="200" y="555" class="tiny-text">• Right to Erasure</text>
+  <text x="200" y="570" class="tiny-text">• Data Portability</text>
+  <text x="200" y="585" class="tiny-text">• Consent Management</text>
+  
+  <rect x="320" y="510" width="200" height="80" class="privacy-box"/>
+  <text x="420" y="535" class="label-text">HIPAA COMPLIANCE</text>
+  <text x="420" y="555" class="tiny-text">• Healthcare Privacy</text>
+  <text x="420" y="570" class="tiny-text">• Audit Trails</text>
+  <text x="420" y="585" class="tiny-text">• Access Controls</text>
+  
+  <rect x="540" y="510" width="200" height="80" class="privacy-box"/>
+  <text x="640" y="535" class="label-text">PRIVACY BY DESIGN</text>
+  <text x="640" y="555" class="tiny-text">• Default Privacy</text>
+  <text x="640" y="570" class="tiny-text">• End-to-End Security</text>
+  <text x="640" y="585" class="tiny-text">• Transparency</text>
+  
+  <!-- Privacy Output -->
+  <rect x="250" y="610" width="300" height="30" class="encryption-box"/>
+  <text x="400" y="630" class="label-text">PRIVACY-PRESERVED AUTHENTICATION RESULT</text>
+  
+  <!-- Flow Lines -->
+  <!-- Raw Data to Privacy Mechanisms -->
+  <line x1="190" y1="180" x2="220" y2="180" class="privacy-flow"/>
+  <line x1="120" y1="220" x2="490" y2="140" class="privacy-flow"/>
+  <line x1="120" y1="220" x2="670" y2="140" class="privacy-flow"/>
+  
+  <!-- Privacy Mechanisms to Computation Engine -->
+  <line x1="300" y1="220" x2="300" y2="250" class="data-flow"/>
+  <line x1="490" y1="220" x2="450" y2="250" class="data-flow"/>
+  <line x1="670" y1="220" x2="550" y2="250" class="data-flow"/>
+  
+  <!-- Computation Engine to Privacy Mechanisms -->
+  <line x1="200" y1="350" x2="120" y2="380" class="data-flow"/>
+  <line x1="300" y1="350" x2="280" y2="380" class="data-flow"/>
+  <line x1="450" y1="350" x2="440" y2="380" class="data-flow"/>
+  <line x1="550" y1="350" x2="600" y2="380" class="data-flow"/>
+  
+  <!-- Privacy Mechanisms to Compliance -->
+  <line x1="120" y1="480" x2="150" y2="510" class="connection-line"/>
+  <line x1="280" y1="480" x2="350" y2="510" class="connection-line"/>
+  <line x1="440" y1="480" x2="420" y2="510" class="connection-line"/>
+  <line x1="600" y1="480" x2="600" y2="510" class="connection-line"/>
+  
+  <!-- Compliance to Output -->
+  <line x1="200" y1="590" x2="300" y2="610" class="data-flow"/>
+  <line x1="420" y1="590" x2="400" y2="610" class="data-flow"/>
+  <line x1="640" y1="590" x2="500" y2="610" class="data-flow"/>
+  
+  <!-- Computation Engine to Output -->
+  <line x1="400" y1="350" x2="400" y2="610" class="data-flow"/>
+  
+  <!-- Privacy Level Indicators -->
+  <circle cx="30" cy="180" r="8" fill="red"/>
+  <text x="20" y="200" class="tiny-text">SENSITIVE</text>
+  
+  <circle cx="30" cy="300" r="8" fill="orange"/>
+  <text x="20" y="320" class="tiny-text">PROTECTED</text>
+  
+  <circle cx="30" cy="430" r="8" fill="green"/>
+  <text x="20" y="450" class="tiny-text">PRIVATE</text>
+  
+  <circle cx="30" cy="550" r="8" fill="blue"/>
+  <text x="20" y="570" class="tiny-text">COMPLIANT</text>
+  
+  <!-- Privacy Metrics -->
+  <text x="750" y="165" class="tiny-text">Privacy Level: 99.8%</text>
+  <text x="750" y="180" class="tiny-text">Entropy: 256 bits</text>
+  <text x="750" y="195" class="tiny-text">ε-Privacy: 0.1</text>
+  <text x="750" y="210" class="tiny-text">Zero Knowledge: ✓</text>
+  
+  <!-- Key Management -->
+  <rect x="680" y="250" width="100" height="100" class="encryption-box"/>
+  <text x="730" y="275" class="label-text">KEY</text>
+  <text x="730" y="290" class="label-text">MANAGEMENT</text>
+  <text x="730" y="315" class="tiny-text">• Secure Key Gen</text>
+  <text x="730" y="330" class="tiny-text">• Key Distribution</text>
+  <text x="730" y="345" class="tiny-text">• Key Rotation</text>
+  
+  <!-- Key Management Connection -->
+  <line x1="650" y1="300" x2="680" y2="300" class="connection-line" stroke-dasharray="3,3"/>
+  
+</svg>
+        </div>
+    </div>
+    
+    <div class="instructions">
+        <h3>Instructions for PDF Conversion:</h3>
+        <ol>
+            <li>Click scale buttons above to find the best fit (try 75-85% first)</li>
+            <li>Ensure the entire diagram is visible within the border</li>
+            <li>Press <strong>Ctrl+P</strong> to print</li>
+            <li>Select "Save as PDF" or "Microsoft Print to PDF"</li>
+            <li>Settings: Paper=Letter, Margins=Default, Background graphics=ON</li>
+            <li>Save as: <strong>FIGURE_7_PRIVACY_PRESERVING_MECHANISMS.pdf</strong></li>
+        </ol>
+        <p><strong>Quality Check:</strong> Verify all text is readable and no parts are cut off in the PDF.</p>
+    </div>
+</body>
+</html>

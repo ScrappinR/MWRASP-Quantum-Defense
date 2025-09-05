@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .bidirectional { marker-start: url(#arrowhead); marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .data-collection { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .pattern-analysis { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .feature-extraction { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .crypto-generation { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .edge-processing { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+      .swarm-learning { fill: #f0f4c3; stroke: #827717; stroke-width: 2; rx: 8; }
+      .anomaly-detection { fill: #e0f2f1; stroke: #009688; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 3: Edge Computing Behavioral Cryptography Workflow</text>
+  
+  <!-- Data Collection Layer -->
+  <rect x="50" y="80" width="200" height="120" class="data-collection"/>
+  <text x="150" y="110" class="system-text">Data Collection</text>
+  <text x="150" y="125" class="system-text">Sensors</text>
+  <text x="150" y="150" class="component-text">Behavioral Metrics:</text>
+  <text x="150" y="165" class="detail-text">• Device timing patterns</text>
+  <text x="150" y="177" class="detail-text">• Communication frequency</text>
+  <text x="150" y="189" class="detail-text">• Power consumption profile</text>
+  
+  <!-- Pattern Analysis Engine -->
+  <rect x="300" y="80" width="200" height="120" class="pattern-analysis"/>
+  <text x="400" y="110" class="system-text">Pattern Analysis</text>
+  <text x="400" y="125" class="system-text">Engine</text>
+  <text x="400" y="150" class="component-text">Real-time Processing:</text>
+  <text x="400" y="165" class="detail-text">• Statistical analysis &lt;100μs</text>
+  <text x="400" y="177" class="detail-text">• Trend detection</text>
+  <text x="400" y="189" class="detail-text">• Deviation measurement</text>
+  
+  <!-- Feature Extraction -->
+  <rect x="550" y="80" width="200" height="120" class="feature-extraction"/>
+  <text x="650" y="110" class="system-text">Feature</text>
+  <text x="650" y="125" class="system-text">Extraction</text>
+  <text x="650" y="150" class="component-text">Lightweight ML:</text>
+  <text x="650" y="165" class="detail-text">• 16-32 byte fingerprint</text>
+  <text x="650" y="177" class="detail-text">• Edge-optimized</text>
+  <text x="650" y="189" class="detail-text">• &lt;500μs processing</text>
+  
+  <!-- Crypto Key Generation -->
+  <rect x="800" y="80" width="200" height="120" class="crypto-generation"/>
+  <text x="900" y="110" class="system-text">Behavioral</text>
+  <text x="900" y="125" class="system-text">Key Generator</text>
+  <text x="900" y="150" class="component-text">Quantum-Safe:</text>
+  <text x="900" y="165" class="detail-text">• Pattern-derived keys</text>
+  <text x="900" y="177" class="detail-text">• CRYSTALS-Kyber KEM</text>
+  <text x="900" y="189" class="detail-text">• Dynamic regeneration</text>
+  
+  <!-- Edge Processing Nodes -->
+  <rect x="100" y="280" width="180" height="100" class="edge-processing"/>
+  <text x="190" y="310" class="system-text">Edge Node 1</text>
+  <text x="190" y="330" class="component-text">Local Processing:</text>
+  <text x="190" y="345" class="detail-text">• 10 IoT devices</text>
+  <text x="190" y="357" class="detail-text">• Pattern aggregation</text>
+  <text x="190" y="369" class="detail-text">• Anomaly scoring</text>
+  
+  <rect x="320" y="280" width="180" height="100" class="edge-processing"/>
+  <text x="410" y="310" class="system-text">Edge Node 2</text>
+  <text x="410" y="330" class="component-text">Local Processing:</text>
+  <text x="410" y="345" class="detail-text">• 15 IoT devices</text>
+  <text x="410" y="357" class="detail-text">• Pattern aggregation</text>
+  <text x="410" y="369" class="detail-text">• Anomaly scoring</text>
+  
+  <rect x="540" y="280" width="180" height="100" class="edge-processing"/>
+  <text x="630" y="310" class="system-text">Edge Node 3</text>
+  <text x="630" y="330" class="component-text">Local Processing:</text>
+  <text x="630" y="345" class="detail-text">• 12 IoT devices</text>
+  <text x="630" y="357" class="detail-text">• Pattern aggregation</text>
+  <text x="630" y="369" class="detail-text">• Anomaly scoring</text>
+  
+  <!-- Swarm Learning Coordination -->
+  <rect x="800" y="250" width="300" height="150" class="swarm-learning"/>
+  <text x="950" y="280" class="system-text">Distributed Swarm Learning</text>
+  <text x="900" y="305" class="component-text">Collective Intelligence:</text>
+  <text x="900" y="320" class="detail-text">• Pattern sharing across nodes</text>
+  <text x="900" y="332" class="detail-text">• Consensus-based decisions</text>
+  <text x="900" y="344" class="detail-text">• Federated learning model</text>
+  <text x="900" y="356" class="detail-text">• Privacy-preserving updates</text>
+  
+  <text x="1000" y="305" class="component-text">Security Coordination:</text>
+  <text x="1000" y="320" class="detail-text">• Global threat intelligence</text>
+  <text x="1000" y="332" class="detail-text">• Coordinated responses</text>
+  <text x="1000" y="344" class="detail-text">• Key synchronization</text>
+  <text x="1000" y="356" class="detail-text">• Distributed consensus</text>
+  
+  <text x="950" y="380" class="component-text">Performance: &lt;10ms coordination • 99.8% accuracy • Scalable to 10K+ nodes</text>
+  
+  <!-- Anomaly Detection System -->
+  <rect x="100" y="450" width="600" height="120" class="anomaly-detection"/>
+  <text x="400" y="480" class="system-text">Real-Time Anomaly Detection and Response</text>
+  <text x="250" y="505" class="component-text">Detection Methods:</text>
+  <text x="250" y="520" class="detail-text">• Statistical outlier detection</text>
+  <text x="250" y="532" class="detail-text">• Machine learning classification</text>
+  <text x="250" y="544" class="detail-text">• Time-series analysis</text>
+  <text x="250" y="556" class="detail-text">• Cross-device correlation</text>
+  
+  <text x="500" y="505" class="component-text">Response Actions:</text>
+  <text x="500" y="520" class="detail-text">• Device isolation</text>
+  <text x="500" y="532" class="detail-text">• Key regeneration</text>
+  <text x="500" y="544" class="detail-text">• Alert propagation</text>
+  <text x="500" y="556" class="detail-text">• Adaptive security levels</text>
+  
+  <!-- Behavioral Pattern Examples -->
+  <rect x="50" y="620" width="1100" height="200" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="645" class="system-text">Behavioral Pattern Recognition Examples</text>
+  
+  <!-- Normal Behavior -->
+  <rect x="80" y="670" width="200" height="120" class="data-collection"/>
+  <text x="180" y="700" class="system-text">Normal Behavior</text>
+  <text x="180" y="720" class="component-text">Pattern Profile:</text>
+  <text x="180" y="735" class="detail-text">• Transmission: Every 30s±5s</text>
+  <text x="180" y="747" class="detail-text">• Power: 15-20mA active</text>
+  <text x="180" y="759" class="detail-text">• Data size: 32±8 bytes</text>
+  <text x="180" y="771" class="detail-text">• Response time: 5-10ms</text>
+  <text x="180" y="783" class="detail-text">• Confidence: 98.2%</text>
+  
+  <!-- Suspicious Behavior -->
+  <rect x="300" y="670" width="200" height="120" class="pattern-analysis"/>
+  <text x="400" y="700" class="system-text">Suspicious Behavior</text>
+  <text x="400" y="720" class="component-text">Anomaly Indicators:</text>
+  <text x="400" y="735" class="detail-text">• Transmission: Irregular</text>
+  <text x="400" y="747" class="detail-text">• Power: 25-30mA spike</text>
+  <text x="400" y="759" class="detail-text">• Data size: 128+ bytes</text>
+  <text x="400" y="771" class="detail-text">• Response: &gt;50ms delay</text>
+  <text x="400" y="783" class="detail-text">• Threat score: 7.2/10</text>
+  
+  <!-- Attack Patterns -->
+  <rect x="520" y="670" width="200" height="120" class="crypto-generation"/>
+  <text x="620" y="700" class="system-text">Attack Patterns</text>
+  <text x="620" y="720" class="component-text">Malicious Activity:</text>
+  <text x="620" y="735" class="detail-text">• Flooding attempts</text>
+  <text x="620" y="747" class="detail-text">• Timing manipulation</text>
+  <text x="620" y="759" class="detail-text">• Replay attacks</text>
+  <text x="620" y="771" class="detail-text">• Protocol violations</text>
+  <text x="620" y="783" class="detail-text">• Block immediately</text>
+  
+  <!-- Adaptive Learning -->
+  <rect x="740" y="670" width="200" height="120" class="swarm-learning"/>
+  <text x="840" y="700" class="system-text">Adaptive Learning</text>
+  <text x="840" y="720" class="component-text">Continuous Updates:</text>
+  <text x="840" y="735" class="detail-text">• Model refinement</text>
+  <text x="840" y="747" class="detail-text">• Threshold adjustment</text>
+  <text x="840" y="759" class="detail-text">• Pattern evolution</text>
+  <text x="840" y="771" class="detail-text">• False positive reduction</text>
+  <text x="840" y="783" class="detail-text">• 24/7 learning cycle</text>
+  
+  <!-- Resource Efficiency -->
+  <rect x="960" y="670" width="160" height="120" class="anomaly-detection"/>
+  <text x="1040" y="700" class="system-text">Efficiency</text>
+  <text x="1040" y="720" class="component-text">Ultra-Low Impact:</text>
+  <text x="1040" y="735" class="detail-text">• RAM: &lt;1KB</text>
+  <text x="1040" y="747" class="detail-text">• CPU: &lt;5% load</text>
+  <text x="1040" y="759" class="detail-text">• Power: &lt;1mW</text>
+  <text x="1040" y="771" class="detail-text">• Latency: &lt;1ms</text>
+  <text x="1040" y="783" class="detail-text">• Real-time</text>
+  
+  <!-- Connection Lines -->
+  <line x1="250" y1="140" x2="300" y2="140" class="arrow"/>
+  <line x1="500" y1="140" x2="550" y2="140" class="arrow"/>
+  <line x1="750" y1="140" x2="800" y2="140" class="arrow"/>
+  
+  <!-- From main flow to edge nodes -->
+  <line x1="400" y1="200" x2="190" y2="280" class="arrow"/>
+  <line x1="400" y1="200" x2="410" y2="280" class="arrow"/>
+  <line x1="650" y1="200" x2="630" y2="280" class="arrow"/>
+  
+  <!-- Edge nodes to swarm learning -->
+  <line x1="720" y1="330" x2="800" y2="325" class="arrow"/>
+  
+  <!-- To anomaly detection -->
+  <line x1="400" y1="380" x2="400" y2="450" class="arrow"/>
+  
+  <!-- Inter-edge communication -->
+  <line x1="280" y1="330" x2="320" y2="330" class="bidirectional" stroke-dasharray="3,3"/>
+  <line x1="500" y1="330" x2="540" y2="330" class="bidirectional" stroke-dasharray="3,3"/>
+  
+  <!-- Swarm learning feedback -->
+  <line x1="800" y1="300" x2="650" y2="200" class="arrow" stroke="#827717" stroke-dasharray="2,2"/>
+  
+  <!-- Labels -->
+  <text x="275" y="130" class="detail-text">&lt;100μs</text>
+  <text x="525" y="130" class="detail-text">16-32B</text>
+  <text x="775" y="130" class="detail-text">Quantum-safe</text>
+  
+  <text x="190" y="270" class="detail-text">Local</text>
+  <text x="410" y="270" class="detail-text">Processing</text>
+  <text x="630" y="270" class="detail-text">Nodes</text>
+  
+  <text x="400" y="440" class="detail-text">Real-time monitoring &lt;1ms response</text>
+  
+  <!-- Performance metrics -->
+  <text x="50" y="50" class="component-text">Processing: Pattern analysis &lt;100μs • Feature extraction &lt;500μs • Crypto generation &lt;1ms • Memory &lt;1KB • Power &lt;1mW</text>
+
+</svg>

@@ -1,0 +1,438 @@
+# helm/homomorphic-swarm/Chart.yaml
+apiVersion: v2
+name: homomorphic-swarm
+description: Bio-Inspired Homomorphic Swarm System
+type: application
+version: 1.0.0
+appVersion: "1.0"
+
+---
+# helm/homomorphic-swarm/values.yaml
+replicaCount:
+  queen: 1
+  workers: 10
+  guardians: 3
+  scouts: 2
+
+image:
+  repository: homomorphic-swarm
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8000
+
+resources:
+  queen:
+    requests:
+      memory: "2Gi"
+      cpu: "1000m"
+    limits:
+      memory: "4Gi"
+      cpu: "2000m"
+  worker:
+    requests:
+      memory: "4Gi"
+      cpu: "2000m"
+    limits:
+      memory: "8Gi"
+      cpu: "4000m"
+  guardian:
+    requests:
+      memory: "1Gi"
+      cpu: "500m"
+    limits:
+      memory: "2Gi"
+      cpu: "1000m"
+
+autoscaling:
+  enabled: true
+  minReplicas:
+    workers: 5
+  maxReplicas:
+    workers: 50
+  targetCPUUtilizationPercentage: 70
+  targetMemoryUtilizationPercentage: 80
+
+security:
+  tls:
+    enabled: true
+    certManager: true
+  networkPolicies:
+    enabled: true
+  podSecurityPolicy:
+    enabled: true
+
+monitoring:
+  prometheus:
+    enabled: true
+    serviceMonitor: true
+  grafana:
+    enabled: true
+
+persistence:
+  enabled: true
+  storageClass: "fast-ssd"
+  size: "100Gi"
+
+byzantineTolerance:
+  enabled: true
+  faultThreshold: 0.33
+
+---
+# helm/homomorphic-swarm/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "homomorphic-swarm.fullname" . }}-config
+  labels:
+    {{- include "homomorphic-swarm.labels" . | nindent 4 }}
+data:
+  swarm-config.yaml: |
+    swarm:
+      gossip_interval: 5
+      heartbeat_timeout: 30
+      byzantine_threshold: {{ .Values.byzantineTolerance.faultThreshold }}
+    crypto:
+      poly_modulus_degree: 8192
+      coeff_modulus: [60, 40, 40, 60]
+      scale: 1099511627776
+    performance:
+      bootstrap_chunk_size: 10
+      max_parallel_operations: 100
+      cache_size: 1000
+
+---
+# helm/homomorphic-swarm/templates/queen-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "homomorphic-swarm.fullname" . }}-queen
+  labels:
+    {{- include "homomorphic-swarm.labels" . | nindent 4 }}
+    component: queen
+spec:
+  replicas: {{ .Values.replicaCount.queen }}
+  selector:
+    matchLabels:
+      {{- include "homomorphic-swarm.selectorLabels" . | nindent 6 }}
+      component: queen
+  template:
+    metadata:
+      labels:
+        {{- include "homomorphic-swarm.selectorLabels" . | nindent 8 }}
+        component: queen
+    spec:
+      serviceAccountName: {{ include "homomorphic-swarm.serviceAccountName" . }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+      containers:
+      - name: queen
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["python", "-m", "swarm.queen"]
+        env:
+        - name: NODE_TYPE
+          value: "queen"
+        - name: POD_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: POD_IP
+          valueFrom:
+            fieldRef:
+              fieldPath: status.podIP
+        ports:
+        - name: http
+          containerPort: 8000
+          protocol: TCP
+        - name: metrics
+          containerPort: 9090
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: http
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: http
+          initialDelaySeconds: 10
+          periodSeconds: 5
+        resources:
+          {{- toYaml .Values.resources.queen | nindent 10 }}
+        volumeMounts:
+        - name: config
+          mountPath: /etc/swarm
+        - name: tls
+          mountPath: /etc/tls
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: {{ include "homomorphic-swarm.fullname" . }}-config
+      - name: tls
+        secret:
+          secretName: {{ include "homomorphic-swarm.fullname" . }}-tls
+
+---
+# helm/homomorphic-swarm/templates/worker-statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "homomorphic-swarm.fullname" . }}-worker
+  labels:
+    {{- include "homomorphic-swarm.labels" . | nindent 4 }}
+    component: worker
+spec:
+  serviceName: {{ include "homomorphic-swarm.fullname" . }}-worker
+  replicas: {{ .Values.replicaCount.workers }}
+  selector:
+    matchLabels:
+      {{- include "homomorphic-swarm.selectorLabels" . | nindent 6 }}
+      component: worker
+  template:
+    metadata:
+      labels:
+        {{- include "homomorphic-swarm.selectorLabels" . | nindent 8 }}
+        component: worker
+    spec:
+      serviceAccountName: {{ include "homomorphic-swarm.serviceAccountName" . }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+      containers:
+      - name: worker
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        command: ["python", "-m", "swarm.worker"]
+        env:
+        - name: NODE_TYPE
+          value: "worker"
+        - name: WORKER_ID
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: QUEEN_SERVICE
+          value: "{{ include "homomorphic-swarm.fullname" . }}-queen:8000"
+        ports:
+        - name: http
+          containerPort: 8000
+          protocol: TCP
+        - name: metrics
+          containerPort: 9090
+          protocol: TCP
+        resources:
+          {{- toYaml .Values.resources.worker | nindent 10 }}
+        volumeMounts:
+        - name: config
+          mountPath: /etc/swarm
+        - name: cache
+          mountPath: /var/cache/swarm
+        - name: tls
+          mountPath: /etc/tls
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: {{ include "homomorphic-swarm.fullname" . }}-config
+      - name: tls
+        secret:
+          secretName: {{ include "homomorphic-swarm.fullname" . }}-tls
+  volumeClaimTemplates:
+  - metadata:
+      name: cache
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      storageClassName: {{ .Values.persistence.storageClass }}
+      resources:
+        requests:
+          storage: {{ .Values.persistence.size }}
+
+---
+# helm/homomorphic-swarm/templates/hpa.yaml
+{{- if .Values.autoscaling.enabled }}
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: {{ include "homomorphic-swarm.fullname" . }}-worker-hpa
+  labels:
+    {{- include "homomorphic-swarm.labels" . | nindent 4 }}
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: StatefulSet
+    name: {{ include "homomorphic-swarm.fullname" . }}-worker
+  minReplicas: {{ .Values.autoscaling.minReplicas.workers }}
+  maxReplicas: {{ .Values.autoscaling.maxReplicas.workers }}
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.autoscaling.targetCPUUtilizationPercentage }}
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: Utilization
+        averageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
+  - type: Pods
+    pods:
+      metric:
+        name: homomorphic_operations_per_second
+      target:
+        type: AverageValue
+        averageValue: "100"
+  behavior:
+    scaleUp:
+      stabilizationWindowSeconds: 60
+      policies:
+      - type: Percent
+        value: 100
+        periodSeconds: 60
+      - type: Pods
+        value: 4
+        periodSeconds: 60
+    scaleDown:
+      stabilizationWindowSeconds: 300
+      policies:
+      - type: Percent
+        value: 10
+        periodSeconds: 60
+{{- end }}
+
+---
+# helm/homomorphic-swarm/templates/network-policy.yaml
+{{- if .Values.security.networkPolicies.enabled }}
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: {{ include "homomorphic-swarm.fullname" . }}-network-policy
+  labels:
+    {{- include "homomorphic-swarm.labels" . | nindent 4 }}
+spec:
+  podSelector:
+    matchLabels:
+      {{- include "homomorphic-swarm.selectorLabels" . | nindent 6 }}
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          {{- include "homomorphic-swarm.selectorLabels" . | nindent 10 }}
+    ports:
+    - protocol: TCP
+      port: 8000
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: prometheus
+    ports:
+    - protocol: TCP
+      port: 9090
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          {{- include "homomorphic-swarm.selectorLabels" . | nindent 10 }}
+    ports:
+    - protocol: TCP
+      port: 8000
+  - to:
+    - namespaceSelector: {}
+    ports:
+    - protocol: TCP
+      port: 53
+    - protocol: UDP
+      port: 53
+{{- end }}
+
+---
+# helm/homomorphic-swarm/templates/certificate.yaml
+{{- if and .Values.security.tls.enabled .Values.security.tls.certManager }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: {{ include "homomorphic-swarm.fullname" . }}-tls
+  labels:
+    {{- include "homomorphic-swarm.labels" . | nindent 4 }}
+spec:
+  secretName: {{ include "homomorphic-swarm.fullname" . }}-tls
+  issuerRef:
+    name: {{ include "homomorphic-swarm.fullname" . }}-issuer
+    kind: Issuer
+  dnsNames:
+  - {{ include "homomorphic-swarm.fullname" . }}
+  - {{ include "homomorphic-swarm.fullname" . }}.{{ .Release.Namespace }}
+  - {{ include "homomorphic-swarm.fullname" . }}.{{ .Release.Namespace }}.svc
+  - {{ include "homomorphic-swarm.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local
+  - "*.{{ include "homomorphic-swarm.fullname" . }}-worker.{{ .Release.Namespace }}.svc.cluster.local"
+{{- end }}
+
+---
+# helm/homomorphic-swarm/templates/pod-disruption-budget.yaml
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "homomorphic-swarm.fullname" . }}-worker-pdb
+  labels:
+    {{- include "homomorphic-swarm.labels" . | nindent 4 }}
+spec:
+  minAvailable: {{ mul .Values.replicaCount.workers 0.67 | int }}
+  selector:
+    matchLabels:
+      {{- include "homomorphic-swarm.selectorLabels" . | nindent 6 }}
+      component: worker
+
+---
+# helm/homomorphic-swarm/templates/servicemonitor.yaml
+{{- if and .Values.monitoring.prometheus.enabled .Values.monitoring.prometheus.serviceMonitor }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "homomorphic-swarm.fullname" . }}
+  labels:
+    {{- include "homomorphic-swarm.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "homomorphic-swarm.selectorLabels" . | nindent 6 }}
+  endpoints:
+  - port: metrics
+    interval: 30s
+    path: /metrics
+{{- end }}
+
+---
+# Dockerfile
+FROM python:3.11-slim as builder
+
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --user -r requirements.txt
+
+FROM python:3.11-slim
+
+RUN useradd -m -u 1000 swarm
+WORKDIR /app
+
+COPY --from=builder /root/.local /home/swarm/.local
+COPY . .
+
+RUN chown -R swarm:swarm /app
+USER swarm
+
+ENV PATH=/home/swarm/.local/bin:$PATH
+EXPOSE 8000 9090
+
+ENTRYPOINT ["python", "-m"]

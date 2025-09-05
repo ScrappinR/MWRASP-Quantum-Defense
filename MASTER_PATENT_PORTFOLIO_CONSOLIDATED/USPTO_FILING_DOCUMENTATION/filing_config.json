@@ -1,0 +1,54 @@
+{
+  "applicant_info": {
+    "name": "Brian James Rutherford",
+    "address": "6 Country Place Drive",
+    "city": "Wimberley",
+    "state": "Texas",
+    "zip": "78676-3114",
+    "country": "US",
+    "phone": "(512)648-0219",
+    "email": "Actual@ScrappinR.com"
+  },
+  "inventors": [
+    {
+      "first_name": "Brian",
+      "last_name": "Rutherford",
+      "middle_initial": "James",
+      "address": "6 Country Place Drive",
+      "city": "Wimberley",
+      "state": "Texas",
+      "zip": "78676-3114",
+      "country": "US",
+      "citizenship": "US"
+    }
+  ],
+  "assignee": null,
+  "filing_preferences": {
+    "entity_size": "micro",
+    "micro_entity_qualification": "income_and_application_limit",
+    "micro_entity_details": {
+      "prior_utility_patents": 0,
+      "income_status": "below_3x_median_household_income",
+      "va_fixed_income": true,
+      "qualification_basis": "Never been named as inventor on any utility patent and income well below 3x median household income"
+    },
+    "expedited_processing": false,
+    "international_filing": true,
+    "pct_countries": [
+      "US",
+      "EP",
+      "CA",
+      "JP",
+      "AU",
+      "GB",
+      "IL"
+    ]
+  },
+  "attorney_info": {
+    "name": "[TO BE ASSIGNED]",
+    "registration_number": "[TO BE ASSIGNED]",
+    "address": "[TO BE ASSIGNED]",
+    "phone": "[TO BE ASSIGNED]",
+    "email": "[TO BE ASSIGNED]"
+  }
+}

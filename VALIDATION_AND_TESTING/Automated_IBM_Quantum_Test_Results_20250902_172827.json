@@ -1,0 +1,86 @@
+{
+  "test_timestamp": "2025-09-02T17:28:25.652766",
+  "backend_info": {
+    "name": "ibm_brisbane",
+    "num_qubits": 127,
+    "operational": true,
+    "simulator_mode": false
+  },
+  "algorithm_results": {
+    "simons": {
+      "algorithm_type": "simons",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "'400 Client Error: Bad Request for url: https://us-east.quantum-computing.cloud.ibm.com/sessions. {\"errors\":[{\"code\":1352,\"message\":\"You are not authorized to run a session when using the open plan.\",\"solution\":\"Create an instance of a different plan type or use a different execution mode <https://quantum.cloud.ibm.com/docs/guides/execution-modes>.\",\"more_info\":\"https://cloud.ibm.com/apidocs/quantum-computing#error-handling\"}],\"trace\":\"94a1ccbf-a952-4e6c-9e11-5f7f53644244\"}\\n'"
+    },
+    "deutsch_jozsa_constant": {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "'400 Client Error: Bad Request for url: https://us-east.quantum-computing.cloud.ibm.com/sessions. {\"errors\":[{\"code\":1352,\"message\":\"You are not authorized to run a session when using the open plan.\",\"solution\":\"Create an instance of a different plan type or use a different execution mode <https://quantum.cloud.ibm.com/docs/guides/execution-modes>.\",\"more_info\":\"https://cloud.ibm.com/apidocs/quantum-computing#error-handling\"}],\"trace\":\"996bac60-ec75-426c-b2cc-bd7a888a740f\"}\\n'"
+    },
+    "deutsch_jozsa_balanced": {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "'400 Client Error: Bad Request for url: https://us-east.quantum-computing.cloud.ibm.com/sessions. {\"errors\":[{\"code\":1352,\"message\":\"You are not authorized to run a session when using the open plan.\",\"solution\":\"Create an instance of a different plan type or use a different execution mode <https://quantum.cloud.ibm.com/docs/guides/execution-modes>.\",\"more_info\":\"https://cloud.ibm.com/apidocs/quantum-computing#error-handling\"}],\"trace\":\"a1bccd98-a857-4c5d-bd77-accd7f8867fa\"}\\n'"
+    },
+    "bernstein_vazirani": {
+      "algorithm_type": "bernstein_vazirani",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "'400 Client Error: Bad Request for url: https://us-east.quantum-computing.cloud.ibm.com/sessions. {\"errors\":[{\"code\":1352,\"message\":\"You are not authorized to run a session when using the open plan.\",\"solution\":\"Create an instance of a different plan type or use a different execution mode <https://quantum.cloud.ibm.com/docs/guides/execution-modes>.\",\"more_info\":\"https://cloud.ibm.com/apidocs/quantum-computing#error-handling\"}],\"trace\":\"e2243395-fe76-4a5e-8c21-74d00886b3b2\"}\\n'"
+    }
+  },
+  "summary": {
+    "total_tests": 4,
+    "successful_tests": 0,
+    "success_rate": 0.0,
+    "hardware_validated": true,
+    "quantum_advantage_demonstrated": false
+  }
+}

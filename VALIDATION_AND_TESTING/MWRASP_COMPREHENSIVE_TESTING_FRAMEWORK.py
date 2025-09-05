@@ -23,6 +23,7 @@ import secrets
 import threading
 import sqlite3
 import logging
+import sys
 import json
 import os
 from typing import Dict, List, Optional, Tuple, Any
@@ -34,14 +35,14 @@ import statistics
 
 # Import the genuine AI system components
 try:
-    from MWRASP_GENUINE_AI_SYSTEM import (
+    sys.path.append('./CORE_SYSTEM_IMPLEMENTATIONS')
+    from CORE_SYSTEM_IMPLEMENTATIONS.MWRASP_GENUINE_AI_SYSTEM import (
         GenuineAIThreatDetector, 
         BehavioralBiometricAuth,
         TemporalFragmentationSystem,
         ByzantineFaultTolerantConsensus,
         GenuineNetworkMonitor
     )
-    sys.path.append('./CORE_SYSTEM_IMPLEMENTATIONS')
     from CORE_SYSTEM_IMPLEMENTATIONS.MWRASP_QUANTUM_RESISTANT_CRYPTO import (
         QuantumResistantKyber,
         QuantumResistantXMSS as XMSSHashSignatures,

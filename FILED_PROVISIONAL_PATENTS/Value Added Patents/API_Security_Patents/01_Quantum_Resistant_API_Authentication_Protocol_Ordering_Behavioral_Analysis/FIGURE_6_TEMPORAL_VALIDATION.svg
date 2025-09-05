@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .timestamp-gen { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .replay-detection { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .temporal-analysis { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .policy-engine { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .validation-result { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 6: Temporal Protocol Validation Process</text>
+  
+  <!-- Input: API Request with Timestamp -->
+  <rect x="50" y="80" width="200" height="100" class="timestamp-gen"/>
+  <text x="150" y="110" class="system-text">Incoming API Request</text>
+  <text x="150" y="130" class="component-text">• Request payload</text>
+  <text x="150" y="145" class="component-text">• Client timestamp</text>
+  <text x="150" y="160" class="component-text">• Authentication data</text>
+  <text x="150" y="175" class="component-text">• Session context</text>
+  
+  <!-- Cryptographic Timestamping -->
+  <rect x="300" y="60" width="220" height="140" class="timestamp-gen"/>
+  <text x="410" y="90" class="system-text">Cryptographic</text>
+  <text x="410" y="105" class="system-text">Timestamping</text>
+  <text x="410" y="130" class="component-text">Server Timestamp Generation:</text>
+  <text x="410" y="145" class="detail-text">• High-precision time source</text>
+  <text x="410" y="157" class="detail-text">• NTP synchronization</text>
+  <text x="410" y="169" class="detail-text">• Monotonic clock</text>
+  <text x="410" y="185" class="component-text">Quantum-Safe Signing:</text>
+  <text x="410" y="197" class="detail-text">• CRYSTALS-Dilithium signature</text>
+  
+  <!-- Replay Attack Detection -->
+  <rect x="570" y="60" width="220" height="140" class="replay-detection"/>
+  <text x="680" y="90" class="system-text">Replay Attack</text>
+  <text x="680" y="105" class="system-text">Detection</text>
+  <text x="680" y="130" class="component-text">Nonce Validation:</text>
+  <text x="680" y="145" class="detail-text">• Unique request identifiers</text>
+  <text x="680" y="157" class="detail-text">• Nonce database lookup</text>
+  <text x="680" y="169" class="detail-text">• Duplicate detection</text>
+  <text x="680" y="185" class="component-text">Time Window Analysis:</text>
+  <text x="680" y="197" class="detail-text">• Acceptable time drift</text>
+  
+  <!-- Temporal Behavioral Analysis -->
+  <rect x="840" y="60" width="220" height="140" class="temporal-analysis"/>
+  <text x="950" y="90" class="system-text">Temporal Behavioral</text>
+  <text x="950" y="105" class="system-text">Analysis</text>
+  <text x="950" y="130" class="component-text">Pattern Analysis:</text>
+  <text x="950" y="145" class="detail-text">• Request timing patterns</text>
+  <text x="950" y="157" class="detail-text">• Frequency analysis</text>
+  <text x="950" y="169" class="detail-text">• Behavioral consistency</text>
+  <text x="950" y="185" class="component-text">Anomaly Detection:</text>
+  <text x="950" y="197" class="detail-text">• Temporal anomalies</text>
+  
+  <!-- Temporal Consistency Validation -->
+  <rect x="200" y="280" width="250" height="120" class="temporal-analysis"/>
+  <text x="325" y="310" class="system-text">Temporal Consistency</text>
+  <text x="325" y="325" class="system-text">Validation</text>
+  <text x="325" y="350" class="component-text">Session Timeline Validation:</text>
+  <text x="325" y="365" class="detail-text">• Session chronology</text>
+  <text x="325" y="377" class="detail-text">• State progression</text>
+  <text x="325" y="389" class="detail-text">• Temporal ordering</text>
+  
+  <!-- Temporal Security Policy Engine -->
+  <rect x="500" y="280" width="250" height="120" class="policy-engine"/>
+  <text x="625" y="310" class="system-text">Temporal Security</text>
+  <text x="625" y="325" class="system-text">Policy Engine</text>
+  <text x="625" y="350" class="component-text">Policy Evaluation:</text>
+  <text x="625" y="365" class="detail-text">• Time-based access rules</text>
+  <text x="625" y="377" class="detail-text">• Temporal constraints</text>
+  <text x="625" y="389" class="detail-text">• Dynamic policy updates</text>
+  
+  <!-- Validation Result -->
+  <rect x="400" y="480" width="300" height="120" class="validation-result"/>
+  <text x="550" y="510" class="system-text">Temporal Validation Result</text>
+  <text x="550" y="535" class="component-text">Validation Status:</text>
+  <text x="550" y="550" class="detail-text">• Timestamp validity • Replay detection result</text>
+  <text x="550" y="565" class="component-text">Security Assessment:</text>
+  <text x="550" y="580" class="detail-text">• Temporal security level • Risk score</text>
+  <text x="550" y="595" class="detail-text">• Recommended actions</text>
+  
+  <!-- Connection Lines -->
+  <line x1="250" y1="130" x2="300" y2="130" class="arrow"/>
+  <line x1="520" y1="130" x2="570" y2="130" class="arrow"/>
+  <line x1="790" y1="130" x2="840" y2="130" class="arrow"/>
+  
+  <line x1="410" y1="200" x2="325" y2="280" class="arrow"/>
+  <line x1="680" y1="200" x2="625" y2="280" class="arrow"/>
+  
+  <line x1="325" y1="400" x2="450" y2="480" class="arrow"/>
+  <line x1="625" y1="400" x2="600" y2="480" class="arrow"/>
+  
+  <!-- Time Window Visualization -->
+  <rect x="50" y="640" width="1100" height="120" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="665" class="system-text">Temporal Security Features</text>
+  
+  <!-- Time Window -->
+  <rect x="80" y="690" width="200" height="50" class="timestamp-gen"/>
+  <text x="180" y="710" class="component-text">Acceptable Time Window</text>
+  <text x="180" y="725" class="detail-text">±30 seconds default</text>
+  
+  <!-- Nonce Management -->
+  <rect x="300" y="690" width="200" height="50" class="replay-detection"/>
+  <text x="400" y="710" class="component-text">Nonce Management</text>
+  <text x="400" y="725" class="detail-text">24-hour retention</text>
+  
+  <!-- Clock Synchronization -->
+  <rect x="520" y="690" width="200" height="50" class="temporal-analysis"/>
+  <text x="620" y="710" class="component-text">Clock Synchronization</text>
+  <text x="620" y="725" class="detail-text">NTP ±1ms accuracy</text>
+  
+  <!-- Temporal Signatures -->
+  <rect x="740" y="690" width="200" height="50" class="policy-engine"/>
+  <text x="840" y="710" class="component-text">Quantum Signatures</text>
+  <text x="840" y="725" class="detail-text">CRYSTALS-Dilithium</text>
+  
+  <!-- Performance Metrics -->
+  <rect x="960" y="690" width="160" height="50" class="validation-result"/>
+  <text x="1040" y="710" class="component-text">Performance</text>
+  <text x="1040" y="725" class="detail-text">&lt;5ms validation</text>
+  
+  <!-- Process Flow Labels -->
+  <text x="275" y="120" class="detail-text">Timestamp</text>
+  <text x="545" y="120" class="detail-text">Nonce Check</text>
+  <text x="815" y="120" class="detail-text">Behavioral</text>
+  
+  <text x="370" y="240" class="detail-text">Consistency</text>
+  <text x="655" y="240" class="detail-text">Policy</text>
+  
+  <text x="425" y="460" class="detail-text">Validation</text>
+  <text x="575" y="460" class="detail-text">Decision</text>
+  
+  <!-- Threat Scenarios -->
+  <text x="50" y="50" class="component-text" fill="#d32f2f">Threats Mitigated:</text>
+  <text x="50" y="65" class="detail-text" fill="#d32f2f">• Replay attacks • Time manipulation • Session hijacking • Temporal inconsistencies</text>
+
+</svg>

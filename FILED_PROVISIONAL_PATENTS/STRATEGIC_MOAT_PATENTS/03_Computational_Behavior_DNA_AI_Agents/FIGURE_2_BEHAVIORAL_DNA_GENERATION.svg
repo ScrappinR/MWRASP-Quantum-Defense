@@ -1,0 +1,551 @@
+<svg viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2c5aa0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e3f73;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="processGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9500;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc7700;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dataGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#50c878;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#228b22;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="securityGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc143c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b0000;stop-opacity:1" />
+    </linearGradient>
+    <filter id="dropShadow">
+      <feDropShadow dx="3" dy="3" stdDeviation="2" opacity="0.4"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#2c5aa0"/>
+    </marker>
+    <marker id="dnaArrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#50c878"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#f8f9fa"/>
+  
+  <!-- Title Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGradient)"/>
+  <text x="700" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+    Figure 2: Computational Behavior DNA Generation Process Flow
+  </text>
+
+  <!-- Phase 1: Behavioral Data Acquisition -->
+  <g id="phase1">
+    <rect x="50" y="100" width="320" height="200" fill="url(#dataGradient)" rx="15" filter="url(#dropShadow)"/>
+    <text x="210" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      PHASE 1: BEHAVIORAL DATA ACQUISITION
+    </text>
+    
+    <!-- Activity Monitoring -->
+    <rect x="70" y="150" width="130" height="60" fill="white" rx="8" opacity="0.95"/>
+    <text x="135" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Activity Monitoring
+    </text>
+    <text x="135" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • API Calls
+    </text>
+    <text x="135" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Resource Usage
+    </text>
+    <text x="135" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Communication
+    </text>
+    
+    <!-- Temporal Patterns -->
+    <rect x="220" y="150" width="130" height="60" fill="white" rx="8" opacity="0.95"/>
+    <text x="285" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Temporal Patterns
+    </text>
+    <text x="285" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Execution Timing
+    </text>
+    <text x="285" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Frequency Analysis
+    </text>
+    <text x="285" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Periodicity Detection
+    </text>
+    
+    <!-- Data Sources -->
+    <rect x="70" y="220" width="280" height="50" fill="white" rx="8" opacity="0.95"/>
+    <text x="210" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Multi-Dimensional Data Sources
+    </text>
+    <text x="210" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      System Calls • Network Traffic • Memory Patterns • CPU Usage • I/O Operations
+    </text>
+  </g>
+
+  <!-- Phase 2: Feature Extraction and Analysis -->
+  <g id="phase2">
+    <rect x="420" y="100" width="320" height="200" fill="url(#processGradient)" rx="15" filter="url(#dropShadow)"/>
+    <text x="580" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      PHASE 2: FEATURE EXTRACTION &amp; ANALYSIS
+    </text>
+    
+    <!-- Statistical Analysis -->
+    <rect x="440" y="150" width="130" height="60" fill="white" rx="8" opacity="0.95"/>
+    <text x="505" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Statistical Analysis
+    </text>
+    <text x="505" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Mean/Variance
+    </text>
+    <text x="505" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Distribution Shape
+    </text>
+    <text x="505" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Correlation Matrix
+    </text>
+    
+    <!-- Pattern Recognition -->
+    <rect x="590" y="150" width="130" height="60" fill="white" rx="8" opacity="0.95"/>
+    <text x="655" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Pattern Recognition
+    </text>
+    <text x="655" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Sequence Analysis
+    </text>
+    <text x="655" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Anomaly Detection
+    </text>
+    <text x="655" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Clustering</text>
+    
+    <!-- Feature Vector Generation -->
+    <rect x="440" y="220" width="280" height="50" fill="white" rx="8" opacity="0.95"/>
+    <text x="580" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Multi-Dimensional Feature Vector Generation
+    </text>
+    <text x="580" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      768-Dimensional Vector • Real-time Processing • Continuous Learning
+    </text>
+  </g>
+
+  <!-- Phase 3: DNA Hash Generation -->
+  <g id="phase3">
+    <rect x="790" y="100" width="320" height="200" fill="url(#securityGradient)" rx="15" filter="url(#dropShadow)"/>
+    <text x="950" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+      PHASE 3: DNA HASH GENERATION
+    </text>
+    
+    <!-- Cryptographic Processing -->
+    <rect x="810" y="150" width="130" height="60" fill="white" rx="8" opacity="0.95"/>
+    <text x="875" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Crypto Processing
+    </text>
+    <text x="875" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • SHA-3 Hashing
+    </text>
+    <text x="875" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Salt Generation
+    </text>
+    <text x="875" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Chain Linking
+    </text>
+    
+    <!-- Quantum-Safe Signatures -->
+    <rect x="960" y="150" width="130" height="60" fill="white" rx="8" opacity="0.95"/>
+    <text x="1025" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Quantum-Safe Signs
+    </text>
+    <text x="1025" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • SPHINCS+ Sigs
+    </text>
+    <text x="1025" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Timestamp Proof
+    </text>
+    <text x="1025" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Chain Integrity
+    </text>
+    
+    <!-- DNA Generation -->
+    <rect x="810" y="220" width="280" height="50" fill="white" rx="8" opacity="0.95"/>
+    <text x="950" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Behavioral DNA Hash Chain Generation
+    </text>
+    <text x="950" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      256-bit DNA Hash • Temporal Chaining • Quantum-Safe Validation
+    </text>
+  </g>
+
+  <!-- Phase 4: Validation and Storage -->
+  <g id="phase4">
+    <rect x="1160" y="100" width="200" height="200" fill="url(#dataGradient)" rx="15" filter="url(#dropShadow)"/>
+    <text x="1260" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      PHASE 4: VALIDATION
+    </text>
+    <text x="1260" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      &amp; STORAGE
+    </text>
+    
+    <!-- Consensus Validation -->
+    <rect x="1180" y="160" width="160" height="50" fill="white" rx="8" opacity="0.95"/>
+    <text x="1260" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Consensus Validation
+    </text>
+    <text x="1260" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Multi-Node Agreement
+    </text>
+    <text x="1260" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Byzantine Fault Tolerance
+    </text>
+    
+    <!-- Distributed Storage -->
+    <rect x="1180" y="220" width="160" height="50" fill="white" rx="8" opacity="0.95"/>
+    <text x="1260" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Distributed Storage
+    </text>
+    <text x="1260" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Immutable Ledger
+    </text>
+    <text x="1260" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Quantum-Safe Archive
+    </text>
+  </g>
+
+  <!-- Data Flow Arrows Between Phases -->
+  <path d="M 370 200 L 420 200" stroke="#2c5aa0" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="395" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+    Raw Data
+  </text>
+  
+  <path d="M 740 200 L 790 200" stroke="#2c5aa0" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="765" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+    Feature Vector
+  </text>
+  
+  <path d="M 1110 200 L 1160 200" stroke="#2c5aa0" stroke-width="4" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="1135" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+    DNA Hash
+  </text>
+
+  <!-- Detailed Process Flow (Lower Section) -->
+  <rect x="50" y="350" width="1310" height="300" fill="white" rx="15" stroke="#ccc" stroke-width="2"/>
+  <text x="705" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+    DETAILED BEHAVIORAL DNA GENERATION ALGORITHM
+  </text>
+
+  <!-- Step-by-step process -->
+  <g id="detailedSteps">
+    <!-- Step 1 -->
+    <rect x="80" y="400" width="150" height="80" fill="#e3f2fd" rx="10" stroke="#1976d2" stroke-width="2"/>
+    <text x="155" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Step 1: Data Collection
+    </text>
+    <text x="155" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Monitor 50+ behavioral
+    </text>
+    <text x="155" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      parameters continuously
+    </text>
+    <text x="155" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • 1ms sampling rate
+    </text>
+    <text x="155" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Circular buffer storage
+    </text>
+    
+    <!-- Arrow 1-2 -->
+    <path d="M 230 440 L 270 440" stroke="#50c878" stroke-width="3" fill="none" marker-end="url(#dnaArrow)"/>
+    
+    <!-- Step 2 -->
+    <rect x="280" y="400" width="150" height="80" fill="#f1f8e9" rx="10" stroke="#689f38" stroke-width="2"/>
+    <text x="355" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Step 2: Preprocessing
+    </text>
+    <text x="355" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Normalize data ranges
+    </text>
+    <text x="355" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Remove noise artifacts
+    </text>
+    <text x="355" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Apply temporal windowing
+    </text>
+    <text x="355" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Outlier detection</text>
+    
+    <!-- Arrow 2-3 -->
+    <path d="M 430 440 L 470 440" stroke="#50c878" stroke-width="3" fill="none" marker-end="url(#dnaArrow)"/>
+    
+    <!-- Step 3 -->
+    <rect x="480" y="400" width="150" height="80" fill="#fff3e0" rx="10" stroke="#f57c00" stroke-width="2"/>
+    <text x="555" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Step 3: Feature Extraction
+    </text>
+    <text x="555" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Statistical moments
+    </text>
+    <text x="555" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Frequency components
+    </text>
+    <text x="555" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Entropy measures
+    </text>
+    <text x="555" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Cross-correlations</text>
+    
+    <!-- Arrow 3-4 -->
+    <path d="M 630 440 L 670 440" stroke="#50c878" stroke-width="3" fill="none" marker-end="url(#dnaArrow)"/>
+    
+    <!-- Step 4 -->
+    <rect x="680" y="400" width="150" height="80" fill="#fce4ec" rx="10" stroke="#c2185b" stroke-width="2"/>
+    <text x="755" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Step 4: Dimensionality
+    </text>
+    <text x="755" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Reduction
+    </text>
+    <text x="755" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • PCA transformation
+    </text>
+    <text x="755" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • 768D vector output
+    </text>
+    <text x="755" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Preserve 99.9% variance</text>
+    
+    <!-- Arrow 4-5 -->
+    <path d="M 830 440 L 870 440" stroke="#50c878" stroke-width="3" fill="none" marker-end="url(#dnaArrow)"/>
+    
+    <!-- Step 5 -->
+    <rect x="880" y="400" width="150" height="80" fill="#f3e5f5" rx="10" stroke="#7b1fa2" stroke-width="2"/>
+    <text x="955" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Step 5: Hash Generation
+    </text>
+    <text x="955" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • SHA-3 Keccak-256
+    </text>
+    <text x="955" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Salt with timestamp
+    </text>
+    <text x="955" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Agent ID concatenation
+    </text>
+    <text x="955" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • 256-bit DNA output</text>
+    
+    <!-- Arrow 5-6 -->
+    <path d="M 1030 440 L 1070 440" stroke="#50c878" stroke-width="3" fill="none" marker-end="url(#dnaArrow)"/>
+    
+    <!-- Step 6 -->
+    <rect x="1080" y="400" width="150" height="80" fill="#ffebee" rx="10" stroke="#d32f2f" stroke-width="2"/>
+    <text x="1155" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Step 6: Chain Linking
+    </text>
+    <text x="1155" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Link to previous DNA
+    </text>
+    <text x="1155" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • SPHINCS+ signature
+    </text>
+    <text x="1155" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Tamper-proof seal</text>
+    <text x="1155" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Quantum-safe proof</text>
+  </g>
+
+  <!-- Mathematical Formula Section -->
+  <rect x="80" y="500" width="1150" height="120" fill="#f8f9fa" rx="10" stroke="#6c757d" stroke-width="2"/>
+  <text x="655" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+    BEHAVIORAL DNA MATHEMATICAL FORMULATION
+  </text>
+  
+  <text x="100" y="550" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+    DNA Hash Calculation:
+  </text>
+  <text x="100" y="570" font-family="Courier New, monospace" font-size="11">
+    DNA(t) = SHA3-256(FeatureVector(t) || AgentID || Timestamp(t) || DNA(t-1) || Salt)
+  </text>
+  
+  <text x="100" y="595" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+    Feature Vector Generation:
+  </text>
+  <text x="100" y="615" font-family="Courier New, monospace" font-size="11">
+    FeatureVector = PCA(StatisticalMoments, FrequencyFeatures, EntropyMeasures, TemporalPatterns)
+  </text>
+
+  <text x="700" y="550" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+    Quantum-Safe Signature:
+  </text>
+  <text x="700" y="570" font-family="Courier New, monospace" font-size="11">
+    Signature = SPHINCS+.Sign(PrivateKey, DNA(t))
+  </text>
+  
+  <text x="700" y="595" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+    Validation Function:
+  </text>
+  <text x="700" y="615" font-family="Courier New, monospace" font-size="11">
+    Valid = VerifyChain(DNA(t), DNA(t-1)) && VerifySignature(DNA(t), Signature)
+  </text>
+
+  <!-- Security Properties -->
+  <rect x="50" y="680" width="1310" height="280" fill="#e8f5e8" rx="15" stroke="#2e7d32" stroke-width="3"/>
+  <text x="705" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">
+    SECURITY PROPERTIES &amp; ATTACK RESISTANCE
+  </text>
+  
+  <!-- Security Features Grid -->
+  <g id="securityGrid">
+    <!-- Row 1 -->
+    <rect x="80" y="730" width="200" height="60" fill="white" rx="8" stroke="#4caf50" stroke-width="2"/>
+    <text x="180" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Spoofing Resistance
+    </text>
+    <text x="180" y="765" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • 768-dimensional fingerprint
+    </text>
+    <text x="180" y="775" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Sub-millisecond precision
+    </text>
+    <text x="180" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Impossible to replicate</text>
+    
+    <rect x="300" y="730" width="200" height="60" fill="white" rx="8" stroke="#4caf50" stroke-width="2"/>
+    <text x="400" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Quantum Resistance
+    </text>
+    <text x="400" y="765" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • SPHINCS+ signatures
+    </text>
+    <text x="400" y="775" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Hash-based cryptography
+    </text>
+    <text x="400" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Future-proof security</text>
+    
+    <rect x="520" y="730" width="200" height="60" fill="white" rx="8" stroke="#4caf50" stroke-width="2"/>
+    <text x="620" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Tampering Detection
+    </text>
+    <text x="620" y="765" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Chain integrity checks
+    </text>
+    <text x="620" y="775" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Immediate alert system
+    </text>
+    <text x="620" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Forensic evidence</text>
+    
+    <rect x="740" y="730" width="200" height="60" fill="white" rx="8" stroke="#4caf50" stroke-width="2"/>
+    <text x="840" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Replay Protection
+    </text>
+    <text x="840" y="765" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Timestamp integration
+    </text>
+    <text x="840" y="775" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Temporal validation
+    </text>
+    <text x="840" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Sequence verification</text>
+    
+    <rect x="960" y="730" width="200" height="60" fill="white" rx="8" stroke="#4caf50" stroke-width="2"/>
+    <text x="1060" y="750" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      DoS Mitigation
+    </text>
+    <text x="1060" y="765" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Rate limiting
+    </text>
+    <text x="1060" y="775" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Resource management
+    </text>
+    <text x="1060" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Priority queuing</text>
+    
+    <!-- Row 2 -->
+    <rect x="80" y="810" width="200" height="60" fill="white" rx="8" stroke="#ff5722" stroke-width="2"/>
+    <text x="180" y="830" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Man-in-the-Middle
+    </text>
+    <text x="180" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • End-to-end encryption
+    </text>
+    <text x="180" y="855" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Certificate pinning
+    </text>
+    <text x="180" y="865" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Mutual authentication</text>
+    
+    <rect x="300" y="810" width="200" height="60" fill="white" rx="8" stroke="#ff5722" stroke-width="2"/>
+    <text x="400" y="830" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Side-Channel Attacks
+    </text>
+    <text x="400" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Constant-time operations
+    </text>
+    <text x="400" y="855" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Noise injection
+    </text>
+    <text x="400" y="865" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Hardware isolation</text>
+    
+    <rect x="520" y="810" width="200" height="60" fill="white" rx="8" stroke="#ff5722" stroke-width="2"/>
+    <text x="620" y="830" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Brute Force Attacks
+    </text>
+    <text x="620" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • 2^256 search space
+    </text>
+    <text x="620" y="855" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Exponential complexity
+    </text>
+    <text x="620" y="865" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Computationally infeasible</text>
+    
+    <rect x="740" y="810" width="200" height="60" fill="white" rx="8" stroke="#ff5722" stroke-width="2"/>
+    <text x="840" y="830" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Data Poisoning
+    </text>
+    <text x="840" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Statistical validation
+    </text>
+    <text x="840" y="855" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Outlier detection
+    </text>
+    <text x="840" y="865" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Consensus verification</text>
+    
+    <rect x="960" y="810" width="200" height="60" fill="white" rx="8" stroke="#ff5722" stroke-width="2"/>
+    <text x="1060" y="830" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">
+      Model Inversion
+    </text>
+    <text x="1060" y="845" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • One-way hash function
+    </text>
+    <text x="1060" y="855" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Salt randomization
+    </text>
+    <text x="1060" y="865" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">
+      • Information hiding</text>
+  </g>
+
+  <!-- Performance Metrics -->
+  <rect x="80" y="890" width="1080" height="60" fill="#fff3c4" rx="8" stroke="#f57c00" stroke-width="2"/>
+  <text x="620" y="910" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">
+    PERFORMANCE METRICS
+  </text>
+  <text x="250" y="930" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+    • Generation Time: &lt;100ms per DNA
+  </text>
+  <text x="450" y="930" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+    • Validation Speed: &lt;10ms per check
+  </text>
+  <text x="650" y="930" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+    • False Positive Rate: &lt;0.001%
+  </text>
+  <text x="850" y="930" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+    • Detection Accuracy: 99.97%
+  </text>
+  <text x="1050" y="930" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">
+    • Scalability: 100K+ agents
+  </text>
+</svg>

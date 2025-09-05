@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="900" viewBox="0 0 1000 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .process-text { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .decision { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; }
+      .process-box { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 5; }
+      .input-box { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 5; }
+      .output-box { fill: #ffebee; stroke: #f44336; stroke-width: 2; rx: 5; }
+      .optimization-box { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 5; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="25" class="title-text">FIGURE 3: Dynamic Protocol Selection Process Flow</text>
+  
+  <!-- Input Factors -->
+  <rect x="50" y="60" width="120" height="60" class="input-box"/>
+  <text x="110" y="80" class="process-text">Quantum Threat</text>
+  <text x="110" y="95" class="process-text">Assessment</text>
+  <text x="110" y="110" class="detail-text">Risk level &amp; timeline</text>
+  
+  <rect x="200" y="60" width="120" height="60" class="input-box"/>
+  <text x="260" y="80" class="process-text">Device</text>
+  <text x="260" y="95" class="process-text">Capabilities</text>
+  <text x="260" y="110" class="detail-text">CPU, Memory, Power</text>
+  
+  <rect x="350" y="60" width="120" height="60" class="input-box"/>
+  <text x="410" y="80" class="process-text">Performance</text>
+  <text x="410" y="95" class="process-text">Requirements</text>
+  <text x="410" y="110" class="detail-text">Latency &amp; Throughput</text>
+  
+  <rect x="500" y="60" width="120" height="60" class="input-box"/>
+  <text x="560" y="80" class="process-text">Network</text>
+  <text x="560" y="95" class="process-text">Conditions</text>
+  <text x="560" y="110" class="detail-text">Bandwidth &amp; Reliability</text>
+  
+  <rect x="650" y="60" width="120" height="60" class="input-box"/>
+  <text x="710" y="80" class="process-text">Compliance</text>
+  <text x="710" y="95" class="process-text">Requirements</text>
+  <text x="710" y="110" class="detail-text">Standards &amp; Policies</text>
+  
+  <!-- Protocol Catalog -->
+  <rect x="200" y="160" width="600" height="80" class="process-box"/>
+  <text x="500" y="185" class="process-text">Cryptographic Protocol Catalog</text>
+  <text x="250" y="205" class="detail-text">Post-Quantum:</text>
+  <text x="250" y="218" class="detail-text">CRYSTALS-Kyber</text>
+  <text x="250" y="230" class="detail-text">CRYSTALS-Dilithium</text>
+  
+  <text x="400" y="205" class="detail-text">Classical:</text>
+  <text x="400" y="218" class="detail-text">RSA, ECC</text>
+  <text x="400" y="230" class="detail-text">AES, SHA-256</text>
+  
+  <text x="550" y="205" class="detail-text">Hybrid:</text>
+  <text x="550" y="218" class="detail-text">Classical + PQ</text>
+  <text x="550" y="230" class="detail-text">Transition modes</text>
+  
+  <text x="700" y="205" class="detail-text">Lightweight:</text>
+  <text x="700" y="218" class="detail-text">ChaCha20</text>
+  <text x="700" y="230" class="detail-text">Curve25519</text>
+  
+  <!-- Evaluation Engines -->
+  <rect x="50" y="280" width="140" height="80" class="optimization-box"/>
+  <text x="120" y="305" class="process-text">Quantum</text>
+  <text x="120" y="320" class="process-text">Resistance</text>
+  <text x="120" y="335" class="process-text">Scoring</text>
+  <text x="120" y="350" class="detail-text">Algorithm safety rating</text>
+  
+  <rect x="220" y="280" width="140" height="80" class="optimization-box"/>
+  <text x="290" y="305" class="process-text">Resource</text>
+  <text x="290" y="320" class="process-text">Compatibility</text>
+  <text x="290" y="335" class="process-text">Analysis</text>
+  <text x="290" y="350" class="detail-text">CPU/Memory fit</text>
+  
+  <rect x="390" y="280" width="140" height="80" class="optimization-box"/>
+  <text x="460" y="305" class="process-text">Performance</text>
+  <text x="460" y="320" class="process-text">Prediction</text>
+  <text x="460" y="335" class="process-text">Modeling</text>
+  <text x="460" y="350" class="detail-text">Speed &amp; efficiency</text>
+  
+  <rect x="560" y="280" width="140" height="80" class="optimization-box"/>
+  <text x="630" y="305" class="process-text">Compliance</text>
+  <text x="630" y="320" class="process-text">Validation</text>
+  <text x="630" y="335" class="process-text">Engine</text>
+  <text x="630" y="350" class="detail-text">Standards checking</text>
+  
+  <rect x="730" y="280" width="140" height="80" class="optimization-box"/>
+  <text x="800" y="305" class="process-text">Interoperability</text>
+  <text x="800" y="320" class="process-text">Assessment</text>
+  <text x="800" y="350" class="detail-text">Bridge compatibility</text>
+  
+  <!-- Multi-Objective Optimization -->
+  <rect x="300" y="400" width="400" height="60" class="process-box"/>
+  <text x="500" y="425" class="process-text">Multi-Objective Optimization Engine</text>
+  <text x="500" y="445" class="detail-text">Weighted scoring • Pareto optimization • Constraint satisfaction</text>
+  
+  <!-- Decision Diamond -->
+  <polygon points="500,500 580,530 500,560 420,530" class="decision"/>
+  <text x="500" y="525" class="process-text">Optimal</text>
+  <text x="500" y="540" class="process-text">Selection?</text>
+  
+  <!-- Alternative Path -->
+  <rect x="50" y="520" width="300" height="40" class="process-box"/>
+  <text x="200" y="545" class="process-text">Fallback Strategy Generation</text>
+  
+  <!-- Protocol Configuration -->
+  <rect x="650" y="520" width="300" height="40" class="process-box"/>
+  <text x="800" y="545" class="process-text">Protocol Configuration Optimization</text>
+  
+  <!-- Final Selection -->
+  <rect x="350" y="600" width="300" height="80" class="process-box"/>
+  <text x="500" y="625" class="process-text">Final Protocol Selection</text>
+  <text x="500" y="645" class="detail-text">Primary protocol selection</text>
+  <text x="500" y="655" class="detail-text">Fallback protocol identification</text>
+  <text x="500" y="665" class="detail-text">Configuration parameters</text>
+  
+  <!-- Output Components -->
+  <rect x="50" y="720" width="140" height="80" class="output-box"/>
+  <text x="120" y="745" class="process-text">Selected</text>
+  <text x="120" y="760" class="process-text">Protocol</text>
+  <text x="120" y="780" class="detail-text">Algorithm choice</text>
+  <text x="120" y="792" class="detail-text">Parameters</text>
+  
+  <rect x="220" y="720" width="140" height="80" class="output-box"/>
+  <text x="290" y="745" class="process-text">Fallback</text>
+  <text x="290" y="760" class="process-text">Options</text>
+  <text x="290" y="780" class="detail-text">Alternative protocols</text>
+  <text x="290" y="792" class="detail-text">Trigger conditions</text>
+  
+  <rect x="390" y="720" width="140" height="80" class="output-box"/>
+  <text x="460" y="745" class="process-text">Performance</text>
+  <text x="460" y="760" class="process-text">Predictions</text>
+  <text x="460" y="780" class="detail-text">Expected metrics</text>
+  <text x="460" y="792" class="detail-text">Benchmark data</text>
+  
+  <rect x="560" y="720" width="140" height="80" class="output-box"/>
+  <text x="630" y="745" class="process-text">Selection</text>
+  <text x="630" y="760" class="process-text">Reasoning</text>
+  <text x="630" y="780" class="detail-text">Decision factors</text>
+  <text x="630" y="792" class="detail-text">Trade-offs</text>
+  
+  <rect x="730" y="720" width="140" height="80" class="output-box"/>
+  <text x="800" y="745" class="process-text">Monitoring</text>
+  <text x="800" y="760" class="process-text">Requirements</text>
+  <text x="800" y="780" class="detail-text">Performance KPIs</text>
+  <text x="800" y="792" class="detail-text">Alert thresholds</text>
+  
+  <!-- Arrows -->
+  <!-- From inputs to catalog -->
+  <line x1="110" y1="120" x2="300" y2="160" class="arrow"/>
+  <line x1="260" y1="120" x2="400" y2="160" class="arrow"/>
+  <line x1="410" y1="120" x2="500" y2="160" class="arrow"/>
+  <line x1="560" y1="120" x2="600" y2="160" class="arrow"/>
+  <line x1="710" y1="120" x2="700" y2="160" class="arrow"/>
+  
+  <!-- From catalog to evaluation engines -->
+  <line x1="350" y1="240" x2="120" y2="280" class="arrow"/>
+  <line x1="400" y1="240" x2="290" y2="280" class="arrow"/>
+  <line x1="500" y1="240" x2="460" y2="280" class="arrow"/>
+  <line x1="600" y1="240" x2="630" y2="280" class="arrow"/>
+  <line x1="650" y1="240" x2="800" y2="280" class="arrow"/>
+  
+  <!-- From evaluation to optimization -->
+  <line x1="120" y1="360" x2="350" y2="400" class="arrow"/>
+  <line x1="290" y1="360" x2="400" y2="400" class="arrow"/>
+  <line x1="460" y1="360" x2="500" y2="400" class="arrow"/>
+  <line x1="630" y1="360" x2="600" y2="400" class="arrow"/>
+  <line x1="800" y1="360" x2="650" y2="400" class="arrow"/>
+  
+  <!-- From optimization to decision -->
+  <line x1="500" y1="460" x2="500" y2="500" class="arrow"/>
+  
+  <!-- Decision branches -->
+  <line x1="420" y1="530" x2="350" y2="530" class="arrow"/>
+  <text x="380" y="525" class="detail-text">No</text>
+  
+  <line x1="580" y1="530" x2="650" y2="530" class="arrow"/>
+  <text x="620" y="525" class="detail-text">Yes</text>
+  
+  <!-- From alternatives to final selection -->
+  <line x1="200" y1="560" x2="450" y2="600" class="arrow"/>
+  <line x1="800" y1="560" x2="550" y2="600" class="arrow"/>
+  <line x1="500" y1="560" x2="500" y2="600" class="arrow"/>
+  
+  <!-- From final selection to outputs -->
+  <line x1="400" y1="680" x2="120" y2="720" class="arrow"/>
+  <line x1="450" y1="680" x2="290" y2="720" class="arrow"/>
+  <line x1="500" y1="680" x2="460" y2="720" class="arrow"/>
+  <line x1="550" y1="680" x2="630" y2="720" class="arrow"/>
+  <line x1="600" y1="680" x2="800" y2="720" class="arrow"/>
+  
+  <!-- Feedback loops -->
+  <line x1="200" y1="520" x2="200" y2="400" class="arrow" stroke-dasharray="3,3"/>
+  <text x="170" y="460" class="detail-text" transform="rotate(90 170 460)">Feedback</text>
+  
+  <!-- Weight indicators -->
+  <rect x="50" y="850" width="900" height="30" fill="#f5f5f5" stroke="#ccc"/>
+  <text x="500" y="870" class="detail-text">Optimization Weights: Quantum Resistance (40%) • Performance (30%) • Resource Fit (20%) • Compliance (10%)</text>
+</svg>

@@ -1,0 +1,133 @@
+{
+  "test_info": {
+    "timestamp": "2025-09-03T17:09:46.069513",
+    "test_type": "Complete MWRASP Integration Test",
+    "version": "v1.0",
+    "environment": "IBM Quantum Brisbane Integration"
+  },
+  "summary": {
+    "test_summary": {
+      "total_tests": 4,
+      "successful_tests": 0,
+      "success_rate": 0.0,
+      "total_test_time": 1.0542867183685303,
+      "ibm_hardware_enabled": false
+    },
+    "pipeline_metrics": {
+      "threat_detection_rate": 0.0,
+      "circuit_conversion_rate": 0.0,
+      "hardware_validation_rate": 0,
+      "audit_compliance_rate": 0.0
+    },
+    "algorithm_results": {
+      "grovers": {
+        "success": false,
+        "detection_time": 0.0,
+        "total_pipeline_time": 0.0,
+        "hardware_job_id": null,
+        "errors": [
+          "Threat generation failed: 'queries'"
+        ]
+      },
+      "simons": {
+        "success": false,
+        "detection_time": 0.0,
+        "total_pipeline_time": 0,
+        "hardware_job_id": null,
+        "errors": [
+          "'charmap' codec can't encode character '\\u2717' in position 14: character maps to <undefined>"
+        ]
+      },
+      "deutsch_jozsa": {
+        "success": false,
+        "detection_time": 0.0,
+        "total_pipeline_time": 0,
+        "hardware_job_id": null,
+        "errors": [
+          "'charmap' codec can't encode character '\\u2717' in position 14: character maps to <undefined>"
+        ]
+      },
+      "bernstein_vazirani": {
+        "success": false,
+        "detection_time": 0.0,
+        "total_pipeline_time": 0,
+        "hardware_job_id": null,
+        "errors": [
+          "'charmap' codec can't encode character '\\u2717' in position 14: character maps to <undefined>"
+        ]
+      }
+    },
+    "production_readiness": {
+      "threat_detection": false,
+      "circuit_conversion": false,
+      "hardware_integration": true,
+      "compliance": false
+    }
+  },
+  "detailed_results": [
+    {
+      "test_name": "Complete MWRASP Pipeline - grovers",
+      "threat_detected": false,
+      "detection_time": 0.0,
+      "algorithm_identified": "grovers",
+      "circuit_conversion_success": false,
+      "hardware_validation_success": false,
+      "hardware_job_id": null,
+      "audit_trail_complete": false,
+      "compliance_validated": false,
+      "total_pipeline_time": 0.0,
+      "error_messages": [
+        "Threat generation failed: 'queries'"
+      ],
+      "success": false
+    },
+    {
+      "test_name": "Complete MWRASP Pipeline - simons",
+      "threat_detected": false,
+      "detection_time": 0.0,
+      "algorithm_identified": "simons",
+      "circuit_conversion_success": false,
+      "hardware_validation_success": false,
+      "hardware_job_id": null,
+      "audit_trail_complete": false,
+      "compliance_validated": false,
+      "total_pipeline_time": 0,
+      "error_messages": [
+        "'charmap' codec can't encode character '\\u2717' in position 14: character maps to <undefined>"
+      ],
+      "success": false
+    },
+    {
+      "test_name": "Complete MWRASP Pipeline - deutsch_jozsa",
+      "threat_detected": false,
+      "detection_time": 0.0,
+      "algorithm_identified": "deutsch_jozsa",
+      "circuit_conversion_success": false,
+      "hardware_validation_success": false,
+      "hardware_job_id": null,
+      "audit_trail_complete": false,
+      "compliance_validated": false,
+      "total_pipeline_time": 0,
+      "error_messages": [
+        "'charmap' codec can't encode character '\\u2717' in position 14: character maps to <undefined>"
+      ],
+      "success": false
+    },
+    {
+      "test_name": "Complete MWRASP Pipeline - bernstein_vazirani",
+      "threat_detected": false,
+      "detection_time": 0.0,
+      "algorithm_identified": "bernstein_vazirani",
+      "circuit_conversion_success": false,
+      "hardware_validation_success": false,
+      "hardware_job_id": null,
+      "audit_trail_complete": false,
+      "compliance_validated": false,
+      "total_pipeline_time": 0,
+      "error_messages": [
+        "'charmap' codec can't encode character '\\u2717' in position 14: character maps to <undefined>"
+      ],
+      "success": false
+    }
+  ]
+}

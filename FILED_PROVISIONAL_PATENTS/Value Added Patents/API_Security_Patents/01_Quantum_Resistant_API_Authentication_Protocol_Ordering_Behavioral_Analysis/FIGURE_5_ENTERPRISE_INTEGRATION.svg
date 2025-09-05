@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .bidirectional { marker-start: url(#arrowhead); marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .api-system { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .identity-mgmt { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .siem-platform { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .threat-intel { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .compliance { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+      .integration-layer { fill: #f0f4c3; stroke: #827717; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 5: Enterprise Integration Framework</text>
+  
+  <!-- Central API Authentication System -->
+  <rect x="450" y="200" width="300" height="150" class="api-system"/>
+  <text x="600" y="230" class="system-text">Quantum-Resistant API</text>
+  <text x="600" y="245" class="system-text">Authentication System</text>
+  <text x="600" y="270" class="component-text">• Protocol Ordering Engine</text>
+  <text x="600" y="285" class="component-text">• Behavioral Analysis</text>
+  <text x="600" y="300" class="component-text">• AI Security Layers</text>
+  <text x="600" y="315" class="component-text">• Temporal Validation</text>
+  <text x="600" y="330" class="component-text">• Enterprise Integration APIs</text>
+  
+  <!-- Identity Management Systems -->
+  <rect x="50" y="80" width="250" height="120" class="identity-mgmt"/>
+  <text x="175" y="110" class="system-text">Identity Management</text>
+  <text x="175" y="125" class="system-text">Systems</text>
+  <text x="175" y="150" class="component-text">Active Directory:</text>
+  <text x="175" y="165" class="detail-text">• User directories • Group policies</text>
+  <text x="175" y="180" class="component-text">LDAP/SAML:</text>
+  <text x="175" y="195" class="detail-text">• Federation • SSO integration</text>
+  
+  <!-- SIEM and Security Orchestration -->
+  <rect x="900" y="80" width="250" height="120" class="siem-platform"/>
+  <text x="1025" y="110" class="system-text">SIEM & Security</text>
+  <text x="1025" y="125" class="system-text">Orchestration</text>
+  <text x="1025" y="150" class="component-text">Splunk/QRadar:</text>
+  <text x="1025" y="165" class="detail-text">• Event correlation • Log analysis</text>
+  <text x="1025" y="180" class="component-text">SOAR Platforms:</text>
+  <text x="1025" y="195" class="detail-text">• Automated response • Playbooks</text>
+  
+  <!-- Threat Intelligence Feeds -->
+  <rect x="50" y="400" width="250" height="120" class="threat-intel"/>
+  <text x="175" y="430" class="system-text">Threat Intelligence</text>
+  <text x="175" y="445" class="system-text">Feeds</text>
+  <text x="175" y="470" class="component-text">Commercial Feeds:</text>
+  <text x="175" y="485" class="detail-text">• IOCs • TTPs • Reputation data</text>
+  <text x="175" y="500" class="component-text">Open Source Intel:</text>
+  <text x="175" y="515" class="detail-text">• OSINT • Community feeds</text>
+  
+  <!-- Compliance and Policy Systems -->
+  <rect x="900" y="400" width="250" height="120" class="compliance"/>
+  <text x="1025" y="430" class="system-text">Compliance &</text>
+  <text x="1025" y="445" class="system-text">Policy Systems</text>
+  <text x="1025" y="470" class="component-text">GRC Platforms:</text>
+  <text x="1025" y="485" class="detail-text">• Policy management • Risk assessment</text>
+  <text x="1025" y="500" class="component-text">Audit Systems:</text>
+  <text x="1025" y="515" class="detail-text">• Compliance tracking • Reporting</text>
+  
+  <!-- Integration Layer -->
+  <rect x="350" y="600" width="500" height="100" class="integration-layer"/>
+  <text x="600" y="630" class="system-text">Enterprise Integration Layer</text>
+  <text x="450" y="655" class="component-text">API Gateway Integration</text>
+  <text x="600" y="655" class="component-text">Message Bus/ESB</text>
+  <text x="750" y="655" class="component-text">Event Streaming</text>
+  <text x="450" y="675" class="detail-text">• REST/GraphQL APIs</text>
+  <text x="600" y="675" class="detail-text">• Apache Kafka</text>
+  <text x="750" y="675" class="detail-text">• Real-time events</text>
+  <text x="450" y="690" class="detail-text">• Rate limiting</text>
+  <text x="600" y="690" class="detail-text">• Message routing</text>
+  <text x="750" y="690" class="detail-text">• Event sourcing</text>
+  
+  <!-- Connection Lines -->
+  <!-- Identity Management to API System -->
+  <line x1="300" y1="140" x2="450" y2="240" class="bidirectional"/>
+  
+  <!-- SIEM to API System -->
+  <line x1="900" y1="140" x2="750" y2="240" class="bidirectional"/>
+  
+  <!-- Threat Intelligence to API System -->
+  <line x1="300" y1="460" x2="450" y2="320" class="bidirectional"/>
+  
+  <!-- Compliance to API System -->
+  <line x1="900" y1="460" x2="750" y2="320" class="bidirectional"/>
+  
+  <!-- API System to Integration Layer -->
+  <line x1="600" y1="350" x2="600" y2="600" class="bidirectional"/>
+  
+  <!-- Data Flow Labels -->
+  <text x="375" y="190" class="detail-text" transform="rotate(-25 375 190)">User Authentication</text>
+  <text x="375" y="200" class="detail-text" transform="rotate(-25 375 200)">Identity Verification</text>
+  
+  <text x="825" y="190" class="detail-text" transform="rotate(25 825 190)">Security Events</text>
+  <text x="825" y="200" class="detail-text" transform="rotate(25 825 200)">Alert Integration</text>
+  
+  <text x="375" y="390" class="detail-text" transform="rotate(25 375 390)">Threat Intelligence</text>
+  <text x="375" y="400" class="detail-text" transform="rotate(25 375 400)">IOC Updates</text>
+  
+  <text x="825" y="390" class="detail-text" transform="rotate(-25 825 390)">Policy Updates</text>
+  <text x="825" y="400" class="detail-text" transform="rotate(-25 825 400)">Compliance Reports</text>
+  
+  <!-- Integration Protocols -->
+  <rect x="50" y="750" width="1100" height="120" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="775" class="system-text">Integration Protocols and Standards</text>
+  
+  <rect x="80" y="800" width="180" height="50" class="identity-mgmt"/>
+  <text x="170" y="820" class="component-text">Identity Standards</text>
+  <text x="170" y="835" class="detail-text">SAML, OAuth 2.0, OIDC</text>
+  
+  <rect x="280" y="800" width="180" height="50" class="siem-platform"/>
+  <text x="370" y="820" class="component-text">Security Standards</text>
+  <text x="370" y="835" class="detail-text">STIX/TAXII, CEF, SYSLOG</text>
+  
+  <rect x="480" y="800" width="180" height="50" class="threat-intel"/>
+  <text x="570" y="820" class="component-text">Threat Intelligence</text>
+  <text x="570" y="835" class="detail-text">MISP, OpenIOC, YARA</text>
+  
+  <rect x="680" y="800" width="180" height="50" class="compliance"/>
+  <text x="770" y="820" class="component-text">Compliance</text>
+  <text x="770" y="835" class="detail-text">SCAP, GRC, NIST</text>
+  
+  <rect x="880" y="800" width="180" height="50" class="integration-layer"/>
+  <text x="970" y="820" class="component-text">API Standards</text>
+  <text x="970" y="835" class="detail-text">REST, GraphQL, gRPC</text>
+  
+  <!-- Legacy Systems Integration -->
+  <rect x="50" y="240" width="200" height="100" class="identity-mgmt" fill-opacity="0.7"/>
+  <text x="150" y="270" class="system-text" font-size="12px">Legacy Systems</text>
+  <text x="150" y="290" class="component-text" font-size="11px">• Mainframe integration</text>
+  <text x="150" y="305" class="component-text" font-size="11px">• Legacy databases</text>
+  <text x="150" y="320" class="component-text" font-size="11px">• Custom protocols</text>
+  
+  <rect x="950" y="240" width="200" height="100" class="siem-platform" fill-opacity="0.7"/>
+  <text x="1050" y="270" class="system-text" font-size="12px">Cloud Platforms</text>
+  <text x="1050" y="290" class="component-text" font-size="11px">• AWS/Azure/GCP</text>
+  <text x="1050" y="305" class="component-text" font-size="11px">• Multi-cloud support</text>
+  <text x="1050" y="320" class="component-text" font-size="11px">• Hybrid deployment</text>
+  
+  <!-- Legacy and Cloud connections -->
+  <line x1="250" y1="290" x2="450" y2="275" class="bidirectional" stroke-dasharray="3,3"/>
+  <line x1="950" y1="290" x2="750" y2="275" class="bidirectional" stroke-dasharray="3,3"/>
+  
+  <!-- Performance and Scaling -->
+  <text x="50" y="40" class="component-text">Enterprise Scale Performance:</text>
+  <text x="50" y="55" class="detail-text">• 1M+ authentications/hour • 99.99% availability • &lt;100ms latency • Auto-scaling • Load balancing</text>
+
+</svg>

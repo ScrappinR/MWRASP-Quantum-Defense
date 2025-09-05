@@ -1,0 +1,86 @@
+{
+  "test_timestamp": "2025-09-02T17:25:31.334402",
+  "backend_info": {
+    "name": "ibm_brisbane",
+    "num_qubits": 127,
+    "operational": true,
+    "simulator_mode": false
+  },
+  "algorithm_results": {
+    "simons": {
+      "algorithm_type": "simons",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "Session.__init__() got an unexpected keyword argument 'service'"
+    },
+    "deutsch_jozsa_constant": {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "Session.__init__() got an unexpected keyword argument 'service'"
+    },
+    "deutsch_jozsa_balanced": {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "Session.__init__() got an unexpected keyword argument 'service'"
+    },
+    "bernstein_vazirani": {
+      "algorithm_type": "bernstein_vazirani",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "Session.__init__() got an unexpected keyword argument 'service'"
+    }
+  },
+  "summary": {
+    "total_tests": 4,
+    "successful_tests": 0,
+    "success_rate": 0.0,
+    "hardware_validated": true,
+    "quantum_advantage_demonstrated": false
+  }
+}

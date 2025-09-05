@@ -1,0 +1,78 @@
+{
+  "test_info": {
+    "timestamp": "2025-09-02T16:48:58.837445",
+    "backend_name": "simulator",
+    "simulator_mode": true,
+    "qiskit_available": true
+  },
+  "test_results": [
+    {
+      "algorithm_type": "simons",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "'SimpleSimulator' object has no attribute 'target'"
+    },
+    {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "'SimpleSimulator' object has no attribute 'target'"
+    },
+    {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "'SimpleSimulator' object has no attribute 'target'"
+    },
+    {
+      "algorithm_type": "bernstein_vazirani",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "'SimpleSimulator' object has no attribute 'target'"
+    }
+  ]
+}

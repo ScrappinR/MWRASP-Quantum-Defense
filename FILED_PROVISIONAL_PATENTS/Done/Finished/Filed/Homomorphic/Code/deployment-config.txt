@@ -1,0 +1,465 @@
+# config/environments/development.yaml
+swarm:
+  name: homomorphic-swarm-dev
+  environment: development
+  
+nodes:
+  queen:
+    replicas: 1
+    resources:
+      cpu: 1000m
+      memory: 2Gi
+  workers:
+    replicas: 3
+    resources:
+      cpu: 2000m
+      memory: 4Gi
+  guardians:
+    replicas: 1
+    resources:
+      cpu: 500m
+      memory: 1Gi
+
+crypto:
+  scheme: CKKS
+  poly_modulus_degree: 4096  # Smaller for dev
+  coeff_modulus: [40, 40, 40]
+  scale: 1073741824  # 2^30
+  
+networking:
+  tls:
+    enabled: false  # Simplify for dev
+  port_base: 8000
+  
+performance:
+  cache:
+    enabled: true
+    redis_url: redis://localhost:6379
+  bootstrap_chunk_size: 5
+  
+monitoring:
+  prometheus:
+    enabled: true
+    port: 9090
+  log_level: DEBUG
+
+---
+# config/environments/production.yaml
+swarm:
+  name: homomorphic-swarm-prod
+  environment: production
+  
+nodes:
+  queen:
+    replicas: 3  # HA setup
+    resources:
+      cpu: 4000m
+      memory: 8Gi
+    affinity:
+      podAntiAffinity:
+        requiredDuringSchedulingIgnoredDuringExecution:
+        - topologyKey: kubernetes.io/hostname
+  workers:
+    replicas: 50
+    autoscaling:
+      enabled: true
+      min: 20
+      max: 100
+      targetCPU: 70
+    resources:
+      cpu: 8000m
+      memory: 16Gi
+  guardians:
+    replicas: 5
+    resources:
+      cpu: 2000m
+      memory: 4Gi
+
+crypto:
+  scheme: CKKS
+  poly_modulus_degree: 16384  # Maximum security
+  coeff_modulus: [60, 40, 40, 40, 40, 60]
+  scale: 1099511627776  # 2^40
+  security_level: 128
+  
+networking:
+  tls:
+    enabled: true
+    cert_manager: true
+    issuer: letsencrypt-prod
+  port_base: 443
+  ingress:
+    enabled: true
+    class: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  
+performance:
+  cache:
+    enabled: true
+    redis_url: redis://redis-cluster:6379
+    memcached_url: memcached-cluster:11211
+  connection_pool_size: 1000
+  bootstrap_chunk_size: 20
+  
+security:
+  mtls:
+    enabled: true
+  rbac:
+    enabled: true
+  pod_security_policy:
+    enabled: true
+  network_policies:
+    enabled: true
+  secrets_encryption:
+    enabled: true
+    
+monitoring:
+  prometheus:
+    enabled: true
+    service_monitor: true
+  grafana:
+    enabled: true
+  alerts:
+    enabled: true
+    pagerduty_key: "${PAGERDUTY_KEY}"
+  log_level: INFO
+  log_aggregation:
+    enabled: true
+    elasticsearch_url: https://elasticsearch:9200
+
+byzantine_tolerance:
+  enabled: true
+  threshold: 0.33
+  detection_window: 60s
+  
+compliance:
+  fips_mode: true
+  audit_logging: true
+  data_retention_days: 2555  # 7 years
+
+---
+# config/environments/defense.yaml
+swarm:
+  name: homomorphic-swarm-defense
+  environment: defense
+  classification: UNCLASSIFIED  # System level
+  
+nodes:
+  queen:
+    replicas: 5  # High availability
+    resources:
+      cpu: 16000m
+      memory: 32Gi
+    dedicated_nodes: true  # Dedicated hardware
+  workers:
+    replicas: 100
+    resources:
+      cpu: 32000m
+      memory: 64Gi
+    gpu:
+      enabled: true
+      type: nvidia-a100
+      count: 2
+  guardians:
+    replicas: 10
+    resources:
+      cpu: 8000m
+      memory: 16Gi
+
+crypto:
+  scheme: CKKS
+  poly_modulus_degree: 32768  # Maximum available
+  coeff_modulus: [60, 50, 50, 50, 50, 50, 50, 60]
+  scale: 1099511627776
+  security_level: 256  # Quantum-resistant
+  
+networking:
+  tls:
+    enabled: true
+    fips_validated: true
+    cipher_suites:
+      - TLS_AES_256_GCM_SHA384
+      - TLS_CHACHA20_POLY1305_SHA256
+  network_isolation: true
+  air_gap_compatible: true
+  
+security:
+  clearance_required: SECRET
+  two_person_control: true
+  hardware_security_module:
+    enabled: true
+    type: Thales Luna
+  secure_boot: true
+  measured_boot: true
+  
+compliance:
+  fips_140_2_level: 2
+  common_criteria: EAL4+
+  itar_compliant: true
+  nist_800_53: true
+  disa_stig: true
+  
+monitoring:
+  siem_integration:
+    enabled: true
+    endpoint: https://siem.defense.gov
+  continuous_monitoring: true
+  security_scans:
+    frequency: hourly
+    
+data_governance:
+  classification_labels: true
+  cross_domain_solution: true
+  data_diode_export: true
+
+---
+# scripts/deploy.sh
+#!/bin/bash
+set -euo pipefail
+
+ENVIRONMENT=${1:-development}
+NAMESPACE=${2:-homomorphic-swarm}
+CONFIG_FILE="config/environments/${ENVIRONMENT}.yaml"
+
+echo "Deploying Homomorphic Swarm - Environment: $ENVIRONMENT"
+
+# Validate environment
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "Error: Configuration file $CONFIG_FILE not found"
+    exit 1
+fi
+
+# Create namespace
+kubectl create namespace $NAMESPACE --dry-run=client -o yaml | kubectl apply -f -
+
+# Generate secrets
+if [ "$ENVIRONMENT" = "production" ] || [ "$ENVIRONMENT" = "defense" ]; then
+    echo "Generating TLS certificates..."
+    ./scripts/generate-certs.sh $NAMESPACE
+fi
+
+# Apply configurations
+echo "Applying configurations..."
+kubectl create configmap swarm-config \
+    --from-file=$CONFIG_FILE \
+    --namespace=$NAMESPACE \
+    --dry-run=client -o yaml | kubectl apply -f -
+
+# Deploy with Helm
+echo "Installing Helm chart..."
+helm upgrade --install homomorphic-swarm \
+    ./helm/homomorphic-swarm \
+    --namespace $NAMESPACE \
+    --values helm/values-${ENVIRONMENT}.yaml \
+    --wait
+
+# Wait for rollout
+echo "Waiting for deployment..."
+kubectl -n $NAMESPACE rollout status deployment/homomorphic-swarm-queen
+kubectl -n $NAMESPACE rollout status statefulset/homomorphic-swarm-worker
+
+# Run smoke tests
+echo "Running smoke tests..."
+./scripts/smoke-test.sh $NAMESPACE
+
+echo "Deployment complete!"
+
+---
+# scripts/generate-certs.sh
+#!/bin/bash
+set -euo pipefail
+
+NAMESPACE=$1
+CERT_DIR="certs/${NAMESPACE}"
+
+mkdir -p $CERT_DIR
+
+# Generate CA
+openssl req -x509 -newkey rsa:4096 -days 3650 -nodes \
+    -keyout $CERT_DIR/ca-key.pem \
+    -out $CERT_DIR/ca-cert.pem \
+    -subj "/C=US/ST=Texas/L=Wimberley/O=Homomorphic Swarm/CN=swarm-ca"
+
+# Generate node certificates
+for node_type in queen worker guardian; do
+    openssl req -newkey rsa:2048 -nodes \
+        -keyout $CERT_DIR/${node_type}-key.pem \
+        -out $CERT_DIR/${node_type}-req.pem \
+        -subj "/C=US/O=Homomorphic Swarm/CN=${node_type}.${NAMESPACE}.svc.cluster.local"
+    
+    openssl x509 -req -days 365 -set_serial 01 \
+        -in $CERT_DIR/${node_type}-req.pem \
+        -out $CERT_DIR/${node_type}-cert.pem \
+        -CA $CERT_DIR/ca-cert.pem \
+        -CAkey $CERT_DIR/ca-key.pem
+done
+
+# Create Kubernetes secrets
+kubectl -n $NAMESPACE create secret generic swarm-ca \
+    --from-file=ca.crt=$CERT_DIR/ca-cert.pem \
+    --dry-run=client -o yaml | kubectl apply -f -
+
+for node_type in queen worker guardian; do
+    kubectl -n $NAMESPACE create secret tls swarm-${node_type}-tls \
+        --cert=$CERT_DIR/${node_type}-cert.pem \
+        --key=$CERT_DIR/${node_type}-key.pem \
+        --dry-run=client -o yaml | kubectl apply -f -
+done
+
+---
+# scripts/smoke-test.sh
+#!/bin/bash
+set -euo pipefail
+
+NAMESPACE=$1
+QUEEN_SVC="homomorphic-swarm-queen.$NAMESPACE.svc.cluster.local"
+
+echo "Running smoke tests..."
+
+# Test queen health
+kubectl -n $NAMESPACE exec -it deployment/homomorphic-swarm-queen -- \
+    curl -f http://localhost:8000/health || exit 1
+
+# Test worker connectivity
+WORKER_COUNT=$(kubectl -n $NAMESPACE get pods -l component=worker -o json | jq '.items | length')
+echo "Found $WORKER_COUNT workers"
+
+if [ $WORKER_COUNT -lt 1 ]; then
+    echo "Error: No workers found"
+    exit 1
+fi
+
+# Test basic computation
+echo "Testing computation..."
+kubectl -n $NAMESPACE run test-client --rm -it --restart=Never \
+    --image=curlimages/curl -- \
+    curl -X POST http://$QUEEN_SVC:8000/compute \
+    -H "Content-Type: application/json" \
+    -d '{"operation": "multiply", "operands": [{"data": "test"}]}'
+
+# Check metrics
+kubectl -n $NAMESPACE exec -it deployment/homomorphic-swarm-queen -- \
+    curl -s http://localhost:9090/metrics | grep -q homomorphic_operations_total
+
+echo "Smoke tests passed!"
+
+---
+# docker-compose.dev.yml
+version: '3.8'
+
+services:
+  queen:
+    build: .
+    command: python -m swarm.queen
+    environment:
+      - NODE_TYPE=queen
+      - CONFIG_FILE=/config/development.yaml
+    ports:
+      - "8000:8000"
+      - "9090:9090"
+    volumes:
+      - ./config:/config
+      - ./src:/app/src
+    networks:
+      - swarm-net
+
+  worker-1:
+    build: .
+    command: python -m swarm.worker
+    environment:
+      - NODE_TYPE=worker
+      - WORKER_ID=worker_1
+      - QUEEN_URL=http://queen:8000
+    depends_on:
+      - queen
+    networks:
+      - swarm-net
+
+  worker-2:
+    build: .
+    command: python -m swarm.worker
+    environment:
+      - NODE_TYPE=worker
+      - WORKER_ID=worker_2
+      - QUEEN_URL=http://queen:8000
+    depends_on:
+      - queen
+    networks:
+      - swarm-net
+
+  guardian:
+    build: .
+    command: python -m swarm.guardian
+    environment:
+      - NODE_TYPE=guardian
+      - QUEEN_URL=http://queen:8000
+    depends_on:
+      - queen
+    networks:
+      - swarm-net
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - swarm-net
+
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9091:9090"
+    networks:
+      - swarm-net
+
+networks:
+  swarm-net:
+    driver: bridge
+
+---
+# Makefile
+.PHONY: all build test deploy clean
+
+ENVIRONMENT ?= development
+NAMESPACE ?= homomorphic-swarm
+
+all: build test
+
+build:
+	docker build -t homomorphic-swarm:latest .
+	
+test:
+	python -m pytest tests/
+	
+test-integration:
+	python -m pytest tests/integration/
+	
+benchmark:
+	python -m pytest tests/benchmark/ -v
+	
+deploy:
+	./scripts/deploy.sh $(ENVIRONMENT) $(NAMESPACE)
+	
+deploy-dev:
+	docker-compose -f docker-compose.dev.yml up -d
+	
+deploy-prod:
+	ENVIRONMENT=production make deploy
+	
+clean:
+	docker-compose -f docker-compose.dev.yml down
+	kubectl delete namespace $(NAMESPACE) --ignore-not-found
+	
+monitor:
+	kubectl -n $(NAMESPACE) port-forward svc/prometheus 9090:9090 &
+	kubectl -n $(NAMESPACE) port-forward svc/grafana 3000:3000 &
+	
+logs:
+	kubectl -n $(NAMESPACE) logs -f deployment/homomorphic-swarm-queen
+	
+shell:
+	kubectl -n $(NAMESPACE) exec -it deployment/homomorphic-swarm-queen -- /bin/bash

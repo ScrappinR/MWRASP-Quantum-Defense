@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FIGURE_3_MULTI_AGENT_COORDINATION</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        svg { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto;
+            background: white;
+        }
+        @page { 
+            size: letter; 
+            margin: 0.5in; 
+        }
+        @media print { 
+            body { 
+                margin: 0; 
+                padding: 0.5in;
+                min-height: auto; 
+            } 
+            svg {
+                max-height: 10in;
+            }
+        }
+    </style>
+</head>
+<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="650" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .agent-box { fill: #e6f3ff; stroke: black; stroke-width: 2; }
+      .coordinator-box { fill: #fff2e6; stroke: black; stroke-width: 2; }
+      .network-box { fill: #e6ffe6; stroke: black; stroke-width: 1; }
+      .route-box { fill: #f0f0f0; stroke: black; stroke-width: 1; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .coordination-flow { stroke: green; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+      .message-flow { stroke: red; stroke-width: 3; fill: none; marker-end: url(#redarrow); }
+    </style>
+    <defs>
+      <marker id="redarrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="red" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 3: MULTI-AGENT COORDINATION NETWORK</text>
+  
+  <!-- Network Coordination Layer -->
+  <rect x="200" y="50" width="400" height="60" class="coordinator-box"/>
+  <text x="400" y="75" class="label-text">DISTRIBUTED COORDINATION CONTROLLER</text>
+  <text x="400" y="95" class="small-text">• Network Topology Management • Message Routing • Synchronization Control</text>
+  
+  <!-- Agent Network Topology -->
+  <!-- Agent 1 (Top Left) -->
+  <rect x="50" y="140" width="100" height="80" class="agent-box"/>
+  <text x="100" y="165" class="label-text">AGENT 1</text>
+  <text x="100" y="180" class="label-text">(SENDER)</text>
+  <text x="100" y="200" class="tiny-text">Message Origin</text>
+  <text x="100" y="215" class="tiny-text">Encoding Module</text>
+  
+  <!-- Agent 2 (Top Right) -->
+  <rect x="650" y="140" width="100" height="80" class="agent-box"/>
+  <text x="700" y="165" class="label-text">AGENT 2</text>
+  <text x="700" y="180" class="label-text">(RECEIVER)</text>
+  <text x="700" y="200" class="tiny-text">Message Destination</text>
+  <text x="700" y="215" class="tiny-text">Decoding Module</text>
+  
+  <!-- Agent 3 (Middle Left) -->
+  <rect x="200" y="200" width="100" height="80" class="agent-box"/>
+  <text x="250" y="225" class="label-text">AGENT 3</text>
+  <text x="250" y="240" class="label-text">(RELAY)</text>
+  <text x="250" y="260" class="tiny-text">Route Node A</text>
+  <text x="250" y="275" class="tiny-text">Forwarding Logic</text>
+  
+  <!-- Agent 4 (Center) -->
+  <rect x="350" y="160" width="100" height="80" class="agent-box"/>
+  <text x="400" y="185" class="label-text">AGENT 4</text>
+  <text x="400" y="200" class="label-text">(HUB)</text>
+  <text x="400" y="220" class="tiny-text">Central Router</text>
+  <text x="400" y="235" class="tiny-text">Load Balancer</text>
+  
+  <!-- Agent 5 (Middle Right) -->
+  <rect x="500" y="200" width="100" height="80" class="agent-box"/>
+  <text x="550" y="225" class="label-text">AGENT 5</text>
+  <text x="550" y="240" class="label-text">(RELAY)</text>
+  <text x="550" y="260" class="tiny-text">Route Node B</text>
+  <text x="550" y="275" class="tiny-text">Backup Path</text>
+  
+  <!-- Agent 6 (Bottom Left) -->
+  <rect x="150" y="350" width="100" height="80" class="agent-box"/>
+  <text x="200" y="375" class="label-text">AGENT 6</text>
+  <text x="200" y="390" class="label-text">(RELAY)</text>
+  <text x="200" y="410" class="tiny-text">Redundant Path</text>
+  <text x="200" y="425" class="tiny-text">Error Recovery</text>
+  
+  <!-- Agent 7 (Bottom Right) -->
+  <rect x="550" y="350" width="100" height="80" class="agent-box"/>
+  <text x="600" y="375" class="label-text">AGENT 7</text>
+  <text x="600" y="390" class="label-text">(RELAY)</text>
+  <text x="600" y="410" class="tiny-text">Alternative Route</text>
+  <text x="600" y="425" class="tiny-text">Traffic Balancing</text>
+  
+  <!-- Routing Strategies -->
+  <rect x="50" y="460" width="150" height="80" class="route-box"/>
+  <text x="125" y="485" class="label-text">PRIMARY ROUTE</text>
+  <text x="125" y="505" class="tiny-text">Agent 1 → 4 → 2</text>
+  <text x="125" y="520" class="tiny-text">Latency: 45ms</text>
+  <text x="125" y="535" class="tiny-text">Reliability: 98%</text>
+  
+  <rect x="220" y="460" width="150" height="80" class="route-box"/>
+  <text x="295" y="485" class="label-text">BACKUP ROUTE</text>
+  <text x="295" y="505" class="tiny-text">Agent 1 → 3 → 5 → 2</text>
+  <text x="295" y="520" class="tiny-text">Latency: 67ms</text>
+  <text x="295" y="535" class="tiny-text">Reliability: 95%</text>
+  
+  <rect x="390" y="460" width="150" height="80" class="route-box"/>
+  <text x="465" y="485" class="label-text">REDUNDANT ROUTE</text>
+  <text x="465" y="505" class="tiny-text">Agent 1 → 6 → 7 → 2</text>
+  <text x="465" y="520" class="tiny-text">Latency: 89ms</text>
+  <text x="465" y="535" class="tiny-text">Reliability: 92%</text>
+  
+  <rect x="560" y="460" width="150" height="80" class="route-box"/>
+  <text x="635" y="485" class="label-text">MESH ROUTING</text>
+  <text x="635" y="505" class="tiny-text">Dynamic Path Selection</text>
+  <text x="635" y="520" class="tiny-text">Adaptive Load Balancing</text>
+  <text x="635" y="535" class="tiny-text">Fault Tolerance</text>
+  
+  <!-- Synchronization Control -->
+  <rect x="250" y="570" width="300" height="60" class="network-box"/>
+  <text x="400" y="595" class="label-text">NETWORK SYNCHRONIZATION ENGINE</text>
+  <text x="400" y="615" class="small-text">• Timing Coordination • Message Ordering • Conflict Resolution</text>
+  
+  <!-- Network Connections -->
+  <!-- Primary Path -->
+  <line x1="150" y1="180" x2="350" y2="200" class="message-flow"/>
+  <line x1="450" y1="200" x2="650" y2="180" class="message-flow"/>
+  
+  <!-- Backup Paths -->
+  <line x1="150" y1="190" x2="200" y2="240" class="message-flow" stroke-dasharray="10,5"/>
+  <line x1="300" y1="240" x2="500" y2="240" class="message-flow" stroke-dasharray="10,5"/>
+  <line x1="600" y1="240" x2="650" y2="190" class="message-flow" stroke-dasharray="10,5"/>
+  
+  <!-- Redundant Paths -->
+  <line x1="150" y1="210" x2="150" y2="390" class="message-flow" stroke-dasharray="3,3"/>
+  <line x1="250" y1="390" x2="550" y2="390" class="message-flow" stroke-dasharray="3,3"/>
+  <line x1="650" y1="390" x2="650" y2="210" class="message-flow" stroke-dasharray="3,3"/>
+  
+  <!-- Coordination Links -->
+  <line x1="400" y1="110" x2="100" y2="140" class="coordination-flow"/>
+  <line x1="400" y1="110" x2="250" y2="200" class="coordination-flow"/>
+  <line x1="400" y1="160" x2="400" y2="140" class="coordination-flow"/>
+  <line x1="400" y1="110" x2="550" y2="200" class="coordination-flow"/>
+  <line x1="400" y1="110" x2="700" y2="140" class="coordination-flow"/>
+  <line x1="400" y1="110" x2="200" y2="350" class="coordination-flow"/>
+  <line x1="400" y1="110" x2="600" y2="350" class="coordination-flow"/>
+  
+  <!-- Message Fragmentation Indicators -->
+  <text x="175" y="135" class="tiny-text">Fragment 1/3</text>
+  <text x="325" y="155" class="tiny-text">Fragment 2/3</text>
+  <text x="525" y="155" class="tiny-text">Fragment 3/3</text>
+  
+  <!-- Network Status Indicators -->
+  <circle cx="30" cy="180" r="8" fill="green"/>
+  <text x="20" y="200" class="tiny-text">ACTIVE</text>
+  
+  <circle cx="770" cy="180" r="8" fill="green"/>
+  <text x="760" y="200" class="tiny-text">READY</text>
+  
+  <circle cx="180" cy="240" r="8" fill="orange"/>
+  <text x="170" y="260" class="tiny-text">BUSY</text>
+  
+  <circle cx="620" cy="240" r="8" fill="green"/>
+  <text x="610" y="260" class="tiny-text">IDLE</text>
+  
+  <!-- Error Correction and Recovery -->
+  <rect x="50" y="550" width="120" height="80" class="network-box"/>
+  <text x="110" y="575" class="label-text">ERROR</text>
+  <text x="110" y="590" class="label-text">CORRECTION</text>
+  <text x="110" y="610" class="tiny-text">Reed-Solomon</text>
+  <text x="110" y="625" class="tiny-text">25% Redundancy</text>
+  
+  <!-- Flow Control -->
+  <rect x="630" y="550" width="120" height="80" class="network-box"/>
+  <text x="690" y="575" class="label-text">FLOW</text>
+  <text x="690" y="590" class="label-text">CONTROL</text>
+  <text x="690" y="610" class="tiny-text">Congestion Mgmt</text>
+  <text x="690" y="625" class="tiny-text">Rate Limiting</text>
+  
+  <!-- Synchronization Lines -->
+  <line x1="250" y1="600" x2="110" y2="630" class="coordination-flow"/>
+  <line x1="550" y1="600" x2="690" y2="630" class="coordination-flow"/>
+  
+</svg>
+</body>
+</html>

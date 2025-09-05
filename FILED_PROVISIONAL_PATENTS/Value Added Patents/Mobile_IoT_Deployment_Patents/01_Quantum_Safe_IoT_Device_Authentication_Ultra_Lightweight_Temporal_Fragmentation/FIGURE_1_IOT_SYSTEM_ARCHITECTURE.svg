@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .bidirectional { marker-start: url(#arrowhead); marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .iot-device { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .edge-gateway { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .temporal-fragmenter { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .behavioral-crypto { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .swarm-intelligence { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+      .quantum-processor { fill: #e0f2f1; stroke: #009688; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 1: Quantum-Safe IoT Device Authentication System</text>
+  
+  <!-- IoT Devices Cluster 1 -->
+  <rect x="50" y="80" width="120" height="80" class="iot-device"/>
+  <text x="110" y="105" class="system-text">IoT Device 1</text>
+  <text x="110" y="120" class="component-text">Sensor Node</text>
+  <text x="110" y="135" class="detail-text">• 2KB RAM</text>
+  <text x="110" y="147" class="detail-text">• Ultra-low power</text>
+  
+  <rect x="50" y="180" width="120" height="80" class="iot-device"/>
+  <text x="110" y="205" class="system-text">IoT Device 2</text>
+  <text x="110" y="220" class="component-text">Actuator Node</text>
+  <text x="110" y="235" class="detail-text">• 4KB RAM</text>
+  <text x="110" y="247" class="detail-text">• Battery optimized</text>
+  
+  <!-- IoT Devices Cluster 2 -->
+  <rect x="50" y="300" width="120" height="80" class="iot-device"/>
+  <text x="110" y="325" class="system-text">IoT Device 3</text>
+  <text x="110" y="340" class="component-text">Gateway Node</text>
+  <text x="110" y="355" class="detail-text">• 32KB RAM</text>
+  <text x="110" y="367" class="detail-text">• Edge processing</text>
+  
+  <rect x="50" y="400" width="120" height="80" class="iot-device"/>
+  <text x="110" y="425" class="system-text">IoT Device 4</text>
+  <text x="110" y="440" class="component-text">Smart Sensor</text>
+  <text x="110" y="455" class="detail-text">• 8KB RAM</text>
+  <text x="110" y="467" class="detail-text">• Mesh capable</text>
+  
+  <!-- Edge Gateway -->
+  <rect x="250" y="200" width="180" height="120" class="edge-gateway"/>
+  <text x="340" y="230" class="system-text">Edge Computing</text>
+  <text x="340" y="245" class="system-text">Gateway</text>
+  <text x="340" y="270" class="component-text">• Local processing</text>
+  <text x="340" y="285" class="component-text">• Swarm coordination</text>
+  <text x="340" y="300" class="component-text">• Offline capability</text>
+  <text x="340" y="315" class="component-text">• Behavioral analysis</text>
+  
+  <!-- Ultra-Lightweight Temporal Fragmenter -->
+  <rect x="500" y="80" width="200" height="120" class="temporal-fragmenter"/>
+  <text x="600" y="110" class="system-text">Ultra-Lightweight</text>
+  <text x="600" y="125" class="system-text">Temporal Fragmenter</text>
+  <text x="600" y="150" class="component-text">• Microsecond fragmentation</text>
+  <text x="600" y="165" class="component-text">• Sub-KB memory footprint</text>
+  <text x="600" y="180" class="component-text">• Battery optimization</text>
+  <text x="600" y="195" class="component-text">• Real-time processing</text>
+  
+  <!-- Behavioral Cryptography Engine -->
+  <rect x="750" y="80" width="200" height="120" class="behavioral-crypto"/>
+  <text x="850" y="110" class="system-text">Edge Behavioral</text>
+  <text x="850" y="125" class="system-text">Cryptography</text>
+  <text x="850" y="150" class="component-text">• Distributed analysis</text>
+  <text x="850" y="165" class="component-text">• Pattern recognition</text>
+  <text x="850" y="180" class="component-text">• Swarm learning</text>
+  <text x="850" y="195" class="component-text">• Anomaly detection</text>
+  
+  <!-- Quantum-Safe IoT Processor -->
+  <rect x="500" y="250" width="200" height="120" class="quantum-processor"/>
+  <text x="600" y="280" class="system-text">Quantum-Safe</text>
+  <text x="600" y="295" class="system-text">IoT Processor</text>
+  <text x="600" y="320" class="component-text">• Lightweight crypto</text>
+  <text x="600" y="335" class="component-text">• Resource-aware</text>
+  <text x="600" y="350" class="component-text">• Power optimization</text>
+  <text x="600" y="365" class="component-text">• Adaptive security</text>
+  
+  <!-- IoT Swarm Intelligence -->
+  <rect x="750" y="250" width="200" height="120" class="swarm-intelligence"/>
+  <text x="850" y="280" class="system-text">IoT Swarm</text>
+  <text x="850" y="295" class="system-text">Intelligence</text>
+  <text x="850" y="320" class="component-text">• Collective decisions</text>
+  <text x="850" y="335" class="component-text">• Distributed consensus</text>
+  <text x="850" y="350" class="component-text">• Threat intelligence</text>
+  <text x="850" y="365" class="component-text">• Network resilience</text>
+  
+  <!-- Battery-Optimized AI Agents -->
+  <rect x="1000" y="150" width="150" height="120" class="edge-gateway"/>
+  <text x="1075" y="180" class="system-text">Battery-Optimized</text>
+  <text x="1075" y="195" class="system-text">AI Agents</text>
+  <text x="1075" y="220" class="component-text">• Ultra-low power</text>
+  <text x="1075" y="235" class="component-text">• Threat detection</text>
+  <text x="1075" y="250" class="component-text">• Adaptive learning</text>
+  <text x="1075" y="265" class="component-text">• Sleep/wake cycles</text>
+  
+  <!-- Connection Lines -->
+  <!-- IoT devices to Edge Gateway -->
+  <line x1="170" y1="120" x2="250" y2="240" class="bidirectional"/>
+  <line x1="170" y1="220" x2="250" y2="250" class="bidirectional"/>
+  <line x1="170" y1="340" x2="250" y2="280" class="bidirectional"/>
+  <line x1="170" y1="440" x2="250" y2="300" class="bidirectional"/>
+  
+  <!-- Edge Gateway to processing components -->
+  <line x1="430" y1="230" x2="500" y2="140" class="arrow"/>
+  <line x1="430" y1="260" x2="500" y2="310" class="arrow"/>
+  
+  <!-- Processing flow -->
+  <line x1="700" y1="140" x2="750" y2="140" class="arrow"/>
+  <line x1="700" y1="310" x2="750" y2="310" class="arrow"/>
+  
+  <!-- To AI agents -->
+  <line x1="950" y1="140" x2="1000" y2="180" class="arrow"/>
+  <line x1="950" y1="310" x2="1000" y2="240" class="arrow"/>
+  
+  <!-- Inter-device mesh communication -->
+  <line x1="110" y1="160" x2="110" y2="180" class="bidirectional" stroke-dasharray="3,3"/>
+  <line x1="110" y1="260" x2="110" y2="300" class="bidirectional" stroke-dasharray="3,3"/>
+  <line x1="110" y1="380" x2="110" y2="400" class="bidirectional" stroke-dasharray="3,3"/>
+  
+  <!-- Swarm communication lines -->
+  <line x1="170" y1="120" x2="170" y2="220" class="bidirectional" stroke="#e91e63" stroke-dasharray="2,2"/>
+  <line x1="170" y1="340" x2="170" y2="440" class="bidirectional" stroke="#e91e63" stroke-dasharray="2,2"/>
+  <line x1="110" y1="160" x2="110" y2="380" class="bidirectional" stroke="#e91e63" stroke-dasharray="2,2"/>
+  
+  <!-- IoT Deployment Scenarios -->
+  <rect x="50" y="550" width="1100" height="300" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="575" class="system-text">IoT Deployment Scenarios and Constraints</text>
+  
+  <!-- Resource Constraints -->
+  <rect x="80" y="600" width="200" height="80" class="iot-device"/>
+  <text x="180" y="625" class="system-text">Resource Constraints</text>
+  <text x="180" y="645" class="detail-text">• RAM: 2KB - 32KB</text>
+  <text x="180" y="657" class="detail-text">• Flash: 16KB - 128KB</text>
+  <text x="180" y="669" class="detail-text">• CPU: 8MHz - 48MHz</text>
+  
+  <!-- Battery Optimization -->
+  <rect x="300" y="600" width="200" height="80" class="edge-gateway"/>
+  <text x="400" y="625" class="system-text">Battery Optimization</text>
+  <text x="400" y="645" class="detail-text">• Sleep mode: &lt;1μA</text>
+  <text x="400" y="657" class="detail-text">• Active: &lt;10mA</text>
+  <text x="400" y="669" class="detail-text">• Years of operation</text>
+  
+  <!-- Network Characteristics -->
+  <rect x="520" y="600" width="200" height="80" class="temporal-fragmenter"/>
+  <text x="620" y="625" class="system-text">Network Limits</text>
+  <text x="620" y="645" class="detail-text">• Bandwidth: 250Kbps</text>
+  <text x="620" y="657" class="detail-text">• Packet size: 127 bytes</text>
+  <text x="620" y="669" class="detail-text">• Intermittent connectivity</text>
+  
+  <!-- Security Requirements -->
+  <rect x="740" y="600" width="200" height="80" class="quantum-processor"/>
+  <text x="840" y="625" class="system-text">Security Goals</text>
+  <text x="840" y="645" class="detail-text">• Quantum resistance</text>
+  <text x="840" y="657" class="detail-text">• Minimal overhead</text>
+  <text x="840" y="669" class="detail-text">• Scalable to millions</text>
+  
+  <!-- Deployment Scenarios -->
+  <rect x="960" y="600" width="160" height="80" class="swarm-intelligence"/>
+  <text x="1040" y="625" class="system-text">Use Cases</text>
+  <text x="1040" y="645" class="detail-text">• Smart cities</text>
+  <text x="1040" y="657" class="detail-text">• Industrial IoT</text>
+  <text x="1040" y="669" class="detail-text">• Environmental</text>
+  
+  <!-- Technical Specifications -->
+  <rect x="80" y="700" width="440" height="120" class="behavioral-crypto"/>
+  <text x="300" y="725" class="system-text">Ultra-Lightweight Implementation</text>
+  <text x="200" y="750" class="component-text">Temporal Fragmentation:</text>
+  <text x="200" y="765" class="detail-text">• Fragment size: 8-64 bytes</text>
+  <text x="200" y="777" class="detail-text">• Processing time: &lt;1ms</text>
+  <text x="200" y="789" class="detail-text">• Memory usage: &lt;512 bytes</text>
+  <text x="200" y="801" class="detail-text">• Energy cost: &lt;10μJ</text>
+  
+  <text x="400" y="750" class="component-text">Behavioral Crypto:</text>
+  <text x="400" y="765" class="detail-text">• Pattern extraction: &lt;100μs</text>
+  <text x="400" y="777" class="detail-text">• Feature size: 16-32 bytes</text>
+  <text x="400" y="789" class="detail-text">• Classification: &lt;500μs</text>
+  <text x="400" y="801" class="detail-text">• Power overhead: &lt;5%</text>
+  
+  <!-- Performance Metrics -->
+  <rect x="540" y="700" width="580" height="120" class="quantum-processor"/>
+  <text x="830" y="725" class="system-text">System Performance and Scalability</text>
+  <text x="650" y="750" class="component-text">Authentication Speed:</text>
+  <text x="650" y="765" class="detail-text">• Individual device: &lt;10ms</text>
+  <text x="650" y="777" class="detail-text">• Swarm consensus: &lt;100ms</text>
+  <text x="650" y="789" class="detail-text">• Network validation: &lt;1s</text>
+  <text x="650" y="801" class="detail-text">• Offline capability: 24-48h</text>
+  
+  <text x="900" y="750" class="component-text">Scalability:</text>
+  <text x="900" y="765" class="detail-text">• Devices per gateway: 1000+</text>
+  <text x="900" y="777" class="detail-text">• Swarm size: 10,000+ nodes</text>
+  <text x="900" y="789" class="detail-text">• Network capacity: 1M+ devices</text>
+  <text x="900" y="801" class="detail-text">• Geographic distribution: Global</text>
+  
+  <!-- Labels -->
+  <text x="210" y="190" class="detail-text" transform="rotate(-30 210 190)">Mesh Network</text>
+  <text x="375" y="175" class="detail-text" transform="rotate(0 375 175)">Edge Processing</text>
+  <text x="725" y="175" class="detail-text" transform="rotate(0 725 175)">Quantum Crypto</text>
+  <text x="975" y="185" class="detail-text" transform="rotate(45 975 185)">AI Agents</text>
+  
+  <text x="190" y="520" class="detail-text" fill="#e91e63">Swarm Intelligence Network</text>
+  <text x="600" y="50" class="component-text">Resource-Constrained • Battery-Optimized • Quantum-Resistant • Massively Scalable</text>
+
+</svg>

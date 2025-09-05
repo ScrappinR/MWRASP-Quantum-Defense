@@ -1,0 +1,422 @@
+{
+  "timestamp": 1756849027.9445293,
+  "qiskit_available": false,
+  "overall_statistics": {
+    "total_tests": 21,
+    "total_successful": 18,
+    "overall_success_rate": 0.8571428571428571
+  },
+  "algorithm_results": {
+    "simons": {
+      "algorithm": "simons",
+      "test_cases": [
+        {
+          "test_case": "3-qubit with secret 101",
+          "input_size": 3,
+          "secret_string": "101",
+          "qubit_count": 6,
+          "gate_count": 16,
+          "depth": 6,
+          "error_rate": 0.06280000000000001,
+          "hardware_compatible": true,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 1.0,
+            "behavior_alignment": 0.65,
+            "overall_score": 0.8833333333333333
+          },
+          "success": true
+        },
+        {
+          "test_case": "4-qubit with secret 1010",
+          "input_size": 4,
+          "secret_string": "1010",
+          "qubit_count": 8,
+          "gate_count": 22,
+          "depth": 8,
+          "error_rate": 0.0878,
+          "hardware_compatible": true,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 1.0,
+            "behavior_alignment": 0.65,
+            "overall_score": 0.8833333333333333
+          },
+          "success": true
+        },
+        {
+          "test_case": "5-qubit with secret 11001",
+          "input_size": 5,
+          "secret_string": "11001",
+          "qubit_count": 10,
+          "gate_count": 32,
+          "depth": 9,
+          "error_rate": 0.1274,
+          "hardware_compatible": true,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 1.0,
+            "behavior_alignment": 0.65,
+            "overall_score": 0.8833333333333333
+          },
+          "success": true
+        },
+        {
+          "test_case": "2-qubit minimal case",
+          "input_size": 2,
+          "secret_string": "11",
+          "qubit_count": 4,
+          "gate_count": 10,
+          "depth": 5,
+          "error_rate": 0.039,
+          "hardware_compatible": true,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 1.0,
+            "behavior_alignment": 0.65,
+            "overall_score": 0.8833333333333333
+          },
+          "success": true
+        },
+        {
+          "test_case": "6-qubit alternating pattern",
+          "input_size": 6,
+          "secret_string": "101010",
+          "qubit_count": 12,
+          "gate_count": 39,
+          "depth": 11,
+          "error_rate": 0.15749999999999997,
+          "hardware_compatible": true,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 1.0,
+            "behavior_alignment": 0.65,
+            "overall_score": 0.8833333333333333
+          },
+          "success": true
+        }
+      ],
+      "summary": {
+        "success_rate": 1.0,
+        "successful_conversions": 5,
+        "total_tests": 5,
+        "avg_qubit_count": 8.0,
+        "avg_gate_count": 23.8
+      }
+    },
+    "deutsch_jozsa": {
+      "algorithm": "deutsch_jozsa",
+      "test_cases": [
+        {
+          "test_case": "2-qubit constant-0",
+          "input_size": 2,
+          "function_type": "constant",
+          "qubit_count": 3,
+          "gate_count": 8,
+          "depth": 3,
+          "error_rate": 0.030500000000000003,
+          "hardware_compatible": true,
+          "quantum_advantage": 2,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.875,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9583333333333334
+          },
+          "success": true
+        },
+        {
+          "test_case": "2-qubit constant-1",
+          "input_size": 2,
+          "function_type": "constant",
+          "qubit_count": 3,
+          "gate_count": 9,
+          "depth": 3,
+          "error_rate": 0.034199999999999994,
+          "hardware_compatible": true,
+          "quantum_advantage": 2,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.875,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9583333333333334
+          },
+          "success": true
+        },
+        {
+          "test_case": "2-qubit balanced",
+          "input_size": 2,
+          "function_type": "balanced",
+          "qubit_count": 3,
+          "gate_count": 10,
+          "depth": 6,
+          "error_rate": 0.0388,
+          "hardware_compatible": true,
+          "quantum_advantage": 2,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.875,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9583333333333334
+          },
+          "success": true
+        },
+        {
+          "test_case": "4-qubit constant-0",
+          "input_size": 4,
+          "function_type": "constant",
+          "qubit_count": 5,
+          "gate_count": 14,
+          "depth": 3,
+          "error_rate": 0.0533,
+          "hardware_compatible": true,
+          "quantum_advantage": 8,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.8125,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9375
+          },
+          "success": true
+        },
+        {
+          "test_case": "4-qubit balanced",
+          "input_size": 4,
+          "function_type": "balanced",
+          "qubit_count": 5,
+          "gate_count": 18,
+          "depth": 8,
+          "error_rate": 0.0706,
+          "hardware_compatible": true,
+          "quantum_advantage": 8,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.8125,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9375
+          },
+          "success": true
+        },
+        {
+          "test_case": "6-qubit constant-1",
+          "input_size": 6,
+          "function_type": "constant",
+          "qubit_count": 7,
+          "gate_count": 21,
+          "depth": 3,
+          "error_rate": 0.07980000000000001,
+          "hardware_compatible": true,
+          "quantum_advantage": 32,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.7916666666666667,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9305555555555557
+          },
+          "success": true
+        },
+        {
+          "test_case": "8-qubit balanced",
+          "input_size": 8,
+          "function_type": "balanced",
+          "qubit_count": 9,
+          "gate_count": 34,
+          "depth": 12,
+          "error_rate": 0.1366,
+          "hardware_compatible": true,
+          "quantum_advantage": 128,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.78125,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9270833333333334
+          },
+          "success": true
+        }
+      ],
+      "summary": {
+        "success_rate": 1.0,
+        "successful_conversions": 7,
+        "total_tests": 7,
+        "avg_qubit_count": 5.0,
+        "avg_gate_count": 16.285714285714285
+      }
+    },
+    "bernstein_vazirani": {
+      "algorithm": "bernstein_vazirani",
+      "test_cases": [
+        {
+          "test_case": "3-qubit with secret 101",
+          "input_size": 3,
+          "secret_string": "101",
+          "qubit_count": 4,
+          "gate_count": 13,
+          "depth": 6,
+          "error_rate": 0.0505,
+          "hardware_compatible": true,
+          "quantum_advantage": 3,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.8333333333333333,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9444444444444443
+          },
+          "success": true
+        },
+        {
+          "test_case": "4-qubit all ones",
+          "input_size": 4,
+          "secret_string": "1111",
+          "qubit_count": 5,
+          "gate_count": 18,
+          "depth": 8,
+          "error_rate": 0.0706,
+          "hardware_compatible": true,
+          "quantum_advantage": 4,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.8125,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9375
+          },
+          "success": true
+        },
+        {
+          "test_case": "5-qubit all zeros",
+          "input_size": 5,
+          "secret_string": "00000",
+          "qubit_count": 6,
+          "gate_count": 17,
+          "depth": 3,
+          "error_rate": 0.0647,
+          "hardware_compatible": true,
+          "quantum_advantage": 5,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.8,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9333333333333332
+          },
+          "success": true
+        },
+        {
+          "test_case": "6-qubit alternating",
+          "input_size": 6,
+          "secret_string": "101010",
+          "qubit_count": 7,
+          "gate_count": 23,
+          "depth": 7,
+          "error_rate": 0.09,
+          "hardware_compatible": true,
+          "quantum_advantage": 6,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.7916666666666667,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9305555555555557
+          },
+          "success": true
+        },
+        {
+          "test_case": "8-qubit half-half pattern",
+          "input_size": 8,
+          "secret_string": "11110000",
+          "qubit_count": 9,
+          "gate_count": 30,
+          "depth": 8,
+          "error_rate": 0.1182,
+          "hardware_compatible": true,
+          "quantum_advantage": 8,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.78125,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9270833333333334
+          },
+          "success": true
+        },
+        {
+          "test_case": "2-qubit minimal case",
+          "input_size": 2,
+          "secret_string": "10",
+          "qubit_count": 3,
+          "gate_count": 9,
+          "depth": 5,
+          "error_rate": 0.0348,
+          "hardware_compatible": true,
+          "quantum_advantage": 2,
+          "validation_scores": {
+            "parameter_consistency": 1.0,
+            "complexity_match": 0.875,
+            "behavior_alignment": 1.0,
+            "overall_score": 0.9583333333333334
+          },
+          "success": true
+        }
+      ],
+      "summary": {
+        "success_rate": 1.0,
+        "successful_conversions": 6,
+        "total_tests": 6,
+        "avg_qubit_count": 5.666666666666667,
+        "avg_gate_count": 18.333333333333332
+      }
+    }
+  },
+  "integration_results": {
+    "integration_tests": [
+      {
+        "algorithm": "simons",
+        "detection_successful": false,
+        "success": false,
+        "reason": "Algorithm not detected by quantum detector"
+      },
+      {
+        "algorithm": "deutsch_jozsa",
+        "detection_successful": false,
+        "success": false,
+        "reason": "Algorithm not detected by quantum detector"
+      },
+      {
+        "algorithm": "bernstein_vazirani",
+        "detection_successful": false,
+        "success": false,
+        "reason": "Algorithm not detected by quantum detector"
+      }
+    ],
+    "summary": {
+      "success_rate": 0.0,
+      "successful_integrations": 0,
+      "total_tests": 3
+    }
+  },
+  "converter_summary": {
+    "total_conversions": 18,
+    "algorithms_converted": [
+      "deutsch_jozsa",
+      "bernstein_vazirani",
+      "simons"
+    ],
+    "average_conversion_time": 0.0006666713290744358,
+    "hardware_compatible_rate": 1.0,
+    "qiskit_available": true,
+    "simons_stats": {
+      "count": 5,
+      "avg_qubit_count": 8.0,
+      "avg_gate_count": 23.8,
+      "avg_error_rate": 0.0949
+    },
+    "deutsch_jozsa_stats": {
+      "count": 7,
+      "avg_qubit_count": 5.0,
+      "avg_gate_count": 16.285714285714285,
+      "avg_error_rate": 0.0634
+    },
+    "bernstein_vazirani_stats": {
+      "count": 6,
+      "avg_qubit_count": 5.666666666666667,
+      "avg_gate_count": 18.333333333333332,
+      "avg_error_rate": 0.07146666666666666
+    }
+  }
+}

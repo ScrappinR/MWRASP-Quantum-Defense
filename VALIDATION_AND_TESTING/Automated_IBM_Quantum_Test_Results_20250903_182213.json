@@ -1,0 +1,119 @@
+{
+  "test_timestamp": "2025-09-03T18:21:58.055409",
+  "backend_info": {
+    "name": "ibm_brisbane",
+    "num_qubits": 127,
+    "operational": true,
+    "simulator_mode": false
+  },
+  "algorithm_results": {
+    "simons": {
+      "algorithm_type": "simons",
+      "backend_name": "ibm_brisbane",
+      "circuit_qubits": 127,
+      "circuit_gates": 0,
+      "circuit_depth": 37,
+      "execution_time": 4.089574813842773,
+      "shots": 1024,
+      "success": false,
+      "measured_counts": {
+        "110": 82,
+        "111": 143,
+        "001": 117,
+        "101": 163,
+        "010": 128,
+        "100": 152,
+        "000": 157,
+        "011": 82
+      },
+      "error_rate": 0.8408203125,
+      "fidelity": 0.1591796875,
+      "hardware_noise_impact": 0.7780203125,
+      "quantum_advantage_measured": 2.0,
+      "job_id": "d2scr5oocacs73afo99g",
+      "error_message": null
+    },
+    "deutsch_jozsa_constant": {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "ibm_brisbane",
+      "circuit_qubits": 127,
+      "circuit_gates": 0,
+      "circuit_depth": 3,
+      "execution_time": 3.803969383239746,
+      "shots": 1024,
+      "success": true,
+      "measured_counts": {
+        "0000": 1001,
+        "0100": 4,
+        "0001": 12,
+        "1000": 3,
+        "0010": 3,
+        "0110": 1
+      },
+      "error_rate": 0.0224609375,
+      "fidelity": 0.9775390625,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 8,
+      "job_id": "d2scr6s7sg0c73anoahg",
+      "error_message": null
+    },
+    "deutsch_jozsa_balanced": {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "ibm_brisbane",
+      "circuit_qubits": 127,
+      "circuit_gates": 0,
+      "circuit_depth": 3,
+      "execution_time": 3.6372592449188232,
+      "shots": 1024,
+      "success": false,
+      "measured_counts": {
+        "0000": 996,
+        "0100": 7,
+        "0001": 11,
+        "0010": 6,
+        "1000": 2,
+        "0101": 1,
+        "1100": 1
+      },
+      "error_rate": 0.97265625,
+      "fidelity": 0.02734375,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 8,
+      "job_id": "d2scr7s7sg0c73anoaig",
+      "error_message": null
+    },
+    "bernstein_vazirani": {
+      "algorithm_type": "bernstein_vazirani",
+      "backend_name": "ibm_brisbane",
+      "circuit_qubits": 127,
+      "circuit_gates": 0,
+      "circuit_depth": 17,
+      "execution_time": 3.648871898651123,
+      "shots": 1024,
+      "success": false,
+      "measured_counts": {
+        "1101": 925,
+        "1100": 61,
+        "1001": 14,
+        "0101": 9,
+        "1111": 6,
+        "0000": 7,
+        "1000": 1,
+        "1110": 1
+      },
+      "error_rate": 1.0,
+      "fidelity": 0.0,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 4,
+      "job_id": "d2scr8k7sg0c73anoak0",
+      "error_message": null
+    }
+  },
+  "summary": {
+    "total_tests": 4,
+    "successful_tests": 1,
+    "success_rate": 0.25,
+    "hardware_validated": true,
+    "quantum_advantage_demonstrated": true
+  }
+}

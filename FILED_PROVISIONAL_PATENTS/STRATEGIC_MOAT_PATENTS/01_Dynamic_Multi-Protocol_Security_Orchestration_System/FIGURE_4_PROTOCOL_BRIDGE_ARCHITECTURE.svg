@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .bidirectional { marker-start: url(#arrowhead); marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .legacy-system { fill: #ffebee; stroke: #f44336; stroke-width: 2; rx: 8; }
+      .quantum-system { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .bridge-component { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 5; }
+      .translation-layer { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 5; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 4: Seamless Protocol Bridge Architecture</text>
+  
+  <!-- Legacy Systems (Left Side) -->
+  <rect x="50" y="100" width="180" height="100" class="legacy-system"/>
+  <text x="140" y="125" class="system-text">Legacy System A</text>
+  <text x="140" y="145" class="component-text">RSA-2048</text>
+  <text x="140" y="160" class="component-text">AES-256</text>
+  <text x="140" y="175" class="component-text">SHA-256</text>
+  <text x="140" y="190" class="component-text">TLS 1.3</text>
+  
+  <rect x="50" y="250" width="180" height="100" class="legacy-system"/>
+  <text x="140" y="275" class="system-text">Legacy System B</text>
+  <text x="140" y="295" class="component-text">ECDSA P-256</text>
+  <text x="140" y="310" class="component-text">ChaCha20</text>
+  <text x="140" y="325" class="component-text">HMAC-SHA3</text>
+  <text x="140" y="340" class="component-text">IPSec</text>
+  
+  <rect x="50" y="400" width="180" height="100" class="legacy-system"/>
+  <text x="140" y="425" class="system-text">Legacy System C</text>
+  <text x="140" y="445" class="component-text">DH-2048</text>
+  <text x="140" y="460" class="component-text">3DES</text>
+  <text x="140" y="475" class="component-text">MD5 (Legacy)</text>
+  <text x="140" y="490" class="component-text">SSL 3.0</text>
+  
+  <!-- Protocol Bridge Core (Center) -->
+  <rect x="350" y="200" width="500" height="400" class="bridge-component"/>
+  <text x="600" y="225" class="system-text">Seamless Protocol Bridge Manager</text>
+  
+  <!-- Translation Layers within Bridge -->
+  <rect x="380" y="250" width="200" height="80" class="translation-layer"/>
+  <text x="480" y="275" class="component-text">Classical to PQ</text>
+  <text x="480" y="290" class="component-text">Translation Layer</text>
+  <text x="480" y="310" class="detail-text">• Key size adaptation</text>
+  <text x="480" y="322" class="detail-text">• Algorithm mapping</text>
+  
+  <rect x="600" y="250" width="200" height="80" class="translation-layer"/>
+  <text x="700" y="275" class="component-text">PQ to Classical</text>
+  <text x="700" y="290" class="component-text">Translation Layer</text>
+  <text x="700" y="310" class="detail-text">• Compatibility mode</text>
+  <text x="700" y="322" class="detail-text">• Fallback handling</text>
+  
+  <rect x="380" y="350" width="200" height="80" class="translation-layer"/>
+  <text x="480" y="375" class="component-text">Hybrid Protocol</text>
+  <text x="480" y="390" class="component-text">Manager</text>
+  <text x="480" y="410" class="detail-text">• Dual-mode operation</text>
+  <text x="480" y="422" class="detail-text">• Parallel validation</text>
+  
+  <rect x="600" y="350" width="200" height="80" class="translation-layer"/>
+  <text x="700" y="375" class="component-text">Security Parameter</text>
+  <text x="700" y="390" class="component-text">Mapper</text>
+  <text x="700" y="410" class="detail-text">• Strength equivalence</text>
+  <text x="700" y="422" class="detail-text">• Policy enforcement</text>
+  
+  <rect x="490" y="450" width="220" height="80" class="translation-layer"/>
+  <text x="600" y="475" class="component-text">Performance Optimizer</text>
+  <text x="600" y="495" class="detail-text">• Latency minimization</text>
+  <text x="600" y="507" class="detail-text">• Throughput optimization</text>
+  <text x="600" y="519" class="detail-text">• Resource management</text>
+  
+  <!-- Bridge Control Components -->
+  <rect x="380" y="550" width="140" height="40" class="bridge-component"/>
+  <text x="450" y="575" class="component-text">Bridge Monitor</text>
+  
+  <rect x="540" y="550" width="140" height="40" class="bridge-component"/>
+  <text x="610" y="575" class="component-text">Health Checker</text>
+  
+  <rect x="700" y="550" width="100" height="40" class="bridge-component"/>
+  <text x="750" y="575" class="component-text">Audit Logger</text>
+  
+  <!-- Quantum-Safe Systems (Right Side) -->
+  <rect x="970" y="100" width="180" height="100" class="quantum-system"/>
+  <text x="1060" y="125" class="system-text">Quantum-Safe System A</text>
+  <text x="1060" y="145" class="component-text">CRYSTALS-Kyber</text>
+  <text x="1060" y="160" class="component-text">CRYSTALS-Dilithium</text>
+  <text x="1060" y="175" class="component-text">SPHINCS+</text>
+  <text x="1060" y="190" class="component-text">PQ-TLS</text>
+  
+  <rect x="970" y="250" width="180" height="100" class="quantum-system"/>
+  <text x="1060" y="275" class="system-text">Quantum-Safe System B</text>
+  <text x="1060" y="295" class="component-text">SABER</text>
+  <text x="1060" y="310" class="component-text">Rainbow</text>
+  <text x="1060" y="325" class="component-text">SHAKE-256</text>
+  <text x="1060" y="340" class="component-text">PQ-VPN</text>
+  
+  <rect x="970" y="400" width="180" height="100" class="quantum-system"/>
+  <text x="1060" y="425" class="system-text">Quantum-Safe System C</text>
+  <text x="1060" y="445" class="component-text">McEliece</text>
+  <text x="1060" y="460" class="component-text">XMSS</text>
+  <text x="1060" y="475" class="component-text">Blake3</text>
+  <text x="1060" y="490" class="component-text">Hybrid-TLS</text>
+  
+  <!-- Connection Lines -->
+  <!-- Legacy to Bridge -->
+  <line x1="230" y1="150" x2="380" y2="290" class="bidirectional"/>
+  <line x1="230" y1="300" x2="380" y2="390" class="bidirectional"/>
+  <line x1="230" y1="450" x2="490" y2="490" class="bidirectional"/>
+  
+  <!-- Bridge to Quantum-Safe -->
+  <line x1="800" y1="290" x2="970" y2="150" class="bidirectional"/>
+  <line x1="800" y1="390" x2="970" y2="300" class="bidirectional"/>
+  <line x1="710" y1="490" x2="970" y2="450" class="bidirectional"/>
+  
+  <!-- Internal Bridge Connections -->
+  <line x1="580" y1="290" x2="600" y2="290" class="arrow"/>
+  <line x1="620" y1="290" x2="600" y2="290" class="arrow"/>
+  <line x1="580" y1="390" x2="600" y2="390" class="arrow"/>
+  <line x1="620" y1="390" x2="600" y2="390" class="arrow"/>
+  
+  <!-- Control connections -->
+  <line x1="450" y1="550" x2="480" y2="430" class="arrow" stroke-dasharray="3,3"/>
+  <line x1="610" y1="550" x2="600" y2="530" class="arrow" stroke-dasharray="3,3"/>
+  <line x1="750" y1="550" x2="700" y2="430" class="arrow" stroke-dasharray="3,3"/>
+  
+  <!-- Data Flow Indicators -->
+  <text x="300" y="180" class="detail-text" transform="rotate(-30 300 180)">RSA → PQ Key Exchange</text>
+  <text x="300" y="330" class="detail-text" transform="rotate(-15 300 330)">ECDSA → Dilithium Signatures</text>
+  <text x="300" y="480" class="detail-text" transform="rotate(15 300 480)">Legacy → Modern Protocols</text>
+  
+  <text x="870" y="180" class="detail-text" transform="rotate(30 870 180)">PQ → Classical Compatibility</text>
+  <text x="870" y="330" class="detail-text" transform="rotate(15 870 330)">Hybrid Protocol Negotiation</text>
+  <text x="870" y="480" class="detail-text" transform="rotate(-15 870 480)">Secure Parameter Mapping</text>
+  
+  <!-- Bridge Features -->
+  <rect x="50" y="650" width="1100" height="120" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="675" class="system-text">Key Bridge Features</text>
+  
+  <text x="150" y="700" class="component-text">Real-Time Translation</text>
+  <text x="150" y="715" class="detail-text">• Zero-latency protocol conversion</text>
+  <text x="150" y="727" class="detail-text">• Streaming data processing</text>
+  <text x="150" y="739" class="detail-text">• Concurrent session support</text>
+  <text x="150" y="751" class="detail-text">• Memory-efficient operations</text>
+  
+  <text x="400" y="700" class="component-text">Security Preservation</text>
+  <text x="400" y="715" class="detail-text">• Equivalent security levels</text>
+  <text x="400" y="727" class="detail-text">• No security downgrade</text>
+  <text x="400" y="739" class="detail-text">• End-to-end integrity</text>
+  <text x="400" y="751" class="detail-text">• Audit trail maintenance</text>
+  
+  <text x="650" y="700" class="component-text">Performance Optimization</text>
+  <text x="650" y="715" class="detail-text">• Adaptive caching</text>
+  <text x="650" y="727" class="detail-text">• Connection pooling</text>
+  <text x="650" y="739" class="detail-text">• Load balancing</text>
+  <text x="650" y="751" class="detail-text">• Resource scaling</text>
+  
+  <text x="900" y="700" class="component-text">Monitoring &amp; Control</text>
+  <text x="900" y="715" class="detail-text">• Real-time health monitoring</text>
+  <text x="900" y="727" class="detail-text">• Performance metrics</text>
+  <text x="900" y="739" class="detail-text">• Error detection &amp; recovery</text>
+  <text x="900" y="751" class="detail-text">• Configuration management</text>
+  
+  <text x="1050" y="700" class="component-text">Compliance</text>
+  <text x="1050" y="715" class="detail-text">• Standard compliance</text>
+  <text x="1050" y="727" class="detail-text">• Policy enforcement</text>
+  <text x="1050" y="739" class="detail-text">• Audit logging</text>
+  <text x="1050" y="751" class="detail-text">• Certification support</text>
+</svg>

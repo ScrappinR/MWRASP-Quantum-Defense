@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .step1 { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .step2 { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .step3 { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .step4 { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .step5 { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+      .validator { fill: #f0f4c3; stroke: #827717; stroke-width: 2; rx: 8; }
+      .decision { fill: #ffebee; stroke: #f44336; stroke-width: 2; rx: 20; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 5: Quantum-Safe Consensus Process Flow</text>
+  
+  <!-- Step 1: Transaction Initiation -->
+  <rect x="50" y="80" width="200" height="100" class="step1"/>
+  <text x="150" y="110" class="system-text">Step 1: Transaction</text>
+  <text x="150" y="125" class="system-text">Initiation</text>
+  <text x="150" y="145" class="component-text">• User submits transaction</text>
+  <text x="150" y="160" class="component-text">• Quantum-safe signature</text>
+  <text x="150" y="175" class="component-text">• Initial validation</text>
+  
+  <!-- Step 2: Block Proposal -->
+  <rect x="300" y="80" width="200" height="100" class="step2"/>
+  <text x="400" y="110" class="system-text">Step 2: Block</text>
+  <text x="400" y="125" class="system-text">Proposal</text>
+  <text x="400" y="145" class="component-text">• Validator creates block</text>
+  <text x="400" y="160" class="component-text">• Transaction bundling</text>
+  <text x="400" y="175" class="component-text">• CRYSTALS-Dilithium sig</text>
+  
+  <!-- Step 3: Temporal Witness Validation -->
+  <rect x="550" y="80" width="200" height="100" class="step3"/>
+  <text x="650" y="110" class="system-text">Step 3: Temporal</text>
+  <text x="650" y="125" class="system-text">Witness Validation</text>
+  <text x="650" y="145" class="component-text">• Timestamp verification</text>
+  <text x="650" y="160" class="component-text">• Witness node attestation</text>
+  <text x="650" y="175" class="component-text">• Temporal consistency</text>
+  
+  <!-- Step 4: AI Smart Contract Analysis -->
+  <rect x="800" y="80" width="200" height="100" class="step4"/>
+  <text x="900" y="110" class="system-text">Step 4: AI Contract</text>
+  <text x="900" y="125" class="system-text">Analysis</text>
+  <text x="900" y="145" class="component-text">• Behavioral validation</text>
+  <text x="900" y="160" class="component-text">• Security assessment</text>
+  <text x="900" y="175" class="component-text">• Threat detection</text>
+  
+  <!-- Decision Point -->
+  <ellipse cx="600" cy="280" rx="100" ry="50" class="decision"/>
+  <text x="600" y="270" class="system-text">Consensus</text>
+  <text x="600" y="285" class="system-text">Decision</text>
+  <text x="600" y="300" class="component-text">Byzantine Agreement</text>
+  
+  <!-- Validator Network -->
+  <rect x="100" y="400" width="150" height="80" class="validator"/>
+  <text x="175" y="430" class="system-text">Validator A</text>
+  <text x="175" y="450" class="component-text">• Vote: ACCEPT</text>
+  <text x="175" y="465" class="component-text">• Stake: 1000 tokens</text>
+  
+  <rect x="300" y="400" width="150" height="80" class="validator"/>
+  <text x="375" y="430" class="system-text">Validator B</text>
+  <text x="375" y="450" class="component-text">• Vote: ACCEPT</text>
+  <text x="375" y="465" class="component-text">• Stake: 1500 tokens</text>
+  
+  <rect x="500" y="400" width="150" height="80" class="validator"/>
+  <text x="575" y="430" class="system-text">Validator C</text>
+  <text x="575" y="450" class="component-text">• Vote: REJECT</text>
+  <text x="575" y="465" class="component-text">• Stake: 800 tokens</text>
+  
+  <rect x="700" y="400" width="150" height="80" class="validator"/>
+  <text x="775" y="430" class="system-text">Validator D</text>
+  <text x="775" y="450" class="component-text">• Vote: ACCEPT</text>
+  <text x="775" y="465" class="component-text">• Stake: 1200 tokens</text>
+  
+  <rect x="900" y="400" width="150" height="80" class="validator"/>
+  <text x="975" y="430" class="system-text">Validator E</text>
+  <text x="975" y="450" class="component-text">• Vote: ACCEPT</text>
+  <text x="975" y="465" class="component-text">• Stake: 900 tokens</text>
+  
+  <!-- Step 5: Block Finalization -->
+  <rect x="450" y="550" width="300" height="100" class="step5"/>
+  <text x="600" y="580" class="system-text">Step 5: Block Finalization</text>
+  <text x="550" y="605" class="component-text">Consensus Achieved:</text>
+  <text x="550" y="620" class="detail-text">• 80% validator approval</text>
+  <text x="550" y="632" class="detail-text">• 4600/5400 stake weight</text>
+  <text x="550" y="644" class="detail-text">• Temporal witness consensus</text>
+  
+  <text x="650" y="605" class="component-text">Block Commitment:</text>
+  <text x="650" y="620" class="detail-text">• Quantum-safe signatures</text>
+  <text x="650" y="632" class="detail-text">• State root update</text>
+  <text x="650" y="644" class="detail-text">• Chain progression</text>
+  
+  <!-- Connection Lines -->
+  <line x1="250" y1="130" x2="300" y2="130" class="arrow"/>
+  <line x1="500" y1="130" x2="550" y2="130" class="arrow"/>
+  <line x1="750" y1="130" x2="800" y2="130" class="arrow"/>
+  
+  <!-- To decision point -->
+  <line x1="400" y1="180" x2="550" y2="250" class="arrow"/>
+  <line x1="650" y1="180" x2="650" y2="230" class="arrow"/>
+  <line x1="900" y1="180" x2="650" y2="250" class="arrow"/>
+  
+  <!-- Decision to validators -->
+  <line x1="500" y1="300" x2="175" y2="400" class="arrow"/>
+  <line x1="550" y1="320" x2="375" y2="400" class="arrow"/>
+  <line x1="600" y1="330" x2="575" y2="400" class="arrow"/>
+  <line x1="650" y1="320" x2="775" y2="400" class="arrow"/>
+  <line x1="700" y1="300" x2="975" y2="400" class="arrow"/>
+  
+  <!-- Validators to finalization -->
+  <line x1="175" y1="480" x2="500" y2="550" class="arrow"/>
+  <line x1="375" y1="480" x2="550" y2="550" class="arrow"/>
+  <line x1="575" y1="480" x2="600" y2="550" class="arrow"/>
+  <line x1="775" y1="480" x2="650" y2="550" class="arrow"/>
+  <line x1="975" y1="480" x2="700" y2="550" class="arrow"/>
+  
+  <!-- Quantum Cryptography Details -->
+  <rect x="50" y="720" width="1100" height="140" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="745" class="system-text">Quantum-Safe Cryptographic Operations</text>
+  
+  <!-- CRYSTALS-Dilithium -->
+  <rect x="80" y="770" width="220" height="70" class="step2"/>
+  <text x="190" y="795" class="system-text">CRYSTALS-Dilithium</text>
+  <text x="190" y="815" class="detail-text">• Lattice-based signatures</text>
+  <text x="190" y="827" class="detail-text">• NIST Level 3 security</text>
+  
+  <!-- SPHINCS+ -->
+  <rect x="320" y="770" width="220" height="70" class="step3"/>
+  <text x="430" y="795" class="system-text">SPHINCS+ Signatures</text>
+  <text x="430" y="815" class="detail-text">• Stateless signatures</text>
+  <text x="430" y="827" class="detail-text">• Hash-based security</text>
+  
+  <!-- Temporal Witnesses -->
+  <rect x="560" y="770" width="220" height="70" class="step4"/>
+  <text x="670" y="795" class="system-text">Temporal Witnesses</text>
+  <text x="670" y="815" class="detail-text">• Time-locked commitments</text>
+  <text x="670" y="827" class="detail-text">• Geographic distribution</text>
+  
+  <!-- Byzantine Fault Tolerance -->
+  <rect x="800" y="770" width="220" height="70" class="step5"/>
+  <text x="910" y="795" class="system-text">Byzantine Tolerance</text>
+  <text x="910" y="815" class="detail-text">• 33% fault tolerance</text>
+  <text x="910" y="827" class="detail-text">• Quantum-safe BFT</text>
+  
+  <!-- Flow Labels -->
+  <text x="275" y="120" class="detail-text">Proposal</text>
+  <text x="525" y="120" class="detail-text">Validation</text>
+  <text x="775" y="120" class="detail-text">Analysis</text>
+  
+  <text x="475" y="215" class="detail-text">Consensus Request</text>
+  <text x="725" y="215" class="detail-text">Validation Request</text>
+  
+  <text x="300" y="490" class="detail-text">Vote Collection</text>
+  <text x="700" y="490" class="detail-text">Vote Collection</text>
+  
+  <!-- Performance Metrics -->
+  <text x="50" y="50" class="component-text">Consensus Performance:</text>
+  <text x="50" y="65" class="detail-text">• Block time: 3-6 seconds • Finality: 1 block • Throughput: 10,000+ TPS • Fault tolerance: 33%</text>
+  
+  <!-- Rejection Path -->
+  <rect x="1050" y="280" width="120" height="60" class="decision" fill="#ffcccb"/>
+  <text x="1110" y="305" class="system-text">Reject Block</text>
+  <text x="1110" y="320" class="detail-text">• Insufficient votes</text>
+  <text x="1110" y="332" class="detail-text">• Return to Step 2</text>
+  
+  <line x1="700" y1="280" x2="1050" y2="310" class="arrow" stroke="#f44336" stroke-dasharray="3,3"/>
+  <line x1="1050" y1="340" x2="400" y2="180" class="arrow" stroke="#f44336" stroke-dasharray="3,3"/>
+  
+  <text x="875" y="265" class="detail-text" fill="#f44336">If consensus fails</text>
+
+</svg>

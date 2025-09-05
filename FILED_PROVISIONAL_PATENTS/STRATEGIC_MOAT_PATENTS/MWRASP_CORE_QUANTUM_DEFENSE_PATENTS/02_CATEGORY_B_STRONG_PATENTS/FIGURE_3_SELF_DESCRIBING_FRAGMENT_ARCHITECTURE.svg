@@ -1,0 +1,333 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="black">
+    FIGURE 3: SELF-DESCRIBING FRAGMENT ARCHITECTURE WITH RECONSTRUCTION METADATA
+  </text>
+  
+  <!-- Background -->
+  <rect x="50" y="60" width="1100" height="700" fill="#f8f9fa" stroke="black" stroke-width="2" rx="10"/>
+  
+  <!-- Original Data Block -->
+  <g id="OriginalData" transform="translate(100, 120)">
+    <rect x="0" y="0" width="300" height="80" fill="#e3f2fd" stroke="blue" stroke-width="3" rx="10"/>
+    <text x="150" y="30" text-anchor="middle" font-size="14" font-weight="bold">ORIGINAL DATA</text>
+    <text x="150" y="50" text-anchor="middle" font-size="12">Sensitive Enterprise Information</text>
+    <text x="150" y="65" text-anchor="middle" font-size="10">Size: 1.2MB | Classification: HIGH</text>
+    
+    <!-- Data Icon -->
+    <circle cx="50" cy="40" r="20" fill="blue"/>
+    <text x="50" y="48" text-anchor="middle" font-size="14" fill="white" font-weight="bold">📄</text>
+  </g>
+  
+  <!-- Fragmentation Process Arrow -->
+  <g id="FragmentationArrow">
+    <path d="M 400 160 L 480 160" stroke="#333" stroke-width="4" marker-end="url(#arrowhead)"/>
+    <text x="440" y="150" text-anchor="middle" font-size="11" font-weight="bold">FRAGMENT</text>
+  </g>
+  
+  <!-- Fragment Collection -->
+  <g id="FragmentCollection" transform="translate(500, 80)">
+    <!-- Fragment 1 -->
+    <g id="Fragment1">
+      <rect x="0" y="0" width="180" height="120" fill="#fff3e0" stroke="orange" stroke-width="2" rx="8"/>
+      <text x="90" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="orange">FRAGMENT 1/4</text>
+      
+      <!-- Fragment Data -->
+      <rect x="10" y="25" width="160" height="30" fill="white" stroke="orange" stroke-width="1" rx="3"/>
+      <text x="90" y="35" text-anchor="middle" font-size="9" font-weight="bold">FRAGMENT DATA</text>
+      <text x="90" y="47" text-anchor="middle" font-size="8">300KB Encrypted Chunk</text>
+      
+      <!-- Metadata -->
+      <rect x="10" y="60" width="160" height="50" fill="#fce4ec" stroke="red" stroke-width="1" rx="3"/>
+      <text x="90" y="70" text-anchor="middle" font-size="9" font-weight="bold">SELF-DESCRIBING</text>
+      <text x="90" y="82" text-anchor="middle" font-size="9" font-weight="bold">METADATA</text>
+      <text x="20" y="92" font-size="7">• Reconstruction Map</text>
+      <text x="20" y="100" font-size="7">• Checksum Chains</text>
+      <text x="95" y="92" font-size="7">• Fragment Dependencies</text>
+      <text x="95" y="100" font-size="7">• Temporal Parameters</text>
+    </g>
+    
+    <!-- Fragment 2 -->
+    <g id="Fragment2" transform="translate(200, 0)">
+      <rect x="0" y="0" width="180" height="120" fill="#f3e5f5" stroke="purple" stroke-width="2" rx="8"/>
+      <text x="90" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="purple">FRAGMENT 2/4</text>
+      
+      <!-- Fragment Data -->
+      <rect x="10" y="25" width="160" height="30" fill="white" stroke="purple" stroke-width="1" rx="3"/>
+      <text x="90" y="35" text-anchor="middle" font-size="9" font-weight="bold">FRAGMENT DATA</text>
+      <text x="90" y="47" text-anchor="middle" font-size="8">300KB Encrypted Chunk</text>
+      
+      <!-- Metadata -->
+      <rect x="10" y="60" width="160" height="50" fill="#e1f5fe" stroke="blue" stroke-width="1" rx="3"/>
+      <text x="90" y="70" text-anchor="middle" font-size="9" font-weight="bold">RECONSTRUCTION</text>
+      <text x="90" y="82" text-anchor="middle" font-size="9" font-weight="bold">INTELLIGENCE</text>
+      <text x="20" y="92" font-size="7">• Order Requirements</text>
+      <text x="20" y="100" font-size="7">• Integrity Validation</text>
+      <text x="95" y="92" font-size="7">• Security Parameters</text>
+      <text x="95" y="100" font-size="7">• Quantum Profiles</text>
+    </g>
+    
+    <!-- Fragment 3 -->
+    <g id="Fragment3" transform="translate(400, 0)">
+      <rect x="0" y="0" width="180" height="120" fill="#e8f5e8" stroke="green" stroke-width="2" rx="8"/>
+      <text x="90" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="green">FRAGMENT 3/4</text>
+      
+      <!-- Fragment Data -->
+      <rect x="10" y="25" width="160" height="30" fill="white" stroke="green" stroke-width="1" rx="3"/>
+      <text x="90" y="35" text-anchor="middle" font-size="9" font-weight="bold">FRAGMENT DATA</text>
+      <text x="90" y="47" text-anchor="middle" font-size="8">300KB Encrypted Chunk</text>
+      
+      <!-- Metadata -->
+      <rect x="10" y="60" width="160" height="50" fill="#fff8e1" stroke="amber" stroke-width="1" rx="3"/>
+      <text x="90" y="70" text-anchor="middle" font-size="9" font-weight="bold">AUTONOMOUS</text>
+      <text x="90" y="82" text-anchor="middle" font-size="9" font-weight="bold">CAPABILITIES</text>
+      <text x="20" y="92" font-size="7">• Self Validation</text>
+      <text x="20" y="100" font-size="7">• Error Detection</text>
+      <text x="95" y="92" font-size="7">• Recovery Protocols</text>
+      <text x="95" y="100" font-size="7">• Status Reporting</text>
+    </g>
+    
+    <!-- Fragment 4 -->
+    <g id="Fragment4" transform="translate(600, 0)">
+      <rect x="0" y="0" width="180" height="120" fill="#ffebee" stroke="red" stroke-width="2" rx="8"/>
+      <text x="90" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="red">FRAGMENT 4/4</text>
+      
+      <!-- Fragment Data -->
+      <rect x="10" y="25" width="160" height="30" fill="white" stroke="red" stroke-width="1" rx="3"/>
+      <text x="90" y="35" text-anchor="middle" font-size="9" font-weight="bold">FRAGMENT DATA</text>
+      <text x="90" y="47" text-anchor="middle" font-size="8">300KB Encrypted Chunk</text>
+      
+      <!-- Metadata -->
+      <rect x="10" y="60" width="160" height="50" fill="#f1f8e9" stroke="lightgreen" stroke-width="1" rx="3"/>
+      <text x="90" y="70" text-anchor="middle" font-size="9" font-weight="bold">COMPLETION</text>
+      <text x="90" y="82" text-anchor="middle" font-size="9" font-weight="bold">METADATA</text>
+      <text x="20" y="92" font-size="7">• Final Validation</text>
+      <text x="20" y="100" font-size="7">• Reconstruction Hash</text>
+      <text x="95" y="92" font-size="7">• Success Metrics</text>
+      <text x="95" y="100" font-size="7">• Audit Trail</text>
+    </g>
+  </g>
+  
+  <!-- Detailed Metadata Structure -->
+  <g id="MetadataDetail" transform="translate(100, 240)">
+    <rect x="0" y="0" width="1000" height="280" fill="#fafafa" stroke="black" stroke-width="2" rx="10"/>
+    <text x="500" y="25" text-anchor="middle" font-size="16" font-weight="bold">DETAILED SELF-DESCRIBING METADATA STRUCTURE</text>
+    
+    <!-- Core Fragment Identification -->
+    <g id="CoreIdentification" transform="translate(20, 40)">
+      <rect x="0" y="0" width="180" height="220" fill="#e3f2fd" stroke="blue" stroke-width="2" rx="5"/>
+      <text x="90" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="blue">CORE IDENTIFICATION</text>
+      
+      <text x="10" y="40" font-size="9" font-weight="bold">Fragment Metadata:</text>
+      <text x="10" y="55" font-size="8">• fragment_id: UUID-4</text>
+      <text x="10" y="67" font-size="8">• fragment_index: 1-4</text>
+      <text x="10" y="79" font-size="8">• total_fragments: 4</text>
+      <text x="10" y="91" font-size="8">• collection_id: SHA256</text>
+      <text x="10" y="103" font-size="8">• creation_timestamp: ns</text>
+      
+      <text x="10" y="125" font-size="9" font-weight="bold">Schema Information:</text>
+      <text x="10" y="140" font-size="8">• schema_version: v2.0</text>
+      <text x="10" y="152" font-size="8">• algorithm: TEMPORAL</text>
+      <text x="10" y="164" font-size="8">• compatibility: backward</text>
+      
+      <text x="10" y="185" font-size="9" font-weight="bold">Size Information:</text>
+      <text x="10" y="200" font-size="8">• fragment_size: 300KB</text>
+      <text x="10" y="212" font-size="8">• metadata_size: 2KB</text>
+    </g>
+    
+    <!-- Reconstruction Intelligence -->
+    <g id="ReconstructionIntel" transform="translate(220, 40)">
+      <rect x="0" y="0" width="180" height="220" fill="#f3e5f5" stroke="purple" stroke-width="2" rx="5"/>
+      <text x="90" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="purple">RECONSTRUCTION</text>
+      <text x="90" y="35" text-anchor="middle" font-size="12" font-weight="bold" fill="purple">INTELLIGENCE</text>
+      
+      <text x="10" y="55" font-size="9" font-weight="bold">Assembly Order:</text>
+      <text x="10" y="70" font-size="8">• required_sequence: 1,2,3,4</text>
+      <text x="10" y="82" font-size="8">• dependencies: [prev_frag]</text>
+      <text x="10" y="94" font-size="8">• parallel_assembly: false</text>
+      
+      <text x="10" y="115" font-size="9" font-weight="bold">Validation Chain:</text>
+      <text x="10" y="130" font-size="8">• checksum_algorithm: SHA256</text>
+      <text x="10" y="142" font-size="8">• chain_validation: linked</text>
+      <text x="10" y="154" font-size="8">• integrity_proof: included</text>
+      
+      <text x="10" y="175" font-size="9" font-weight="bold">Error Recovery:</text>
+      <text x="10" y="190" font-size="8">• recovery_method: redundancy</text>
+      <text x="10" y="202" font-size="8">• fallback_strategy: abort</text>
+      <text x="10" y="214" font-size="8">• error_threshold: 0</text>
+    </g>
+    
+    <!-- Security Parameters -->
+    <g id="SecurityParams" transform="translate(420, 40)">
+      <rect x="0" y="0" width="180" height="220" fill="#fff3e0" stroke="orange" stroke-width="2" rx="5"/>
+      <text x="90" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="orange">SECURITY</text>
+      <text x="90" y="35" text-anchor="middle" font-size="12" font-weight="bold" fill="orange">PARAMETERS</text>
+      
+      <text x="10" y="55" font-size="9" font-weight="bold">Quantum Resistance:</text>
+      <text x="10" y="70" font-size="8">• quantum_safe: true</text>
+      <text x="10" y="82" font-size="8">• prevented_alg: all_known</text>
+      <text x="10" y="94" font-size="8">• timing_guarantee: physics</text>
+      
+      <text x="10" y="115" font-size="9" font-weight="bold">Encryption Details:</text>
+      <text x="10" y="130" font-size="8">• encryption: AES-256-GCM</text>
+      <text x="10" y="142" font-size="8">• key_derivation: PBKDF2</text>
+      <text x="10" y="154" font-size="8">• auth_tag: included</text>
+      
+      <text x="10" y="175" font-size="9" font-weight="bold">Access Control:</text>
+      <text x="10" y="190" font-size="8">• access_policy: role_based</text>
+      <text x="10" y="202" font-size="8">• required_clearance: HIGH</text>
+      <text x="10" y="214" font-size="8">• audit_required: true</text>
+    </g>
+    
+    <!-- Temporal Parameters -->
+    <g id="TemporalParams" transform="translate(620, 40)">
+      <rect x="0" y="0" width="180" height="220" fill="#e8f5e8" stroke="green" stroke-width="2" rx="5"/>
+      <text x="90" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="green">TEMPORAL</text>
+      <text x="90" y="35" text-anchor="middle" font-size="12" font-weight="bold" fill="green">PARAMETERS</text>
+      
+      <text x="10" y="55" font-size="9" font-weight="bold">Expiration Control:</text>
+      <text x="10" y="70" font-size="8">• expiration_ms: 3000</text>
+      <text x="10" y="82" font-size="8">• created_ns: timestamp</text>
+      <text x="10" y="94" font-size="8">• expires_ns: calculated</text>
+      
+      <text x="10" y="115" font-size="9" font-weight="bold">Quantum Timing:</text>
+      <text x="10" y="130" font-size="8">• min_attack_time: 10000ms</text>
+      <text x="10" y="142" font-size="8">• safety_margin: 30%</text>
+      <text x="10" y="154" font-size="8">• prevention_guarantee: 100%</text>
+      
+      <text x="10" y="175" font-size="9" font-weight="bold">Monitoring:</text>
+      <text x="10" y="190" font-size="8">• check_interval: 100ms</text>
+      <text x="10" y="202" font-size="8">• violation_response: destroy</text>
+      <text x="10" y="214" font-size="8">• audit_logging: continuous</text>
+    </g>
+    
+    <!-- Autonomous Capabilities -->
+    <g id="AutonomousCaps" transform="translate(820, 40)">
+      <rect x="0" y="0" width="160" height="220" fill="#ffebee" stroke="red" stroke-width="2" rx="5"/>
+      <text x="80" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="red">AUTONOMOUS</text>
+      <text x="80" y="35" text-anchor="middle" font-size="12" font-weight="bold" fill="red">CAPABILITIES</text>
+      
+      <text x="10" y="55" font-size="9" font-weight="bold">Self-Validation:</text>
+      <text x="10" y="70" font-size="8">• integrity_check: continuous</text>
+      <text x="10" y="82" font-size="8">• metadata_validation: auto</text>
+      <text x="10" y="94" font-size="8">• schema_compliance: strict</text>
+      
+      <text x="10" y="115" font-size="9" font-weight="bold">Error Handling:</text>
+      <text x="10" y="130" font-size="8">• error_detection: immediate</text>
+      <text x="10" y="142" font-size="8">• fault_tolerance: zero</text>
+      <text x="10" y="154" font-size="8">• recovery_action: abort</text>
+      
+      <text x="10" y="175" font-size="9" font-weight="bold">Reporting:</text>
+      <text x="10" y="190" font-size="8">• status_reporting: real_time</text>
+      <text x="10" y="202" font-size="8">• metrics_collection: auto</text>
+      <text x="10" y="214" font-size="8">• alert_generation: immediate</text>
+    </g>
+  </g>
+  
+  <!-- Reconstruction Process -->
+  <g id="ReconstructionProcess" transform="translate(100, 540)">
+    <rect x="0" y="0" width="1000" height="160" fill="#fff8e1" stroke="orange" stroke-width="2" rx="10"/>
+    <text x="500" y="25" text-anchor="middle" font-size="16" font-weight="bold" fill="orange">AUTONOMOUS RECONSTRUCTION PROCESS</text>
+    
+    <!-- Step 1: Collection Validation -->
+    <g id="Step1" transform="translate(50, 50)">
+      <circle cx="30" cy="30" r="20" fill="#2196F3" stroke="white" stroke-width="3"/>
+      <text x="30" y="37" text-anchor="middle" font-size="14" fill="white" font-weight="bold">1</text>
+      
+      <rect x="70" y="10" width="120" height="40" fill="white" stroke="blue" stroke-width="1" rx="5"/>
+      <text x="130" y="25" text-anchor="middle" font-size="10" font-weight="bold">COLLECTION</text>
+      <text x="130" y="38" text-anchor="middle" font-size="10" font-weight="bold">VALIDATION</text>
+      
+      <text x="70" y="65" font-size="8">• Verify all fragments present</text>
+      <text x="70" y="75" font-size="8">• Validate metadata integrity</text>
+      <text x="70" y="85" font-size="8">• Check schema compatibility</text>
+      <text x="70" y="95" font-size="8">• Confirm temporal validity</text>
+    </g>
+    
+    <!-- Step 2: Order Analysis -->
+    <g id="Step2" transform="translate(250, 50)">
+      <circle cx="30" cy="30" r="20" fill="#4CAF50" stroke="white" stroke-width="3"/>
+      <text x="30" y="37" text-anchor="middle" font-size="14" fill="white" font-weight="bold">2</text>
+      
+      <rect x="70" y="10" width="120" height="40" fill="white" stroke="green" stroke-width="1" rx="5"/>
+      <text x="130" y="25" text-anchor="middle" font-size="10" font-weight="bold">ORDER</text>
+      <text x="130" y="38" text-anchor="middle" font-size="10" font-weight="bold">ANALYSIS</text>
+      
+      <text x="70" y="65" font-size="8">• Parse reconstruction maps</text>
+      <text x="70" y="75" font-size="8">• Determine assembly order</text>
+      <text x="70" y="85" font-size="8">• Check dependencies</text>
+      <text x="70" y="95" font-size="8">• Validate sequence integrity</text>
+    </g>
+    
+    <!-- Step 3: Assembly Process -->
+    <g id="Step3" transform="translate(450, 50)">
+      <circle cx="30" cy="30" r="20" fill="#FF9800" stroke="white" stroke-width="3"/>
+      <text x="30" y="37" text-anchor="middle" font-size="14" fill="white" font-weight="bold">3</text>
+      
+      <rect x="70" y="10" width="120" height="40" fill="white" stroke="orange" stroke-width="1" rx="5"/>
+      <text x="130" y="25" text-anchor="middle" font-size="10" font-weight="bold">ASSEMBLY</text>
+      <text x="130" y="38" text-anchor="middle" font-size="10" font-weight="bold">PROCESS</text>
+      
+      <text x="70" y="65" font-size="8">• Sequence fragments correctly</text>
+      <text x="70" y="75" font-size="8">• Verify checksums continuously</text>
+      <text x="70" y="85" font-size="8">• Monitor integrity violations</text>
+      <text x="70" y="95" font-size="8">• Handle assembly errors</text>
+    </g>
+    
+    <!-- Step 4: Final Validation -->
+    <g id="Step4" transform="translate(650, 50)">
+      <circle cx="30" cy="30" r="20" fill="#9C27B0" stroke="white" stroke-width="3"/>
+      <text x="30" y="37" text-anchor="middle" font-size="14" fill="white" font-weight="bold">4</text>
+      
+      <rect x="70" y="10" width="120" height="40" fill="white" stroke="purple" stroke-width="1" rx="5"/>
+      <text x="130" y="25" text-anchor="middle" font-size="10" font-weight="bold">FINAL</text>
+      <text x="130" y="38" text-anchor="middle" font-size="10" font-weight="bold">VALIDATION</text>
+      
+      <text x="70" y="65" font-size="8">• Complete integrity verification</text>
+      <text x="70" y="75" font-size="8">• Validate reconstruction hash</text>
+      <text x="70" y="85" font-size="8">• Confirm data completeness</text>
+      <text x="70" y="95" font-size="8">• Generate success metrics</text>
+    </g>
+    
+    <!-- Step 5: Data Delivery -->
+    <g id="Step5" transform="translate(850, 50)">
+      <circle cx="30" cy="30" r="20" fill="#F44336" stroke="white" stroke-width="3"/>
+      <text x="30" y="37" text-anchor="middle" font-size="14" fill="white" font-weight="bold">5</text>
+      
+      <rect x="70" y="10" width="120" height="40" fill="white" stroke="red" stroke-width="1" rx="5"/>
+      <text x="130" y="25" text-anchor="middle" font-size="10" font-weight="bold">DATA</text>
+      <text x="130" y="38" text-anchor="middle" font-size="10" font-weight="bold">DELIVERY</text>
+      
+      <text x="70" y="65" font-size="8">• Return reconstructed data</text>
+      <text x="70" y="75" font-size="8">• Provide reconstruction report</text>
+      <text x="70" y="85" font-size="8">• Log successful completion</text>
+      <text x="70" y="95" font-size="8">• Clean up temporary data</text>
+    </g>
+    
+    <!-- Process Flow Arrows -->
+    <path d="M 190 80 L 210 80" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 390 80 L 410 80" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 590 80 L 610 80" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 790 80 L 810 80" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Performance and Security Summary -->
+  <g id="PerformanceSummary" transform="translate(100, 720)">
+    <rect x="0" y="0" width="1000" height="60" fill="#e8f5e8" stroke="green" stroke-width="3" rx="10"/>
+    <text x="500" y="25" text-anchor="middle" font-size="14" font-weight="bold" fill="green">SELF-DESCRIBING ARCHITECTURE BENEFITS</text>
+    
+    <text x="50" y="40" font-size="11" fill="green">• Autonomous Operation: No external schema or reconstruction logic required</text>
+    <text x="50" y="55" font-size="11" fill="green">• Enhanced Security: Comprehensive metadata enables immediate integrity validation</text>
+    
+    <text x="550" y="40" font-size="11" fill="green">• Fault Tolerance: Self-contained error detection and recovery capabilities</text>
+    <text x="550" y="55" font-size="11" fill="green">• Scalability: Independent fragments with embedded intelligence support massive scale</text>
+  </g>
+  
+  <!-- Arrow Definitions -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-09-01T18:02:36.052323",
+  "new_api_key": "Db5DJPp-PEdI-NcXMpwWzLDgkN5rc-ZS0aYuGXVNmbAb",
+  "mwrasp_crn": "crn:v1:bluemix:public:quantum-computing:us-east:a/fd74c42f713945daa9f8d5278bbeef5e:a31cd4e9-7c3b-4d1a-b39f-735fd379abc1::",
+  "connection_successful": true,
+  "connection_type": "MWRASP_DIRECT",
+  "backends_found": 2,
+  "backend_summary": {
+    "simulators": 0,
+    "hardware": 2
+  }
+}

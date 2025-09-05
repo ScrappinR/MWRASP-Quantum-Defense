@@ -16,8 +16,8 @@ if sys.platform.startswith('win'):
     sys.stdout.reconfigure(encoding='utf-8')
     sys.stderr.reconfigure(encoding='utf-8')
 
-NEW_API_KEY = 'fS60NeqIGQ9k1ZCMu6-ibuMz7tKtX13mmVq-aC4cwRrt'
-MWRASP_CRN = 'crn:v1:bluemix:public:quantum-computing:us-east:a/fd74c42f713945daa9f8d5278bbeef5e:668a7307-51a1-4158-81b5-f625984d76cd::'
+NEW_API_KEY = 'Db5DJPp-PEdI-NcXMpwWzLDgkN5rc-ZS0aYuGXVNmbAb'
+MWRASP_CRN = 'crn:v1:bluemix:public:quantum-computing:us-east:a/fd74c42f713945daa9f8d5278bbeef5e:a31cd4e9-7c3b-4d1a-b39f-735fd379abc1::'
 
 def test_new_api_key():
     print("="*80)
@@ -132,10 +132,10 @@ def test_quantum_circuit_execution(service, backends):
         
         start_time = time.time()
         
-        with Session(service=service, backend=backend.name) as session:
-            sampler = Sampler(session=session)
-            job = sampler.run([circuit], shots=1024)
-            result = job.result()
+        # Use direct Sampler without Session (open plan compatible)
+        sampler = Sampler(backend=backend)
+        job = sampler.run([circuit], shots=1024)
+        result = job.result()
         
         execution_time = (time.time() - start_time) * 1000
         counts = result[0].data.meas.get_counts()

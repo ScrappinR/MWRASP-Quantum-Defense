@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- USPTO Patent Drawing - Figure 3: Resource Allocation Process Flow -->
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">
+    FIG. 3 - DYNAMIC RESOURCE ALLOCATION PROCESS FLOW
+  </text>
+  
+  <!-- Main Container -->
+  <rect x="50" y="50" width="700" height="500" fill="none" stroke="black" stroke-width="2"/>
+  
+  <!-- Start Node -->
+  <ellipse cx="400" cy="80" rx="70" ry="20" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="85" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    RESOURCE REQUEST
+  </text>
+  <text x="400" y="95" text-anchor="middle" font-family="Arial" font-size="8">
+    (1000)
+  </text>
+  
+  <!-- Request Analysis -->
+  <rect x="320" y="120" width="160" height="35" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="138" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    ANALYZE REQUEST
+  </text>
+  <text x="400" y="148" text-anchor="middle" font-family="Arial" font-size="8">
+    Parse requirements &amp; constraints (1001)
+  </text>
+  
+  <!-- Resource Availability Check -->
+  <polygon points="400,170 460,200 400,230 340,200" fill="none" stroke="black" stroke-width="3"/>
+  <text x="400" y="195" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">
+    RESOURCES
+  </text>
+  <text x="400" y="205" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">
+    AVAILABLE?
+  </text>
+  <text x="400" y="215" text-anchor="middle" font-family="Arial" font-size="8">
+    (1002)
+  </text>
+  
+  <!-- Queue Management (Left Branch) -->
+  <rect x="120" y="260" width="140" height="35" fill="none" stroke="black" stroke-width="2"/>
+  <text x="190" y="278" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    QUEUE REQUEST
+  </text>
+  <text x="190" y="288" text-anchor="middle" font-family="Arial" font-size="8">
+    Add to priority queue (1003)
+  </text>
+  
+  <!-- Direct Allocation (Right Branch) -->
+  <rect x="540" y="260" width="140" height="35" fill="none" stroke="black" stroke-width="2"/>
+  <text x="610" y="278" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    DIRECT ALLOCATION
+  </text>
+  <text x="610" y="288" text-anchor="middle" font-family="Arial" font-size="8">
+    Immediate resource assign (1004)
+  </text>
+  
+  <!-- Optimization Engine -->
+  <rect x="320" y="320" width="160" height="35" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="338" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    OPTIMIZATION ENGINE
+  </text>
+  <text x="400" y="348" text-anchor="middle" font-family="Arial" font-size="8">
+    Multi-objective optimization (1005)
+  </text>
+  
+  <!-- Resource Mapping -->
+  <rect x="320" y="375" width="160" height="35" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="393" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    RESOURCE MAPPING
+  </text>
+  <text x="400" y="403" text-anchor="middle" font-family="Arial" font-size="8">
+    Map tasks to resources (1006)
+  </text>
+  
+  <!-- Execute Allocation -->
+  <rect x="320" y="430" width="160" height="35" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="448" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    EXECUTE ALLOCATION
+  </text>
+  <text x="400" y="458" text-anchor="middle" font-family="Arial" font-size="8">
+    Deploy &amp; start execution (1007)
+  </text>
+  
+  <!-- Monitor Performance -->
+  <rect x="320" y="485" width="160" height="25" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="500" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    MONITOR PERFORMANCE
+  </text>
+  <text x="400" y="505" text-anchor="middle" font-family="Arial" font-size="8">
+    (1008)
+  </text>
+  
+  <!-- Load Balancing (Left Side) -->
+  <rect x="80" y="320" width="160" height="140" fill="none" stroke="black" stroke-width="2"/>
+  <text x="160" y="340" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">
+    LOAD BALANCING
+  </text>
+  <text x="160" y="355" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">
+    SYSTEM
+  </text>
+  <text x="160" y="370" text-anchor="middle" font-family="Arial" font-size="8">
+    (2000)
+  </text>
+  
+  <!-- Load Balancing Components -->
+  <rect x="100" y="380" width="120" height="15" fill="none" stroke="black" stroke-width="1"/>
+  <text x="160" y="390" text-anchor="middle" font-family="Arial" font-size="8">
+    Workload Monitor (2001)
+  </text>
+  
+  <rect x="100" y="400" width="120" height="15" fill="none" stroke="black" stroke-width="1"/>
+  <text x="160" y="410" text-anchor="middle" font-family="Arial" font-size="8">
+    Migration Engine (2002)
+  </text>
+  
+  <rect x="100" y="420" width="120" height="15" fill="none" stroke="black" stroke-width="1"/>
+  <text x="160" y="430" text-anchor="middle" font-family="Arial" font-size="8">
+    Rebalancer (2003)
+  </text>
+  
+  <rect x="100" y="440" width="120" height="15" fill="none" stroke="black" stroke-width="1"/>
+  <text x="160" y="450" text-anchor="middle" font-family="Arial" font-size="8">
+    Threshold Control (2004)
+  </text>
+  
+  <!-- Auto-Scaling (Right Side) -->
+  <rect x="560" y="320" width="160" height="140" fill="none" stroke="black" stroke-width="2"/>
+  <text x="640" y="340" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">
+    AUTO-SCALING
+  </text>
+  <text x="640" y="355" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold">
+    SYSTEM
+  </text>
+  <text x="640" y="370" text-anchor="middle" font-family="Arial" font-size="8">
+    (3000)
+  </text>
+  
+  <!-- Auto-scaling Components -->
+  <rect x="580" y="380" width="120" height="15" fill="none" stroke="black" stroke-width="1"/>
+  <text x="640" y="390" text-anchor="middle" font-family="Arial" font-size="8">
+    Demand Predictor (3001)
+  </text>
+  
+  <rect x="580" y="400" width="120" height="15" fill="none" stroke="black" stroke-width="1"/>
+  <text x="640" y="410" text-anchor="middle" font-family="Arial" font-size="8">
+    Scale Controller (3002)
+  </text>
+  
+  <rect x="580" y="420" width="120" height="15" fill="none" stroke="black" stroke-width="1"/>
+  <text x="640" y="430" text-anchor="middle" font-family="Arial" font-size="8">
+    Capacity Manager (3003)
+  </text>
+  
+  <rect x="580" y="440" width="120" height="15" fill="none" stroke="black" stroke-width="1"/>
+  <text x="640" y="450" text-anchor="middle" font-family="Arial" font-size="8">
+    Resource Provision (3004)
+  </text>
+  
+  <!-- Wait State -->
+  <ellipse cx="190" cy="180" rx="40" ry="15" fill="none" stroke="black" stroke-width="1"/>
+  <text x="190" y="185" text-anchor="middle" font-family="Arial" font-size="8">
+    WAIT STATE
+  </text>
+  
+  <!-- Error Handling -->
+  <polygon points="190,320 230,350 190,380 150,350" fill="none" stroke="black" stroke-width="2"/>
+  <text x="190" y="345" text-anchor="middle" font-family="Arial" font-size="8" font-weight="bold">
+    ERROR?
+  </text>
+  <text x="190" y="355" text-anchor="middle" font-family="Arial" font-size="8">
+    (4000)
+  </text>
+  
+  <polygon points="610,180 650,210 610,240 570,210" fill="none" stroke="black" stroke-width="2"/>
+  <text x="610" y="205" text-anchor="middle" font-family="Arial" font-size="8" font-weight="bold">
+    ERROR?
+  </text>
+  <text x="610" y="215" text-anchor="middle" font-family="Arial" font-size="8">
+    (4001)
+  </text>
+  
+  <!-- Main Flow Arrows -->
+  <path d="M 400 100 L 400 120" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 400 155 L 400 170" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Decision Branches -->
+  <path d="M 340 200 L 190 260" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="250" y="225" text-anchor="middle" font-family="Arial" font-size="8">NO</text>
+  
+  <path d="M 460 200 L 610 260" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="550" y="225" text-anchor="middle" font-family="Arial" font-size="8">YES</text>
+  
+  <!-- Queue to Optimization -->
+  <path d="M 190 295 L 190 320" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 230 350 L 320 350" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="275" y="345" text-anchor="middle" font-family="Arial" font-size="8">NO ERROR</text>
+  
+  <!-- Direct to Optimization -->
+  <path d="M 610 295 L 610 320" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 610 240 L 610 260" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="630" y="250" text-anchor="middle" font-family="Arial" font-size="8">NO ERROR</text>
+  
+  <!-- Sequential Flow -->
+  <path d="M 400 355 L 400 375" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 400 410 L 400 430" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 400 465 L 400 485" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Load Balancer Connection -->
+  <path d="M 240 390 L 320 390" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="2,2"/>
+  <text x="280" y="385" text-anchor="middle" font-family="Arial" font-size="8">Load Info</text>
+  
+  <!-- Auto-scaling Connection -->
+  <path d="M 480 390 L 560 390" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="2,2"/>
+  <text x="520" y="385" text-anchor="middle" font-family="Arial" font-size="8">Scale Info</text>
+  
+  <!-- Performance Feedback Loop -->
+  <path d="M 400 510 L 400 540 L 750 540 L 750 140 L 480 140" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  <text x="700" y="535" text-anchor="middle" font-family="Arial" font-size="8">Performance Feedback</text>
+  
+  <!-- Wait State Loop -->
+  <path d="M 190 165 L 190 140 L 140 140 L 140 260 L 190 260" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="2,2"/>
+  <text x="120" y="210" text-anchor="middle" font-family="Arial" font-size="8" transform="rotate(-90, 120, 210)">Wait Loop</text>
+  
+  <!-- Error Recovery -->
+  <path d="M 150 350 L 120 350 L 120 300 L 190 300" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  <text x="135" y="325" text-anchor="middle" font-family="Arial" font-size="8">Retry</text>
+  
+  <path d="M 570 210 L 540 210 L 540 300 L 610 300" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  <text x="555" y="255" text-anchor="middle" font-family="Arial" font-size="8">Retry</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+  </defs>
+  
+</svg>

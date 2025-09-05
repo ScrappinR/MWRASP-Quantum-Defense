@@ -1,0 +1,364 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FIGURE_4_STEGANOGRAPHIC_CHANNEL_INTEGRATION - Enhanced Scaling</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+            page-break-after: avoid;
+        }
+        
+        .controls button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: black;
+        }
+        
+        .container {
+            width: 7.5in;
+            height: 10in;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .svg-wrapper {
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+        }
+        
+        /* Scaling classes */
+        .scale-50 { transform: scale(0.5); }
+        .scale-60 { transform: scale(0.6); }
+        .scale-70 { transform: scale(0.7); }
+        .scale-75 { transform: scale(0.75); }
+        .scale-80 { transform: scale(0.8); }
+        .scale-85 { transform: scale(0.85); }
+        .scale-90 { transform: scale(0.9); }
+        .scale-95 { transform: scale(0.95); }
+        .scale-100 { transform: scale(1.0); }
+        
+        svg {
+            background: white !important;
+            display: block;
+        }
+        
+        .instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            font-size: 11pt;
+        }
+        
+        .instructions h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        @media print {
+            .controls, .instructions {
+                display: none !important;
+            }
+            
+            body {
+                margin: 0;
+                padding: 0.5in;
+            }
+            
+            .container {
+                border: none;
+                width: 7.5in;
+                height: 10in;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
+    <script>
+        function setScale(scale) {
+            const wrapper = document.querySelector('.svg-wrapper');
+            wrapper.className = 'svg-wrapper scale-' + scale;
+            
+            // Update button states
+            document.querySelectorAll('.scale-btn').forEach(btn => {
+                btn.style.backgroundColor = '#f0f0f0';
+            });
+            document.querySelector('[data-scale="' + scale + '"]').style.backgroundColor = '#007bff';
+            document.querySelector('[data-scale="' + scale + '"]').style.color = 'white';
+        }
+        
+        function fitToPage() {
+            const container = document.querySelector('.container');
+            const svg = document.querySelector('svg');
+            if (svg) {
+                const svgRect = svg.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                
+                const scaleX = (containerRect.width - 20) / svgRect.width;
+                const scaleY = (containerRect.height - 20) / svgRect.height;
+                const scale = Math.min(scaleX, scaleY, 1);
+                
+                const wrapper = document.querySelector('.svg-wrapper');
+                wrapper.style.transform = 'scale(' + scale + ')';
+            }
+        }
+        
+        window.onload = function() {
+            setScale('85'); // Default to 85%
+        };
+    </script>
+</head>
+<body>
+    <div class="controls">
+        <h2>Patent Figure Scaling Control</h2>
+        <p><strong>FIGURE_4_STEGANOGRAPHIC_CHANNEL_INTEGRATION</strong></p>
+        <div>
+            <button class="scale-btn" data-scale="50" onclick="setScale('50')">50%</button>
+            <button class="scale-btn" data-scale="60" onclick="setScale('60')">60%</button>
+            <button class="scale-btn" data-scale="70" onclick="setScale('70')">70%</button>
+            <button class="scale-btn" data-scale="75" onclick="setScale('75')">75%</button>
+            <button class="scale-btn" data-scale="80" onclick="setScale('80')">80%</button>
+            <button class="scale-btn" data-scale="85" onclick="setScale('85')">85%</button>
+            <button class="scale-btn" data-scale="90" onclick="setScale('90')">90%</button>
+            <button class="scale-btn" data-scale="95" onclick="setScale('95')">95%</button>
+            <button class="scale-btn" data-scale="100" onclick="setScale('100')">100%</button>
+            <button onclick="fitToPage()">Auto Fit</button>
+        </div>
+    </div>
+    
+    <div class="title">FIGURE 4 STEGANOGRAPHIC CHANNEL INTEGRATION</div>
+    
+    <div class="container">
+        <div class="svg-wrapper scale-85">
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="650" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .channel-box { fill: #e6f3ff; stroke: black; stroke-width: 2; }
+      .integrator-box { fill: #fff2e6; stroke: black; stroke-width: 2; }
+      .encoder-box { fill: #e6ffe6; stroke: black; stroke-width: 1; }
+      .detector-box { fill: #ffe6e6; stroke: black; stroke-width: 1; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .data-flow { stroke: blue; stroke-width: 2; fill: none; marker-end: url(#bluearrow); }
+      .steganographic-flow { stroke: purple; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+    </style>
+    <defs>
+      <marker id="bluearrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="blue" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 4: STEGANOGRAPHIC CHANNEL INTEGRATION SYSTEM</text>
+  
+  <!-- Message Input Layer -->
+  <rect x="100" y="50" width="600" height="50" class="module-box"/>
+  <text x="400" y="70" class="label-text">COVERT MESSAGE PROCESSING LAYER</text>
+  <text x="400" y="85" class="small-text">• Message Segmentation • Channel Assignment • Encoding Coordination</text>
+  
+  <!-- Steganographic Channels -->
+  <rect x="50" y="130" width="140" height="100" class="channel-box"/>
+  <text x="120" y="155" class="label-text">MEMORY PATTERN</text>
+  <text x="120" y="170" class="label-text">CHANNEL</text>
+  <text x="120" y="195" class="tiny-text">• Allocation Timing</text>
+  <text x="120" y="210" class="tiny-text">• GC Pattern Control</text>
+  <text x="120" y="225" class="tiny-text">Bandwidth: 2 bps</text>
+  
+  <rect x="210" y="130" width="140" height="100" class="channel-box"/>
+  <text x="280" y="155" class="label-text">ALGORITHMIC</text>
+  <text x="280" y="170" class="label-text">CHANNEL</text>
+  <text x="280" y="195" class="tiny-text">• Crypto Selection</text>
+  <text x="280" y="210" class="tiny-text">• Algorithm Choice</text>
+  <text x="280" y="225" class="tiny-text">Bandwidth: 1.5 bps</text>
+  
+  <rect x="370" y="130" width="140" height="100" class="channel-box"/>
+  <text x="440" y="155" class="label-text">TEMPORAL</text>
+  <text x="440" y="170" class="label-text">CHANNEL</text>
+  <text x="440" y="195" class="tiny-text">• Response Timing</text>
+  <text x="440" y="210" class="tiny-text">• Processing Delays</text>
+  <text x="440" y="225" class="tiny-text">Bandwidth: 3 bps</text>
+  
+  <rect x="530" y="130" width="140" height="100" class="channel-box"/>
+  <text x="600" y="155" class="label-text">RESOURCE</text>
+  <text x="600" y="170" class="label-text">CHANNEL</text>
+  <text x="600" y="195" class="tiny-text">• CPU Utilization</text>
+  <text x="600" y="210" class="tiny-text">• Memory Usage</text>
+  <text x="600" y="225" class="tiny-text">Bandwidth: 1 bps</text>
+  
+  <!-- Channel Encoders -->
+  <rect x="50" y="260" width="140" height="70" class="encoder-box"/>
+  <text x="120" y="285" class="label-text">MEMORY</text>
+  <text x="120" y="300" class="label-text">ENCODER</text>
+  <text x="120" y="320" class="tiny-text">Bit Rate: 2.0 bps</text>
+  
+  <rect x="210" y="260" width="140" height="70" class="encoder-box"/>
+  <text x="280" y="285" class="label-text">ALGORITHM</text>
+  <text x="280" y="300" class="label-text">ENCODER</text>
+  <text x="280" y="320" class="tiny-text">Bit Rate: 1.5 bps</text>
+  
+  <rect x="370" y="260" width="140" height="70" class="encoder-box"/>
+  <text x="440" y="285" class="label-text">TEMPORAL</text>
+  <text x="440" y="300" class="label-text">ENCODER</text>
+  <text x="440" y="320" class="tiny-text">Bit Rate: 3.0 bps</text>
+  
+  <rect x="530" y="260" width="140" height="70" class="encoder-box"/>
+  <text x="600" y="285" class="label-text">RESOURCE</text>
+  <text x="600" y="300" class="label-text">ENCODER</text>
+  <text x="600" y="320" class="tiny-text">Bit Rate: 1.0 bps</text>
+  
+  <!-- Channel Integration Engine -->
+  <rect x="200" y="360" width="400" height="100" class="integrator-box"/>
+  <text x="400" y="385" class="label-text">MULTI-CHANNEL INTEGRATION ENGINE</text>
+  <text x="400" y="405" class="small-text">• Channel Multiplexing • Bandwidth Optimization • Error Correction</text>
+  <text x="400" y="420" class="small-text">• Synchronization Control • Adaptive Channel Selection</text>
+  <text x="400" y="435" class="small-text">• Quality of Service Management • Reliability Assurance</text>
+  <text x="400" y="450" class="small-text">Combined Bandwidth: 7.5 bps | Effective Rate: 5.6 bps</text>
+  
+  <!-- Detection Resistance Measures -->
+  <rect x="50" y="480" width="150" height="80" class="detector-box"/>
+  <text x="125" y="505" class="label-text">STATISTICAL</text>
+  <text x="125" y="520" class="label-text">ANALYSIS RESISTANCE</text>
+  <text x="125" y="540" class="tiny-text">• Chi-Square Masking</text>
+  <text x="125" y="555" class="tiny-text">• KS Test Evasion</text>
+  
+  <rect x="220" y="480" width="150" height="80" class="detector-box"/>
+  <text x="295" y="505" class="label-text">MACHINE LEARNING</text>
+  <text x="295" y="520" class="label-text">COUNTERMEASURES</text>
+  <text x="295" y="540" class="tiny-text">• Pattern Randomization</text>
+  <text x="295" y="555" class="tiny-text">• Adversarial Defense</text>
+  
+  <rect x="390" y="480" width="150" height="80" class="detector-box"/>
+  <text x="465" y="505" class="label-text">BEHAVIORAL</text>
+  <text x="465" y="520" class="label-text">CAMOUFLAGE</text>
+  <text x="465" y="540" class="tiny-text">• Normal Variance</text>
+  <text x="465" y="555" class="tiny-text">• Natural Patterns</text>
+  
+  <rect x="560" y="480" width="150" height="80" class="detector-box"/>
+  <text x="635" y="505" class="label-text">PLAUSIBLE</text>
+  <text x="635" y="520" class="label-text">DENIABILITY</text>
+  <text x="635" y="540" class="tiny-text">• Legitimate Causes</text>
+  <text x="635" y="555" class="tiny-text">• Alternative Explanations</text>
+  
+  <!-- Output Layer -->
+  <rect x="250" y="590" width="300" height="50" class="module-box"/>
+  <text x="400" y="610" class="label-text">COVERT MESSAGE TRANSMISSION</text>
+  <text x="400" y="625" class="small-text">• Multi-Channel Output • Synchronized Delivery • Error Recovery</text>
+  
+  <!-- Flow Lines -->
+  <!-- Input to Channels -->
+  <line x1="250" y1="100" x2="120" y2="130" class="data-flow"/>
+  <line x1="350" y1="100" x2="280" y2="130" class="data-flow"/>
+  <line x1="450" y1="100" x2="440" y2="130" class="data-flow"/>
+  <line x1="550" y1="100" x2="600" y2="130" class="data-flow"/>
+  
+  <!-- Channels to Encoders -->
+  <line x1="120" y1="230" x2="120" y2="260" class="steganographic-flow"/>
+  <line x1="280" y1="230" x2="280" y2="260" class="steganographic-flow"/>
+  <line x1="440" y1="230" x2="440" y2="260" class="steganographic-flow"/>
+  <line x1="600" y1="230" x2="600" y2="260" class="steganographic-flow"/>
+  
+  <!-- Encoders to Integration Engine -->
+  <line x1="120" y1="330" x2="250" y2="360" class="data-flow"/>
+  <line x1="280" y1="330" x2="350" y2="360" class="data-flow"/>
+  <line x1="440" y1="330" x2="450" y2="360" class="data-flow"/>
+  <line x1="600" y1="330" x2="550" y2="360" class="data-flow"/>
+  
+  <!-- Integration Engine to Detection Resistance -->
+  <line x1="300" y1="460" x2="125" y2="480" class="connection-line"/>
+  <line x1="350" y1="460" x2="295" y2="480" class="connection-line"/>
+  <line x1="450" y1="460" x2="465" y2="480" class="connection-line"/>
+  <line x1="500" y1="460" x2="635" y2="480" class="connection-line"/>
+  
+  <!-- Integration Engine to Output -->
+  <line x1="400" y1="460" x2="400" y2="590" class="data-flow"/>
+  
+  <!-- Quality Monitoring -->
+  <rect x="680" y="130" width="100" height="100" class="integrator-box"/>
+  <text x="730" y="155" class="label-text">QUALITY</text>
+  <text x="730" y="170" class="label-text">MONITOR</text>
+  <text x="730" y="195" class="tiny-text">SNR: 12.5 dB</text>
+  <text x="730" y="210" class="tiny-text">BER: 10^-6</text>
+  <text x="730" y="225" class="tiny-text">Detection: 0.02%</text>
+  
+  <!-- Channel Coordination -->
+  <rect x="680" y="250" width="100" height="100" class="integrator-box"/>
+  <text x="730" y="275" class="label-text">CHANNEL</text>
+  <text x="730" y="290" class="label-text">COORDINATOR</text>
+  <text x="730" y="315" class="tiny-text">Load Balancing</text>
+  <text x="730" y="330" class="tiny-text">Fault Recovery</text>
+  <text x="730" y="345" class="tiny-text">Synchronization</text>
+  
+  <!-- Coordination Lines -->
+  <line x1="680" y1="180" x2="600" y2="360" class="connection-line" stroke-dasharray="3,3"/>
+  <line x1="680" y1="300" x2="600" y2="400" class="connection-line" stroke-dasharray="3,3"/>
+  
+  <!-- Performance Indicators -->
+  <text x="30" y="180" class="tiny-text">Ch1: Active</text>
+  <text x="30" y="195" class="tiny-text">Load: 85%</text>
+  
+  <text x="30" y="280" class="tiny-text">Ch2: Standby</text>
+  <text x="30" y="295" class="tiny-text">Load: 23%</text>
+  
+  <text x="30" y="380" class="tiny-text">Ch3: Active</text>
+  <text x="30" y="395" class="tiny-text">Load: 92%</text>
+  
+  <text x="30" y="480" class="tiny-text">Ch4: Backup</text>
+  <text x="30" y="495" class="tiny-text">Load: 0%</text>
+  
+</svg>
+        </div>
+    </div>
+    
+    <div class="instructions">
+        <h3>Instructions for PDF Conversion:</h3>
+        <ol>
+            <li>Click scale buttons above to find the best fit (try 75-85% first)</li>
+            <li>Ensure the entire diagram is visible within the border</li>
+            <li>Press <strong>Ctrl+P</strong> to print</li>
+            <li>Select "Save as PDF" or "Microsoft Print to PDF"</li>
+            <li>Settings: Paper=Letter, Margins=Default, Background graphics=ON</li>
+            <li>Save as: <strong>FIGURE_4_STEGANOGRAPHIC_CHANNEL_INTEGRATION.pdf</strong></li>
+        </ol>
+        <p><strong>Quality Check:</strong> Verify all text is readable and no parts are cut off in the PDF.</p>
+    </div>
+</body>
+</html>

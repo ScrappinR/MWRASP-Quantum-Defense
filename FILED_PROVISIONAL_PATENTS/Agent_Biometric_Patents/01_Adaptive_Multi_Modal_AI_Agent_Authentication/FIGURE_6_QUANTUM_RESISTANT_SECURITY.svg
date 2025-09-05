@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2550" height="3300" viewBox="0 0 2550 3300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 36px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 28px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 22px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 18px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 4; }
+      .sub-module { fill: lightgray; stroke: black; stroke-width: 2; }
+      .connection-line { stroke: black; stroke-width: 2; fill: none; }
+      .decision-diamond { fill: white; stroke: black; stroke-width: 4; }
+      .process-flow { stroke: black; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+      .assessment-box { fill: #f0f0f0; stroke: black; stroke-width: 2; }
+      .data-flow { stroke: black; stroke-width: 2; fill: none; stroke-dasharray: 10,10; }
+      .input-box { fill: lightgray; stroke: black; stroke-width: 2; }
+      .output-box { fill: white; stroke: black; stroke-width: 4; }
+    </style>
+    <marker id="arrowhead" markerWidth="20" markerHeight="14" refX="20" refY="7" orient="auto">
+      <polygon points="0 0, 20 7, 0 14" fill="black" />
+    </marker>
+  </defs>
+  
+  <!-- Optimally scaled and centered content -->
+  <g transform="scale(2.5) translate(250, 200)">
+    </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 6: QUANTUM-RESISTANT AUTHENTICATION SECURITY LAYER</text>
+  
+  <!-- Quantum Threat Assessment -->
+  <rect x="50" y="50" width="700" height="60" class="security-box"/>
+  <text x="400" y="75" class="label-text">QUANTUM COMPUTING THREAT ASSESSMENT AND MITIGATION LAYER</text>
+  <text x="400" y="95" class="small-text">â€¢ Post-Quantum Cryptography â€¢ Quantum-Safe Protocols â€¢ Future-Proof Security Architecture</text>
+  
+  <!-- Post-Quantum Cryptographic Algorithms -->
+  <rect x="50" y="140" width="150" height="100" class="crypto-box"/>
+  <text x="125" y="165" class="label-text">LATTICE-BASED</text>
+  <text x="125" y="180" class="label-text">CRYPTOGRAPHY</text>
+  <text x="125" y="205" class="tiny-text">â€¢ KYBER Key Exchange</text>
+  <text x="125" y="220" class="tiny-text">â€¢ DILITHIUM Signatures</text>
+  <text x="125" y="235" class="tiny-text">Security Level: 256-bit</text>
+  
+  <rect x="220" y="140" width="150" height="100" class="crypto-box"/>
+  <text x="295" y="165" class="label-text">HASH-BASED</text>
+  <text x="295" y="180" class="label-text">SIGNATURES</text>
+  <text x="295" y="205" class="tiny-text">â€¢ XMSS Multi-Signatures</text>
+  <text x="295" y="220" class="tiny-text">â€¢ SPHINCS+ Stateless</text>
+  <text x="295" y="235" class="tiny-text">Security Level: 256-bit</text>
+  
+  <rect x="390" y="140" width="150" height="100" class="crypto-box"/>
+  <text x="465" y="165" class="label-text">CODE-BASED</text>
+  <text x="465" y="180" class="label-text">CRYPTOGRAPHY</text>
+  <text x="465" y="205" class="tiny-text">â€¢ McEliece PKE</text>
+  <text x="465" y="220" class="tiny-text">â€¢ BIKE Key Exchange</text>
+  <text x="465" y="235" class="tiny-text">Security Level: 256-bit</text>
+  
+  <rect x="560" y="140" width="150" height="100" class="crypto-box"/>
+  <text x="635" y="165" class="label-text">ISOGENY-BASED</text>
+  <text x="635" y="180" class="label-text">CRYPTOGRAPHY</text>
+  <text x="635" y="205" class="tiny-text">â€¢ SIKE Key Exchange</text>
+  <text x="635" y="220" class="tiny-text">â€¢ CSIDH Protocols</text>
+  <text x="635" y="235" class="tiny-text">Security Level: 256-bit</text>
+  
+  <!-- Quantum-Safe Protocol Layer -->
+  <rect x="100" y="270" width="600" height="100" class="quantum-box"/>
+  <text x="400" y="295" class="label-text">QUANTUM-SAFE AUTHENTICATION PROTOCOL ENGINE</text>
+  <text x="400" y="315" class="small-text">â€¢ Hybrid Classical-Quantum Security â€¢ Algorithm Agility â€¢ Forward Secrecy</text>
+  <text x="400" y="330" class="small-text">â€¢ Quantum Random Number Generation â€¢ Entropy Pool Management</text>
+  <text x="400" y="345" class="small-text">â€¢ Multi-Algorithm Redundancy â€¢ Cryptographic Diversity</text>
+  <text x="400" y="360" class="small-text">â€¢ Performance Optimization â€¢ Hardware Acceleration Support</text>
+  
+  <!-- Security Protocols -->
+  <rect x="50" y="390" width="140" height="80" class="protocol-box"/>
+  <text x="120" y="415" class="label-text">KEY EXCHANGE</text>
+  <text x="120" y="430" class="label-text">PROTOCOLS</text>
+  <text x="120" y="450" class="tiny-text">â€¢ Post-Quantum TLS 1.3</text>
+  <text x="120" y="465" class="tiny-text">â€¢ Quantum-Safe ECDHE</text>
+  
+  <rect x="210" y="390" width="140" height="80" class="protocol-box"/>
+  <text x="280" y="415" class="label-text">AUTHENTICATION</text>
+  <text x="280" y="430" class="label-text">PROTOCOLS</text>
+  <text x="280" y="450" class="tiny-text">â€¢ Quantum-Safe OAuth</text>
+  <text x="280" y="465" class="tiny-text">â€¢ PQ-SAML Assertions</text>
+  
+  <rect x="370" y="390" width="140" height="80" class="protocol-box"/>
+  <text x="440" y="415" class="label-text">SIGNATURE</text>
+  <text x="440" y="430" class="label-text">VERIFICATION</text>
+  <text x="440" y="450" class="tiny-text">â€¢ Multi-Signature Schemes</text>
+  <text x="440" y="465" class="tiny-text">â€¢ Aggregate Signatures</text>
+  
+  <rect x="530" y="390" width="140" height="80" class="protocol-box"/>
+  <text x="600" y="415" class="label-text">SECURE</text>
+  <text x="600" y="430" class="label-text">CHANNELS</text>
+  <text x="600" y="450" class="tiny-text">â€¢ Quantum Key Distribution</text>
+  <text x="600" y="465" class="tiny-text">â€¢ Quantum-Safe VPN</text>
+  
+  <!-- Hybrid Security Architecture -->
+  <rect x="50" y="490" width="200" height="80" class="security-box"/>
+  <text x="150" y="515" class="label-text">CLASSICAL SECURITY</text>
+  <text x="150" y="530" class="label-text">BACKUP LAYER</text>
+  <text x="150" y="550" class="tiny-text">â€¢ RSA-4096 Fallback</text>
+  <text x="150" y="565" class="tiny-text">â€¢ AES-256 Encryption</text>
+  
+  <rect x="270" y="490" width="200" height="80" class="quantum-box"/>
+  <text x="370" y="515" class="label-text">QUANTUM-SAFE</text>
+  <text x="370" y="530" class="label-text">PRIMARY LAYER</text>
+  <text x="370" y="550" class="tiny-text">â€¢ Post-Quantum Algorithms</text>
+  <text x="370" y="565" class="tiny-text">â€¢ Quantum Entropy Sources</text>
+  
+  <rect x="490" y="490" width="200" height="80" class="crypto-box"/>
+  <text x="590" y="515" class="label-text">FUTURE-ADAPTIVE</text>
+  <text x="590" y="530" class="label-text">UPGRADE LAYER</text>
+  <text x="590" y="550" class="tiny-text">â€¢ Algorithm Agility</text>
+  <text x="590" y="565" class="tiny-text">â€¢ Hot-Swappable Crypto</text>
+  
+  <!-- Quantum Threat Monitoring -->
+  <rect x="250" y="590" width="300" height="50" class="security-box"/>
+  <text x="400" y="610" class="label-text">QUANTUM THREAT MONITORING SYSTEM</text>
+  <text x="400" y="625" class="small-text">â€¢ Quantum Computing Progress Tracking â€¢ Security Assessment Updates</text>
+  
+  <!-- Flow Lines -->
+  <!-- Threat Assessment to Crypto Algorithms -->
+  <line x1="200" y1="110" x2="125" y2="140" class="secure-line"/>
+  <line x1="350" y1="110" x2="295" y2="140" class="secure-line"/>
+  <line x1="450" y1="110" x2="465" y2="140" class="secure-line"/>
+  <line x1="600" y1="110" x2="635" y2="140" class="secure-line"/>
+  
+  <!-- Crypto Algorithms to Protocol Engine -->
+  <line x1="125" y1="240" x2="200" y2="270" class="data-flow"/>
+  <line x1="295" y1="240" x2="350" y2="270" class="data-flow"/>
+  <line x1="465" y1="240" x2="450" y2="270" class="data-flow"/>
+  <line x1="635" y1="240" x2="600" y2="270" class="data-flow"/>
+  
+  <!-- Protocol Engine to Security Protocols -->
+  <line x1="250" y1="370" x2="120" y2="390" class="data-flow"/>
+  <line x1="350" y1="370" x2="280" y2="390" class="data-flow"/>
+  <line x1="450" y1="370" x2="440" y2="390" class="data-flow"/>
+  <line x1="550" y1="370" x2="600" y2="390" class="data-flow"/>
+  
+  <!-- Security Protocols to Hybrid Architecture -->
+  <line x1="120" y1="470" x2="150" y2="490" class="data-flow"/>
+  <line x1="280" y1="470" x2="370" y2="490" class="data-flow"/>
+  <line x1="440" y1="470" x2="370" y2="490" class="data-flow"/>
+  <line x1="600" y1="470" x2="590" y2="490" class="data-flow"/>
+  
+  <!-- Hybrid Architecture to Monitoring -->
+  <line x1="150" y1="570" x2="300" y2="590" class="connection-line"/>
+  <line x1="370" y1="570" x2="400" y2="590" class="connection-line"/>
+  <line x1="590" y1="570" x2="500" y2="590" class="connection-line"/>
+  
+  <!-- Security Level Indicators -->
+  <circle cx="30" cy="190" r="8" fill="red"/>
+  <text x="20" y="210" class="tiny-text">HIGH</text>
+  
+  <circle cx="30" cy="320" r="8" fill="orange"/>
+  <text x="20" y="340" class="tiny-text">MED</text>
+  
+  <circle cx="30" cy="430" r="8" fill="green"/>
+  <text x="20" cy="450" class="tiny-text">SAFE</text>
+  
+  <circle cx="30" cy="530" r="8" fill="blue"/>
+  <text x="20" y="550" class="tiny-text">FUTURE</text>
+  
+  <!-- Algorithm Status -->
+  <text x="720" y="165" class="tiny-text">Status: Active</text>
+  <text x="720" y="180" class="tiny-text">Performance: 98%</text>
+  <text x="720" y="195" class="tiny-text">Security: Quantum-Safe</text>
+  <text x="720" y="210" class="tiny-text">Last Update: 2024-12</text>
+  
+</g>
+  </g>
+  
+</svg>
+

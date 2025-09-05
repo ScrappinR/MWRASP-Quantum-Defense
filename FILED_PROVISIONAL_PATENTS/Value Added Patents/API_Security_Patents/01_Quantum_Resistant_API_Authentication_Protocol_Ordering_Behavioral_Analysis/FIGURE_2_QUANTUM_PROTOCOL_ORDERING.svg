@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .process-flow { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .kyber-process { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .dilithium-process { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .sphincs-process { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .optimization { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 2: Quantum-Resistant Protocol Ordering Process</text>
+  
+  <!-- Initial Analysis -->
+  <rect x="50" y="80" width="200" height="100" class="process-flow"/>
+  <text x="150" y="110" class="system-text">Protocol Analysis</text>
+  <text x="150" y="130" class="component-text">• Security Requirements</text>
+  <text x="150" y="145" class="component-text">• Performance Constraints</text>
+  <text x="150" y="160" class="component-text">• Behavioral Factors</text>
+  <text x="150" y="175" class="component-text">• Threat Assessment</text>
+  
+  <!-- CRYSTALS-Kyber KEM -->
+  <rect x="300" y="60" width="250" height="140" class="kyber-process"/>
+  <text x="425" y="85" class="system-text">CRYSTALS-Kyber</text>
+  <text x="425" y="100" class="system-text">Key Encapsulation</text>
+  <text x="425" y="125" class="component-text">Key Generation:</text>
+  <text x="425" y="140" class="detail-text">• Generate public/private key pair</text>
+  <text x="425" y="152" class="detail-text">• Lattice-based parameters</text>
+  <text x="425" y="164" class="detail-text">• Quantum-resistant security</text>
+  <text x="425" y="180" class="component-text">Encapsulation:</text>
+  <text x="425" y="192" class="detail-text">• Shared secret generation</text>
+  
+  <!-- CRYSTALS-Dilithium Signatures -->
+  <rect x="600" y="60" width="250" height="140" class="dilithium-process"/>
+  <text x="725" y="85" class="system-text">CRYSTALS-Dilithium</text>
+  <text x="725" y="100" class="system-text">Digital Signatures</text>
+  <text x="725" y="125" class="component-text">Signature Generation:</text>
+  <text x="725" y="140" class="detail-text">• Message authentication</text>
+  <text x="725" y="152" class="detail-text">• Non-repudiation</text>
+  <text x="725" y="164" class="detail-text">• Lattice-based security</text>
+  <text x="725" y="180" class="component-text">Verification:</text>
+  <text x="725" y="192" class="detail-text">• Signature validation</text>
+  
+  <!-- SPHINCS+ Stateless Signatures -->
+  <rect x="900" y="60" width="250" height="140" class="sphincs-process"/>
+  <text x="1025" y="85" class="system-text">SPHINCS+</text>
+  <text x="1025" y="100" class="system-text">Stateless Signatures</text>
+  <text x="1025" y="125" class="component-text">Hash-based Security:</text>
+  <text x="1025" y="140" class="detail-text">• One-time signatures</text>
+  <text x="1025" y="152" class="detail-text">• Forward security</text>
+  <text x="1025" y="164" class="detail-text">• Conservative security</text>
+  <text x="1025" y="180" class="component-text">Stateless Operation:</text>
+  <text x="1025" y="192" class="detail-text">• No state management</text>
+  
+  <!-- Protocol Ordering Optimization -->
+  <rect x="300" y="250" width="600" height="120" class="optimization"/>
+  <text x="600" y="280" class="system-text">Protocol Ordering Optimization</text>
+  <text x="450" y="305" class="component-text">Sequential Ordering:</text>
+  <text x="450" y="320" class="detail-text">1. Kyber Key Exchange</text>
+  <text x="450" y="332" class="detail-text">2. Dilithium Authentication</text>
+  <text x="450" y="344" class="detail-text">3. SPHINCS+ Long-term</text>
+  <text x="450" y="356" class="detail-text">4. Performance Optimization</text>
+  
+  <text x="750" y="305" class="component-text">Parallel Processing:</text>
+  <text x="750" y="320" class="detail-text">• Concurrent operations</text>
+  <text x="750" y="332" class="detail-text">• Latency reduction</text>
+  <text x="750" y="344" class="detail-text">• Resource optimization</text>
+  <text x="750" y="356" class="detail-text">• Load balancing</text>
+  
+  <!-- Security Level Assessment -->
+  <rect x="50" y="400" width="300" height="120" class="process-flow"/>
+  <text x="200" y="430" class="system-text">Security Level Assessment</text>
+  <text x="200" y="455" class="component-text">Quantum Resistance:</text>
+  <text x="200" y="470" class="detail-text">• 256-bit equivalent security</text>
+  <text x="200" y="482" class="detail-text">• NIST standardized algorithms</text>
+  <text x="200" y="494" class="detail-text">• Long-term security guarantee</text>
+  <text x="200" y="506" class="detail-text">• Cryptographic agility support</text>
+  
+  <!-- Performance Metrics -->
+  <rect x="400" y="400" width="300" height="120" class="kyber-process"/>
+  <text x="550" y="430" class="system-text">Performance Metrics</text>
+  <text x="550" y="455" class="component-text">Timing Analysis:</text>
+  <text x="550" y="470" class="detail-text">• Key generation: ~1ms</text>
+  <text x="550" y="482" class="detail-text">• Signature creation: ~2ms</text>
+  <text x="550" y="494" class="detail-text">• Verification: ~1ms</text>
+  <text x="550" y="506" class="detail-text">• Total overhead: ~4ms</text>
+  
+  <!-- Integration Output -->
+  <rect x="750" y="400" width="300" height="120" class="dilithium-process"/>
+  <text x="900" y="430" class="system-text">Integration Output</text>
+  <text x="900" y="455" class="component-text">Protocol Bundle:</text>
+  <text x="900" y="470" class="detail-text">• Optimized ordering</text>
+  <text x="900" y="482" class="detail-text">• Performance tuning</text>
+  <text x="900" y="494" class="detail-text">• Security validation</text>
+  <text x="900" y="506" class="detail-text">• Integration metadata</text>
+  
+  <!-- Connection Lines -->
+  <line x1="250" y1="130" x2="300" y2="130" class="arrow"/>
+  <line x1="550" y1="130" x2="600" y2="130" class="arrow"/>
+  <line x1="850" y1="130" x2="900" y2="130" class="arrow"/>
+  
+  <line x1="425" y1="200" x2="450" y2="250" class="arrow"/>
+  <line x1="725" y1="200" x2="650" y2="250" class="arrow"/>
+  <line x1="1025" y1="200" x2="750" y2="250" class="arrow"/>
+  
+  <line x1="450" y1="370" x2="200" y2="400" class="arrow"/>
+  <line x1="600" y1="370" x2="550" y2="400" class="arrow"/>
+  <line x1="750" y1="370" x2="900" y2="400" class="arrow"/>
+  
+  <!-- Algorithm Details -->
+  <rect x="50" y="560" width="1100" height="200" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="585" class="system-text">Quantum-Resistant Algorithm Specifications</text>
+  
+  <!-- Kyber Details -->
+  <rect x="80" y="610" width="320" height="120" class="kyber-process"/>
+  <text x="240" y="635" class="system-text">CRYSTALS-Kyber Details</text>
+  <text x="240" y="655" class="component-text">Parameter Sets:</text>
+  <text x="240" y="670" class="detail-text">• Kyber512: NIST Level 1</text>
+  <text x="240" y="682" class="detail-text">• Kyber768: NIST Level 3</text>
+  <text x="240" y="694" class="detail-text">• Kyber1024: NIST Level 5</text>
+  <text x="240" y="710" class="component-text">Key Sizes:</text>
+  <text x="240" y="722" class="detail-text">Public: 800-1568 bytes</text>
+  
+  <!-- Dilithium Details -->
+  <rect x="440" y="610" width="320" height="120" class="dilithium-process"/>
+  <text x="600" y="635" class="system-text">CRYSTALS-Dilithium Details</text>
+  <text x="600" y="655" class="component-text">Parameter Sets:</text>
+  <text x="600" y="670" class="detail-text">• Dilithium2: NIST Level 2</text>
+  <text x="600" y="682" class="detail-text">• Dilithium3: NIST Level 3</text>
+  <text x="600" y="694" class="detail-text">• Dilithium5: NIST Level 5</text>
+  <text x="600" y="710" class="component-text">Signature Sizes:</text>
+  <text x="600" y="722" class="detail-text">2420-4595 bytes</text>
+  
+  <!-- SPHINCS+ Details -->
+  <rect x="800" y="610" width="320" height="120" class="sphincs-process"/>
+  <text x="960" y="635" class="system-text">SPHINCS+ Details</text>
+  <text x="960" y="655" class="component-text">Parameter Sets:</text>
+  <text x="960" y="670" class="detail-text">• SPHINCS+-128s/f/simple</text>
+  <text x="960" y="682" class="detail-text">• SPHINCS+-192s/f/simple</text>
+  <text x="960" y="694" class="detail-text">• SPHINCS+-256s/f/simple</text>
+  <text x="960" y="710" class="component-text">Signature Sizes:</text>
+  <text x="960" y="722" class="detail-text">7856-49856 bytes</text>
+  
+  <!-- Flow Labels -->
+  <text x="275" y="120" class="detail-text">Key Exchange</text>
+  <text x="575" y="120" class="detail-text">Authentication</text>
+  <text x="875" y="120" class="detail-text">Long-term Security</text>
+  
+  <text x="390" y="225" class="detail-text">Optimization</text>
+  <text x="675" y="225" class="detail-text">Integration</text>
+  <text x="875" y="225" class="detail-text">Validation</text>
+
+</svg>

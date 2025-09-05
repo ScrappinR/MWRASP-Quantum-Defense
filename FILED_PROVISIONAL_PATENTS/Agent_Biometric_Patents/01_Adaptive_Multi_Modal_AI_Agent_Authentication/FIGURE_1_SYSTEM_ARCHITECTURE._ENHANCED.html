@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FIGURE_1_SYSTEM_ARCHITECTURE - Enhanced Scaling</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 0.5in;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .controls {
+            text-align: center;
+            margin-bottom: 20px;
+            page-break-after: avoid;
+        }
+        
+        .controls button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: black;
+        }
+        
+        .container {
+            width: 7.5in;
+            height: 10in;
+            margin: 0 auto;
+            background: white;
+            border: 2px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .svg-wrapper {
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+        }
+        
+        /* Scaling classes */
+        .scale-50 { transform: scale(0.5); }
+        .scale-60 { transform: scale(0.6); }
+        .scale-70 { transform: scale(0.7); }
+        .scale-75 { transform: scale(0.75); }
+        .scale-80 { transform: scale(0.8); }
+        .scale-85 { transform: scale(0.85); }
+        .scale-90 { transform: scale(0.9); }
+        .scale-95 { transform: scale(0.95); }
+        .scale-100 { transform: scale(1.0); }
+        
+        svg {
+            background: white !important;
+            display: block;
+        }
+        
+        .instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 5px;
+            font-size: 11pt;
+        }
+        
+        .instructions h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        @media print {
+            .controls, .instructions {
+                display: none !important;
+            }
+            
+            body {
+                margin: 0;
+                padding: 0.5in;
+            }
+            
+            .container {
+                border: none;
+                width: 7.5in;
+                height: 10in;
+            }
+            
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+    </style>
+    <script>
+        function setScale(scale) {
+            const wrapper = document.querySelector('.svg-wrapper');
+            wrapper.className = 'svg-wrapper scale-' + scale;
+            
+            // Update button states
+            document.querySelectorAll('.scale-btn').forEach(btn => {
+                btn.style.backgroundColor = '#f0f0f0';
+            });
+            document.querySelector('[data-scale="' + scale + '"]').style.backgroundColor = '#007bff';
+            document.querySelector('[data-scale="' + scale + '"]').style.color = 'white';
+        }
+        
+        function fitToPage() {
+            const container = document.querySelector('.container');
+            const svg = document.querySelector('svg');
+            if (svg) {
+                const svgRect = svg.getBoundingClientRect();
+                const containerRect = container.getBoundingClientRect();
+                
+                const scaleX = (containerRect.width - 20) / svgRect.width;
+                const scaleY = (containerRect.height - 20) / svgRect.height;
+                const scale = Math.min(scaleX, scaleY, 1);
+                
+                const wrapper = document.querySelector('.svg-wrapper');
+                wrapper.style.transform = 'scale(' + scale + ')';
+            }
+        }
+        
+        window.onload = function() {
+            setScale('85'); // Default to 85%
+        };
+    </script>
+</head>
+<body>
+    <div class="controls">
+        <h2>Patent Figure Scaling Control</h2>
+        <p><strong>FIGURE_1_SYSTEM_ARCHITECTURE</strong></p>
+        <div>
+            <button class="scale-btn" data-scale="50" onclick="setScale('50')">50%</button>
+            <button class="scale-btn" data-scale="60" onclick="setScale('60')">60%</button>
+            <button class="scale-btn" data-scale="70" onclick="setScale('70')">70%</button>
+            <button class="scale-btn" data-scale="75" onclick="setScale('75')">75%</button>
+            <button class="scale-btn" data-scale="80" onclick="setScale('80')">80%</button>
+            <button class="scale-btn" data-scale="85" onclick="setScale('85')">85%</button>
+            <button class="scale-btn" data-scale="90" onclick="setScale('90')">90%</button>
+            <button class="scale-btn" data-scale="95" onclick="setScale('95')">95%</button>
+            <button class="scale-btn" data-scale="100" onclick="setScale('100')">100%</button>
+            <button onclick="fitToPage()">Auto Fit</button>
+        </div>
+    </div>
+    
+    <div class="title">FIGURE 1 SYSTEM ARCHITECTURE</div>
+    
+    <div class="container">
+        <div class="svg-wrapper scale-85">
+            <?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .data-flow { stroke: black; stroke-width: 1; fill: none; stroke-dasharray: 5,5; }
+      .input-box { fill: lightgray; stroke: black; stroke-width: 1; }
+      .output-box { fill: white; stroke: black; stroke-width: 2; }
+    </style>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 1: ADAPTIVE MULTI-MODAL AI AGENT AUTHENTICATION SYSTEM ARCHITECTURE</text>
+  
+  <!-- Master Authentication Orchestrator -->
+  <rect x="300" y="50" width="200" height="60" class="module-box"/>
+  <text x="400" y="75" class="label-text">MASTER AUTHENTICATION</text>
+  <text x="400" y="90" class="label-text">ORCHESTRATOR</text>
+  
+  <!-- Core Engine Components -->
+  
+  <!-- Contextual Authentication Engine -->
+  <rect x="50" y="150" width="140" height="80" class="module-box"/>
+  <text x="120" y="175" class="label-text">CONTEXTUAL</text>
+  <text x="120" y="190" class="label-text">AUTHENTICATION</text>
+  <text x="120" y="205" class="label-text">ENGINE</text>
+  <text x="120" y="220" class="small-text">• Network Trust Assessment</text>
+  
+  <!-- Partner-Specific Engine -->
+  <rect x="210" y="150" width="140" height="80" class="module-box"/>
+  <text x="280" y="175" class="label-text">PARTNER-SPECIFIC</text>
+  <text x="280" y="190" class="label-text">AUTHENTICATION</text>
+  <text x="280" y="205" class="label-text">ENGINE</text>
+  <text x="280" y="220" class="small-text">• Relationship Modeling</text>
+  
+  <!-- Self-Evolving Template System -->
+  <rect x="370" y="150" width="140" height="80" class="module-box"/>
+  <text x="440" y="175" class="label-text">SELF-EVOLVING</text>
+  <text x="440" y="190" class="label-text">BIOMETRIC TEMPLATE</text>
+  <text x="440" y="205" class="label-text">SYSTEM</text>
+  <text x="440" y="220" class="small-text">• Behavioral Evolution</text>
+  
+  <!-- Multi-Modal Fusion Engine -->
+  <rect x="530" y="150" width="140" height="80" class="module-box"/>
+  <text x="600" y="175" class="label-text">ADAPTIVE</text>
+  <text x="600" y="190" class="label-text">MULTI-MODAL</text>
+  <text x="600" y="205" class="label-text">FUSION ENGINE</text>
+  <text x="600" y="220" class="small-text">• Dynamic Weighting</text>
+  
+  <!-- Continuous Learning Engine -->
+  <rect x="150" y="270" width="140" height="80" class="module-box"/>
+  <text x="220" y="295" class="label-text">CONTINUOUS LEARNING</text>
+  <text x="220" y="310" class="label-text">AUTHENTICATION</text>
+  <text x="220" y="325" class="label-text">ENGINE</text>
+  <text x="220" y="340" class="small-text">• Federated Learning</text>
+  
+  <!-- Quantum-Resistant Processor -->
+  <rect x="310" y="270" width="140" height="80" class="module-box"/>
+  <text x="380" y="295" class="label-text">QUANTUM-RESISTANT</text>
+  <text x="380" y="310" class="label-text">BIOMETRIC</text>
+  <text x="380" y="325" class="label-text">PROCESSOR</text>
+  <text x="380" y="340" class="small-text">• Lattice-Based Crypto</text>
+  
+  <!-- Privacy-Preserving Module -->
+  <rect x="470" y="270" width="140" height="80" class="module-box"/>
+  <text x="540" y="295" class="label-text">PRIVACY-PRESERVING</text>
+  <text x="540" y="310" class="label-text">AUTHENTICATION</text>
+  <text x="540" y="325" class="label-text">MODULE</text>
+  <text x="540" y="340" class="small-text">• Homomorphic Encryption</text>
+  
+  <!-- Input Sources -->
+  <rect x="50" y="400" width="120" height="40" class="input-box"/>
+  <text x="110" y="415" class="label-text">AGENT BEHAVIORAL</text>
+  <text x="110" y="430" class="label-text">DATA</text>
+  
+  <rect x="200" y="400" width="120" height="40" class="input-box"/>
+  <text x="260" y="415" class="label-text">OPERATIONAL</text>
+  <text x="260" y="430" class="label-text">CONTEXT</text>
+  
+  <rect x="350" y="400" width="120" height="40" class="input-box"/>
+  <text x="410" y="415" class="label-text">PARTNER</text>
+  <text x="410" y="430" class="label-text">INFORMATION</text>
+  
+  <rect x="500" y="400" width="120" height="40" class="input-box"/>
+  <text x="560" y="415" class="label-text">THREAT</text>
+  <text x="560" y="430" class="label-text">INTELLIGENCE</text>
+  
+  <!-- Output -->
+  <rect x="300" y="500" width="200" height="60" class="output-box"/>
+  <text x="400" y="520" class="label-text">AUTHENTICATION</text>
+  <text x="400" y="535" class="label-text">DECISION</text>
+  <text x="400" y="550" class="small-text">Confidence Score • Security Level • Adaptations</text>
+  
+  <!-- Connection Lines -->
+  <!-- Master Orchestrator to Engines -->
+  <line x1="350" y1="110" x2="120" y2="150" class="connection-line"/>
+  <line x1="400" y1="110" x2="280" y2="150" class="connection-line"/>
+  <line x1="400" y1="110" x2="440" y2="150" class="connection-line"/>
+  <line x1="450" y1="110" x2="600" y2="150" class="connection-line"/>
+  
+  <!-- Secondary Engines -->
+  <line x1="400" y1="110" x2="220" y2="270" class="connection-line"/>
+  <line x1="400" y1="110" x2="380" y2="270" class="connection-line"/>
+  <line x1="400" y1="110" x2="540" y2="270" class="connection-line"/>
+  
+  <!-- Input Data Flows -->
+  <line x1="110" y1="400" x2="400" y2="110" class="data-flow"/>
+  <line x1="260" y1="400" x2="400" y2="110" class="data-flow"/>
+  <line x1="410" y1="400" x2="400" y2="110" class="data-flow"/>
+  <line x1="560" y1="400" x2="400" y2="110" class="data-flow"/>
+  
+  <!-- Output Flow -->
+  <line x1="400" y1="110" x2="400" y2="500" class="connection-line"/>
+  
+  <!-- Inter-Engine Communication -->
+  <line x1="190" y1="190" x2="210" y2="190" class="data-flow"/>
+  <line x1="350" y1="190" x2="370" y2="190" class="data-flow"/>
+  <line x1="510" y1="190" x2="530" y2="190" class="data-flow"/>
+  
+  <!-- Legend -->
+  <rect x="650" y="450" width="140" height="120" class="module-box"/>
+  <text x="720" y="470" class="label-text">LEGEND</text>
+  <line x1="660" y1="485" x2="690" y2="485" class="connection-line"/>
+  <text x="730" y="488" class="small-text">Control Flow</text>
+  <line x1="660" y1="500" x2="690" y2="500" class="data-flow"/>
+  <text x="730" y="503" class="small-text">Data Flow</text>
+  <rect x="660" y="510" width="25" height="15" class="input-box"/>
+  <text x="730" y="520" class="small-text">Input Data</text>
+  <rect x="660" y="530" width="25" height="15" class="output-box"/>
+  <text x="730" y="540" class="small-text">Output Result</text>
+  <rect x="660" y="550" width="25" height="15" class="module-box"/>
+  <text x="730" y="560" class="small-text">Processing Module</text>
+  
+</svg>
+        </div>
+    </div>
+    
+    <div class="instructions">
+        <h3>Instructions for PDF Conversion:</h3>
+        <ol>
+            <li>Click scale buttons above to find the best fit (try 75-85% first)</li>
+            <li>Ensure the entire diagram is visible within the border</li>
+            <li>Press <strong>Ctrl+P</strong> to print</li>
+            <li>Select "Save as PDF" or "Microsoft Print to PDF"</li>
+            <li>Settings: Paper=Letter, Margins=Default, Background graphics=ON</li>
+            <li>Save as: <strong>FIGURE_1_SYSTEM_ARCHITECTURE.pdf</strong></li>
+        </ol>
+        <p><strong>Quality Check:</strong> Verify all text is readable and no parts are cut off in the PDF.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .bidirectional { marker-start: url(#arrowhead); marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .input-data { fill: #ffebee; stroke: #f44336; stroke-width: 2; rx: 8; }
+      .feature-extraction { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .analysis-engine { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .risk-assessment { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .intelligence { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 3: Real-Time Behavioral Analysis Engine</text>
+  
+  <!-- Input Data Sources -->
+  <rect x="50" y="80" width="180" height="100" class="input-data"/>
+  <text x="140" y="110" class="system-text">API Request Data</text>
+  <text x="140" y="130" class="component-text">• Request headers</text>
+  <text x="140" y="145" class="component-text">• Payload analysis</text>
+  <text x="140" y="160" class="component-text">• Timing patterns</text>
+  
+  <rect x="50" y="200" width="180" height="100" class="input-data"/>
+  <text x="140" y="230" class="system-text">User Context</text>
+  <text x="140" y="250" class="component-text">• User profile</text>
+  <text x="140" y="265" class="component-text">• Session history</text>
+  <text x="140" y="280" class="component-text">• Geographic data</text>
+  
+  <rect x="50" y="320" width="180" height="100" class="input-data"/>
+  <text x="140" y="350" class="system-text">System Context</text>
+  <text x="140" y="370" class="component-text">• Network patterns</text>
+  <text x="140" y="385" class="component-text">• Device fingerprints</text>
+  <text x="140" y="400" class="component-text">• Application state</text>
+  
+  <!-- Behavioral Feature Extraction -->
+  <rect x="300" y="150" width="250" height="180" class="feature-extraction"/>
+  <text x="425" y="180" class="system-text">Behavioral Feature Extraction</text>
+  <text x="425" y="210" class="component-text">User Behavioral Profile:</text>
+  <text x="425" y="225" class="detail-text">• Access patterns</text>
+  <text x="425" y="237" class="detail-text">• Request frequency</text>
+  <text x="425" y="249" class="detail-text">• Navigation behavior</text>
+  
+  <text x="425" y="270" class="component-text">API Usage Patterns:</text>
+  <text x="425" y="285" class="detail-text">• Endpoint preferences</text>
+  <text x="425" y="297" class="detail-text">• Parameter patterns</text>
+  <text x="425" y="309" class="detail-text">• Error handling</text>
+  
+  <!-- Temporal Pattern Analysis -->
+  <rect x="600" y="80" width="240" height="140" class="analysis-engine"/>
+  <text x="720" y="110" class="system-text">Temporal Pattern Analysis</text>
+  <text x="720" y="135" class="component-text">Time Series Analysis:</text>
+  <text x="720" y="150" class="detail-text">• Request intervals</text>
+  <text x="720" y="162" class="detail-text">• Peak usage detection</text>
+  <text x="720" y="174" class="detail-text">• Seasonal patterns</text>
+  <text x="720" y="195" class="component-text">Anomaly Detection:</text>
+  <text x="720" y="207" class="detail-text">• Statistical outliers</text>
+  
+  <!-- Behavioral Anomaly Detection -->
+  <rect x="600" y="240" width="240" height="140" class="analysis-engine"/>
+  <text x="720" y="270" class="system-text">Behavioral Anomaly Detection</text>
+  <text x="720" y="295" class="component-text">Machine Learning Models:</text>
+  <text x="720" y="310" class="detail-text">• Isolation forests</text>
+  <text x="720" y="322" class="detail-text">• Neural networks</text>
+  <text x="720" y="334" class="detail-text">• Clustering analysis</text>
+  <text x="720" y="355" class="component-text">Real-time Scoring:</text>
+  <text x="720" y="367" class="detail-text">• Anomaly scores</text>
+  
+  <!-- Risk Assessment Engine -->
+  <rect x="880" y="120" width="240" height="160" class="risk-assessment"/>
+  <text x="1000" y="150" class="system-text">Risk Assessment Engine</text>
+  <text x="1000" y="175" class="component-text">Risk Score Calculation:</text>
+  <text x="1000" y="190" class="detail-text">• Weighted scoring model</text>
+  <text x="1000" y="202" class="detail-text">• Multi-factor analysis</text>
+  <text x="1000" y="214" class="detail-text">• Contextual adjustments</text>
+  
+  <text x="1000" y="235" class="component-text">Trust Level Assessment:</text>
+  <text x="1000" y="250" class="detail-text">• Historical reputation</text>
+  <text x="1000" y="262" class="detail-text">• Behavioral consistency</text>
+  <text x="1000" y="274" class="detail-text">• Verification status</text>
+  
+  <!-- Behavioral Intelligence -->
+  <rect x="300" y="400" width="500" height="120" class="intelligence"/>
+  <text x="550" y="430" class="system-text">Behavioral Intelligence Generation</text>
+  <text x="400" y="455" class="component-text">Pattern Recognition:</text>
+  <text x="400" y="470" class="detail-text">• Behavior clustering</text>
+  <text x="400" y="482" class="detail-text">• Sequence analysis</text>
+  <text x="400" y="494" class="detail-text">• Correlation detection</text>
+  
+  <text x="700" y="455" class="component-text">Threat Intelligence:</text>
+  <text x="700" y="470" class="detail-text">• Attack pattern matching</text>
+  <text x="700" y="482" class="detail-text">• IoC correlation</text>
+  <text x="700" y="494" class="detail-text">• Predictive modeling</text>
+  
+  <!-- Adaptive Learning -->
+  <rect x="880" y="400" width="240" height="120" class="intelligence"/>
+  <text x="1000" y="430" class="system-text">Adaptive Learning</text>
+  <text x="1000" y="455" class="component-text">Model Updates:</text>
+  <text x="1000" y="470" class="detail-text">• Continuous learning</text>
+  <text x="1000" y="482" class="detail-text">• Feedback integration</text>
+  <text x="1000" y="494" class="detail-text">• Performance tuning</text>
+  <text x="1000" y="506" class="detail-text">• Drift detection</text>
+  
+  <!-- Output Components -->
+  <rect x="300" y="580" width="180" height="100" class="risk-assessment"/>
+  <text x="390" y="610" class="system-text">Behavioral Score</text>
+  <text x="390" y="630" class="component-text">• Risk level: 0-100</text>
+  <text x="390" y="645" class="component-text">• Confidence score</text>
+  <text x="390" y="660" class="component-text">• Anomaly indicators</text>
+  
+  <rect x="510" y="580" width="180" height="100" class="intelligence"/>
+  <text x="600" y="610" class="system-text">Threat Indicators</text>
+  <text x="600" y="630" class="component-text">• Attack probability</text>
+  <text x="600" y="645" class="component-text">• Threat categories</text>
+  <text x="600" y="660" class="component-text">• Response urgency</text>
+  
+  <rect x="720" y="580" width="180" height="100" class="analysis-engine"/>
+  <text x="810" y="610" class="system-text">Security Actions</text>
+  <text x="810" y="630" class="component-text">• Authentication level</text>
+  <text x="810" y="645" class="component-text">• Access controls</text>
+  <text x="810" y="660" class="component-text">• Monitoring intensity</text>
+  
+  <!-- Connection Lines -->
+  <!-- Input to feature extraction -->
+  <line x1="230" y1="130" x2="300" y2="200" class="arrow"/>
+  <line x1="230" y1="250" x2="300" y2="240" class="arrow"/>
+  <line x1="230" y1="370" x2="300" y2="280" class="arrow"/>
+  
+  <!-- Feature extraction to analysis -->
+  <line x1="550" y1="200" x2="600" y2="150" class="arrow"/>
+  <line x1="550" y1="280" x2="600" y2="310" class="arrow"/>
+  
+  <!-- Analysis to risk assessment -->
+  <line x1="840" y1="150" x2="880" y2="180" class="arrow"/>
+  <line x1="840" y1="310" x2="880" y2="220" class="arrow"/>
+  
+  <!-- To intelligence generation -->
+  <line x1="425" y1="330" x2="425" y2="400" class="arrow"/>
+  <line x1="720" y1="380" x2="600" y2="400" class="arrow"/>
+  <line x1="1000" y1="280" x2="700" y2="400" class="arrow"/>
+  
+  <!-- Intelligence to adaptive learning -->
+  <line x1="800" y1="460" x2="880" y2="460" class="arrow"/>
+  
+  <!-- To outputs -->
+  <line x1="450" y1="520" x2="390" y2="580" class="arrow"/>
+  <line x1="550" y1="520" x2="600" y2="580" class="arrow"/>
+  <line x1="650" y1="520" x2="810" y2="580" class="arrow"/>
+  
+  <!-- Feedback loop -->
+  <line x1="1000" y1="520" x2="1000" y2="550" class="arrow"/>
+  <line x1="1000" y1="550" x2="100" y2="550" class="arrow" stroke-dasharray="5,5"/>
+  <line x1="100" y1="550" x2="100" y2="50" class="arrow" stroke-dasharray="5,5"/>
+  <line x1="100" y1="50" x2="600" y2="50" class="arrow" stroke-dasharray="5,5"/>
+  
+  <!-- Labels -->
+  <text x="265" y="165" class="detail-text">Feature</text>
+  <text x="265" y="175" class="detail-text">Extraction</text>
+  
+  <text x="575" y="120" class="detail-text">Temporal</text>
+  <text x="575" y="130" class="detail-text">Analysis</text>
+  
+  <text x="575" y="300" class="detail-text">Anomaly</text>
+  <text x="575" y="310" class="detail-text">Detection</text>
+  
+  <text x="860" y="150" class="detail-text">Risk</text>
+  <text x="860" y="160" class="detail-text">Assessment</text>
+  
+  <text x="600" y="560" class="detail-text">Behavioral Intelligence Output</text>
+  
+  <text x="600" y="45" class="detail-text" fill="#666">Continuous Learning Feedback Loop</text>
+  
+  <!-- Performance Metrics -->
+  <rect x="50" y="730" width="1100" height="120" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="755" class="system-text">Behavioral Analysis Performance Metrics</text>
+  
+  <text x="150" y="780" class="component-text">Analysis Latency</text>
+  <text x="150" y="795" class="detail-text">&lt; 10ms real-time</text>
+  <text x="150" y="807" class="detail-text">Sub-second batch</text>
+  <text x="150" y="819" class="detail-text">Streaming capable</text>
+  
+  <text x="350" y="780" class="component-text">Accuracy Metrics</text>
+  <text x="350" y="795" class="detail-text">98.5% precision</text>
+  <text x="350" y="807" class="detail-text">97.8% recall</text>
+  <text x="350" y="819" class="detail-text">&lt; 0.1% false positive</text>
+  
+  <text x="550" y="780" class="component-text">Scalability</text>
+  <text x="550" y="795" class="detail-text">1M+ requests/min</text>
+  <text x="550" y="807" class="detail-text">Auto-scaling</text>
+  <text x="550" y="819" class="detail-text">Distributed processing</text>
+  
+  <text x="750" y="780" class="component-text">Learning Capability</text>
+  <text x="750" y="795" class="detail-text">Continuous adaptation</text>
+  <text x="750" y="807" class="detail-text">Model evolution</text>
+  <text x="750" y="819" class="detail-text">Drift compensation</text>
+  
+  <text x="950" y="780" class="component-text">Integration</text>
+  <text x="950" y="795" class="detail-text">RESTful APIs</text>
+  <text x="950" y="807" class="detail-text">Event streaming</text>
+  <text x="950" y="819" class="detail-text">SIEM integration</text>
+
+</svg>

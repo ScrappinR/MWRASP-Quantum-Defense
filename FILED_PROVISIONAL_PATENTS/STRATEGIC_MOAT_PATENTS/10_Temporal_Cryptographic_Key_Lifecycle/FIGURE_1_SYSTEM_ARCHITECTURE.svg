@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .core-system { fill: #e3f2fd; stroke: #1976d2; stroke-width: 2; rx: 8; }
+      .key-generator { fill: #f3e5f5; stroke: #7b1fa2; stroke-width: 2; rx: 8; }
+      .access-control { fill: #fff3e0; stroke: #f57c00; stroke-width: 2; rx: 8; }
+      .key-manager { fill: #e8f5e8; stroke: #388e3c; stroke-width: 2; rx: 8; }
+      .vault-system { fill: #fce4ec; stroke: #c2185b; stroke-width: 2; rx: 8; }
+      .orchestrator { fill: #fff8e1; stroke: #fbc02d; stroke-width: 2; rx: 8; }
+      .data-flow { fill: #f5f5f5; stroke: #666; stroke-width: 1; rx: 5; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title-text">FIGURE 1: Temporal Cryptographic Key Lifecycle Management System Architecture</text>
+  
+  <!-- Central Orchestrator -->
+  <rect x="450" y="400" width="300" height="100" class="orchestrator"/>
+  <text x="600" y="430" class="component-text">Key Lifecycle</text>
+  <text x="600" y="450" class="component-text">Orchestrator</text>
+  <text x="600" y="480" class="label-text">• Policy Enforcement</text>
+  <text x="600" y="495" class="label-text">• Lifecycle Coordination</text>
+  
+  <!-- Quantum-Resistant Key Generator -->
+  <rect x="50" y="150" width="280" height="120" class="key-generator"/>
+  <text x="190" y="185" class="component-text">Quantum-Resistant</text>
+  <text x="190" y="205" class="component-text">Key Generator</text>
+  <text x="190" y="230" class="label-text">• Post-Quantum Key Generation</text>
+  <text x="190" y="245" class="label-text">• Quantum Entropy Sources</text>
+  <text x="190" y="260" class="label-text">• Cryptographic Agility</text>
+  
+  <!-- Temporal Access Control Engine -->
+  <rect x="870" y="150" width="280" height="120" class="access-control"/>
+  <text x="1010" y="185" class="component-text">Temporal Access</text>
+  <text x="1010" y="205" class="component-text">Control Engine</text>
+  <text x="1010" y="230" class="label-text">• Time-Locked Access Validation</text>
+  <text x="1010" y="245" class="label-text">• Temporal Policy Enforcement</text>
+  <text x="1010" y="260" class="label-text">• Access Window Management</text>
+  
+  <!-- Automated Key Evolution Manager -->
+  <rect x="50" y="650" width="280" height="120" class="key-manager"/>
+  <text x="190" y="685" class="component-text">Automated Key</text>
+  <text x="190" y="705" class="component-text">Evolution Manager</text>
+  <text x="190" y="730" class="label-text">• Intelligent Key Rotation</text>
+  <text x="190" y="745" class="label-text">• Automated Key Evolution</text>
+  <text x="190" y="760" class="label-text">• Lifecycle State Management</text>
+  
+  <!-- Distributed Temporal Key Vault -->
+  <rect x="870" y="650" width="280" height="120" class="vault-system"/>
+  <text x="1010" y="685" class="component-text">Distributed Temporal</text>
+  <text x="1010" y="705" class="component-text">Key Vault</text>
+  <text x="1010" y="730" class="label-text">• Quantum-Safe Storage</text>
+  <text x="1010" y="745" class="label-text">• Distributed Architecture</text>
+  <text x="1010" y="760" class="label-text">• Temporal Access Controls</text>
+  
+  <!-- External Systems -->
+  <rect x="350" y="100" width="200" height="60" class="data-flow"/>
+  <text x="450" y="125" class="component-text">Quantum Entropy</text>
+  <text x="450" y="145" class="label-text">Hardware Sources</text>
+  
+  <rect x="650" y="100" width="200" height="60" class="data-flow"/>
+  <text x="750" y="125" class="component-text">Time Synchronization</text>
+  <text x="750" y="145" class="label-text">Services</text>
+  
+  <rect x="350" y="820" width="200" height="60" class="data-flow"/>
+  <text x="450" y="845" class="component-text">Client Applications</text>
+  <text x="450" y="865" class="label-text">& Services</text>
+  
+  <rect x="650" y="820" width="200" height="60" class="data-flow"/>
+  <text x="750" y="845" class="component-text">Audit & Monitoring</text>
+  <text x="750" y="865" class="label-text">Systems</text>
+  
+  <!-- Security Policies -->
+  <rect x="450" y="300" width="300" height="80" class="core-system"/>
+  <text x="600" y="330" class="component-text">Security Policy Engine</text>
+  <text x="600" y="350" class="label-text">• Temporal Security Policies</text>
+  <text x="600" y="365" class="label-text">• Compliance Enforcement</text>
+  
+  <!-- Data Flow Arrows -->
+  <!-- From Key Generator to Orchestrator -->
+  <line x1="330" y1="210" x2="450" y2="450" class="arrow"/>
+  
+  <!-- From Access Control to Orchestrator -->
+  <line x1="870" y1="210" x2="750" y2="450" class="arrow"/>
+  
+  <!-- From Orchestrator to Key Manager -->
+  <line x1="500" y1="500" x2="250" y2="650" class="arrow"/>
+  
+  <!-- From Orchestrator to Vault -->
+  <line x1="700" y1="500" x2="950" y2="650" class="arrow"/>
+  
+  <!-- From External Sources to Components -->
+  <line x1="450" y1="160" x2="300" y2="200" class="arrow"/>
+  <line x1="750" y1="160" x2="950" y2="200" class="arrow"/>
+  
+  <!-- From Components to External Systems -->
+  <line x1="450" y1="500" x2="450" y2="820" class="arrow"/>
+  <line x1="750" y1="500" x2="750" y2="820" class="arrow"/>
+  
+  <!-- Bidirectional arrows for Policy Engine -->
+  <line x1="600" y1="380" x2="600" y2="400" class="arrow"/>
+  <line x1="600" y1="320" x2="600" y2="300" class="arrow"/>
+  
+  <!-- Legend -->
+  <rect x="50" y="50" width="1100" height="40" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+  <text x="600" y="75" class="label-text">Legend: Purple = Key Generator | Orange = Access Control | Green = Key Manager | Pink = Vault | Yellow = Orchestrator | Blue = Policy Engine</text>
+</svg>

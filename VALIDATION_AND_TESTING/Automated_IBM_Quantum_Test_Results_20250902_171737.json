@@ -1,0 +1,92 @@
+{
+  "test_timestamp": "2025-09-02T17:17:36.758684",
+  "backend_info": {
+    "name": "qasm_simulator",
+    "num_qubits": 29,
+    "operational": true,
+    "simulator_mode": true
+  },
+  "algorithm_results": {
+    "simons": {
+      "algorithm_type": "simons",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "name 'execute' is not defined"
+    },
+    "deutsch_jozsa_constant": {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "qasm_simulator",
+      "circuit_qubits": 5,
+      "circuit_gates": 0,
+      "circuit_depth": 1,
+      "execution_time": 0.22199177742004395,
+      "shots": 1024,
+      "success": true,
+      "measured_counts": {
+        "0000": 1024
+      },
+      "error_rate": 0.0,
+      "fidelity": 1.0,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 8,
+      "job_id": null,
+      "error_message": null
+    },
+    "deutsch_jozsa_balanced": {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "qasm_simulator",
+      "circuit_qubits": 5,
+      "circuit_gates": 0,
+      "circuit_depth": 1,
+      "execution_time": 0.2089998722076416,
+      "shots": 1024,
+      "success": false,
+      "measured_counts": {
+        "0000": 1024
+      },
+      "error_rate": 1.0,
+      "fidelity": 0.0,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 8,
+      "job_id": null,
+      "error_message": null
+    },
+    "bernstein_vazirani": {
+      "algorithm_type": "bernstein_vazirani",
+      "backend_name": "qasm_simulator",
+      "circuit_qubits": 5,
+      "circuit_gates": 9,
+      "circuit_depth": 6,
+      "execution_time": 0.2219986915588379,
+      "shots": 1024,
+      "success": false,
+      "measured_counts": {
+        "1101": 1024
+      },
+      "error_rate": 1.0,
+      "fidelity": 0.0,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 4,
+      "job_id": null,
+      "error_message": null
+    }
+  },
+  "summary": {
+    "total_tests": 4,
+    "successful_tests": 1,
+    "success_rate": 0.25,
+    "hardware_validated": false,
+    "quantum_advantage_demonstrated": true
+  }
+}

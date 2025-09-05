@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FIGURE_2_MEMORY_PATTERN_MODULATION</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        svg { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto;
+            background: white;
+        }
+        @page { 
+            size: letter; 
+            margin: 0.5in; 
+        }
+        @media print { 
+            body { 
+                margin: 0; 
+                padding: 0.5in;
+                min-height: auto; 
+            } 
+            svg {
+                max-height: 10in;
+            }
+        }
+    </style>
+</head>
+<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .memory-box { fill: #e6f3ff; stroke: black; stroke-width: 1; }
+      .modulation-box { fill: #fff2e6; stroke: black; stroke-width: 2; }
+      .timing-box { fill: #e6ffe6; stroke: black; stroke-width: 1; }
+      .bit-box { fill: #f0f0f0; stroke: black; stroke-width: 1; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .signal-flow { stroke: red; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+      .data-flow { stroke: blue; stroke-width: 2; fill: none; marker-end: url(#bluearrow); }
+    </style>
+    <defs>
+      <marker id="bluearrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="blue" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 2: MEMORY PATTERN MODULATION SYSTEM</text>
+  
+  <!-- Message Input -->
+  <rect x="50" y="50" width="700" height="50" class="module-box"/>
+  <text x="400" y="70" class="label-text">COVERT MESSAGE INPUT</text>
+  <text x="400" y="85" class="small-text">"SECRET DATA TRANSMISSION" → Binary: 0101001101000101...</text>
+  
+  <!-- Bit Encoding Strategy -->
+  <rect x="50" y="130" width="150" height="80" class="bit-box"/>
+  <text x="125" y="155" class="label-text">BIT ENCODING</text>
+  <text x="125" y="170" class="label-text">STRATEGY</text>
+  <text x="125" y="190" class="tiny-text">0 = Normal Allocation</text>
+  <text x="125" y="205" class="tiny-text">1 = Delayed Allocation</text>
+  
+  <rect x="220" y="130" width="150" height="80" class="bit-box"/>
+  <text x="295" y="155" class="label-text">TIMING</text>
+  <text x="295" y="170" class="label-text">PARAMETERS</text>
+  <text x="295" y="190" class="tiny-text">Normal: 2-5ms</text>
+  <text x="295" y="205" class="tiny-text">Delayed: 8-12ms</text>
+  
+  <rect x="390" y="130" width="150" height="80" class="bit-box"/>
+  <text x="465" y="155" class="label-text">PATTERN</text>
+  <text x="465" y="170" class="label-text">VARIANCE</text>
+  <text x="465" y="190" class="tiny-text">±15% Jitter</text>
+  <text x="465" y="205" class="tiny-text">Natural Variation</text>
+  
+  <rect x="560" y="130" width="150" height="80" class="bit-box"/>
+  <text x="635" y="155" class="label-text">ERROR</text>
+  <text x="635" y="170" class="label-text">CORRECTION</text>
+  <text x="635" y="190" class="tiny-text">Reed-Solomon</text>
+  <text x="635" y="205" class="tiny-text">25% Redundancy</text>
+  
+  <!-- Memory Allocation Modulation -->
+  <rect x="100" y="240" width="600" height="100" class="modulation-box"/>
+  <text x="400" y="265" class="label-text">DYNAMIC MEMORY ALLOCATION MODULATION ENGINE</text>
+  <text x="400" y="285" class="small-text">• Real-Time Allocation Control • Timing Manipulation • Pattern Generation</text>
+  <text x="400" y="300" class="small-text">• Natural Behavior Simulation • Detectability Minimization</text>
+  <text x="400" y="315" class="small-text">• Multi-Channel Coordination • Synchronization Management</text>
+  
+  <!-- Memory Operations -->
+  <rect x="50" y="370" width="130" height="80" class="memory-box"/>
+  <text x="115" y="395" class="label-text">HEAP</text>
+  <text x="115" y="410" class="label-text">ALLOCATION</text>
+  <text x="115" y="430" class="tiny-text">• Object Creation</text>
+  <text x="115" y="445" class="tiny-text">• Size Variation</text>
+  
+  <rect x="200" y="370" width="130" height="80" class="memory-box"/>
+  <text x="265" y="395" class="label-text">GARBAGE</text>
+  <text x="265" y="410" class="label-text">COLLECTION</text>
+  <text x="265" y="430" class="tiny-text">• GC Triggering</text>
+  <text x="265" y="445" class="tiny-text">• Timing Control</text>
+  
+  <rect x="350" y="370" width="130" height="80" class="memory-box"/>
+  <text x="415" y="395" class="label-text">STACK</text>
+  <text x="415" y="410" class="label-text">OPERATIONS</text>
+  <text x="415" y="430" class="tiny-text">• Frame Allocation</text>
+  <text x="415" y="445" class="tiny-text">• Call Patterns</text>
+  
+  <rect x="500" y="370" width="130" height="80" class="memory-box"/>
+  <text x="565" y="395" class="label-text">CACHE</text>
+  <text x="565" y="410" class="label-text">BEHAVIOR</text>
+  <text x="565" y="430" class="tiny-text">• Access Patterns</text>
+  <text x="565" y="445" class="tiny-text">• Miss Rate Control</text>
+  
+  <!-- Timing Analysis -->
+  <rect x="50" y="480" width="200" height="80" class="timing-box"/>
+  <text x="150" y="505" class="label-text">BASELINE MEASUREMENT</text>
+  <text x="150" y="525" class="tiny-text">Normal Pattern: 3.2ms ±0.8ms</text>
+  <text x="150" y="540" class="tiny-text">Statistical Distribution Analysis</text>
+  <text x="150" y="555" class="tiny-text">Behavioral Characterization</text>
+  
+  <rect x="270" y="480" width="200" height="80" class="timing-box"/>
+  <text x="370" y="505" class="label-text">MODULATED PATTERN</text>
+  <text x="370" y="525" class="tiny-text">Bit 0: 3.1ms | Bit 1: 9.7ms</text>
+  <text x="370" y="540" class="tiny-text">Within Natural Variance</text>
+  <text x="370" y="555" class="tiny-text">Steganographic Encoding</text>
+  
+  <rect x="490" y="480" width="200" height="80" class="timing-box"/>
+  <text x="590" y="505" class="label-text">DETECTION RESISTANCE</text>
+  <text x="590" y="525" class="tiny-text">Chi-Square Test: p > 0.05</text>
+  <text x="590" y="540" class="tiny-text">KS Test: Not Significant</text>
+  <text x="590" y="555" class="tiny-text">Plausible Deniability</text>
+  
+  <!-- Flow Lines -->
+  <!-- Input to Encoding -->
+  <line x1="400" y1="100" x2="125" y2="130" class="data-flow"/>
+  <line x1="400" y1="100" x2="295" y2="130" class="data-flow"/>
+  <line x1="400" y1="100" x2="465" y2="130" class="data-flow"/>
+  <line x1="400" y1="100" x2="635" y2="130" class="data-flow"/>
+  
+  <!-- Encoding to Modulation Engine -->
+  <line x1="125" y1="210" x2="200" y2="240" class="signal-flow"/>
+  <line x1="295" y1="210" x2="350" y2="240" class="signal-flow"/>
+  <line x1="465" y1="210" x2="450" y2="240" class="signal-flow"/>
+  <line x1="635" y1="210" x2="600" y2="240" class="signal-flow"/>
+  
+  <!-- Modulation Engine to Memory Operations -->
+  <line x1="250" y1="340" x2="115" y2="370" class="data-flow"/>
+  <line x1="350" y1="340" x2="265" y2="370" class="data-flow"/>
+  <line x1="450" y1="340" x2="415" y2="370" class="data-flow"/>
+  <line x1="550" y1="340" x2="565" y2="370" class="data-flow"/>
+  
+  <!-- Memory Operations to Timing Analysis -->
+  <line x1="115" y1="450" x2="150" y2="480" class="connection-line"/>
+  <line x1="265" y1="450" x2="370" y2="480" class="connection-line"/>
+  <line x1="415" y1="450" x2="370" y2="480" class="connection-line"/>
+  <line x1="565" y1="450" x2="590" y2="480" class="connection-line"/>
+  
+  <!-- Feedback Loop -->
+  <path d="M 590 480 Q 750 480 750 290 Q 750 240 700 290" class="connection-line" stroke-dasharray="3,3"/>
+  <text x="750" y="380" class="tiny-text" transform="rotate(90 750 380)">ADAPTIVE</text>
+  <text x="740" y="380" class="tiny-text" transform="rotate(90 740 380)">CONTROL</text>
+  
+  <!-- Visualization of Timing Patterns -->
+  <g transform="translate(650, 370)">
+    <rect x="0" y="0" width="100" height="80" class="timing-box"/>
+    <text x="50" y="15" class="tiny-text">Timing Waveform</text>
+    
+    <!-- Normal pattern -->
+    <line x1="10" y1="35" x2="90" y2="35" stroke="gray" stroke-width="1"/>
+    <text x="5" y="38" class="tiny-text">Normal</text>
+    
+    <!-- Modulated pattern -->
+    <path d="M 10 50 L 20 50 L 30 60 L 40 50 L 50 50 L 60 60 L 70 50 L 80 60 L 90 50" 
+          stroke="red" stroke-width="2" fill="none"/>
+    <text x="5" y="63" class="tiny-text">Modulated</text>
+  </g>
+  
+</svg>
+</body>
+</html>

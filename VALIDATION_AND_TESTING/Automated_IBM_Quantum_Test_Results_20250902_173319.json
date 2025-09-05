@@ -1,0 +1,97 @@
+{
+  "test_timestamp": "2025-09-02T17:33:18.618909",
+  "backend_info": {
+    "name": "ibm_brisbane",
+    "num_qubits": 127,
+    "operational": true,
+    "simulator_mode": false
+  },
+  "algorithm_results": {
+    "simons": {
+      "algorithm_type": "simons",
+      "backend_name": "ibm_brisbane",
+      "circuit_qubits": 127,
+      "circuit_gates": 0,
+      "circuit_depth": 34,
+      "execution_time": 0.3360004425048828,
+      "shots": 1024,
+      "success": false,
+      "measured_counts": {
+        "000": 287,
+        "101": 230,
+        "010": 230,
+        "111": 277
+      },
+      "error_rate": 0.7197265625,
+      "fidelity": 0.224609375,
+      "hardware_noise_impact": 0.6569265625,
+      "quantum_advantage_measured": 2.0,
+      "job_id": null,
+      "error_message": null
+    },
+    "deutsch_jozsa_constant": {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "ibm_brisbane",
+      "circuit_qubits": 127,
+      "circuit_gates": 0,
+      "circuit_depth": 3,
+      "execution_time": 0.07100367546081543,
+      "shots": 1024,
+      "success": true,
+      "measured_counts": {
+        "0000": 1024
+      },
+      "error_rate": 0.0,
+      "fidelity": 1.0,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 8,
+      "job_id": null,
+      "error_message": null
+    },
+    "deutsch_jozsa_balanced": {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "ibm_brisbane",
+      "circuit_qubits": 127,
+      "circuit_gates": 0,
+      "circuit_depth": 3,
+      "execution_time": 0.0709996223449707,
+      "shots": 1024,
+      "success": false,
+      "measured_counts": {
+        "0000": 1024
+      },
+      "error_rate": 1.0,
+      "fidelity": 0.0,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 8,
+      "job_id": null,
+      "error_message": null
+    },
+    "bernstein_vazirani": {
+      "algorithm_type": "bernstein_vazirani",
+      "backend_name": "ibm_brisbane",
+      "circuit_qubits": 127,
+      "circuit_gates": 0,
+      "circuit_depth": 17,
+      "execution_time": 0.05700111389160156,
+      "shots": 1024,
+      "success": false,
+      "measured_counts": {
+        "1101": 1024
+      },
+      "error_rate": 1.0,
+      "fidelity": 0.0,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 4,
+      "job_id": null,
+      "error_message": null
+    }
+  },
+  "summary": {
+    "total_tests": 4,
+    "successful_tests": 1,
+    "success_rate": 0.25,
+    "hardware_validated": true,
+    "quantum_advantage_demonstrated": true
+  }
+}

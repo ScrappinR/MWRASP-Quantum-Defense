@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<application-data-sheet xmlns="http://www.uspto.gov/adsxml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uspto.gov/adsxml http://www.uspto.gov/adsxml/adsxml4-3-0.xsd">
+  <application-information>
+    <application-type>provisional</application-type>
+    <title>Computational Time Dilation Security System Using CPU Priority Scheduling for Temporal Domain-Based Cybersecurity</title>
+  </application-information>
+  <applicant-information>
+    <applicant app-type="applicant-inventor" designation="all">
+      <name>
+        <first-name>Brian</first-name>
+        <last-name>Rutherford</last-name>
+      </name>
+      <address>
+        <address-line-1>6 Country Place Drive</address-line-1>
+        <city>Wimberley</city>
+        <state>Texas</state>
+        <postal-code>78676-3114</postal-code>
+        <country>US</country>
+      </address>
+      <citizenship>US</citizenship>
+    </applicant>
+  </applicant-information>
+  <correspondence-address>
+    <name>
+      <first-name>Brian James Rutherford</first-name>
+    </name>
+    <address>
+      <address-line-1>6 Country Place Drive</address-line-1>
+      <city>Wimberley</city>
+      <state>Texas</state>
+      <postal-code>78676-3114</postal-code>
+      <country>US</country>
+    </address>
+    <phone>(512)648-0219</phone>
+    <email>Actual@ScrappinR.com</email>
+  </correspondence-address>
+  <entity-status>micro</entity-status>
+</application-data-sheet>

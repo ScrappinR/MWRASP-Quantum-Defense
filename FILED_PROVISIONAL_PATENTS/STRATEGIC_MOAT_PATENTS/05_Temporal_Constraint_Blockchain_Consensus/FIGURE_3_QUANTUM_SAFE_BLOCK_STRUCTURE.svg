@@ -1,0 +1,277 @@
+<svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blockGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headerBlockGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="txGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- Title -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGradient)"/>
+  <text x="700" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
+    Figure 3: Quantum-Safe Block Structure with Temporal Validation Proofs
+  </text>
+  
+  <!-- Block Structure -->
+  <rect x="100" y="100" width="500" height="700" fill="url(#blockGradient)" stroke="#047857" stroke-width="3" rx="15"/>
+  <text x="350" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+    Temporal Blockchain Block Structure
+  </text>
+  
+  <!-- Block Header -->
+  <rect x="120" y="150" width="460" height="200" fill="url(#headerBlockGradient)" stroke="#6d28d9" stroke-width="2" rx="10"/>
+  <text x="350" y="175" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    Block Header (Quantum-Resistant)
+  </text>
+  
+  <!-- Header Fields -->
+  <rect x="140" y="190" width="200" height="25" fill="#a78bfa" stroke="#7c3aed" stroke-width="1" rx="5"/>
+  <text x="240" y="207" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#581c87">
+    Previous Block Hash (SHA-3)
+  </text>
+  
+  <rect x="360" y="190" width="200" height="25" fill="#a78bfa" stroke="#7c3aed" stroke-width="1" rx="5"/>
+  <text x="460" y="207" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#581c87">
+    Merkle Root (Quantum-Safe)
+  </text>
+  
+  <rect x="140" y="220" width="200" height="25" fill="#a78bfa" stroke="#7c3aed" stroke-width="1" rx="5"/>
+  <text x="240" y="237" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#581c87">
+    Timestamp (Nanosecond)
+  </text>
+  
+  <rect x="360" y="220" width="200" height="25" fill="#a78bfa" stroke="#7c3aed" stroke-width="1" rx="5"/>
+  <text x="460" y="237" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#581c87">
+    Validator Signatures
+  </text>
+  
+  <rect x="140" y="250" width="200" height="25" fill="#a78bfa" stroke="#7c3aed" stroke-width="1" rx="5"/>
+  <text x="240" y="267" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#581c87">
+    Temporal Proof Hash
+  </text>
+  
+  <rect x="360" y="250" width="200" height="25" fill="#a78bfa" stroke="#7c3aed" stroke-width="1" rx="5"/>
+  <text x="460" y="267" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#581c87">
+    Geographic Constraints
+  </text>
+  
+  <rect x="140" y="280" width="200" height="25" fill="#a78bfa" stroke="#7c3aed" stroke-width="1" rx="5"/>
+  <text x="240" y="297" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#581c87">
+    Consensus Round Number
+  </text>
+  
+  <rect x="360" y="280" width="200" height="25" fill="#a78bfa" stroke="#7c3aed" stroke-width="1" rx="5"/>
+  <text x="460" y="297" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#581c87">
+    Block Size & Tx Count
+  </text>
+  
+  <rect x="250" y="310" width="200" height="25" fill="#a78bfa" stroke="#7c3aed" stroke-width="1" rx="5"/>
+  <text x="350" y="327" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#581c87">
+    Quantum-Safe Nonce
+  </text>
+  
+  <!-- Transaction Data -->
+  <rect x="120" y="370" width="460" height="300" fill="url(#txGradient)" stroke="#b91c1c" stroke-width="2" rx="10"/>
+  <text x="350" y="395" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    Transaction Data with Temporal Validation
+  </text>
+  
+  <!-- Individual Transactions -->
+  <rect x="140" y="410" width="420" height="60" fill="#fca5a5" stroke="#dc2626" stroke-width="1" rx="5"/>
+  <text x="350" y="430" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#7f1d1d">
+    Transaction 1: Quantum-Safe Transfer
+  </text>
+  <text x="350" y="448" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f1d1d">
+    Sender: 0x4A7B...C9D2 | Receiver: 0x8E5F...A3B1 | Amount: 1.25 TEMP
+  </text>
+  <text x="350" y="462" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f1d1d">
+    Temporal Signature: CRYSTALS-Dilithium | Validation Time: 2025-09-04T13:42:17.123456789Z
+  </text>
+  
+  <rect x="140" y="480" width="420" height="60" fill="#fca5a5" stroke="#dc2626" stroke-width="1" rx="5"/>
+  <text x="350" y="500" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#7f1d1d">
+    Transaction 2: Smart Contract Execution
+  </text>
+  <text x="350" y="518" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f1d1d">
+    Contract: 0x2C8D...E4F7 | Function: validateTemporal() | Gas: 45,000
+  </text>
+  <text x="350" y="532" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f1d1d">
+    Geographic Proof: Lat: 37.7749°N, Lon: 122.4194°W | Speed-of-Light Valid: ✓
+  </text>
+  
+  <rect x="140" y="550" width="420" height="60" fill="#fca5a5" stroke="#dc2626" stroke-width="1" rx="5"/>
+  <text x="350" y="570" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#7f1d1d">
+    Transaction 3: Multi-Validator Attestation
+  </text>
+  <text x="350" y="588" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f1d1d">
+    Validators: 5 of 7 | Consensus: Byzantine Fault Tolerant | Threshold: 67%
+  </text>
+  <text x="350" y="602" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#7f1d1d">
+    Temporal Consistency: All signatures within speed-of-light constraints
+  </text>
+  
+  <!-- Temporal Validation Proof -->
+  <rect x="120" y="690" width="460" height="100" fill="#f59e0b" stroke="#d97706" stroke-width="2" rx="10"/>
+  <text x="350" y="715" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="white">
+    Temporal Validation Proof Section
+  </text>
+  <text x="350" y="735" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#78350f">
+    • Speed-of-Light Constraint Verification Hash
+  </text>
+  <text x="350" y="750" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#78350f">
+    • Geographic Distance Matrix for All Validator Pairs
+  </text>
+  <text x="350" y="765" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#78350f">
+    • Quantum-Resistant Merkle Proof of Temporal Consistency
+  </text>
+  <text x="350" y="780" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#78350f">
+    • Multi-Party Computation Result for Consensus Agreement
+  </text>
+  
+  <!-- Validation Process Flow -->
+  <text x="850" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#1f2937">
+    Temporal Validation Process
+  </text>
+  
+  <!-- Step 1 -->
+  <rect x="700" y="150" width="300" height="80" fill="#dbeafe" stroke="#3b82f6" stroke-width="2" rx="10"/>
+  <text x="850" y="175" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1e40af">
+    Step 1: Geographic Distance Calculation
+  </text>
+  <text x="850" y="195" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#1e40af">
+    Calculate great-circle distances between all validator pairs
+  </text>
+  <text x="850" y="210" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#1e40af">
+    Formula: d = R × arccos(sin(φ₁)sin(φ₂) + cos(φ₁)cos(φ₂)cos(Δλ))
+  </text>
+  <text x="850" y="225" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#1e40af">
+    Where R = Earth radius (6,371 km), φ = latitude, λ = longitude
+  </text>
+  
+  <!-- Step 2 -->
+  <rect x="700" y="250" width="300" height="80" fill="#dcfce7" stroke="#16a34a" stroke-width="2" rx="10"/>
+  <text x="850" y="275" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#15803d">
+    Step 2: Speed-of-Light Constraint Check
+  </text>
+  <text x="850" y="295" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#15803d">
+    Maximum signal propagation time = Distance ÷ 299,792.458 km/ms
+  </text>
+  <text x="850" y="310" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#15803d">
+    Add network latency buffer (typically 10-50ms)
+  </text>
+  <text x="850" y="325" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#15803d">
+    Reject if timestamp differences exceed physical possibility
+  </text>
+  
+  <!-- Step 3 -->
+  <rect x="700" y="350" width="300" height="80" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" rx="10"/>
+  <text x="850" y="375" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#92400e">
+    Step 3: Quantum-Safe Cryptographic Verification
+  </text>
+  <text x="850" y="395" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#92400e">
+    Verify CRYSTALS-Dilithium signatures for all transactions
+  </text>
+  <text x="850" y="410" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#92400e">
+    Validate CRYSTALS-KYBER key exchanges
+  </text>
+  <text x="850" y="425" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#92400e">
+    Compute SHA-3 quantum-resistant hash values
+  </text>
+  
+  <!-- Step 4 -->
+  <rect x="700" y="450" width="300" height="80" fill="#fce7f3" stroke="#ec4899" stroke-width="2" rx="10"/>
+  <text x="850" y="475" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#be185d">
+    Step 4: Byzantine Consensus Validation
+  </text>
+  <text x="850" y="495" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#be185d">
+    Require 2f+1 signatures for f Byzantine faults
+  </text>
+  <text x="850" y="510" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#be185d">
+    Aggregate signatures using threshold cryptography
+  </text>
+  <text x="850" y="525" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#be185d">
+    Verify temporal consistency across all validator votes
+  </text>
+  
+  <!-- Step 5 -->
+  <rect x="700" y="550" width="300" height="80" fill="#f3e8ff" stroke="#7c3aed" stroke-width="2" rx="10"/>
+  <text x="850" y="575" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#6d28d9">
+    Step 5: Block Finalization
+  </text>
+  <text x="850" y="595" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#6d28d9">
+    Create quantum-safe Merkle tree of all transactions
+  </text>
+  <text x="850" y="610" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#6d28d9">
+    Generate temporal validation proof
+  </text>
+  <text x="850" y="625" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#6d28d9">
+    Append to blockchain with immutable temporal record
+  </text>
+  
+  <!-- Security Features -->
+  <rect x="700" y="650" width="300" height="120" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" rx="10"/>
+  <text x="850" y="675" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#15803d">
+    Quantum-Resistant Security Features
+  </text>
+  <text x="850" y="695" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#15803d">
+    • Post-Quantum Digital Signatures (CRYSTALS-Dilithium)
+  </text>
+  <text x="850" y="710" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#15803d">
+    • Quantum-Safe Key Exchange (CRYSTALS-KYBER)
+  </text>
+  <text x="850" y="725" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#15803d">
+    • Resistant Hash Functions (SHA-3, BLAKE3)
+  </text>
+  <text x="850" y="740" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#15803d">
+    • Physical Temporal Impossibility Prevention
+  </text>
+  <text x="850" y="755" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#15803d">
+    • Multi-Party Computation for Privacy
+  </text>
+  
+  <!-- Performance Metrics -->
+  <rect x="700" y="790" width="300" height="80" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" rx="10"/>
+  <text x="850" y="815" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#d97706">
+    Performance Characteristics
+  </text>
+  <text x="850" y="835" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#92400e">
+    Block Size: 1-8MB | Transactions: 1,000-10,000 per block
+  </text>
+  <text x="850" y="850" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#92400e">
+    Confirmation Time: 5-15 seconds with temporal validation
+  </text>
+  <text x="850" y="865" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#92400e">
+    Energy Efficiency: 99.9% reduction vs. Proof-of-Work
+  </text>
+  
+  <!-- Process Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151" />
+    </marker>
+  </defs>
+  
+  <line x1="850" y1="230" x2="850" y2="250" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="850" y1="330" x2="850" y2="350" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="850" y1="430" x2="850" y2="450" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="850" y1="530" x2="850" y2="550" stroke="#374151" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Connection to Block Structure -->
+  <line x1="600" y1="400" x2="700" y2="400" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  
+</svg>

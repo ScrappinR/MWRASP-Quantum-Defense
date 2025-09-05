@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @page { size: 8.5in 11in; margin: 0.5in; }
+        body { margin: 0; padding: 0; }
+        svg { width: 100%; height: auto; max-width: 7.5in; }
+    </style>
+</head>
+<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2550" height="3300" viewBox="0 0 2550 3300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .security-box { fill: #ffe6e6; stroke: black; stroke-width: 2; }
+      .detection-box { fill: #e6f3ff; stroke: black; stroke-width: 1; }
+      .defense-box { fill: #e6ffe6; stroke: black; stroke-width: 1; }
+      .alert-box { fill: #ffffe6; stroke: red; stroke-width: 2; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .threat-flow { stroke: red; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+      .defense-flow { stroke: green; stroke-width: 2; fill: none; marker-end: url(#greenarrow); }
+    </style>
+    <defs>
+      <marker id="greenarrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="green" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 6: ANTI-SPOOFING SECURITY MONITORING SYSTEM</text>
+  
+  <!-- Threat Detection Layer -->
+  <rect x="50" y="50" width="700" height="60" class="security-box"/>
+  <text x="400" y="75" class="label-text">MULTI-LAYER THREAT DETECTION AND ANALYSIS SYSTEM</text>
+  <text x="400" y="95" class="small-text">â€¢ Real-Time Anomaly Detection â€¢ Attack Pattern Recognition â€¢ Behavioral Deviation Analysis</text>
+  
+  <!-- Liveness Detection -->
+  <rect x="50" y="140" width="180" height="100" class="detection-box"/>
+  <text x="140" y="165" class="label-text">LIVENESS</text>
+  <text x="140" y="180" class="label-text">DETECTION</text>
+  <text x="140" y="205" class="tiny-text">â€¢ Temporal Consistency</text>
+  <text x="140" y="220" class="tiny-text">â€¢ Dynamic Variability</text>
+  <text x="140" y="235" class="tiny-text">â€¢ Real-Time Verification</text>
+  
+  <!-- Entropy Analysis -->
+  <rect x="250" y="140" width="180" height="100" class="detection-box"/>
+  <text x="340" y="165" class="label-text">ENTROPY</text>
+  <text x="340" y="180" class="label-text">ANALYSIS</text>
+  <text x="340" y="205" class="tiny-text">â€¢ Randomness Testing</text>
+  <text x="340" y="220" class="tiny-text">â€¢ Pattern Complexity</text>
+  <text x="340" y="235" class="tiny-text">â€¢ Statistical Analysis</text>
+  
+  <!-- Adversarial Defense -->
+  <rect x="450" y="140" width="180" height="100" class="defense-box"/>
+  <text x="540" y="165" class="label-text">ADVERSARIAL</text>
+  <text x="540" y="180" class="label-text">DEFENSE</text>
+  <text x="540" y="205" class="tiny-text">â€¢ Attack Detection</text>
+  <text x="540" y="220" class="tiny-text">â€¢ Input Validation</text>
+  <text x="540" y="235" class="tiny-text">â€¢ Defense Mechanisms</text>
+  
+  <!-- Spoofing Attack Types -->
+  <rect x="50" y="270" width="120" height="80" class="alert-box"/>
+  <text x="110" y="290" class="label-text">REPLAY</text>
+  <text x="110" y="305" class="label-text">ATTACKS</text>
+  <text x="110" y="325" class="tiny-text">â€¢ Pattern Repetition</text>
+  <text x="110" y="340" class="tiny-text">â€¢ Static Signatures</text>
+  
+  <rect x="190" y="270" width="120" height="80" class="alert-box"/>
+  <text x="250" y="290" class="label-text">SYNTHETIC</text>
+  <text x="250" y="305" class="label-text">GENERATION</text>
+  <text x="250" y="325" class="tiny-text">â€¢ AI-Generated Patterns</text>
+  <text x="250" y="340" class="tiny-text">â€¢ Fake Biometrics</text>
+  
+  <rect x="330" y="270" width="120" height="80" class="alert-box"/>
+  <text x="390" y="290" class="label-text">PRESENTATION</text>
+  <text x="390" y="305" class="label-text">ATTACKS</text>
+  <text x="390" y="325" class="tiny-text">â€¢ Injected Data</text>
+  <text x="390" y="340" class="tiny-text">â€¢ Spoofed Inputs</text>
+  
+  <rect x="470" y="270" width="120" height="80" class="alert-box"/>
+  <text x="530" y="290" class="label-text">ADVERSARIAL</text>
+  <text x="530" y="305" class="label-text">SAMPLES</text>
+  <text x="530" y="325" class="tiny-text">â€¢ Crafted Inputs</text>
+  <text x="530" y="340" class="tiny-text">â€¢ Model Attacks</text>
+  
+  <rect x="610" y="270" width="120" height="80" class="alert-box"/>
+  <text x="670" y="290" class="label-text">BEHAVIORAL</text>
+  <text x="670" y="305" class="label-text">MIMICRY</text>
+  <text x="670" y="325" class="tiny-text">â€¢ Pattern Copying</text>
+  <text x="670" y="340" class="tiny-text">â€¢ Learned Behaviors</text>
+  
+  <!-- Defense Mechanisms -->
+  <rect x="100" y="380" width="150" height="80" class="defense-box"/>
+  <text x="175" y="405" class="label-text">CHALLENGE-</text>
+  <text x="175" y="420" class="label-text">RESPONSE</text>
+  <text x="175" y="440" class="tiny-text">â€¢ Dynamic Tests</text>
+  <text x="175" y="455" class="tiny-text">â€¢ Unpredictable Queries</text>
+  
+  <rect x="270" y="380" width="150" height="80" class="defense-box"/>
+  <text x="345" y="405" class="label-text">MULTI-FACTOR</text>
+  <text x="345" y="420" class="label-text">VALIDATION</text>
+  <text x="345" y="440" class="tiny-text">â€¢ Cross-Verification</text>
+  <text x="345" y="455" class="tiny-text">â€¢ Correlation Analysis</text>
+  
+  <rect x="440" y="380" width="150" height="80" class="defense-box"/>
+  <text x="515" y="405" class="label-text">ADAPTIVE</text>
+  <text x="515" y="420" class="label-text">THRESHOLDS</text>
+  <text x="515" y="440" class="tiny-text">â€¢ Dynamic Adjustment</text>
+  <text x="515" y="455" class="tiny-text">â€¢ Risk-Based Scoring</text>
+  
+  <!-- Security Response System -->
+  <rect x="200" y="490" width="400" height="80" class="security-box"/>
+  <text x="400" y="515" class="label-text">INTEGRATED SECURITY RESPONSE SYSTEM</text>
+  <text x="400" y="535" class="small-text">â€¢ Threat Classification â€¢ Response Coordination â€¢ Security Alerts</text>
+  <text x="400" y="550" class="small-text">â€¢ Incident Logging â€¢ Forensic Analysis â€¢ System Hardening</text>
+  
+  <!-- Flow Lines -->
+  <!-- Detection Layer to Specific Detectors -->
+  <line x1="200" y1="110" x2="140" y2="140" class="connection-line"/>
+  <line x1="400" y1="110" x2="340" y2="140" class="connection-line"/>
+  <line x1="600" y1="110" x2="540" y2="140" class="connection-line"/>
+  
+  <!-- Threat Flows -->
+  <line x1="110" y1="270" x2="140" y2="240" class="threat-flow"/>
+  <line x1="250" y1="270" x2="340" y2="240" class="threat-flow"/>
+  <line x1="390" y1="270" x2="340" y2="240" class="threat-flow"/>
+  <line x1="530" y1="270" x2="540" y2="240" class="threat-flow"/>
+  <line x1="670" y1="270" x2="540" y2="240" class="threat-flow"/>
+  
+  <!-- Defense Flows -->
+  <line x1="175" y1="380" x2="200" y2="490" class="defense-flow"/>
+  <line x1="345" y1="380" x2="350" y2="490" class="defense-flow"/>
+  <line x1="515" y1="380" x2="550" y2="490" class="defense-flow"/>
+  
+  <!-- Detection to Defense -->
+  <line x1="140" y1="240" x2="175" y2="380" class="defense-flow"/>
+  <line x1="340" y1="240" x2="345" y2="380" class="defense-flow"/>
+  <line x1="540" y1="240" x2="515" y2="380" class="defense-flow"/>
+  
+  <!-- Security Metrics -->
+  <rect x="620" y="380" width="130" height="80" class="detection-box"/>
+  <text x="685" y="405" class="label-text">SECURITY</text>
+  <text x="685" y="420" class="label-text">METRICS</text>
+  <text x="685" y="440" class="tiny-text">â€¢ False Positive Rate</text>
+  <text x="685" y="455" class="tiny-text">â€¢ Attack Detection Rate</text>
+  
+  <!-- Feedback Loop -->
+  <path d="M 600 530 Q 750 530 750 190 Q 750 140 630 190" class="connection-line" stroke-dasharray="3,3"/>
+  <text x="750" y="350" class="tiny-text" transform="rotate(90 750 350)">ADAPTIVE</text>
+  <text x="740" y="350" class="tiny-text" transform="rotate(90 740 350)">LEARNING</text>
+  
+</svg>
+
+</body>
+</html>

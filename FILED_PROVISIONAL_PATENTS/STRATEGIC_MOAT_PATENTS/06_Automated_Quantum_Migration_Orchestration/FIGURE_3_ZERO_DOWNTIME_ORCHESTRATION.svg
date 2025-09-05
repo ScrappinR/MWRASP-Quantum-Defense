@@ -1,0 +1,433 @@
+<svg viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGreenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0891b2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0e7490;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="canaryGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d97706;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rollingGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+  
+  <!-- Title -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGradient)"/>
+  <text x="700" y="35" font-family="Arial, sans-serif" font-size="22" font-weight="bold" text-anchor="middle" fill="white">
+    Figure 3: Zero-Downtime Migration Orchestration Strategies
+  </text>
+  
+  <!-- Blue-Green Migration Strategy -->
+  <rect x="50" y="100" width="400" height="250" fill="url(#blueGreenGradient)" stroke="#0e7490" stroke-width="3" rx="15"/>
+  <text x="250" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+    Blue-Green Migration Strategy
+  </text>
+  <text x="250" y="155" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">
+    Parallel Environment Approach
+  </text>
+  
+  <!-- Blue Environment -->
+  <rect x="80" y="170" width="150" height="80" fill="#0369a1" stroke="#075985" stroke-width="2" rx="8"/>
+  <text x="155" y="190" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Blue Environment
+  </text>
+  <text x="155" y="210" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    Classical Cryptography
+  </text>
+  <text x="155" y="225" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    Production Traffic: 100%
+  </text>
+  <text x="155" y="240" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    Status: Active
+  </text>
+  
+  <!-- Green Environment -->
+  <rect x="250" y="170" width="150" height="80" fill="#16a34a" stroke="#15803d" stroke-width="2" rx="8"/>
+  <text x="325" y="190" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Green Environment
+  </text>
+  <text x="325" y="210" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    Post-Quantum Crypto
+  </text>
+  <text x="325" y="225" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    Production Traffic: 0%
+  </text>
+  <text x="325" y="240" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    Status: Standby
+  </text>
+  
+  <!-- Load Balancer -->
+  <rect x="165" y="270" width="120" height="30" fill="#1e40af" stroke="#1e3a8a" stroke-width="2" rx="5"/>
+  <text x="225" y="290" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Intelligent Load Balancer
+  </text>
+  
+  <!-- Traffic Switch -->
+  <rect x="80" y="315" width="320" height="25" fill="#0c4a6e" rx="5"/>
+  <text x="240" y="332" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Instant Traffic Switch (2-5 seconds)
+  </text>
+  
+  <!-- Canary Migration Strategy -->
+  <rect x="500" y="100" width="400" height="250" fill="url(#canaryGradient)" stroke="#d97706" stroke-width="3" rx="15"/>
+  <text x="700" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+    Canary Migration Strategy
+  </text>
+  <text x="700" y="155" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">
+    Gradual Traffic Transition
+  </text>
+  
+  <!-- Traffic Distribution -->
+  <rect x="530" y="170" width="120" height="60" fill="#ea580c" stroke="#c2410c" stroke-width="2" rx="8"/>
+  <text x="590" y="190" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Classical System
+  </text>
+  <text x="590" y="210" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    Traffic: 95% → 0%
+  </text>
+  <text x="590" y="225" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    Gradual Reduction
+  </text>
+  
+  <rect x="670" y="170" width="120" height="60" fill="#16a34a" stroke="#15803d" stroke-width="2" rx="8"/>
+  <text x="730" y="190" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Post-Quantum
+  </text>
+  <text x="730" y="210" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    Traffic: 5% → 100%
+  </text>
+  <text x="730" y="225" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="white">
+    Gradual Increase
+  </text>
+  
+  <!-- Monitoring -->
+  <rect x="810" y="170" width="80" height="60" fill="#7c3aed" stroke="#6d28d9" stroke-width="2" rx="8"/>
+  <text x="850" y="190" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    AI Monitor
+  </text>
+  <text x="850" y="210" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Performance
+  </text>
+  <text x="850" y="225" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Error Rates
+  </text>
+  
+  <!-- Canary Progression -->
+  <rect x="530" y="250" width="360" height="25" fill="#92400e" rx="5"/>
+  <text x="710" y="267" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Progression: 5% → 10% → 25% → 50% → 75% → 100%
+  </text>
+  
+  <!-- Rollback Trigger -->
+  <rect x="530" y="290" width="360" height="25" fill="#dc2626" rx="5"/>
+  <text x="710" y="307" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Auto-Rollback on Performance Degradation
+  </text>
+  
+  <!-- Rolling Migration Strategy -->
+  <rect x="950" y="100" width="400" height="250" fill="url(#rollingGradient)" stroke="#047857" stroke-width="3" rx="15"/>
+  <text x="1150" y="130" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+    Rolling Migration Strategy
+  </text>
+  <text x="1150" y="155" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="white">
+    Sequential Component Updates
+  </text>
+  
+  <!-- Component Sequence -->
+  <rect x="980" y="170" width="60" height="40" fill="#10b981" stroke="#059669" stroke-width="2" rx="5"/>
+  <text x="1010" y="185" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">
+    Node 1
+  </text>
+  <text x="1010" y="200" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    Migrated
+  </text>
+  
+  <rect x="1050" y="170" width="60" height="40" fill="#22d3ee" stroke="#0891b2" stroke-width="2" rx="5"/>
+  <text x="1080" y="185" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">
+    Node 2
+  </text>
+  <text x="1080" y="200" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    In Progress
+  </text>
+  
+  <rect x="1120" y="170" width="60" height="40" fill="#fbbf24" stroke="#f59e0b" stroke-width="2" rx="5"/>
+  <text x="1150" y="185" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">
+    Node 3
+  </text>
+  <text x="1150" y="200" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="black">
+    Queued
+  </text>
+  
+  <rect x="1190" y="170" width="60" height="40" fill="#f87171" stroke="#dc2626" stroke-width="2" rx="5"/>
+  <text x="1220" y="185" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">
+    Node 4
+  </text>
+  <text x="1220" y="200" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    Waiting
+  </text>
+  
+  <rect x="1260" y="170" width="60" height="40" fill="#6b7280" stroke="#4b5563" stroke-width="2" rx="5"/>
+  <text x="1290" y="185" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">
+    Node N
+  </text>
+  <text x="1290" y="200" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    Pending
+  </text>
+  
+  <!-- Health Checks -->
+  <rect x="980" y="230" width="340" height="25" fill="#047857" rx="5"/>
+  <text x="1150" y="247" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Continuous Health Monitoring Each Node
+  </text>
+  
+  <!-- Dependency Aware -->
+  <rect x="980" y="270" width="340" height="25" fill="#065f46" rx="5"/>
+  <text x="1150" y="287" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Dependency-Aware Sequencing
+  </text>
+  
+  <rect x="980" y="310" width="340" height="25" fill="#064e3b" rx="5"/>
+  <text x="1150" y="327" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Service Availability Maintained via Redundancy
+  </text>
+  
+  <!-- Orchestration Control Center -->
+  <rect x="150" y="380" width="1100" height="200" fill="#1f2937" stroke="#374151" stroke-width="3" rx="15"/>
+  <text x="700" y="410" font-family="Arial, sans-serif" font-size="20" font-weight="bold" text-anchor="middle" fill="white">
+    AI-Powered Migration Orchestration Control Center
+  </text>
+  
+  <!-- Control Components -->
+  <rect x="180" y="430" width="180" height="60" fill="#4b5563" stroke="#6b7280" stroke-width="2" rx="8"/>
+  <text x="270" y="450" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Migration Planner AI
+  </text>
+  <text x="270" y="470" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Optimal Strategy Selection
+  </text>
+  
+  <rect x="380" y="430" width="180" height="60" fill="#4b5563" stroke="#6b7280" stroke-width="2" rx="8"/>
+  <text x="470" y="450" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Performance Optimizer
+  </text>
+  <text x="470" y="470" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Real-time Tuning
+  </text>
+  
+  <rect x="580" y="430" width="180" height="60" fill="#4b5563" stroke="#6b7280" stroke-width="2" rx="8"/>
+  <text x="670" y="450" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Health Monitor
+  </text>
+  <text x="670" y="470" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Multi-dimensional Analysis
+  </text>
+  
+  <rect x="780" y="430" width="180" height="60" fill="#4b5563" stroke="#6b7280" stroke-width="2" rx="8"/>
+  <text x="870" y="450" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Rollback Controller
+  </text>
+  <text x="870" y="470" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Instant Recovery
+  </text>
+  
+  <rect x="980" y="430" width="180" height="60" fill="#4b5563" stroke="#6b7280" stroke-width="2" rx="8"/>
+  <text x="1070" y="450" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Resource Manager
+  </text>
+  <text x="1070" y="470" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="white">
+    Dynamic Allocation
+  </text>
+  
+  <!-- Coordination Layer -->
+  <rect x="180" y="510" width="980" height="50" fill="#374151" stroke="#4b5563" stroke-width="2" rx="8"/>
+  <text x="670" y="530" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="white">
+    Inter-Strategy Coordination Layer
+  </text>
+  <text x="670" y="550" font-family="Arial, sans-serif" font-size="12" text-anchor="middle" fill="white">
+    Manages dependencies and synchronization across all migration strategies simultaneously
+  </text>
+  
+  <!-- Performance Guarantees -->
+  <rect x="100" y="600" width="1200" height="120" fill="#0f172a" stroke="#1e293b" stroke-width="3" rx="15"/>
+  <text x="700" y="630" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">
+    Zero-Downtime Performance Guarantees
+  </text>
+  
+  <!-- Guarantee Metrics -->
+  <rect x="130" y="650" width="200" height="25" fill="#1e40af" rx="5"/>
+  <text x="230" y="667" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    99.99% Availability SLA
+  </text>
+  
+  <rect x="350" y="650" width="200" height="25" fill="#dc2626" rx="5"/>
+  <text x="450" y="667" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    &lt; 5% Performance Impact
+  </text>
+  
+  <rect x="570" y="650" width="200" height="25" fill="#059669" rx="5"/>
+  <text x="670" y="667" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Instant Rollback &lt; 10 min
+  </text>
+  
+  <rect x="790" y="650" width="200" height="25" fill="#7c3aed" rx="5"/>
+  <text x="890" y="667" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Continuous Data Sync
+  </text>
+  
+  <rect x="1010" y="650" width="200" height="25" fill="#f59e0b" rx="5"/>
+  <text x="1110" y="667" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="black">
+    Linear Scalability
+  </text>
+  
+  <!-- Migration Phases -->
+  <rect x="130" y="680" width="1070" height="25" fill="#1e3a8a" rx="5"/>
+  <text x="665" y="697" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">
+    Phase 1: Preparation (2-4h) → Phase 2: Migration (6-24h) → Phase 3: Validation (1-2h) → Phase 4: Cleanup (30min)
+  </text>
+  
+  <!-- Success Criteria -->
+  <rect x="100" y="740" width="1200" height="100" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" rx="15"/>
+  <text x="700" y="770" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#92400e">
+    Migration Success Criteria and Validation
+  </text>
+  
+  <rect x="150" y="790" width="220" height="35" fill="#fbbf24" rx="5"/>
+  <text x="260" y="805" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="black">
+    Functional Validation
+  </text>
+  <text x="260" y="820" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    All services operational post-migration
+  </text>
+  
+  <rect x="390" y="790" width="220" height="35" fill="#fbbf24" rx="5"/>
+  <text x="500" y="805" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="black">
+    Performance Validation
+  </text>
+  <text x="500" y="820" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    &lt; 5% performance degradation allowed
+  </text>
+  
+  <rect x="630" y="790" width="220" height="35" fill="#fbbf24" rx="5"/>
+  <text x="740" y="805" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="black">
+    Security Validation
+  </text>
+  <text x="740" y="820" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    Quantum-resistance verified
+  </text>
+  
+  <rect x="870" y="790" width="220" height="35" fill="#fbbf24" rx="5"/>
+  <text x="980" y="805" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="black">
+    Data Integrity
+  </text>
+  <text x="980" y="820" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="black">
+    Zero data loss or corruption
+  </text>
+  
+  <!-- Advanced Features -->
+  <rect x="100" y="860" width="1200" height="120" fill="#f0fdf4" stroke="#16a34a" stroke-width="3" rx="15"/>
+  <text x="700" y="890" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#15803d">
+    Advanced Orchestration Features
+  </text>
+  
+  <rect x="150" y="910" width="180" height="50" fill="#10b981" rx="5"/>
+  <text x="240" y="925" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Hybrid Strategies
+  </text>
+  <text x="240" y="940" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    Combine multiple approaches
+  </text>
+  <text x="240" y="952" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    for optimal results
+  </text>
+  
+  <rect x="350" y="910" width="180" height="50" fill="#10b981" rx="5"/>
+  <text x="440" y="925" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    A/B Testing
+  </text>
+  <text x="440" y="940" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    Compare performance between
+  </text>
+  <text x="440" y="952" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    classical and PQ systems
+  </text>
+  
+  <rect x="550" y="910" width="180" height="50" fill="#10b981" rx="5"/>
+  <text x="640" y="925" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Load Balancing
+  </text>
+  <text x="640" y="940" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    Intelligent traffic distribution
+  </text>
+  <text x="640" y="952" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    across migration phases
+  </text>
+  
+  <rect x="750" y="910" width="180" height="50" fill="#10b981" rx="5"/>
+  <text x="840" y="925" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Auto-Scaling
+  </text>
+  <text x="840" y="940" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    Dynamic resource allocation
+  </text>
+  <text x="840" y="952" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    based on migration load
+  </text>
+  
+  <rect x="950" y="910" width="180" height="50" fill="#10b981" rx="5"/>
+  <text x="1040" y="925" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Predictive Analytics
+  </text>
+  <text x="1040" y="940" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    ML-powered migration
+  </text>
+  <text x="1040" y="952" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    optimization
+  </text>
+  
+  <rect x="1150" y="910" width="130" height="50" fill="#10b981" rx="5"/>
+  <text x="1215" y="925" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+    Global Scale
+  </text>
+  <text x="1215" y="940" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    500,000+ systems
+  </text>
+  <text x="1215" y="952" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="white">
+    simultaneous support
+  </text>
+  
+  <!-- Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151" />
+    </marker>
+  </defs>
+  
+  <!-- Blue-Green Switch Arrow -->
+  <path d="M 230 250 Q 250 280 270 250" stroke="#1e40af" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="250" y="275" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#1e40af">Switch</text>
+  
+  <!-- Canary Progression Arrow -->
+  <line x1="530" y1="210" x2="870" y2="210" stroke="#ea580c" stroke-width="3" marker-end="url(#arrowhead)"/>
+  
+  <!-- Rolling Sequence Arrows -->
+  <line x1="1040" y1="190" x2="1050" y2="190" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="1110" y1="190" x2="1120" y2="190" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="1180" y1="190" x2="1190" y2="190" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="1250" y1="190" x2="1260" y2="190" stroke="#059669" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Control Center Connections -->
+  <line x1="250" y1="350" x2="270" y2="430" stroke="#6b7280" stroke-width="2" stroke-dasharray="3,3"/>
+  <line x1="700" y1="350" x2="670" y2="430" stroke="#6b7280" stroke-width="2" stroke-dasharray="3,3"/>
+  <line x1="1150" y1="350" x2="1070" y2="430" stroke="#6b7280" stroke-width="2" stroke-dasharray="3,3"/>
+  
+</svg>

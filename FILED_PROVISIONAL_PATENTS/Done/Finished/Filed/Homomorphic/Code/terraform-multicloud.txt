@@ -1,0 +1,688 @@
+# terraform/main.tf
+terraform {
+  required_version = ">= 1.0"
+  
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 5.0"
+    }
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "~> 3.0"
+    }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = "~> 2.0"
+    }
+    helm = {
+      source  = "hashicorp/helm"
+      version = "~> 2.0"
+    }
+  }
+  
+  backend "s3" {
+    bucket = "homomorphic-swarm-terraform-state"
+    key    = "global/terraform.tfstate"
+    region = "us-east-1"
+    encrypt = true
+    dynamodb_table = "terraform-state-lock"
+  }
+}
+
+# Variables
+variable "environment" {
+  description = "Environment name"
+  type        = string
+}
+
+variable "regions" {
+  description = "Deployment regions"
+  type = map(object({
+    provider = string
+    region   = string
+    zones    = list(string)
+  }))
+  default = {
+    primary = {
+      provider = "aws"
+      region   = "us-east-1"
+      zones    = ["us-east-1a", "us-east-1b", "us-east-1c"]
+    }
+    secondary = {
+      provider = "gcp"
+      region   = "us-central1"
+      zones    = ["us-central1-a", "us-central1-b", "us-central1-c"]
+    }
+    tertiary = {
+      provider = "azure"
+      region   = "eastus"
+      zones    = ["1", "2", "3"]
+    }
+  }
+}
+
+variable "swarm_config" {
+  description = "Swarm configuration"
+  type = object({
+    queen_count    = number
+    worker_count   = number
+    guardian_count = number
+    scout_count    = number
+  })
+  default = {
+    queen_count    = 3
+    worker_count   = 50
+    guardian_count = 5
+    scout_count    = 2
+  }
+}
+
+# terraform/modules/aws/main.tf
+module "aws_infrastructure" {
+  source = "./modules/aws"
+  
+  environment = var.environment
+  region      = var.regions.primary.region
+  zones       = var.regions.primary.zones
+  
+  # Networking
+  vpc_cidr = "10.0.0.0/16"
+  
+  # EKS Configuration
+  eks_config = {
+    cluster_name    = "homomorphic-swarm-${var.environment}"
+    cluster_version = "1.28"
+    
+    node_groups = {
+      queens = {
+        instance_types = ["m5.2xlarge"]
+        min_size      = var.swarm_config.queen_count
+        max_size      = var.swarm_config.queen_count * 2
+        desired_size  = var.swarm_config.queen_count
+        
+        labels = {
+          "swarm/node-type" = "queen"
+        }
+        
+        taints = [{
+          key    = "swarm/dedicated"
+          value  = "queen"
+          effect = "NO_SCHEDULE"
+        }]
+      }
+      
+      workers = {
+        instance_types = ["c5.4xlarge", "c5n.4xlarge"]
+        min_size      = var.swarm_config.worker_count
+        max_size      = var.swarm_config.worker_count * 2
+        desired_size  = var.swarm_config.worker_count
+        
+        labels = {
+          "swarm/node-type" = "worker"
+        }
+      }
+      
+      guardians = {
+        instance_types = ["m5.xlarge"]
+        min_size      = var.swarm_config.guardian_count
+        max_size      = var.swarm_config.guardian_count * 2
+        desired_size  = var.swarm_config.guardian_count
+        
+        labels = {
+          "swarm/node-type" = "guardian"
+        }
+      }
+    }
+  }
+  
+  # Storage
+  s3_buckets = {
+    ciphertext_storage = {
+      name = "homomorphic-swarm-ciphertexts-${var.environment}"
+      versioning = true
+      lifecycle_rules = [{
+        id      = "archive_old_ciphertexts"
+        enabled = true
+        
+        transition = [{
+          days          = 30
+          storage_class = "INTELLIGENT_TIERING"
+        }]
+        
+        expiration = {
+          days = 365
+        }
+      }]
+    }
+  }
+  
+  # Database
+  rds_config = {
+    instance_class = "db.r6g.xlarge"
+    engine         = "postgres"
+    engine_version = "15.4"
+    
+    allocated_storage     = 100
+    max_allocated_storage = 1000
+    storage_encrypted     = true
+    
+    backup_retention_period = 30
+    backup_window          = "03:00-04:00"
+    maintenance_window     = "sun:04:00-sun:05:00"
+    
+    multi_az               = true
+    deletion_protection    = true
+  }
+  
+  # Cache
+  elasticache_config = {
+    node_type = "cache.r6g.xlarge"
+    engine    = "redis"
+    engine_version = "7.0"
+    
+    num_cache_nodes = 3
+    automatic_failover_enabled = true
+    
+    snapshot_retention_limit = 7
+    snapshot_window = "03:00-05:00"
+  }
+  
+  tags = {
+    Environment = var.environment
+    Project     = "homomorphic-swarm"
+    ManagedBy   = "terraform"
+  }
+}
+
+# terraform/modules/aws/vpc.tf
+resource "aws_vpc" "main" {
+  cidr_block           = var.vpc_cidr
+  enable_dns_hostnames = true
+  enable_dns_support   = true
+  
+  tags = merge(var.tags, {
+    Name = "homomorphic-swarm-${var.environment}"
+  })
+}
+
+resource "aws_subnet" "private" {
+  count = length(var.zones)
+  
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = cidrsubnet(var.vpc_cidr, 4, count.index)
+  availability_zone = var.zones[count.index]
+  
+  tags = merge(var.tags, {
+    Name = "private-${var.zones[count.index]}"
+    "kubernetes.io/role/internal-elb" = "1"
+  })
+}
+
+resource "aws_subnet" "public" {
+  count = length(var.zones)
+  
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = cidrsubnet(var.vpc_cidr, 4, count.index + length(var.zones))
+  availability_zone       = var.zones[count.index]
+  map_public_ip_on_launch = true
+  
+  tags = merge(var.tags, {
+    Name = "public-${var.zones[count.index]}"
+    "kubernetes.io/role/elb" = "1"
+  })
+}
+
+# terraform/modules/aws/eks.tf
+resource "aws_eks_cluster" "main" {
+  name     = var.eks_config.cluster_name
+  role_arn = aws_iam_role.eks_cluster.arn
+  version  = var.eks_config.cluster_version
+  
+  vpc_config {
+    subnet_ids              = aws_subnet.private[*].id
+    endpoint_private_access = true
+    endpoint_public_access  = true
+    public_access_cidrs     = ["0.0.0.0/0"]
+  }
+  
+  encryption_config {
+    provider {
+      key_arn = aws_kms_key.eks.arn
+    }
+    resources = ["secrets"]
+  }
+  
+  enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
+  
+  depends_on = [
+    aws_iam_role_policy_attachment.eks_cluster_policy,
+    aws_iam_role_policy_attachment.eks_vpc_resource_controller,
+  ]
+}
+
+resource "aws_eks_node_group" "main" {
+  for_each = var.eks_config.node_groups
+  
+  cluster_name    = aws_eks_cluster.main.name
+  node_group_name = each.key
+  node_role_arn   = aws_iam_role.eks_node.arn
+  subnet_ids      = aws_subnet.private[*].id
+  
+  instance_types = each.value.instance_types
+  
+  scaling_config {
+    desired_size = each.value.desired_size
+    max_size     = each.value.max_size
+    min_size     = each.value.min_size
+  }
+  
+  update_config {
+    max_unavailable_percentage = 33
+  }
+  
+  labels = each.value.labels
+  
+  dynamic "taint" {
+    for_each = lookup(each.value, "taints", [])
+    content {
+      key    = taint.value.key
+      value  = taint.value.value
+      effect = taint.value.effect
+    }
+  }
+  
+  depends_on = [
+    aws_iam_role_policy_attachment.eks_node_policy,
+    aws_iam_role_policy_attachment.eks_cni_policy,
+    aws_iam_role_policy_attachment.eks_container_registry_policy,
+  ]
+}
+
+# terraform/modules/gcp/main.tf
+module "gcp_infrastructure" {
+  source = "./modules/gcp"
+  
+  environment = var.environment
+  region      = var.regions.secondary.region
+  zones       = var.regions.secondary.zones
+  
+  # GKE Configuration
+  gke_config = {
+    cluster_name = "homomorphic-swarm-${var.environment}"
+    
+    node_pools = {
+      queens = {
+        machine_type = "n2-standard-8"
+        min_count    = var.swarm_config.queen_count
+        max_count    = var.swarm_config.queen_count * 2
+        initial_count = var.swarm_config.queen_count
+        
+        node_config = {
+          preemptible  = false
+          disk_size_gb = 100
+          disk_type    = "pd-ssd"
+          
+          labels = {
+            "swarm/node-type" = "queen"
+          }
+          
+          taints = [{
+            key    = "swarm/dedicated"
+            value  = "queen"
+            effect = "NO_SCHEDULE"
+          }]
+        }
+      }
+      
+      workers = {
+        machine_type = "c2-standard-16"
+        min_count    = var.swarm_config.worker_count
+        max_count    = var.swarm_config.worker_count * 2
+        initial_count = var.swarm_config.worker_count
+        
+        node_config = {
+          preemptible  = true
+          disk_size_gb = 200
+          disk_type    = "pd-ssd"
+          
+          labels = {
+            "swarm/node-type" = "worker"
+          }
+        }
+      }
+    }
+  }
+  
+  # Storage
+  gcs_buckets = {
+    ciphertext_storage = {
+      name          = "homomorphic-swarm-ciphertexts-${var.environment}"
+      location      = "US"
+      storage_class = "STANDARD"
+      
+      lifecycle_rule = [{
+        condition = {
+          age = 30
+        }
+        action = {
+          type          = "SetStorageClass"
+          storage_class = "NEARLINE"
+        }
+      }]
+    }
+  }
+  
+  # Database
+  cloud_sql_config = {
+    database_version = "POSTGRES_15"
+    tier            = "db-custom-4-16384"
+    
+    settings = {
+      availability_type = "REGIONAL"
+      backup_configuration = {
+        enabled                        = true
+        start_time                     = "03:00"
+        point_in_time_recovery_enabled = true
+        retained_backups               = 30
+      }
+      
+      database_flags = [
+        {
+          name  = "max_connections"
+          value = "1000"
+        }
+      ]
+    }
+  }
+}
+
+# terraform/modules/gcp/gke.tf
+resource "google_container_cluster" "main" {
+  name     = var.gke_config.cluster_name
+  location = var.region
+  
+  # Regional cluster for HA
+  node_locations = var.zones
+  
+  # Remove default node pool
+  remove_default_node_pool = true
+  initial_node_count       = 1
+  
+  # Network configuration
+  network    = google_compute_network.main.name
+  subnetwork = google_compute_subnetwork.main.name
+  
+  # IP allocation
+  ip_allocation_policy {
+    cluster_secondary_range_name  = "pods"
+    services_secondary_range_name = "services"
+  }
+  
+  # Security
+  private_cluster_config {
+    enable_private_nodes    = true
+    enable_private_endpoint = false
+    master_ipv4_cidr_block = "172.16.0.0/28"
+  }
+  
+  master_auth {
+    client_certificate_config {
+      issue_client_certificate = false
+    }
+  }
+  
+  # Addons
+  addons_config {
+    http_load_balancing {
+      disabled = false
+    }
+    horizontal_pod_autoscaling {
+      disabled = false
+    }
+    network_policy_config {
+      disabled = false
+    }
+  }
+  
+  # Workload Identity
+  workload_identity_config {
+    workload_pool = "${data.google_project.project.project_id}.svc.id.goog"
+  }
+}
+
+resource "google_container_node_pool" "main" {
+  for_each = var.gke_config.node_pools
+  
+  name       = each.key
+  cluster    = google_container_cluster.main.name
+  location   = var.region
+  
+  initial_node_count = each.value.initial_count
+  
+  autoscaling {
+    min_node_count = each.value.min_count
+    max_node_count = each.value.max_count
+  }
+  
+  management {
+    auto_repair  = true
+    auto_upgrade = true
+  }
+  
+  node_config {
+    preemptible  = each.value.node_config.preemptible
+    machine_type = each.value.machine_type
+    
+    disk_size_gb = each.value.node_config.disk_size_gb
+    disk_type    = each.value.node_config.disk_type
+    
+    labels = each.value.node_config.labels
+    
+    dynamic "taint" {
+      for_each = lookup(each.value.node_config, "taints", [])
+      content {
+        key    = taint.value.key
+        value  = taint.value.value
+        effect = taint.value.effect
+      }
+    }
+    
+    # Security
+    service_account = google_service_account.gke_node.email
+    oauth_scopes = [
+      "https://www.googleapis.com/auth/cloud-platform"
+    ]
+    
+    # Workload Identity
+    workload_metadata_config {
+      mode = "GKE_METADATA"
+    }
+  }
+}
+
+# terraform/modules/azure/main.tf
+module "azure_infrastructure" {
+  source = "./modules/azure"
+  
+  environment = var.environment
+  location    = var.regions.tertiary.region
+  
+  # AKS Configuration
+  aks_config = {
+    cluster_name = "homomorphic-swarm-${var.environment}"
+    dns_prefix   = "swarm-${var.environment}"
+    
+    default_node_pool = {
+      name       = "system"
+      node_count = 3
+      vm_size    = "Standard_D4s_v3"
+    }
+    
+    node_pools = {
+      queens = {
+        name       = "queens"
+        node_count = var.swarm_config.queen_count
+        vm_size    = "Standard_F8s_v2"
+        
+        node_labels = {
+          "swarm/node-type" = "queen"
+        }
+        
+        node_taints = [
+          "swarm/dedicated=queen:NoSchedule"
+        ]
+      }
+      
+      workers = {
+        name       = "workers"
+        node_count = var.swarm_config.worker_count
+        vm_size    = "Standard_F16s_v2"
+        
+        node_labels = {
+          "swarm/node-type" = "worker"
+        }
+        
+        enable_auto_scaling = true
+        min_count          = var.swarm_config.worker_count
+        max_count          = var.swarm_config.worker_count * 2
+      }
+    }
+  }
+  
+  # Storage
+  storage_accounts = {
+    ciphertexts = {
+      name                     = "swarmciphertexts${var.environment}"
+      account_tier            = "Standard"
+      account_replication_type = "GRS"
+      
+      containers = [{
+        name        = "ciphertexts"
+        access_type = "private"
+      }]
+    }
+  }
+  
+  # Database
+  postgresql_config = {
+    name     = "swarm-db-${var.environment}"
+    sku_name = "GP_Gen5_4"
+    
+    storage_mb                   = 102400
+    backup_retention_days        = 30
+    geo_redundant_backup_enabled = true
+    auto_grow_enabled           = true
+    
+    ssl_enforcement_enabled          = true
+    ssl_minimal_tls_version_enforced = "TLS1_2"
+  }
+}
+
+# terraform/outputs.tf
+output "cluster_endpoints" {
+  description = "Kubernetes cluster endpoints"
+  value = {
+    aws   = module.aws_infrastructure.eks_endpoint
+    gcp   = module.gcp_infrastructure.gke_endpoint
+    azure = module.azure_infrastructure.aks_endpoint
+  }
+  sensitive = true
+}
+
+output "load_balancer_ips" {
+  description = "Load balancer IPs for each region"
+  value = {
+    aws   = module.aws_infrastructure.lb_dns_name
+    gcp   = module.gcp_infrastructure.lb_ip_address
+    azure = module.azure_infrastructure.lb_ip_address
+  }
+}
+
+output "storage_endpoints" {
+  description = "Storage endpoints"
+  value = {
+    aws_s3     = module.aws_infrastructure.s3_bucket_arns
+    gcp_gcs    = module.gcp_infrastructure.gcs_bucket_urls
+    azure_blob = module.azure_infrastructure.storage_account_endpoints
+  }
+}
+
+# terraform/global-dns.tf
+resource "aws_route53_zone" "main" {
+  name = "swarm.example.com"
+  
+  tags = {
+    Environment = var.environment
+  }
+}
+
+resource "aws_route53_health_check" "regions" {
+  for_each = var.regions
+  
+  fqdn              = module["${each.value.provider}_infrastructure"].health_check_fqdn
+  port              = 443
+  type              = "HTTPS"
+  resource_path     = "/health"
+  failure_threshold = "3"
+  request_interval  = "30"
+  
+  tags = {
+    Name = "swarm-${each.key}-health"
+  }
+}
+
+resource "aws_route53_record" "weighted" {
+  for_each = var.regions
+  
+  zone_id = aws_route53_zone.main.zone_id
+  name    = "api.swarm.example.com"
+  type    = "A"
+  ttl     = "60"
+  
+  weighted_routing_policy {
+    weight = each.key == "primary" ? 100 : 50
+  }
+  
+  set_identifier = each.key
+  records        = [module["${each.value.provider}_infrastructure"].lb_ip_address]
+  
+  health_check_id = aws_route53_health_check.regions[each.key].id
+}
+
+# terraform/environments/production.tfvars
+environment = "production"
+
+swarm_config = {
+  queen_count    = 5
+  worker_count   = 100
+  guardian_count = 10
+  scout_count    = 4
+}
+
+regions = {
+  primary = {
+    provider = "aws"
+    region   = "us-east-1"
+    zones    = ["us-east-1a", "us-east-1b", "us-east-1c"]
+  }
+  secondary = {
+    provider = "gcp"
+    region   = "us-central1"
+    zones    = ["us-central1-a", "us-central1-b", "us-central1-c"]
+  }
+  tertiary = {
+    provider = "azure"
+    region   = "eastus"
+    zones    = ["1", "2", "3"]
+  }
+  dr = {
+    provider = "aws"
+    region   = "eu-west-1"
+    zones    = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  }
+}

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- USPTO Patent Drawing - Figure 3: Process Flow -->
+  
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">
+    FIG. 3 - HYBRID QUANTUM-CLASSICAL DECISION AND PROCESSING FLOW
+  </text>
+  
+  <!-- Main Container -->
+  <rect x="50" y="50" width="700" height="500" fill="none" stroke="black" stroke-width="2"/>
+  <text x="400" y="70" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold">
+    ADAPTIVE RESOURCE ALLOCATION PROCESS WORKFLOW
+  </text>
+  
+  <!-- Start: Threat Data Input -->
+  <rect x="100" y="100" width="120" height="50" rx="10" ry="10" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="160" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    THREAT DATA
+  </text>
+  <text x="160" y="135" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    INPUT
+  </text>
+  <text x="160" y="145" text-anchor="middle" font-family="Arial" font-size="8">
+    (200)
+  </text>
+  
+  <!-- Threat Analysis -->
+  <rect x="280" y="100" width="120" height="50" rx="10" ry="10" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="340" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    THREAT
+  </text>
+  <text x="340" y="135" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    ANALYSIS
+  </text>
+  <text x="340" y="145" text-anchor="middle" font-family="Arial" font-size="8">
+    (210)
+  </text>
+  
+  <!-- System Capacity Check -->
+  <rect x="460" y="100" width="120" height="50" rx="10" ry="10" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="520" y="120" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CAPACITY
+  </text>
+  <text x="520" y="135" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    ASSESSMENT
+  </text>
+  <text x="520" y="145" text-anchor="middle" font-family="Arial" font-size="8">
+    (220)
+  </text>
+  
+  <!-- Decision Diamond: Route Selection -->
+  <polygon points="340,180 380,210 340,240 300,210" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="340" y="205" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">
+    ROUTE
+  </text>
+  <text x="340" y="218" text-anchor="middle" font-family="Arial" font-size="9" font-weight="bold">
+    SELECT?
+  </text>
+  <text x="340" y="230" text-anchor="middle" font-family="Arial" font-size="8">
+    (230)
+  </text>
+  
+  <!-- Classical Processing Branch -->
+  <rect x="100" y="280" width="120" height="50" rx="10" ry="10" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="160" y="300" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CLASSICAL
+  </text>
+  <text x="160" y="315" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    PROCESSING
+  </text>
+  <text x="160" y="325" text-anchor="middle" font-family="Arial" font-size="8">
+    (240)
+  </text>
+  
+  <!-- Quantum Processing Branch -->
+  <rect x="580" y="280" width="120" height="50" rx="10" ry="10" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="640" y="300" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    QUANTUM
+  </text>
+  <text x="640" y="315" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    PROCESSING
+  </text>
+  <text x="640" y="325" text-anchor="middle" font-family="Arial" font-size="8">
+    (250)
+  </text>
+  
+  <!-- Hybrid Processing Branch -->
+  <rect x="280" y="280" width="120" height="50" rx="10" ry="10" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="340" y="300" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    HYBRID
+  </text>
+  <text x="340" y="315" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    PROCESSING
+  </text>
+  <text x="340" y="325" text-anchor="middle" font-family="Arial" font-size="8">
+    (260)
+  </text>
+  
+  <!-- Result Collection -->
+  <rect x="100" y="380" width="120" height="50" rx="10" ry="10" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="160" y="400" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    CLASSICAL
+  </text>
+  <text x="160" y="415" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    RESULTS
+  </text>
+  <text x="160" y="425" text-anchor="middle" font-family="Arial" font-size="8">
+    (270)
+  </text>
+  
+  <rect x="280" y="380" width="120" height="50" rx="10" ry="10" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="340" y="400" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    HYBRID
+  </text>
+  <text x="340" y="415" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    RESULTS
+  </text>
+  <text x="340" y="425" text-anchor="middle" font-family="Arial" font-size="8">
+    (280)
+  </text>
+  
+  <rect x="580" y="380" width="120" height="50" rx="10" ry="10" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="640" y="400" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    QUANTUM
+  </text>
+  <text x="640" y="415" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    RESULTS
+  </text>
+  <text x="640" y="425" text-anchor="middle" font-family="Arial" font-size="8">
+    (290)
+  </text>
+  
+  <!-- Result Fusion -->
+  <rect x="340" y="470" width="120" height="50" rx="10" ry="10" fill="none" stroke="black" stroke-width="1.5"/>
+  <text x="400" y="490" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    RESULT FUSION
+  </text>
+  <text x="400" y="505" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    &amp; CORRELATION
+  </text>
+  <text x="400" y="515" text-anchor="middle" font-family="Arial" font-size="8">
+    (300)
+  </text>
+  
+  <!-- Process Flow Arrows -->
+  <path d="M 220 125 L 280 125" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 400 125 L 460 125" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 520 150 L 340 180" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Decision paths -->
+  <path d="M 300 210 L 160 280" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="210" y="245" text-anchor="middle" font-family="Arial" font-size="8">CLASSICAL</text>
+  
+  <path d="M 340 240 L 340 280" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="360" y="260" text-anchor="middle" font-family="Arial" font-size="8">HYBRID</text>
+  
+  <path d="M 380 210 L 640 280" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="520" y="245" text-anchor="middle" font-family="Arial" font-size="8">QUANTUM</text>
+  
+  <!-- Results to fusion -->
+  <path d="M 160 330 L 160 380" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 340 330 L 340 380" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 640 330 L 640 380" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- To fusion center -->
+  <path d="M 160 430 L 340 470" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 340 430 L 340 470" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M 640 430 L 460 470" stroke="black" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Performance feedback -->
+  <path d="M 460 495 L 720 495 L 720 210 L 380 210" stroke="black" stroke-width="1" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="3,3"/>
+  <text x="590" y="485" text-anchor="middle" font-family="Arial" font-size="8">Performance Learning Loop</text>
+  
+  <!-- Processing details boxes -->
+  <rect x="60" y="340" width="50" height="30" fill="none" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="85" y="353" text-anchor="middle" font-family="Arial" font-size="7">ML Analytics</text>
+  <text x="85" y="363" text-anchor="middle" font-family="Arial" font-size="7">Fast Pipeline</text>
+  
+  <rect x="240" y="340" width="50" height="30" fill="none" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="265" y="353" text-anchor="middle" font-family="Arial" font-size="7">Parallel Exec</text>
+  <text x="265" y="363" text-anchor="middle" font-family="Arial" font-size="7">Sync Results</text>
+  
+  <rect x="710" y="340" width="50" height="30" fill="none" stroke="black" stroke-width="1" stroke-dasharray="2,2"/>
+  <text x="735" y="353" text-anchor="middle" font-family="Arial" font-size="7">Q-Algorithms</text>
+  <text x="735" y="363" text-anchor="middle" font-family="Arial" font-size="7">Pattern Rec.</text>
+  
+  <!-- Timing indicators -->
+  <text x="400" y="540" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">
+    MICROSECOND-LEVEL RESPONSE TIME OPTIMIZATION
+  </text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+  </defs>
+  
+</svg>

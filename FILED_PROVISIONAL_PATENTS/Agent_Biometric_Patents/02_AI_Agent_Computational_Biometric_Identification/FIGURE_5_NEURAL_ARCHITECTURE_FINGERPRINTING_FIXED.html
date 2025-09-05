@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @page { size: 8.5in 11in; margin: 0.5in; }
+        body { margin: 0; padding: 0; }
+        svg { width: 100%; height: auto; max-width: 7.5in; }
+    </style>
+</head>
+<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2550" height="3300" viewBox="0 0 2550 3300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .neural-box { fill: #f0f8ff; stroke: black; stroke-width: 1; }
+      .layer-box { fill: #e6f3ff; stroke: black; stroke-width: 1; }
+      .analysis-box { fill: #fff2e6; stroke: black; stroke-width: 1; }
+      .output-box { fill: white; stroke: black; stroke-width: 2; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .neural-flow { stroke: red; stroke-width: 1; fill: none; stroke-dasharray: 3,3; }
+      .process-flow { stroke: black; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="black" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 5: NEURAL ARCHITECTURE FINGERPRINTING SYSTEM</text>
+  
+  <!-- Neural Network Input -->
+  <rect x="50" y="50" width="700" height="60" class="neural-box"/>
+  <text x="400" y="75" class="label-text">AI AGENT NEURAL NETWORK MONITORING INTERFACE</text>
+  <text x="400" y="95" class="small-text">â€¢ Layer Activation Capture â€¢ Weight Distribution Analysis â€¢ Gradient Flow Monitoring</text>
+  
+  <!-- Neural Layer Analysis -->
+  <rect x="50" y="140" width="140" height="100" class="layer-box"/>
+  <text x="120" y="160" class="label-text">INPUT LAYER</text>
+  <text x="120" y="175" class="label-text">ANALYSIS</text>
+  <text x="120" y="200" class="tiny-text">â€¢ Activation Patterns</text>
+  <text x="120" y="215" class="tiny-text">â€¢ Input Distribution</text>
+  <text x="120" y="230" class="tiny-text">â€¢ Normalization Effects</text>
+  
+  <rect x="210" y="140" width="140" height="100" class="layer-box"/>
+  <text x="280" y="160" class="label-text">HIDDEN LAYER</text>
+  <text x="280" y="175" class="label-text">ANALYSIS</text>
+  <text x="280" y="200" class="tiny-text">â€¢ Feature Representations</text>
+  <text x="280" y="215" class="tiny-text">â€¢ Neuron Firing Patterns</text>
+  <text x="280" y="230" class="tiny-text">â€¢ Sparsity Characteristics</text>
+  
+  <rect x="370" y="140" width="140" height="100" class="layer-box"/>
+  <text x="440" y="160" class="label-text">OUTPUT LAYER</text>
+  <text x="440" y="175" class="label-text">ANALYSIS</text>
+  <text x="440" y="200" class="tiny-text">â€¢ Decision Patterns</text>
+  <text x="440" y="215" class="tiny-text">â€¢ Confidence Distributions</text>
+  <text x="440" y="230" class="tiny-text">â€¢ Output Correlations</text>
+  
+  <rect x="530" y="140" width="140" height="100" class="layer-box"/>
+  <text x="600" y="160" class="label-text">ATTENTION</text>
+  <text x="600" y="175" class="label-text">MECHANISM</text>
+  <text x="600" y="200" class="tiny-text">â€¢ Attention Weights</text>
+  <text x="600" y="215" class="tiny-text">â€¢ Focus Patterns</text>
+  <text x="600" y="230" class="tiny-text">â€¢ Context Utilization</text>
+  
+  <!-- Weight Distribution Analyzers -->
+  <rect x="100" y="270" width="180" height="80" class="analysis-box"/>
+  <text x="190" y="295" class="label-text">WEIGHT DISTRIBUTION</text>
+  <text x="190" y="310" class="label-text">ANALYZER</text>
+  <text x="190" y="330" class="tiny-text">â€¢ Statistical Moments â€¢ Entropy Measures</text>
+  <text x="190" y="345" class="tiny-text">â€¢ Distribution Shape â€¢ Outlier Analysis</text>
+  
+  <rect x="300" y="270" width="180" height="80" class="analysis-box"/>
+  <text x="390" y="295" class="label-text">GRADIENT FLOW</text>
+  <text x="390" y="310" class="label-text">ANALYZER</text>
+  <text x="390" y="330" class="tiny-text">â€¢ Backprop Patterns â€¢ Vanishing Detection</text>
+  <text x="390" y="345" class="tiny-text">â€¢ Flow Dynamics â€¢ Layer Sensitivity</text>
+  
+  <rect x="500" y="270" width="180" height="80" class="analysis-box"/>
+  <text x="590" y="295" class="label-text">ACTIVATION</text>
+  <text x="590" y="310" class="label-text">PATTERN ANALYZER</text>
+  <text x="590" y="330" class="tiny-text">â€¢ Firing Sequences â€¢ Temporal Patterns</text>
+  <text x="590" y="345" class="tiny-text">â€¢ Layer Interactions â€¢ Response Timing</text>
+  
+  <!-- Architecture Characterization -->
+  <rect x="50" y="380" width="150" height="100" class="analysis-box"/>
+  <text x="125" y="405" class="label-text">TOPOLOGY</text>
+  <text x="125" y="420" class="label-text">FINGERPRINT</text>
+  <text x="125" y="445" class="tiny-text">â€¢ Layer Connectivity</text>
+  <text x="125" y="460" class="tiny-text">â€¢ Skip Connections</text>
+  <text x="125" y="475" class="tiny-text">â€¢ Architecture Type</text>
+  
+  <rect x="220" y="380" width="150" height="100" class="analysis-box"/>
+  <text x="295" y="405" class="label-text">PARAMETER</text>
+  <text x="295" y="420" class="label-text">SIGNATURE</text>
+  <text x="295" y="445" class="tiny-text">â€¢ Total Parameters</text>
+  <text x="295" y="460" class="tiny-text">â€¢ Parameter Distribution</text>
+  <text x="295" y="475" class="tiny-text">â€¢ Layer Sizes</text>
+  
+  <rect x="390" y="380" width="150" height="100" class="analysis-box"/>
+  <text x="465" y="405" class="label-text">BEHAVIORAL</text>
+  <text x="465" y="420" class="label-text">SIGNATURE</text>
+  <text x="465" y="445" class="tiny-text">â€¢ Decision Boundaries</text>
+  <text x="465" y="460" class="tiny-text">â€¢ Learning Patterns</text>
+  <text x="465" y="475" class="tiny-text">â€¢ Adaptation Style</text>
+  
+  <rect x="560" y="380" width="150" height="100" class="analysis-box"/>
+  <text x="635" y="405" class="label-text">TEMPORAL</text>
+  <text x="635" y="420" class="label-text">DYNAMICS</text>
+  <text x="635" y="445" class="tiny-text">â€¢ Training Evolution</text>
+  <text x="635" y="460" class="tiny-text">â€¢ Convergence Patterns</text>
+  <text x="635" y="475" class="tiny-text">â€¢ Stability Measures</text>
+  
+  <!-- Neural Architecture Fingerprint Generator -->
+  <rect x="200" y="510" width="400" height="80" class="neural-box"/>
+  <text x="400" y="535" class="label-text">NEURAL ARCHITECTURE FINGERPRINT GENERATOR</text>
+  <text x="400" y="555" class="small-text">â€¢ Multi-Dimensional Feature Integration â€¢ Unique Signature Creation</text>
+  <text x="400" y="570" class="small-text">â€¢ Robustness Testing â€¢ Identity Verification â€¢ Template Storage</text>
+  
+  <!-- Output -->
+  <rect x="300" y="610" width="200" height="30" class="output-box"/>
+  <text x="400" y="630" class="label-text">NEURAL BIOMETRIC FINGERPRINT</text>
+  
+  <!-- Flow Lines -->
+  <!-- Neural Network to Layer Analysis -->
+  <line x1="200" y1="110" x2="120" y2="140" class="neural-flow"/>
+  <line x1="300" y1="110" x2="280" y2="140" class="neural-flow"/>
+  <line x1="400" y1="110" x2="440" y2="140" class="neural-flow"/>
+  <line x1="500" y1="110" x2="600" y2="140" class="neural-flow"/>
+  
+  <!-- Layer Analysis to Weight Analyzers -->
+  <line x1="120" y1="240" x2="190" y2="270" class="process-flow"/>
+  <line x1="280" y1="240" x2="390" y2="270" class="process-flow"/>
+  <line x1="440" y1="240" x2="390" y2="270" class="process-flow"/>
+  <line x1="600" y1="240" x2="590" y2="270" class="process-flow"/>
+  
+  <!-- Weight Analyzers to Architecture Characterization -->
+  <line x1="190" y1="350" x2="125" y2="380" class="process-flow"/>
+  <line x1="190" y1="350" x2="295" y2="380" class="process-flow"/>
+  <line x1="390" y1="350" x2="465" y2="380" class="process-flow"/>
+  <line x1="590" y1="350" x2="635" y2="380" class="process-flow"/>
+  
+  <!-- Architecture Characterization to Fingerprint Generator -->
+  <line x1="125" y1="480" x2="250" y2="510" class="process-flow"/>
+  <line x1="295" y1="480" x2="350" y2="510" class="process-flow"/>
+  <line x1="465" y1="480" x2="450" y2="510" class="process-flow"/>
+  <line x1="635" y1="480" x2="550" y2="510" class="process-flow"/>
+  
+  <!-- Fingerprint Generator to Output -->
+  <line x1="400" y1="590" x2="400" y2="610" class="process-flow"/>
+  
+  <!-- Neural Network Visualization -->
+  <g transform="translate(50, 380)">
+    <!-- Simple neural network diagram -->
+    <circle cx="20" cy="20" r="5" fill="lightblue" stroke="black"/>
+    <circle cx="20" cy="40" r="5" fill="lightblue" stroke="black"/>
+    <circle cx="20" cy="60" r="5" fill="lightblue" stroke="black"/>
+    
+    <circle cx="50" cy="10" r="5" fill="lightgreen" stroke="black"/>
+    <circle cx="50" cy="30" r="5" fill="lightgreen" stroke="black"/>
+    <circle cx="50" cy="50" r="5" fill="lightgreen" stroke="black"/>
+    <circle cx="50" cy="70" r="5" fill="lightgreen" stroke="black"/>
+    
+    <circle cx="80" cy="20" r="5" fill="lightcoral" stroke="black"/>
+    <circle cx="80" cy="40" r="5" fill="lightcoral" stroke="black"/>
+    
+    <!-- Connections -->
+    <line x1="25" y1="20" x2="45" y2="10" stroke="gray" stroke-width="1"/>
+    <line x1="25" y1="20" x2="45" y2="30" stroke="gray" stroke-width="1"/>
+    <line x1="25" y1="40" x2="45" y2="50" stroke="gray" stroke-width="1"/>
+    <line x1="25" y1="60" x2="45" y2="70" stroke="gray" stroke-width="1"/>
+    
+    <line x1="55" y1="10" x2="75" y2="20" stroke="gray" stroke-width="1"/>
+    <line x1="55" y1="30" x2="75" y2="20" stroke="gray" stroke-width="1"/>
+    <line x1="55" y1="50" x2="75" y2="40" stroke="gray" stroke-width="1"/>
+    <line x1="55" y1="70" x2="75" y2="40" stroke="gray" stroke-width="1"/>
+  </g>
+  
+</svg>
+
+</body>
+</html>

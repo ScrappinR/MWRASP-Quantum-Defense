@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="800" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .process-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .process-box { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .input-box { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 5; }
+      .output-box { fill: #ffebee; stroke: #f44336; stroke-width: 2; rx: 5; }
+      .analysis-box { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 5; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" class="title-text">FIGURE 2: Quantum Threat Assessment Engine Process Flow</text>
+  
+  <!-- Input Sources (Top Row) -->
+  <rect x="50" y="70" width="140" height="80" class="input-box"/>
+  <text x="120" y="100" class="process-text">Research</text>
+  <text x="120" y="115" class="process-text">Publications</text>
+  <text x="120" y="135" class="detail-text">• Quantum Papers</text>
+  <text x="120" y="147" class="detail-text">• Academic Studies</text>
+  
+  <rect x="220" y="70" width="140" height="80" class="input-box"/>
+  <text x="290" y="100" class="process-text">Commercial</text>
+  <text x="290" y="115" class="process-text">Development</text>
+  <text x="290" y="135" class="detail-text">• IBM Quantum</text>
+  <text x="290" y="147" class="detail-text">• Google Sycamore</text>
+  
+  <rect x="390" y="70" width="140" height="80" class="input-box"/>
+  <text x="460" y="100" class="process-text">Government</text>
+  <text x="460" y="115" class="process-text">Intelligence</text>
+  <text x="460" y="135" class="detail-text">• NIST Updates</text>
+  <text x="460" y="147" class="detail-text">• NSA Advisories</text>
+  
+  <rect x="560" y="70" width="140" height="80" class="input-box"/>
+  <text x="630" y="100" class="process-text">Cybersecurity</text>
+  <text x="630" y="115" class="process-text">Threat Feeds</text>
+  <text x="630" y="135" class="detail-text">• CVE Database</text>
+  <text x="630" y="147" class="detail-text">• Threat Intel</text>
+  
+  <rect x="730" y="70" width="140" height="80" class="input-box"/>
+  <text x="800" y="100" class="process-text">Patent</text>
+  <text x="800" y="115" class="process-text">Analysis</text>
+  <text x="800" y="135" class="detail-text">• Quantum Patents</text>
+  <text x="800" y="147" class="detail-text">• IP Landscape</text>
+  
+  <!-- Processing Layer -->
+  <rect x="200" y="200" width="800" height="60" class="process-box"/>
+  <text x="600" y="225" class="process-text">Threat Intelligence Aggregation & Correlation Engine</text>
+  <text x="600" y="245" class="detail-text">Multi-source data fusion • Correlation analysis • Confidence scoring • Temporal analysis</text>
+  
+  <!-- Analysis Components (Middle Row) -->
+  <rect x="100" y="320" width="180" height="100" class="analysis-box"/>
+  <text x="190" y="345" class="process-text">Quantum Capability</text>
+  <text x="190" y="360" class="process-text">Monitoring</text>
+  <text x="190" y="380" class="detail-text">• Qubit count tracking</text>
+  <text x="190" y="392" class="detail-text">• Error rate analysis</text>
+  <text x="190" y="404" class="detail-text">• Gate fidelity metrics</text>
+  
+  <rect x="310" y="320" width="180" height="100" class="analysis-box"/>
+  <text x="400" y="345" class="process-text">Algorithm</text>
+  <text x="400" y="360" class="process-text">Vulnerability Analysis</text>
+  <text x="400" y="380" class="detail-text">• Shor's algorithm impact</text>
+  <text x="400" y="392" class="detail-text">• Grover's search threats</text>
+  <text x="400" y="404" class="detail-text">• Key size requirements</text>
+  
+  <rect x="520" y="320" width="180" height="100" class="analysis-box"/>
+  <text x="610" y="345" class="process-text">Threat Timeline</text>
+  <text x="610" y="360" class="process-text">Prediction</text>
+  <text x="610" y="380" class="detail-text">• Progress modeling</text>
+  <text x="610" y="392" class="detail-text">• Breakthrough prediction</text>
+  <text x="610" y="404" class="detail-text">• Risk timeline</text>
+  
+  <rect x="730" y="320" width="180" height="100" class="analysis-box"/>
+  <text x="820" y="345" class="process-text">Implementation</text>
+  <text x="820" y="360" class="process-text">Assessment</text>
+  <text x="820" y="380" class="detail-text">• Current deployments</text>
+  <text x="820" y="392" class="detail-text">• Migration readiness</text>
+  <text x="820" y="404" class="detail-text">• Risk exposure</text>
+  
+  <!-- Central Processing -->
+  <rect x="350" y="470" width="500" height="80" class="process-box"/>
+  <text x="600" y="500" class="process-text">Comprehensive Threat Assessment Engine</text>
+  <text x="600" y="520" class="detail-text">Risk scoring • Confidence calculation • Timeline prediction • Action recommendations</text>
+  <text x="600" y="535" class="detail-text">Threat level determination • Priority ranking • Update frequency optimization</text>
+  
+  <!-- Output Components (Bottom Row) -->
+  <rect x="50" y="600" width="150" height="80" class="output-box"/>
+  <text x="125" y="625" class="process-text">Threat Level</text>
+  <text x="125" y="640" class="process-text">Assessment</text>
+  <text x="125" y="660" class="detail-text">LOW | MEDIUM</text>
+  <text x="125" y="672" class="detail-text">HIGH | CRITICAL</text>
+  
+  <rect x="230" y="600" width="150" height="80" class="output-box"/>
+  <text x="305" y="625" class="process-text">Algorithm</text>
+  <text x="305" y="640" class="process-text">Recommendations</text>
+  <text x="305" y="660" class="detail-text">Migration priorities</text>
+  <text x="305" y="672" class="detail-text">Protocol selection</text>
+  
+  <rect x="410" y="600" width="150" height="80" class="output-box"/>
+  <text x="485" y="625" class="process-text">Timeline</text>
+  <text x="485" y="640" class="process-text">Predictions</text>
+  <text x="485" y="660" class="detail-text">Risk emergence</text>
+  <text x="485" y="672" class="detail-text">Migration deadlines</text>
+  
+  <rect x="590" y="600" width="150" height="80" class="output-box"/>
+  <text x="665" y="625" class="process-text">Confidence</text>
+  <text x="665" y="640" class="process-text">Scores</text>
+  <text x="665" y="660" class="detail-text">Assessment reliability</text>
+  <text x="665" y="672" class="detail-text">Prediction accuracy</text>
+  
+  <rect x="770" y="600" width="150" height="80" class="output-box"/>
+  <text x="845" y="625" class="process-text">Action</text>
+  <text x="845" y="640" class="process-text">Items</text>
+  <text x="845" y="660" class="detail-text">Immediate actions</text>
+  <text x="845" y="672" class="detail-text">Long-term planning</text>
+  
+  <rect x="950" y="600" width="150" height="80" class="output-box"/>
+  <text x="1025" y="625" class="process-text">Alerts &</text>
+  <text x="1025" y="640" class="process-text">Notifications</text>
+  <text x="1025" y="660" class="detail-text">Real-time alerts</text>
+  <text x="1025" y="672" class="detail-text">Stakeholder updates</text>
+  
+  <!-- Arrows -->
+  <!-- From inputs to aggregation -->
+  <line x1="120" y1="150" x2="300" y2="200" class="arrow"/>
+  <line x1="290" y1="150" x2="400" y2="200" class="arrow"/>
+  <line x1="460" y1="150" x2="500" y2="200" class="arrow"/>
+  <line x1="630" y1="150" x2="600" y2="200" class="arrow"/>
+  <line x1="800" y1="150" x2="700" y2="200" class="arrow"/>
+  
+  <!-- From aggregation to analysis components -->
+  <line x1="400" y1="260" x2="190" y2="320" class="arrow"/>
+  <line x1="500" y1="260" x2="400" y2="320" class="arrow"/>
+  <line x1="600" y1="260" x2="610" y2="320" class="arrow"/>
+  <line x1="700" y1="260" x2="820" y2="320" class="arrow"/>
+  
+  <!-- From analysis to central processing -->
+  <line x1="190" y1="420" x2="450" y2="470" class="arrow"/>
+  <line x1="400" y1="420" x2="550" y2="470" class="arrow"/>
+  <line x1="610" y1="420" x2="650" y2="470" class="arrow"/>
+  <line x1="820" y1="420" x2="750" y2="470" class="arrow"/>
+  
+  <!-- From central processing to outputs -->
+  <line x1="450" y1="550" x2="125" y2="600" class="arrow"/>
+  <line x1="500" y1="550" x2="305" y2="600" class="arrow"/>
+  <line x1="550" y1="550" x2="485" y2="600" class="arrow"/>
+  <line x1="600" y1="550" x2="665" y2="600" class="arrow"/>
+  <line x1="650" y1="550" x2="845" y2="600" class="arrow"/>
+  <line x1="700" y1="550" x2="1025" y2="600" class="arrow"/>
+  
+  <!-- Feedback Loop -->
+  <line x1="1025" y1="600" x2="1100" y2="400" class="arrow" stroke-dasharray="5,5"/>
+  <line x1="1100" y1="400" x2="1100" y2="110" class="arrow" stroke-dasharray="5,5"/>
+  <line x1="1100" y1="110" x2="870" y2="110" class="arrow" stroke-dasharray="5,5"/>
+  <text x="1060" y="350" class="detail-text" transform="rotate(90 1060 350)">Feedback Loop</text>
+  
+  <!-- Timeline indicator -->
+  <rect x="50" y="750" width="1100" height="30" fill="#f0f0f0" stroke="#ccc"/>
+  <text x="100" y="770" class="detail-text">Real-time (seconds)</text>
+  <text x="300" y="770" class="detail-text">Short-term (hours-days)</text>
+  <text x="600" y="770" class="detail-text">Medium-term (weeks-months)</text>
+  <text x="950" y="770" class="detail-text">Long-term (years)</text>
+  
+</svg>

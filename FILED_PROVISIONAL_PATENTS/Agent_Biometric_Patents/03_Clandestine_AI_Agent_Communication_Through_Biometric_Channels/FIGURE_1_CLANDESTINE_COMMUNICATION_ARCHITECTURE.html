@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FIGURE_1_CLANDESTINE_COMMUNICATION_ARCHITECTURE</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        svg { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto;
+            background: white;
+        }
+        @page { 
+            size: letter; 
+            margin: 0.5in; 
+        }
+        @media print { 
+            body { 
+                margin: 0; 
+                padding: 0.5in;
+                min-height: auto; 
+            } 
+            svg {
+                max-height: 10in;
+            }
+        }
+    </style>
+</head>
+<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="650" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .agent-box { fill: #e6f3ff; stroke: black; stroke-width: 2; }
+      .steganography-box { fill: #fff2e6; stroke: black; stroke-width: 2; }
+      .channel-box { fill: #e6ffe6; stroke: black; stroke-width: 1; }
+      .network-box { fill: #f0f0f0; stroke: black; stroke-width: 1; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .covert-flow { stroke: red; stroke-width: 2; fill: none; stroke-dasharray: 3,3; }
+      .data-flow { stroke: blue; stroke-width: 2; fill: none; marker-end: url(#bluearrow); }
+    </style>
+    <defs>
+      <marker id="bluearrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="blue" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 1: CLANDESTINE AI AGENT COMMUNICATION ARCHITECTURE</text>
+  
+  <!-- Agent Network Layer -->
+  <rect x="50" y="50" width="700" height="60" class="network-box"/>
+  <text x="400" y="75" class="label-text">DISTRIBUTED AI AGENT NETWORK</text>
+  <text x="400" y="95" class="small-text">• Multi-Agent Coordination • Distributed Processing • Network Topology Management</text>
+  
+  <!-- AI Agents -->
+  <rect x="50" y="140" width="120" height="100" class="agent-box"/>
+  <text x="110" y="165" class="label-text">AI AGENT A</text>
+  <text x="110" y="180" class="label-text">(SENDER)</text>
+  <text x="110" y="205" class="tiny-text">• Message Generation</text>
+  <text x="110" y="220" class="tiny-text">• Steganographic Encoding</text>
+  <text x="110" y="235" class="tiny-text">• Transmission Control</text>
+  
+  <rect x="200" y="140" width="120" height="100" class="agent-box"/>
+  <text x="260" y="165" class="label-text">AI AGENT B</text>
+  <text x="260" y="180" class="label-text">(RELAY)</text>
+  <text x="260" y="205" class="tiny-text">• Message Forwarding</text>
+  <text x="260" y="220" class="tiny-text">• Pattern Obfuscation</text>
+  <text x="260" y="235" class="tiny-text">• Route Management</text>
+  
+  <rect x="350" y="140" width="120" height="100" class="agent-box"/>
+  <text x="410" y="165" class="label-text">AI AGENT C</text>
+  <text x="410" y="180" class="label-text">(RELAY)</text>
+  <text x="410" y="205" class="tiny-text">• Multi-Path Routing</text>
+  <text x="410" y="220" class="tiny-text">• Load Balancing</text>
+  <text x="410" y="235" class="tiny-text">• Redundancy Control</text>
+  
+  <rect x="500" y="140" width="120" height="100" class="agent-box"/>
+  <text x="560" y="165" class="label-text">AI AGENT D</text>
+  <text x="560" y="180" class="label-text">(RECEIVER)</text>
+  <text x="560" y="205" class="tiny-text">• Message Reception</text>
+  <text x="560" y="220" class="tiny-text">• Steganographic Decoding</text>
+  <text x="560" y="235" class="tiny-text">• Content Reconstruction</text>
+  
+  <!-- Steganographic Channels -->
+  <rect x="80" y="280" width="160" height="80" class="channel-box"/>
+  <text x="160" y="305" class="label-text">MEMORY PATTERN</text>
+  <text x="160" y="320" class="label-text">MODULATION</text>
+  <text x="160" y="340" class="tiny-text">• Allocation Timing</text>
+  <text x="160" y="355" class="tiny-text">• GC Pattern Variation</text>
+  
+  <rect x="260" y="280" width="160" height="80" class="channel-box"/>
+  <text x="340" y="305" class="label-text">ALGORITHMIC CHOICE</text>
+  <text x="340" y="320" class="label-text">STEGANOGRAPHY</text>
+  <text x="340" y="340" class="tiny-text">• Crypto Selection Bias</text>
+  <text x="340" y="355" class="tiny-text">• Path Optimization Choice</text>
+  
+  <rect x="440" y="280" width="160" height="80" class="channel-box"/>
+  <text x="520" y="305" class="label-text">TEMPORAL PATTERN</text>
+  <text x="520" y="320" class="label-text">COMMUNICATION</text>
+  <text x="520" y="340" class="tiny-text">• Response Timing Control</text>
+  <text x="520" y="355" class="tiny-text">• Processing Delay Encoding</text>
+  
+  <!-- Central Steganographic Engine -->
+  <rect x="200" y="390" width="400" height="100" class="steganography-box"/>
+  <text x="400" y="415" class="label-text">MULTI-MODAL STEGANOGRAPHIC ENGINE</text>
+  <text x="400" y="435" class="small-text">• Channel Multiplexing • Error Correction • Adaptive Encoding</text>
+  <text x="400" y="450" class="small-text">• Plausible Deniability • Traffic Analysis Resistance</text>
+  <text x="400" y="465" class="small-text">• Dynamic Channel Selection • Bandwidth Optimization</text>
+  
+  <!-- Security and Obfuscation -->
+  <rect x="50" y="390" width="120" height="100" class="steganography-box"/>
+  <text x="110" y="415" class="label-text">SECURITY</text>
+  <text x="110" y="430" class="label-text">LAYER</text>
+  <text x="110" y="455" class="tiny-text">• Message Encryption</text>
+  <text x="110" y="470" class="tiny-text">• Key Distribution</text>
+  <text x="110" y="485" class="tiny-text">• Authentication</text>
+  
+  <rect x="630" y="390" width="120" height="100" class="steganography-box"/>
+  <text x="690" y="415" class="label-text">OBFUSCATION</text>
+  <text x="690" y="430" class="label-text">LAYER</text>
+  <text x="690" y="455" class="tiny-text">• Pattern Randomization</text>
+  <text x="690" y="470" class="tiny-text">• Noise Injection</text>
+  <text x="690" y="485" class="tiny-text">• Misdirection</text>
+  
+  <!-- Message Flow Control -->
+  <rect x="100" y="520" width="150" height="80" class="network-box"/>
+  <text x="175" y="545" class="label-text">MESSAGE</text>
+  <text x="175" y="560" class="label-text">FRAGMENTATION</text>
+  <text x="175" y="580" class="tiny-text">• Packet Splitting</text>
+  <text x="175" y="595" class="tiny-text">• Route Distribution</text>
+  
+  <rect x="270" y="520" width="150" height="80" class="network-box"/>
+  <text x="345" y="545" class="label-text">NETWORK</text>
+  <text x="345" y="560" class="label-text">COORDINATION</text>
+  <text x="345" y="580" class="tiny-text">• Agent Synchronization</text>
+  <text x="345" y="595" class="tiny-text">• Timing Coordination</text>
+  
+  <rect x="440" y="520" width="150" height="80" class="network-box"/>
+  <text x="515" y="545" class="label-text">MESSAGE</text>
+  <text x="515" y="560" class="label-text">RECONSTRUCTION</text>
+  <text x="515" y="580" class="tiny-text">• Packet Reassembly</text>
+  <text x="515" y="595" class="tiny-text">• Content Validation</text>
+  
+  <!-- Flow Lines -->
+  <!-- Agents to Channels -->
+  <line x1="110" y1="240" x2="160" y2="280" class="covert-flow"/>
+  <line x1="260" y1="240" x2="340" y2="280" class="covert-flow"/>
+  <line x1="410" y1="240" x2="340" y2="280" class="covert-flow"/>
+  <line x1="560" y1="240" x2="520" y2="280" class="covert-flow"/>
+  
+  <!-- Channels to Steganographic Engine -->
+  <line x1="160" y1="360" x2="300" y2="390" class="data-flow"/>
+  <line x1="340" y1="360" x2="400" y2="390" class="data-flow"/>
+  <line x1="520" y1="360" x2="500" y2="390" class="data-flow"/>
+  
+  <!-- Security and Obfuscation -->
+  <line x1="170" y1="440" x2="200" y2="440" class="connection-line"/>
+  <line x1="600" y1="440" x2="630" y2="440" class="connection-line"/>
+  
+  <!-- Steganographic Engine to Message Flow -->
+  <line x1="300" y1="490" x2="175" y2="520" class="data-flow"/>
+  <line x1="400" y1="490" x2="345" y2="520" class="data-flow"/>
+  <line x1="500" y1="490" x2="515" y2="520" class="data-flow"/>
+  
+  <!-- Inter-Agent Communication Paths -->
+  <path d="M 170 190 Q 200 150 230 190" class="covert-flow"/>
+  <path d="M 320 190 Q 350 150 380 190" class="covert-flow"/>
+  <path d="M 470 190 Q 500 150 530 190" class="covert-flow"/>
+  
+  <!-- Detection Avoidance Indicators -->
+  <text x="650" y="150" class="tiny-text">NORMAL</text>
+  <text x="650" y="165" class="tiny-text">BEHAVIOR</text>
+  <text x="650" y="180" class="tiny-text">MAINTAINED</text>
+  
+  <text x="650" y="200" class="tiny-text">TRAFFIC</text>
+  <text x="650" y="215" class="tiny-text">ANALYSIS</text>
+  <text x="650" y="230" class="tiny-text">RESISTANT</text>
+  
+</svg>
+</body>
+</html>

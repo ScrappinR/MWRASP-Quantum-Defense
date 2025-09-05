@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @page { size: 8.5in 11in; margin: 0.5in; }
+        body { margin: 0; padding: 0; }
+        svg { width: 100%; height: auto; max-width: 7.5in; }
+    </style>
+</head>
+<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2550" height="3300" viewBox="0 0 2550 3300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .input-box { fill: lightgray; stroke: black; stroke-width: 1; }
+      .fusion-box { fill: #fff7e6; stroke: black; stroke-width: 2; }
+      .weight-box { fill: #e6f3ff; stroke: black; stroke-width: 1; }
+      .output-box { fill: white; stroke: black; stroke-width: 2; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .data-flow { stroke: blue; stroke-width: 2; fill: none; marker-end: url(#bluearrow); }
+      .weight-flow { stroke: green; stroke-width: 1; fill: none; stroke-dasharray: 3,3; }
+    </style>
+    <defs>
+      <marker id="bluearrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="blue" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 5: ADAPTIVE MULTI-MODAL FUSION ENGINE</text>
+  
+  <!-- Biometric Input Modalities -->
+  <rect x="50" y="60" width="120" height="80" class="input-box"/>
+  <text x="110" y="85" class="small-text">BEHAVIORAL</text>
+  <text x="110" y="100" class="small-text">PATTERNS</text>
+  <text x="110" y="115" class="tiny-text">Reliability: 0.87</text>
+  <text x="110" y="130" class="tiny-text">Confidence: 0.92</text>
+  
+  <rect x="190" y="60" width="120" height="80" class="input-box"/>
+  <text x="250" y="85" class="small-text">COMPUTATIONAL</text>
+  <text x="250" y="100" class="small-text">SIGNATURES</text>
+  <text x="250" y="115" class="tiny-text">Reliability: 0.94</text>
+  <text x="250" y="130" class="tiny-text">Confidence: 0.88</text>
+  
+  <rect x="330" y="60" width="120" height="80" class="input-box"/>
+  <text x="390" y="85" class="small-text">CONTEXTUAL</text>
+  <text x="390" y="100" class="small-text">FACTORS</text>
+  <text x="390" y="115" class="tiny-text">Reliability: 0.76</text>
+  <text x="390" y="130" class="tiny-text">Confidence: 0.83</text>
+  
+  <rect x="470" y="60" width="120" height="80" class="input-box"/>
+  <text x="530" y="85" class="small-text">INTERACTION</text>
+  <text x="530" y="100" class="small-text">HISTORY</text>
+  <text x="530" y="115" class="tiny-text">Reliability: 0.82</text>
+  <text x="530" y="130" class="tiny-text">Confidence: 0.90</text>
+  
+  <rect x="610" y="60" width="120" height="80" class="input-box"/>
+  <text x="670" y="85" class="small-text">ENVIRONMENTAL</text>
+  <text x="670" y="100" class="small-text">CONTEXT</text>
+  <text x="670" y="115" class="tiny-text">Reliability: 0.69</text>
+  <text x="670" y="130" class="tiny-text">Confidence: 0.74</text>
+  
+  <!-- Dynamic Weight Assignment -->
+  <rect x="50" y="170" width="140" height="70" class="weight-box"/>
+  <text x="120" y="195" class="label-text">WEIGHT</text>
+  <text x="120" y="210" class="label-text">CALCULATOR</text>
+  <text x="120" y="230" class="tiny-text">W1 = 0.25 (â†‘ 0.03)</text>
+  
+  <rect x="210" y="170" width="140" height="70" class="weight-box"/>
+  <text x="280" y="195" class="label-text">RELIABILITY</text>
+  <text x="280" y="210" class="label-text">ASSESSOR</text>
+  <text x="280" y="230" class="tiny-text">W2 = 0.31 (â†‘ 0.08)</text>
+  
+  <rect x="370" y="170" width="140" height="70" class="weight-box"/>
+  <text x="440" y="195" class="label-text">CONFIDENCE</text>
+  <text x="440" y="210" class="label-text">ANALYZER</text>
+  <text x="440" y="230" class="tiny-text">W3 = 0.18 (â†“ 0.05)</text>
+  
+  <rect x="530" y="170" width="140" height="70" class="weight-box"/>
+  <text x="600" y="195" class="label-text">ADAPTIVE</text>
+  <text x="600" y="210" class="label-text">CONTROLLER</text>
+  <text x="600" y="230" class="tiny-text">W4,W5 = 0.26 (Auto)</text>
+  
+  <!-- Multi-Modal Fusion Core -->
+  <rect x="200" y="270" width="400" height="120" class="fusion-box"/>
+  <text x="400" y="300" class="label-text">ADAPTIVE MULTI-MODAL FUSION CORE</text>
+  <text x="400" y="325" class="small-text">â€¢ Weighted Score Integration â€¢ Dynamic Weight Adjustment</text>
+  <text x="400" y="340" class="small-text">â€¢ Cross-Modal Correlation Analysis â€¢ Conflict Resolution</text>
+  <text x="400" y="355" class="small-text">â€¢ Quality Assessment â€¢ Performance Optimization</text>
+  <text x="400" y="370" class="small-text">Fusion Score = Î£(Wi Ã— Si Ã— Ci) + CorrelationBonus - ConflictPenalty</text>
+  
+  <!-- Real-Time Adaptation Engine -->
+  <rect x="50" y="270" width="120" height="120" class="weight-box"/>
+  <text x="110" y="300" class="label-text">ADAPTATION</text>
+  <text x="110" y="315" class="label-text">ENGINE</text>
+  <text x="110" y="340" class="tiny-text">â€¢ Performance Monitoring</text>
+  <text x="110" y="355" class="tiny-text">â€¢ Weight Optimization</text>
+  <text x="110" y="370" class="tiny-text">â€¢ Learning Rate: 0.03</text>
+  
+  <!-- Quality Assurance Monitor -->
+  <rect x="630" y="270" width="120" height="120" class="weight-box"/>
+  <text x="690" y="300" class="label-text">QUALITY</text>
+  <text x="690" y="315" class="label-text">MONITOR</text>
+  <text x="690" y="340" class="tiny-text">â€¢ False Accept: 0.02%</text>
+  <text x="690" y="355" class="tiny-text">â€¢ False Reject: 0.15%</text>
+  <text x="690" y="370" class="tiny-text">â€¢ Overall Accuracy: 99.83%</text>
+  
+  <!-- Decision Generation Layer -->
+  <rect x="150" y="420" width="150" height="80" class="output-box"/>
+  <text x="225" y="445" class="label-text">AUTHENTICATION</text>
+  <text x="225" y="460" class="label-text">DECISION</text>
+  <text x="225" y="480" class="tiny-text">ACCEPT/REJECT</text>
+  <text x="225" y="495" class="tiny-text">Confidence: 0.91</text>
+  
+  <rect x="320" y="420" width="150" height="80" class="output-box"/>
+  <text x="395" y="445" class="label-text">CONFIDENCE</text>
+  <text x="395" y="460" class="label-text">SCORE</text>
+  <text x="395" y="480" class="tiny-text">Range: 0.0-1.0</text>
+  <text x="395" y="495" class="tiny-text">Current: 0.912</text>
+  
+  <rect x="490" y="420" width="150" height="80" class="output-box"/>
+  <text x="565" y="445" class="label-text">RISK</text>
+  <text x="565" y="460" class="label-text">ASSESSMENT</text>
+  <text x="565" y="480" class="tiny-text">Risk Level: LOW</text>
+  <text x="565" y="495" class="tiny-text">Score: 0.08</text>
+  
+  <!-- Performance Metrics -->
+  <rect x="200" y="530" width="400" height="80" class="fusion-box"/>
+  <text x="400" y="555" class="label-text">FUSION ENGINE PERFORMANCE METRICS</text>
+  <text x="400" y="575" class="small-text">Processing Time: 12.3ms | Throughput: 815 auth/sec</text>
+  <text x="400" y="590" class="small-text">Weight Adaptation Rate: 0.027 | Stability Index: 0.94</text>
+  <text x="400" y="605" class="small-text">Cross-Modal Correlation: 0.76 | Decision Consistency: 0.98</text>
+  
+  <!-- Flow Lines -->
+  <!-- Inputs to Weight Calculators -->
+  <line x1="110" y1="140" x2="120" y2="170" class="data-flow"/>
+  <line x1="250" y1="140" x2="280" y2="170" class="data-flow"/>
+  <line x1="390" y1="140" x2="440" y2="170" class="data-flow"/>
+  <line x1="530" y1="140" x2="600" y2="170" class="data-flow"/>
+  <line x1="670" y1="140" x2="600" y2="170" class="data-flow"/>
+  
+  <!-- Weight Calculators to Fusion Core -->
+  <line x1="120" y1="240" x2="250" y2="270" class="weight-flow"/>
+  <line x1="280" y1="240" x2="350" y2="270" class="weight-flow"/>
+  <line x1="440" y1="240" x2="450" y2="270" class="weight-flow"/>
+  <line x1="600" y1="240" x2="550" y2="270" class="weight-flow"/>
+  
+  <!-- Inputs to Fusion Core (Direct) -->
+  <line x1="110" y1="140" x2="250" y2="330" class="data-flow"/>
+  <line x1="250" y1="140" x2="350" y2="330" class="data-flow"/>
+  <line x1="390" y1="140" x2="400" y2="270" class="data-flow"/>
+  <line x1="530" y1="140" x2="450" y2="330" class="data-flow"/>
+  <line x1="670" y1="140" x2="550" y2="330" class="data-flow"/>
+  
+  <!-- Adaptation Engine to Fusion Core -->
+  <line x1="170" y1="330" x2="200" y2="330" class="weight-flow"/>
+  
+  <!-- Fusion Core to Quality Monitor -->
+  <line x1="600" y1="330" x2="630" y2="330" class="connection-line"/>
+  
+  <!-- Fusion Core to Decision Layer -->
+  <line x1="300" y1="390" x2="225" y2="420" class="data-flow"/>
+  <line x1="400" y1="390" x2="395" y2="420" class="data-flow"/>
+  <line x1="500" y1="390" x2="565" y2="420" class="data-flow"/>
+  
+  <!-- Decision Layer to Performance Metrics -->
+  <line x1="225" y1="500" x2="300" y2="530" class="connection-line"/>
+  <line x1="395" y1="500" x2="400" y2="530" class="connection-line"/>
+  <line x1="565" y1="500" x2="500" y2="530" class="connection-line"/>
+  
+  <!-- Feedback Loops -->
+  <path d="M 690 390 Q 760 390 760 330 Q 760 200 600 240" class="weight-flow"/>
+  <path d="M 110 390 Q 30 390 30 330 Q 30 200 120 240" class="weight-flow"/>
+  
+  <!-- Weight Display -->
+  <text x="30" y="200" class="tiny-text">Dynamic</text>
+  <text x="30" y="215" class="tiny-text">Weights</text>
+  <text x="30" y="230" class="tiny-text">Updated</text>
+  <text x="30" y="245" class="tiny-text">Real-time</text>
+  
+</svg>
+
+</body>
+</html>

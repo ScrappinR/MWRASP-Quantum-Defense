@@ -1,0 +1,84 @@
+{
+  "test_info": {
+    "timestamp": "2025-09-02T16:49:19.792257",
+    "backend_name": "simulator",
+    "simulator_mode": true,
+    "qiskit_available": true
+  },
+  "test_results": [
+    {
+      "algorithm_type": "simons",
+      "backend_name": "unknown",
+      "circuit_qubits": 0,
+      "circuit_gates": 0,
+      "circuit_depth": 0,
+      "execution_time": 0,
+      "shots": 0,
+      "success": false,
+      "measured_counts": {},
+      "error_rate": 1.0,
+      "fidelity": null,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": null,
+      "job_id": null,
+      "error_message": "name 'execute' is not defined"
+    },
+    {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "qasm_simulator",
+      "circuit_qubits": 5,
+      "circuit_gates": 0,
+      "circuit_depth": 1,
+      "execution_time": 0.23000097274780273,
+      "shots": 1024,
+      "success": true,
+      "measured_counts": {
+        "0000": 1024
+      },
+      "error_rate": 0.0,
+      "fidelity": 1.0,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 8,
+      "job_id": null,
+      "error_message": null
+    },
+    {
+      "algorithm_type": "deutsch_jozsa",
+      "backend_name": "qasm_simulator",
+      "circuit_qubits": 5,
+      "circuit_gates": 0,
+      "circuit_depth": 1,
+      "execution_time": 0.2160024642944336,
+      "shots": 1024,
+      "success": false,
+      "measured_counts": {
+        "0000": 1024
+      },
+      "error_rate": 1.0,
+      "fidelity": 0.0,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 8,
+      "job_id": null,
+      "error_message": null
+    },
+    {
+      "algorithm_type": "bernstein_vazirani",
+      "backend_name": "qasm_simulator",
+      "circuit_qubits": 5,
+      "circuit_gates": 9,
+      "circuit_depth": 6,
+      "execution_time": 0.20400047302246094,
+      "shots": 1024,
+      "success": false,
+      "measured_counts": {
+        "1101": 1024
+      },
+      "error_rate": 1.0,
+      "fidelity": 0.0,
+      "hardware_noise_impact": null,
+      "quantum_advantage_measured": 4,
+      "job_id": null,
+      "error_message": null
+    }
+  ]
+}

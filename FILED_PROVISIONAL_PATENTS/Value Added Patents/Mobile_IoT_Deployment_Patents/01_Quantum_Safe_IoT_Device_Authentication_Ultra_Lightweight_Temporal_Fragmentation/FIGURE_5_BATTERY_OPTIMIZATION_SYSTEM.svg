@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .bidirectional { marker-start: url(#arrowhead); marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .power-management { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .sleep-mode { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .active-mode { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .adaptive-system { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .energy-harvesting { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+      .battery-monitor { fill: #f0f4c3; stroke: #827717; stroke-width: 2; rx: 8; }
+      .efficiency-optimizer { fill: #e0f2f1; stroke: #009688; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 5: Battery Optimization and Power Management System</text>
+  
+  <!-- Power Management Controller -->
+  <rect x="450" y="80" width="300" height="120" class="power-management"/>
+  <text x="600" y="110" class="system-text">Intelligent Power Management</text>
+  <text x="600" y="125" class="system-text">Controller (IPMC)</text>
+  <text x="550" y="150" class="component-text">Core Functions:</text>
+  <text x="550" y="165" class="detail-text">• Dynamic power scaling</text>
+  <text x="550" y="177" class="detail-text">• Sleep/wake orchestration</text>
+  <text x="550" y="189" class="detail-text">• Resource allocation</text>
+  
+  <text x="650" y="150" class="component-text">Ultra-Low Power:</text>
+  <text x="650" y="165" class="detail-text">• Quiescent: &lt;1μA</text>
+  <text x="650" y="177" class="detail-text">• Monitoring: &lt;10μA</text>
+  <text x="650" y="189" class="detail-text">• Hardware-based</text>
+  
+  <!-- Sleep Mode System -->
+  <rect x="100" y="80" width="200" height="120" class="sleep-mode"/>
+  <text x="200" y="110" class="system-text">Deep Sleep</text>
+  <text x="200" y="125" class="system-text">Management</text>
+  <text x="200" y="150" class="component-text">Sleep States:</text>
+  <text x="200" y="165" class="detail-text">• Light sleep: 50μA</text>
+  <text x="200" y="177" class="detail-text">• Deep sleep: 5μA</text>
+  <text x="200" y="189" class="detail-text">• Hibernate: &lt;1μA</text>
+  
+  <!-- Active Mode Optimizer -->
+  <rect x="900" y="80" width="200" height="120" class="active-mode"/>
+  <text x="1000" y="110" class="system-text">Active Mode</text>
+  <text x="1000" y="125" class="system-text">Optimizer</text>
+  <text x="1000" y="150" class="component-text">Active States:</text>
+  <text x="1000" y="165" class="detail-text">• CPU active: 8-15mA</text>
+  <text x="1000" y="177" class="detail-text">• Radio TX: 20-25mA</text>
+  <text x="1000" y="189" class="detail-text">• Sensor read: 2-5mA</text>
+  
+  <!-- Adaptive Power States -->
+  <rect x="200" y="280" width="180" height="100" class="adaptive-system"/>
+  <text x="290" y="310" class="system-text">Adaptive States</text>
+  <text x="290" y="330" class="component-text">Context-Aware:</text>
+  <text x="290" y="345" class="detail-text">• Traffic prediction</text>
+  <text x="290" y="357" class="detail-text">• Duty cycle optimization</text>
+  <text x="290" y="369" class="detail-text">• Proactive scheduling</text>
+  
+  <rect x="420" y="280" width="180" height="100" class="adaptive-system"/>
+  <text x="510" y="310" class="system-text">Swarm Coordination</text>
+  <text x="510" y="330" class="component-text">Collective Power:</text>
+  <text x="510" y="345" class="detail-text">• Load balancing</text>
+  <text x="510" y="357" class="detail-text">• Role delegation</text>
+  <text x="510" y="369" class="detail-text">• Network optimization</text>
+  
+  <rect x="640" y="280" width="180" height="100" class="adaptive-system"/>
+  <text x="730" y="310" class="system-text">AI-Driven Predict</text>
+  <text x="730" y="330" class="component-text">Predictive Power:</text>
+  <text x="730" y="345" class="detail-text">• Usage pattern learning</text>
+  <text x="730" y="357" class="detail-text">• Demand forecasting</text>
+  <text x="730" y="369" class="detail-text">• Preemptive scaling</text>
+  
+  <rect x="860" y="280" width="180" height="100" class="adaptive-system"/>
+  <text x="950" y="310" class="system-text">Emergency Mode</text>
+  <text x="950" y="330" class="component-text">Critical Operation:</text>
+  <text x="950" y="345" class="detail-text">• Minimum viable power</text>
+  <text x="950" y="357" class="detail-text">• Essential functions</text>
+  <text x="950" y="369" class="detail-text">• Survival mode: &lt;100μA</text>
+  
+  <!-- Battery Monitoring System -->
+  <rect x="100" y="450" width="300" height="120" class="battery-monitor"/>
+  <text x="250" y="480" class="system-text">Battery Health Monitoring</text>
+  <text x="200" y="505" class="component-text">Real-Time Analytics:</text>
+  <text x="200" y="520" class="detail-text">• Voltage monitoring</text>
+  <text x="200" y="532" class="detail-text">• Current profiling</text>
+  <text x="200" y="544" class="detail-text">• Temperature sensing</text>
+  <text x="200" y="556" class="detail-text">• State of charge (SoC)</text>
+  
+  <text x="300" y="505" class="component-text">Predictive Analysis:</text>
+  <text x="300" y="520" class="detail-text">• Remaining lifetime</text>
+  <text x="300" y="532" class="detail-text">• Degradation modeling</text>
+  <text x="300" y="544" class="detail-text">• Failure prediction</text>
+  <text x="300" y="556" class="detail-text">• Maintenance alerts</text>
+  
+  <!-- Energy Harvesting Integration -->
+  <rect x="450" y="450" width="300" height="120" class="energy-harvesting"/>
+  <text x="600" y="480" class="system-text">Energy Harvesting Integration</text>
+  <text x="550" y="505" class="component-text">Harvesting Sources:</text>
+  <text x="550" y="520" class="detail-text">• Solar: 10-100μW</text>
+  <text x="550" y="532" class="detail-text">• Vibration: 1-50μW</text>
+  <text x="550" y="544" class="detail-text">• Thermal: 5-25μW</text>
+  <text x="550" y="556" class="detail-text">• RF: 0.1-10μW</text>
+  
+  <text x="650" y="505" class="component-text">Power Conditioning:</text>
+  <text x="650" y="520" class="detail-text">• MPPT optimization</text>
+  <text x="650" y="532" class="detail-text">• Energy storage</text>
+  <text x="650" y="544" class="detail-text">• Power conversion</text>
+  <text x="650" y="556" class="detail-text">• 85% efficiency</text>
+  
+  <!-- Efficiency Optimizer -->
+  <rect x="800" y="450" width="300" height="120" class="efficiency-optimizer"/>
+  <text x="950" y="480" class="system-text">System Efficiency Optimizer</text>
+  <text x="900" y="505" class="component-text">Algorithm Optimization:</text>
+  <text x="900" y="520" class="detail-text">• Crypto acceleration</text>
+  <text x="900" y="532" class="detail-text">• Memory management</text>
+  <text x="900" y="544" class="detail-text">• Task scheduling</text>
+  <text x="900" y="556" class="detail-text">• Hardware utilization</text>
+  
+  <text x="1000" y="505" class="component-text">Performance:</text>
+  <text x="1000" y="520" class="detail-text">• 40% power reduction</text>
+  <text x="1000" y="532" class="detail-text">• 3x battery life</text>
+  <text x="1000" y="544" class="detail-text">• Real-time adaptation</text>
+  <text x="1000" y="556" class="detail-text">• Zero overhead</text>
+  
+  <!-- Power Profile Timeline -->
+  <rect x="50" y="620" width="1100" height="200" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="645" class="system-text">24-Hour Power Profile and Lifecycle Management</text>
+  
+  <!-- Timeline Chart Simulation -->
+  <!-- Time markers -->
+  <line x1="100" y1="670" x2="1100" y2="670" stroke="#333" stroke-width="1"/>
+  <text x="100" y="690" class="detail-text">00:00</text>
+  <text x="300" y="690" class="detail-text">06:00</text>
+  <text x="500" y="690" class="detail-text">12:00</text>
+  <text x="700" y="690" class="detail-text">18:00</text>
+  <text x="900" y="690" class="detail-text">24:00</text>
+  <text x="1100" y="690" class="detail-text">Battery Level</text>
+  
+  <!-- Power consumption bars -->
+  <rect x="120" y="650" width="160" height="15" class="sleep-mode"/>
+  <text x="200" y="645" class="detail-text">Sleep: &lt;1μA</text>
+  
+  <rect x="300" y="630" width="80" height="35" class="active-mode"/>
+  <text x="340" y="625" class="detail-text">Active: 15mA</text>
+  
+  <rect x="400" y="650" width="200" height="15" class="sleep-mode"/>
+  <text x="500" y="645" class="detail-text">Sleep: &lt;1μA</text>
+  
+  <rect x="620" y="635" width="60" height="30" class="active-mode"/>
+  <text x="650" y="630" class="detail-text">TX: 25mA</text>
+  
+  <rect x="700" y="650" width="180" height="15" class="sleep-mode"/>
+  <text x="790" y="645" class="detail-text">Sleep: &lt;1μA</text>
+  
+  <rect x="900" y="640" width="40" height="25" class="adaptive-system"/>
+  <text x="920" y="635" class="detail-text">Adaptive</text>
+  
+  <rect x="960" y="650" width="120" height="15" class="sleep-mode"/>
+  
+  <!-- Battery level line -->
+  <path d="M 100,720 L 300,720 L 340,740 L 380,740 L 600,720 L 650,745 L 680,745 L 900,725 L 940,730 L 1100,730" 
+        stroke="#e91e63" stroke-width="2" fill="none"/>
+  
+  <!-- Power consumption details -->
+  <rect x="80" y="770" width="200" height="40" class="power-management"/>
+  <text x="180" y="785" class="component-text">Daily Energy Budget:</text>
+  <text x="180" y="800" class="detail-text">Average: 50μA • Peak: 25mA • Sleep: 99.8% time</text>
+  
+  <rect x="300" y="770" width="200" height="40" class="sleep-mode"/>
+  <text x="400" y="785" class="component-text">Sleep Efficiency:</text>
+  <text x="400" y="800" class="detail-text">Deep sleep: 23.5h/day • Wake events: 200/day</text>
+  
+  <rect x="520" y="770" width="200" height="40" class="active-mode"/>
+  <text x="620" y="785" class="component-text">Active Optimization:</text>
+  <text x="620" y="800" class="detail-text">Burst mode: 50ms • Duty cycle: 0.2%</text>
+  
+  <rect x="740" y="770" width="200" height="40" class="energy-harvesting"/>
+  <text x="840" y="785" class="component-text">Energy Balance:</text>
+  <text x="840" y="800" class="detail-text">Harvest: 30μW • Consumption: 25μW avg</text>
+  
+  <rect x="960" y="770" width="160" height="40" class="battery-monitor"/>
+  <text x="1040" y="785" class="component-text">Battery Life:</text>
+  <text x="1040" y="800" class="detail-text">Estimate: 5.2 years</text>
+  
+  <!-- Connection Lines -->
+  <!-- Sleep and Active to Power Management -->
+  <line x1="300" y1="140" x2="450" y2="140" class="bidirectional"/>
+  <line x1="750" y1="140" x2="900" y2="140" class="bidirectional"/>
+  
+  <!-- Power Management to Adaptive Systems -->
+  <line x1="550" y1="200" x2="290" y2="280" class="arrow"/>
+  <line x1="600" y1="200" x2="510" y2="280" class="arrow"/>
+  <line x1="650" y1="200" x2="730" y2="280" class="arrow"/>
+  <line x1="700" y1="200" x2="950" y2="280" class="arrow"/>
+  
+  <!-- To monitoring and harvesting systems -->
+  <line x1="500" y1="200" x2="250" y2="450" class="arrow"/>
+  <line x1="600" y1="200" x2="600" y2="450" class="arrow"/>
+  <line x1="700" y1="200" x2="950" y2="450" class="arrow"/>
+  
+  <!-- Inter-system communication -->
+  <line x1="400" y1="510" x2="450" y2="510" class="bidirectional"/>
+  <line x1="750" y1="510" x2="800" y2="510" class="bidirectional"/>
+  
+  <!-- Labels and annotations -->
+  <text x="375" y="130" class="detail-text">Control</text>
+  <text x="825" y="130" class="detail-text">Optimization</text>
+  
+  <text x="600" y="240" class="detail-text">Intelligent Power Distribution</text>
+  
+  <text x="600" y="420" class="detail-text">Monitoring & Harvesting Integration</text>
+  
+  <!-- Performance Summary -->
+  <text x="50" y="50" class="component-text">Power Performance: Sleep &lt;1μA • Active 8-25mA • Battery life 5+ years • Energy harvesting +20% • AI optimization -40% consumption</text>
+
+</svg>

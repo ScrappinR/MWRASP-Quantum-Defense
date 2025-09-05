@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SVG to PDF Conversion</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        svg { 
+            max-width: 100%; 
+            max-height: 90vh; 
+            width: auto; 
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="svg-container">
+        <!-- SVG content will be inserted here -->
+    </div>
+    <script>
+        // Read SVG file path from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const svgPath = urlParams.get('svg');
+        if (svgPath) {
+            fetch(svgPath)
+                .then(response => response.text())
+                .then(svgText => {
+                    document.getElementById('svg-container').innerHTML = svgText;
+                })
+                .catch(error => {
+                    console.error('Error loading SVG:', error);
+                    document.body.innerHTML = '<h1>Error loading SVG file</h1>';
+                });
+        }
+    </script>
+</body>
+</html>

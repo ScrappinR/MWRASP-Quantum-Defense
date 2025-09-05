@@ -1,0 +1,157 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#212529">
+    Figure 2: Speed-of-Light Validation Engine Operation
+  </text>
+  
+  <!-- Main System Area -->
+  <rect x="50" y="60" width="1100" height="680" fill="#ffffff" stroke="#6c757d" stroke-width="2" rx="10"/>
+  
+  <!-- Security Event at Time t0 -->
+  <g transform="translate(200, 150)">
+    <circle cx="0" cy="0" r="25" fill="#dc3545" stroke="#c82333" stroke-width="3"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="white">Event</text>
+    <text x="0" y="-40" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#495057">Security Event</text>
+    <text x="0" y="-25" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#495057">t₀ = 0 ns</text>
+    <text x="0" y="45" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#495057">Location: (x₀, y₀)</text>
+  </g>
+  
+  <!-- Witness Nodes at Different Distances -->
+  <g transform="translate(500, 150)">
+    <circle cx="0" cy="0" r="20" fill="#28a745" stroke="#1e7e34" stroke-width="3"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">TWN-1</text>
+    <text x="0" y="-35" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#495057">Distance: 90m</text>
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#495057">t_min = 300 ns</text>
+  </g>
+  
+  <g transform="translate(800, 200)">
+    <circle cx="0" cy="0" r="20" fill="#28a745" stroke="#1e7e34" stroke-width="3"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">TWN-2</text>
+    <text x="0" y="-35" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#495057">Distance: 180m</text>
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#495057">t_min = 600 ns</text>
+  </g>
+  
+  <g transform="translate(350, 300)">
+    <circle cx="0" cy="0" r="20" fill="#28a745" stroke="#1e7e34" stroke-width="3"/>
+    <text x="0" y="5" font-family="Arial, sans-serif" font-size="10" font-weight="bold" text-anchor="middle" fill="white">TWN-3</text>
+    <text x="0" y="-35" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#495057">Distance: 75m</text>
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="10" text-anchor="middle" fill="#495057">t_min = 250 ns</text>
+  </g>
+  
+  <!-- Signal Propagation Visualization -->
+  <g stroke="#ff6b6b" stroke-width="3" fill="none" stroke-dasharray="8,4">
+    <line x1="200" y1="150" x2="500" y2="150"/>
+    <line x1="200" y1="150" x2="800" y2="200"/>
+    <line x1="200" y1="150" x2="350" y2="300"/>
+  </g>
+  
+  <!-- Distance Labels on Lines -->
+  <text x="350" y="140" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#dc3545">90m</text>
+  <text x="500" y="165" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#dc3545">180m</text>
+  <text x="270" y="230" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="#dc3545">75m</text>
+  
+  <!-- Validation Engine Processing Box -->
+  <rect x="100" y="400" width="400" height="280" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="10"/>
+  <text x="300" y="425" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1565c0">
+    Speed-of-Light Validation Engine
+  </text>
+  
+  <!-- Calculation Steps -->
+  <g transform="translate(120, 450)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1565c0">Step 1: Distance Calculation</text>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="11" fill="#424242">d₁ = √[(x₁-x₀)² + (y₁-y₀)²] = 90m</text>
+    <text x="0" y="35" font-family="Arial, sans-serif" font-size="11" fill="#424242">d₂ = √[(x₂-x₀)² + (y₂-y₀)²] = 180m</text>
+    <text x="0" y="50" font-family="Arial, sans-serif" font-size="11" fill="#424242">d₃ = √[(x₃-x₀)² + (y₃-y₀)²] = 75m</text>
+    
+    <text x="0" y="80" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1565c0">Step 2: Minimum Time Calculation</text>
+    <text x="0" y="100" font-family="Arial, sans-serif" font-size="11" fill="#424242">t_min = t₀ + d/c (where c = 299,792,458 m/s)</text>
+    <text x="0" y="115" font-family="Arial, sans-serif" font-size="11" fill="#424242">TWN-1: t_min = 0 + 90m/c = 300 ns</text>
+    <text x="0" y="130" font-family="Arial, sans-serif" font-size="11" fill="#424242">TWN-2: t_min = 0 + 180m/c = 600 ns</text>
+    <text x="0" y="145" font-family="Arial, sans-serif" font-size="11" fill="#424242">TWN-3: t_min = 0 + 75m/c = 250 ns</text>
+    
+    <text x="0" y="175" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1565c0">Step 3: Arrival Time Validation</text>
+    <text x="0" y="195" font-family="Arial, sans-serif" font-size="11" fill="#424242">If t_arrival &lt; t_min → INVALID (Physics Violation)</text>
+    <text x="0" y="210" font-family="Arial, sans-serif" font-size="11" fill="#424242">If t_arrival ≥ t_min → VALID (Physically Possible)</text>
+    
+    <text x="0" y="235" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1565c0">Step 4: Environmental Compensation</text>
+    <text x="0" y="255" font-family="Arial, sans-serif" font-size="11" fill="#424242">Adjust for temperature, humidity, altitude effects</text>
+  </g>
+  
+  <!-- Results Box -->
+  <rect x="550" y="400" width="350" height="200" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="10"/>
+  <text x="725" y="425" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#6a1b9a">
+    Validation Results
+  </text>
+  
+  <g transform="translate(570, 450)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6a1b9a">Witness Node Status:</text>
+    
+    <circle cx="10" cy="25" r="8" fill="#4caf50"/>
+    <text x="25" y="30" font-family="Arial, sans-serif" font-size="11" fill="#424242">TWN-1: VALID (t_arrival = 305ns)</text>
+    
+    <circle cx="10" cy="45" r="8" fill="#4caf50"/>
+    <text x="25" y="50" font-family="Arial, sans-serif" font-size="11" fill="#424242">TWN-2: VALID (t_arrival = 608ns)</text>
+    
+    <circle cx="10" cy="65" r="8" fill="#f44336"/>
+    <text x="25" y="70" font-family="Arial, sans-serif" font-size="11" fill="#424242">TWN-3: INVALID (t_arrival = 200ns)</text>
+    
+    <text x="0" y="100" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#6a1b9a">Consensus Decision:</text>
+    <text x="0" y="120" font-family="Arial, sans-serif" font-size="11" fill="#424242">2/3 Witnesses Valid → Event ACCEPTED</text>
+    <text x="0" y="135" font-family="Arial, sans-serif" font-size="11" fill="#424242">Attack Detected at TWN-3</text>
+    <text x="0" y="150" font-family="Arial, sans-serif" font-size="11" fill="#424242">Security Alert Generated</text>
+  </g>
+  
+  <!-- Precision Timeline -->
+  <rect x="950" y="400" width="200" height="280" fill="#fff3e0" stroke="#f57800" stroke-width="2" rx="10"/>
+  <text x="1050" y="425" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="#ef6c00">
+    Precision Timeline
+  </text>
+  
+  <!-- Timeline Visualization -->
+  <g transform="translate(970, 450)">
+    <line x1="0" y1="0" x2="0" y2="200" stroke="#424242" stroke-width="2"/>
+    
+    <!-- Time markers -->
+    <g stroke="#424242" stroke-width="1">
+      <line x1="-5" y1="0" x2="5" y2="0"/>
+      <line x1="-5" y1="50" x2="5" y2="50"/>
+      <line x1="-5" y1="100" x2="5" y2="100"/>
+      <line x1="-5" y1="150" x2="5" y2="150"/>
+      <line x1="-5" y1="200" x2="5" y2="200"/>
+    </g>
+    
+    <text x="15" y="5" font-family="Arial, sans-serif" font-size="10" fill="#424242">0 ns (Event)</text>
+    <text x="15" y="55" font-family="Arial, sans-serif" font-size="10" fill="#424242">250 ns</text>
+    <text x="15" y="105" font-family="Arial, sans-serif" font-size="10" fill="#424242">300 ns</text>
+    <text x="15" y="155" font-family="Arial, sans-serif" font-size="10" fill="#424242">600 ns</text>
+    <text x="15" y="205" font-family="Arial, sans-serif" font-size="10" fill="#424242">1000 ns</text>
+    
+    <!-- Validity windows -->
+    <rect x="10" y="50" width="20" height="5" fill="#4caf50" opacity="0.7"/>
+    <rect x="10" y="100" width="20" height="5" fill="#4caf50" opacity="0.7"/>
+    <rect x="10" y="150" width="20" height="5" fill="#4caf50" opacity="0.7"/>
+    
+    <!-- Invalid zone -->
+    <rect x="10" y="0" width="20" height="50" fill="#f44336" opacity="0.3"/>
+    <text x="35" y="25" font-family="Arial, sans-serif" font-size="9" fill="#d32f2f">Invalid Zone</text>
+    
+    <text x="35" y="77" font-family="Arial, sans-serif" font-size="9" fill="#388e3c">TWN-3 Valid</text>
+    <text x="35" y="127" font-family="Arial, sans-serif" font-size="9" fill="#388e3c">TWN-1 Valid</text>
+    <text x="35" y="177" font-family="Arial, sans-serif" font-size="9" fill="#388e3c">TWN-2 Valid</text>
+  </g>
+  
+  <!-- Mathematical Formula Box -->
+  <rect x="100" y="100" width="300" height="80" fill="#ffffff" stroke="#1976d2" stroke-width="2" rx="5"/>
+  <text x="250" y="125" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#1565c0">
+    Fundamental Physics Constraint
+  </text>
+  <text x="250" y="145" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#d32f2f">
+    t_min = t₀ + d/c
+  </text>
+  <text x="250" y="165" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" fill="#424242">
+    Any signal arriving before t_min violates physics
+  </text>
+</svg>

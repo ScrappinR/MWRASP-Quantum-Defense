@@ -1,0 +1,1864 @@
+================================================================================
+CODE AUTHENTICITY ANALYSIS REPORT
+MISSION: Identify fake, simulated, and workaround code
+================================================================================
+
+SUMMARY:
+  Total Files Analyzed: 33
+  Total Issues Found: 306
+  Critical Issues: 51
+  High Priority Issues: 0
+
+*** CRITICAL FAKE CODE DETECTED - IMMEDIATE ACTION REQUIRED ***
+
+CRITICAL ISSUES (51):
+----------------------------------------
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_WORKING_SYSTEM.py:1094
+Type: FAKE_CODE_MOCK_DATA_PATTERNS
+Issue: Fake implementation detected: mock_data_patterns
+Code: test_data = [
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_ENHANCED_SECURITY_SYSTEM.py:895
+Type: FAKE_CODE_MOCK_DATA_PATTERNS
+Issue: Fake implementation detected: mock_data_patterns
+Code: test_data = "CONFIDENTIAL_FINANCIAL_TRANSACTION_12345"
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_ENHANCED_SECURITY_SYSTEM.py:933
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: short_data = "TEMPORARY_SECRET_DATA"
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_ENHANCED_SECURITY_SYSTEM.py:933
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: short_data = "TEMPORARY_SECRET_DATA"
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_ENHANCED_SECURITY_SYSTEM.py:933
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: short_data = "TEMPORARY_SECRET_DATA"
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_ENHANCED_SECURITY_SYSTEM.py:933
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: short_data = "TEMPORARY_SECRET_DATA"
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_ENHANCED_SECURITY_SYSTEM.py:933
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: short_data = "TEMPORARY_SECRET_DATA"
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_ENHANCED_SECURITY_SYSTEM.py:933
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: short_data = "TEMPORARY_SECRET_DATA"
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:1683
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: # Ensure we always have at least loopback
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:1683
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: # Ensure we always have at least loopback
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:1683
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: # Ensure we always have at least loopback
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_LOCAL_PROTOTYPE.py:116
+Type: FAKE_PROCESSING
+Issue: Function '_monitor_loop' uses sleep to simulate processing
+Code: def _monitor_loop(self):
+Fix: Implement actual processing logic for _monitor_loop
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:797
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: # Import the real unified system instead of using mock
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:797
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: # Import the real unified system instead of using mock
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:797
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: # Import the real unified system instead of using mock
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:797
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: # Import the real unified system instead of using mock
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:797
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: # Import the real unified system instead of using mock
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:797
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: # Import the real unified system instead of using mock
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:797
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: # Import the real unified system instead of using mock
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:797
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: # Import the real unified system instead of using mock
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:797
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: # Import the real unified system instead of using mock
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_RESISTANT_CRYPTO.py:1256
+Type: FAKE_CODE_MOCK_DATA_PATTERNS
+Issue: Fake implementation detected: mock_data_patterns
+Code: test_data = b"Highly sensitive data that must be quantum-resistant protected"
+Fix: Replace fake implementation with actual working code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_AGENT_EVOLUTION.py:613
+Type: FAKE_PROCESSING
+Issue: Function 'demonstrate_agent_evolution' uses sleep to simulate processing
+Code: def demonstrate_agent_evolution():
+Fix: Implement actual processing logic for demonstrate_agent_evolution
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:15
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: NO MOCK DATA - REAL TESTING WITH ACTUAL IMPLEMENTATIONS
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:15
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: NO MOCK DATA - REAL TESTING WITH ACTUAL IMPLEMENTATIONS
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:15
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: NO MOCK DATA - REAL TESTING WITH ACTUAL IMPLEMENTATIONS
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:15
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: NO MOCK DATA - REAL TESTING WITH ACTUAL IMPLEMENTATIONS
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:15
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: NO MOCK DATA - REAL TESTING WITH ACTUAL IMPLEMENTATIONS
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:15
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: NO MOCK DATA - REAL TESTING WITH ACTUAL IMPLEMENTATIONS
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:15
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: NO MOCK DATA - REAL TESTING WITH ACTUAL IMPLEMENTATIONS
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:15
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: NO MOCK DATA - REAL TESTING WITH ACTUAL IMPLEMENTATIONS
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:15
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: NO MOCK DATA - REAL TESTING WITH ACTUAL IMPLEMENTATIONS
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:95
+Type: FAKE_CODE_MOCK_DATA_PATTERNS
+Issue: Fake implementation detected: mock_data_patterns
+Code: self.test_data_dir = "test_data"
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:100
+Type: FAKE_CODE_MOCK_DATA_PATTERNS
+Issue: Fake implementation detected: mock_data_patterns
+Code: os.makedirs(self.test_data_dir, exist_ok=True)
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:148
+Type: FAKE_CODE_MOCK_DATA_PATTERNS
+Issue: Fake implementation detected: mock_data_patterns
+Code: test_data = self.generate_realistic_network_data(1000)
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:399
+Type: FAKE_CODE_MOCK_DATA_PATTERNS
+Issue: Fake implementation detected: mock_data_patterns
+Code: test_data = b"This is sensitive data that needs temporal protection with quantum noise injection"
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:404
+Type: FAKE_CODE_MOCK_DATA_PATTERNS
+Issue: Fake implementation detected: mock_data_patterns
+Code: test_data, "test_protection_001", fragment_count=5, protection_level=2
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:463
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: passed=True,  # Always pass as we're testing the mechanism
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:463
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: passed=True,  # Always pass as we're testing the mechanism
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:463
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: passed=True,  # Always pass as we're testing the mechanism
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:552
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: passed=True,  # Always pass as we're testing detection capability
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:552
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: passed=True,  # Always pass as we're testing detection capability
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:552
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: passed=True,  # Always pass as we're testing detection capability
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:657
+Type: FAKE_CODE_MOCK_DATA_PATTERNS
+Issue: Fake implementation detected: mock_data_patterns
+Code: test_data = self.generate_realistic_network_data(100)
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\MWRASP_SIMPLE_BENCHMARK.py:28
+Type: FAKE_PROCESSING
+Issue: Function 'main' uses sleep to simulate processing
+Code: def main():
+Fix: Implement actual processing logic for main
+
+File: VALIDATION_AND_TESTING\test_ibm_connection_advanced.py:266
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: print("- Service maintenance or temporary issues")
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\test_ibm_connection_advanced.py:266
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: print("- Service maintenance or temporary issues")
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\test_ibm_connection_advanced.py:266
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: print("- Service maintenance or temporary issues")
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\test_ibm_connection_advanced.py:266
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: print("- Service maintenance or temporary issues")
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\test_ibm_connection_advanced.py:266
+Type: FAKE_CODE_HARDCODED_RETURNS
+Issue: Fake implementation detected: hardcoded_returns
+Code: print("- Service maintenance or temporary issues")
+Fix: Replace fake implementation with actual working code
+
+File: VALIDATION_AND_TESTING\test_ibm_connection_advanced.py:266
+Type: FAKE_CODE_FAKE_SUCCESS_PATTERNS
+Issue: Fake implementation detected: fake_success_patterns
+Code: print("- Service maintenance or temporary issues")
+Fix: Replace fake implementation with actual working code
+
+MEDIUM ISSUES (255):
+----------------------------------------
+File: CORE_SYSTEM_IMPLEMENTATIONS\demo_stable.py:163
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: # Simulate response
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\demo_stable.py:446
+Type: SIMULATION_FAKE_PROCESSING
+Issue: Simulation code detected: fake_processing
+Code: await asyncio.sleep(2)  # Simulate report generation
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\DUAL_CAPABILITY_DEMO_SCRIPT.py:71
+Type: SIMULATION_FAKE_PROCESSING
+Issue: Simulation code detected: fake_processing
+Code: await asyncio.sleep(0.025)  # Simulate 25ms detection processing
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\DUAL_CAPABILITY_DEMO_SCRIPT.py:132
+Type: SIMULATION_FAKE_PROCESSING
+Issue: Simulation code detected: fake_processing
+Code: await asyncio.sleep(2.5)  # Simulate comprehensive analysis time
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_ACTUAL_TIME_DILATION_SECURITY.py:418
+Type: SIMULATION_FAKE_PROCESSING
+Issue: Simulation code detected: fake_processing
+Code: # Simulate computational work required to cross barrier
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:459
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.normal(0, self.params.sigma),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:460
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.normal(0, self.params.sigma)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:465
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.uniform(0, self.params.q0),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:465
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.uniform(0, self.params.q0),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:466
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.uniform(0, self.params.q0)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:466
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.uniform(0, self.params.q0)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:470
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.normal(0, self.params.sigma),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:471
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.normal(0, self.params.sigma)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:517
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.normal(0, 1),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:518
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.normal(0, 1)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:522
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.normal(0, self.params.sigma),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:523
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.normal(0, self.params.sigma)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:527
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.normal(0, self.params.sigma),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:528
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.normal(0, self.params.sigma)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_Advanced_Homomorphic_Encryption.py:691
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: noise = int(np.random.normal(0, self.params.alpha * 2**32))
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:267
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: current_behavior_score = random.uniform(0.0, 1.0)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:267
+Type: SIMULATION_CALCULATION_SIMULATION
+Issue: Simulation code detected: calculation_simulation
+Code: current_behavior_score = random.uniform(0.0, 1.0)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:279
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: cpu_usage = random.uniform(0.1, 1.0)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:280
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: memory_usage = random.uniform(0.3, 0.95)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:381
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_probability = random.uniform(0.0, 1.0)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:459
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'threat_landscape_changes': random.choice(['stable', 'elevated', 'critical'])
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:556
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: if random.uniform(0, 1) > 0.95:  # 5% chance of rule update
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:559
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'type': random.choice(['block_ip', 'isolate_user', 'monitor_process']),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:570
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: system_risk_level = random.uniform(0.0, 1.0)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:723
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: if random.uniform(0, 1) > 0.98:  # 2% chance of interaction
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:726
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: async def _simulate_honeypot_interaction(self, honeypot_id: str):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:734
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'interaction_type': random.choice(['login_attempt', 'file_access', 'data_query', 'config_change']),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:735
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'success': random.uniform(0, 1) > 0.7,  # 30% success rate
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:737
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'duration_seconds': random.uniform(10, 300)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_DISTRIBUTED_SYSTEM.py:876
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'attractiveness': old_honeypot['attractiveness'] * random.uniform(0.9, 1.1),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_PATENT_INTEGRATED_SYSTEM.py:355
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: noise = np.random.laplace(0, 1/epsilon)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_REAL_SYSTEM.py:834
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: return random.uniform(0.7, 0.9)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_UNIFIED_SYSTEM.py:363
+Type: SIMULATION_FAKE_PROCESSING
+Issue: Simulation code detected: fake_processing
+Code: await asyncio.sleep(0.1)  # Simulate intervention time
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_COMPLETE_WORKING_SYSTEM.py:490
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: noise = np.random.laplace(0, 1/epsilon)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:38
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'response_time': random.uniform(0.1, 2.0),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:39
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'accuracy': random.uniform(0.85, 0.98),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:40
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'learning_rate': random.uniform(0.02, 0.08)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:62
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def simulate_learning(self):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:65
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: learning_gain = random.uniform(0.01, 0.05)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:73
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'description': f'Improved {random.choice(self.specialized_capabilities)} capability',
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:137
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def simulate_financial_operations(self):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:140
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat = random.choice(self.financial_threats)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:141
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_value = random.uniform(50, 800) * 1000000  # $50M to $800M
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:148
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: agent = random.choice(market_agents)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:195
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def simulate_tactical_operations(self):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:198
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat = random.choice(self.tactical_threats)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_DEPLOYMENT_SPECIFIC_DASHBOARD.py:212
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: agent = random.choice(agents)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_ENHANCED_SECURITY_SYSTEM.py:951
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: fake_access = temporal_protector.access_data('fake_protection_id', 'unauthorized_user')
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_ENHANCED_SECURITY_SYSTEM.py:952
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: print(f"Unauthorized access blocked: {fake_access is None}")
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:35
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: self.trust_score = random.uniform(0.75, 0.95)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:35
+Type: SIMULATION_CALCULATION_SIMULATION
+Issue: Simulation code detected: calculation_simulation
+Code: self.trust_score = random.uniform(0.75, 0.95)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:36
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: self.learning_progress = random.uniform(0.3, 0.8)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:41
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'response_time': random.uniform(0.05, 0.15),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:42
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'accuracy': random.uniform(0.88, 0.98),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:43
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'learning_rate': random.uniform(0.02, 0.08)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:64
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: learning_gain = random.uniform(0.005, 0.02)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:72
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'description': f'Enhanced {random.choice(self.financial_specialties)} capability'
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:161
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def simulate_market_activity(self):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:165
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: base_value = 100 + random.uniform(-2, 2)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:166
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: volatility = random.uniform(0.5, 2.0)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:173
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'threat_level': random.choice(['LOW', 'MEDIUM', 'HIGH']) if random.random() < 0.1 else 'LOW'
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:176
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def simulate_financial_threats(self):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:179
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_type = random.choice(self.financial_threats)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:180
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_value = random.uniform(*self.threat_value_range)  # $500M to $50B
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:181
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: target_market = random.choice(self.markets)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:196
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: handling_agent = random.choice(market_agents)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:231
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: time.sleep(0.5)  # Brief pause on error, not fake simulation
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_FINANCIAL_DASHBOARD.py:231
+Type: SUSPICIOUS_COMMENT
+Issue: Comment indicates fake, mock, temporary, or workaround code
+Code: time.sleep(0.5)  # Brief pause on error, not fake simulation
+Fix: Review and implement proper solution
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:4
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: Real implementation without simulations or fake components
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:840
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'packet_size': np.random.normal(800, 200),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:841
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'packets_per_second': np.random.normal(50, 15),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:842
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'bytes_per_second': np.random.normal(40000, 10000),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:843
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'protocol': np.random.choice(['TCP', 'UDP']),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:843
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'protocol': np.random.choice(['TCP', 'UDP']),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:844
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'source_port': np.random.randint(1024, 65535),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:845
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'destination_port': np.random.choice([80, 443, 22, 23, 8080]),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:845
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'destination_port': np.random.choice([80, 443, 22, 23, 8080]),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:846
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'flow_duration': np.random.exponential(2.0),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:847
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'bidirectional_packets': np.random.poisson(25),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:848
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'payload_entropy': np.random.uniform(0.1, 1.0),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:848
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'payload_entropy': np.random.uniform(0.1, 1.0),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:849
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'inter_arrival_time_mean': np.random.exponential(0.1),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:850
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'inter_arrival_time_std': np.random.exponential(0.05),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:851
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'syn_flag_count': np.random.poisson(2),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:852
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'fin_flag_count': np.random.poisson(1),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_GENUINE_AI_SYSTEM.py:853
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'rst_flag_count': np.random.poisson(0.1)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_HYBRID_QUANTUM_SYSTEM.py:162
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: await asyncio.sleep(random.uniform(0.2, 0.5))
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_HYBRID_QUANTUM_SYSTEM.py:166
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: execution_variance = random.uniform(-0.3, +0.8)  # Hardware variation
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_HYBRID_QUANTUM_SYSTEM.py:173
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: fidelity = backend["fidelity"] + random.uniform(-0.02, +0.02)  # Small variation
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_HYBRID_QUANTUM_SYSTEM.py:290
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: complexity = random.uniform(0.1, 0.3)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_HYBRID_QUANTUM_SYSTEM.py:296
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: complexity = random.uniform(0.4, 0.6)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_HYBRID_QUANTUM_SYSTEM.py:304
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_type = random.choice(quantum_types)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_HYBRID_QUANTUM_SYSTEM.py:305
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: complexity = random.uniform(0.7, 0.95)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_INTEGRATED_AGENT_STAFF_DEMO.py:383
+Type: SIMULATION_FAKE_PROCESSING
+Issue: Simulation code detected: fake_processing
+Code: await asyncio.sleep(0.001)  # Simulate minimal routing delay
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_INTEGRATED_AGENT_STAFF_DEMO.py:581
+Type: SIMULATION_FAKE_PROCESSING
+Issue: Simulation code detected: fake_processing
+Code: await asyncio.sleep(0.01)  # Simulate processing time
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_LOCAL_PROTOTYPE.py:138
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: if secrets.randbelow(1000) < 2:  # 0.2% chance of simulated detection
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_LOCAL_PROTOTYPE.py:142
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def _simulate_quantum_threat(self) -> NetworkThreat:
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:554
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: response_times = 65 + 10 * np.sin(times/10) + np.random.normal(0, 5, len(times))
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_PROFESSIONAL_DASHBOARD_SYSTEM.py:797
+Type: SUSPICIOUS_COMMENT
+Issue: Comment indicates fake, mock, temporary, or workaround code
+Code: # Import the real unified system instead of using mock
+Fix: Review and implement proper solution
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_ATTACK_DETECTION_SYSTEM.py:161
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: analysis_time = random.uniform(0.030, 0.095)  # 30-95ms range
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_ATTACK_DETECTION_SYSTEM.py:196
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: await asyncio.sleep(random.uniform(0.5, 2.0))  # 500ms-2s for deep analysis
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_ATTACK_DETECTION_SYSTEM.py:203
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: "success_probability": random.uniform(0.7, 0.99)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_ATTACK_DETECTION_SYSTEM.py:300
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: complexity = random.uniform(0.1, 0.3)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_ATTACK_DETECTION_SYSTEM.py:306
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: complexity = random.uniform(0.4, 0.6)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_ATTACK_DETECTION_SYSTEM.py:314
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_type = random.choice(quantum_types)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_ATTACK_DETECTION_SYSTEM.py:315
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: complexity = random.uniform(0.7, 0.95)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_ATTACK_DETECTION_SYSTEM.py:397
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_type = random.choice(quantum_types)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_ATTACK_DETECTION_SYSTEM.py:407
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: complexity_score=random.uniform(0.8, 0.95),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_ATTACK_DETECTION_SYSTEM.py:407
+Type: SIMULATION_CALCULATION_SIMULATION
+Issue: Simulation code detected: calculation_simulation
+Code: complexity_score=random.uniform(0.8, 0.95),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_RESISTANT_CRYPTO.py:77
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: a = np.random.randint(0, 2, size=(size, eta))
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_RESISTANT_CRYPTO.py:78
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: b = np.random.randint(0, 2, size=(size, eta))
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_SAFE_AGENT_TRANSPORT.py:343
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: async def simulate_agent_transport(self, mission_id: str) -> Dict[str, Any]:
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_QUANTUM_SAFE_AGENT_TRANSPORT.py:396
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: async def _simulate_agent_journey(self, agent: TransportAgent,
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_DEMO.py:4
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: Genuine implementation of core technologies - NO FAKE SIMULATIONS
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_DEMO.py:416
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: # Simulate message processing time (real coordination would wait for responses)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_DEMO.py:616
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: print("Genuine implementations - NO fake simulations")
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_DEMO.py:668
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: print(f"not simulated or fake demonstrations.")
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_SYSTEM.py:561
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: noise = np.random.laplace(0, scale)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_SYSTEM.py:704
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'threat_evolution_prediction': random.uniform(0.1, 0.9)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_SYSTEM.py:873
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: target_scheme = random.choice(stronger_schemes)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_SYSTEM.py:1374
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_type=random.choice(threat_types),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_SYSTEM.py:1375
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: severity=random.choice(severities),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_SYSTEM.py:1380
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: confidence_score=random.uniform(0.6, 1.0),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_SYSTEM.py:1380
+Type: SIMULATION_CALCULATION_SIMULATION
+Issue: Simulation code detected: calculation_simulation
+Code: confidence_score=random.uniform(0.6, 1.0),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_SYSTEM.py:1381
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: attack_vector=random.choice(['network', 'application', 'physical', 'social'])
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REAL_WORKING_SYSTEM.py:1384
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: region = random.choice(regions)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_AGENT_EVOLUTION.py:100
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: base_value = random.uniform(0.1, 0.9)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_AGENT_EVOLUTION.py:104
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: base_value = random.uniform(0.3, 0.95)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_AGENT_EVOLUTION.py:107
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: base_value = random.uniform(0.05, 0.95)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_AGENT_EVOLUTION.py:372
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: blend_factor = random.uniform(0.3, 0.7)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_AGENT_EVOLUTION.py:376
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: parent_genome = random.choice([parent1_genome, parent2_genome])
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_AGENT_EVOLUTION.py:381
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: mutation_strength = random.uniform(-0.1, 0.1)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_AGENT_EVOLUTION.py:470
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def simulate_lifecycle(self, cycles: int = 1):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_DIGITAL_BODY_LANGUAGE.py:714
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: observed_value=random.choices(['SHA256', 'SHA3', 'BLAKE2', 'AES', 'ChaCha20'],
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_PERSONALITY_ENCRYPTION.py:71
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.seed(seed)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:309
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def _simulate_vacuum_fluctuations(self, size: int) -> bytes:
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:312
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: vacuum_energy = np.random.normal(0, 1, size)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:316
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def _simulate_zero_point_energy(self, size: int) -> bytes:
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:319
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: frequencies = np.random.exponential(1.0, size)  # Random frequencies
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:327
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: position_uncertainty = np.random.uniform(0, 1, size)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:327
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: position_uncertainty = np.random.uniform(0, 1, size)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:328
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: momentum_uncertainty = np.random.uniform(0, 1, size)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:328
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: momentum_uncertainty = np.random.uniform(0, 1, size)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:423
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: random.uniform(-1, 1),  # Real part
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:424
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: random.uniform(-1, 1)   # Imaginary part
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:431
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: phase=random.uniform(0, 2 * np.pi),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:432
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: spin=random.choice([0.5, -0.5]),  # Spin up or down
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:433
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: polarization=random.choice(['horizontal', 'vertical', 'diagonal']),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_QUANTUM_CANARIES.py:434
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: coherence_time=random.uniform(500, 2000)  # 0.5-2 seconds
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_TIME_DILATED_SECURITY.py:412
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: velocity_factor=random.uniform(0.001, 0.01),  # 0.1% to 1% light speed
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_REVOLUTIONARY_TIME_DILATED_SECURITY.py:413
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: processing_speed_hz=random.uniform(500000, 2000000)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:31
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: self.readiness_level = random.uniform(0.85, 0.98)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:32
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: self.mission_success_rate = random.uniform(0.88, 0.97)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:37
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'response_time': random.uniform(0.8, 2.5),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:38
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'accuracy': random.uniform(0.90, 0.99),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:39
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'coordination_efficiency': random.uniform(0.85, 0.96)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:58
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def simulate_tactical_learning(self):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:61
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: improvement_gain = random.uniform(0.005, 0.015)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:69
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'description': f'Enhanced {random.choice(self.tactical_specialties)} capability'
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:171
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def simulate_zone_activity(self):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:175
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_level = random.choice(['GREEN', 'YELLOW', 'ORANGE', 'RED'])
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:176
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: activity_level = random.uniform(20, 100)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:179
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: activity_level = random.uniform(80, 100)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:181
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: activity_level = random.uniform(60, 85)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:190
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def simulate_tactical_threats(self):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:193
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_type = random.choice(self.tactical_threats)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:194
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_severity = random.choice(['LOW', 'MEDIUM', 'HIGH', 'CRITICAL'])
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:195
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: target_zone = random.choice(self.operational_zones)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_TACTICAL_DASHBOARD.py:213
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: handling_agent = random.choice(zone_agents)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:145
+Type: SIMULATION_MOCK_EXTERNAL_CALLS
+Issue: Simulation code detected: mock_external_calls
+Code: def simulate_revolutionary_capabilities(self):
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:150
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: auth_time = random.uniform(0.05, 0.15)  # 0.1ms average
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:151
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: traditional_time = random.uniform(45, 105)  # Traditional PKI: 50-100ms
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:167
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat = random.choice(threat_types)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:174
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'response_time': random.uniform(0.05, 0.12),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:175
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'severity': random.choice(['Medium', 'High', 'Critical'])
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:182
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: threat_value = random.uniform(50e6, 5e9)  # $50M to $5B
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:188
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'market': random.choice(markets),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:190
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'intervention_type': random.choice(['Algorithm_Block', 'Trade_Halt', 'Pattern_Disruption'])
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:196
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: coordination_time = random.uniform(0.055, 0.085)  # 55-85ms
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:203
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'operation': random.choice(['Threat_Response', 'Data_Fragment', 'Legal_Route', 'System_Optimize']),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:211
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: f'Established barrier route via {random.choice(["Switzerland", "Singapore", "UAE", "Ireland"])}')
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:215
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: agent_id = random.choice(list(self.deployed_agents.keys()))
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:219
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: activity = f"Analyzed {random.choice(['Shors', 'Grovers', 'QKD'])} algorithm pattern"
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:222
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: activity = f"Verified identity in {random.uniform(0.08, 0.12):.2f}ms"
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:225
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: activity = f"Blocked ${random.uniform(50e6, 2e9)/1e6:.0f}M manipulation attempt"
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:231
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: activity = f"Attributed attack to {random.choice(['APT-29', 'Lazarus', 'APT-40', 'Unknown-Actor'])}"
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:234
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: activity = f"Fragmented {random.randint(15, 45)} data packets with {random.uniform(2.8, 3.5):.1f}s expiry"
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:237
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: activity = f"Automated {random.choice(['SEC', 'FINRA', 'GDPR', 'SOX'])} compliance check"
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:240
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: activity = f"Coordinated {random.randint(3, 7)} agents in {random.uniform(55, 85):.0f}ms"
+Fix: Replace simulation with actual implementation if this is production code
+
+File: CORE_SYSTEM_IMPLEMENTATIONS\MWRASP_UNIFIED_CAPABILITY_DASHBOARD.py:703
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: self.core.financial_protection_value += random.uniform(1e6, 50e6)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:543
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: test_proposal_id = consensus.submit_proposal(byzantine_agent, "fake_threat", {"fake": True})
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:748
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'packet_size': np.random.normal(1200, 400),  # Larger packets
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:749
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'packets_per_second': np.random.normal(200, 50),  # High packet rate
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:750
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'bytes_per_second': np.random.normal(150000, 30000),  # High bandwidth
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:751
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'protocol': np.random.choice(['TCP', 'UDP'], p=[0.3, 0.7]),  # More UDP
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:751
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'protocol': np.random.choice(['TCP', 'UDP'], p=[0.3, 0.7]),  # More UDP
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:752
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'source_port': np.random.randint(1024, 65535),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:753
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'destination_port': np.random.choice([80, 443, 22, 8080, 3389, 1433]),  # Include suspicious ports
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:753
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'destination_port': np.random.choice([80, 443, 22, 8080, 3389, 1433]),  # Include suspicious ports
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:754
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'flow_duration': np.random.exponential(0.5),  # Shorter flows
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:755
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'bidirectional_packets': np.random.poisson(100),  # More packets
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:756
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'payload_entropy': np.random.uniform(0.8, 1.0),  # High entropy (encrypted/compressed)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:756
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'payload_entropy': np.random.uniform(0.8, 1.0),  # High entropy (encrypted/compressed)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:757
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'inter_arrival_time_mean': np.random.exponential(0.01),  # Fast arrival
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:758
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'inter_arrival_time_std': np.random.exponential(0.005),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:759
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'syn_flag_count': np.random.poisson(10),  # Many connection attempts
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:760
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'fin_flag_count': np.random.poisson(1),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:761
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'rst_flag_count': np.random.poisson(5)  # Many resets
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:769
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'packet_size': np.random.normal(800, 200),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:770
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'packets_per_second': np.random.normal(50, 15),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:771
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'bytes_per_second': np.random.normal(40000, 10000),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:772
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'protocol': np.random.choice(['TCP', 'UDP'], p=[0.8, 0.2]),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:772
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'protocol': np.random.choice(['TCP', 'UDP'], p=[0.8, 0.2]),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:773
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'source_port': np.random.randint(1024, 65535),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:774
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'destination_port': np.random.choice([80, 443, 22], p=[0.6, 0.3, 0.1]),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:774
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'destination_port': np.random.choice([80, 443, 22], p=[0.6, 0.3, 0.1]),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:775
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'flow_duration': np.random.exponential(2.0),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:776
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'bidirectional_packets': np.random.poisson(25),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:777
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'payload_entropy': np.random.uniform(0.1, 0.6),  # Lower entropy
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:777
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'payload_entropy': np.random.uniform(0.1, 0.6),  # Lower entropy
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:778
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'inter_arrival_time_mean': np.random.exponential(0.1),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:779
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'inter_arrival_time_std': np.random.exponential(0.05),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:780
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'syn_flag_count': np.random.poisson(2),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:781
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'fin_flag_count': np.random.poisson(1),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:782
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'rst_flag_count': np.random.poisson(0.1)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:798
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: base_dwell_time = np.random.normal(100, 20)  # Base key press time
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:799
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: base_flight_time = np.random.normal(80, 15)   # Base time between keys
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:805
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: max(50, np.random.normal(base_dwell_time, 10)) for _ in range(11)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:808
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: max(30, np.random.normal(base_flight_time, 8)) for _ in range(10)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:811
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.uniform(0.6, 1.0) for _ in range(11)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:811
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: np.random.uniform(0.6, 1.0) for _ in range(11)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:826
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'dwell_times': [np.random.normal(100, 10) for _ in range(11)],
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:827
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'flight_times': [np.random.normal(80, 8) for _ in range(10)],
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:828
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'typing_pressure': [np.random.uniform(0.6, 1.0) for _ in range(11)],
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:828
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'typing_pressure': [np.random.uniform(0.6, 1.0) for _ in range(11)],
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:829
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'total_time': np.random.normal(1500, 200)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:835
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'packet_size': np.random.normal(800, 200),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:836
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'packets_per_second': np.random.normal(50, 15),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:837
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'bytes_per_second': np.random.normal(40000, 10000),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:841
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'flow_duration': np.random.exponential(2.0),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:842
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'bidirectional_packets': np.random.poisson(25),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:843
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'payload_entropy': np.random.uniform(0.1, 0.6),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:843
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'payload_entropy': np.random.uniform(0.1, 0.6),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:844
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'inter_arrival_time_mean': np.random.exponential(0.1),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:845
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'inter_arrival_time_std': np.random.exponential(0.05),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:846
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'syn_flag_count': np.random.poisson(2),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:847
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'fin_flag_count': np.random.poisson(1),
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\MWRASP_COMPREHENSIVE_TESTING_FRAMEWORK.py:848
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: 'rst_flag_count': np.random.poisson(0.1)
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\run_comprehensive_comparison_testing.py:117
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: state = random.choice(['0000', '0100', '1000', '1100'])
+Fix: Replace simulation with actual implementation if this is production code
+
+File: VALIDATION_AND_TESTING\run_comprehensive_comparison_testing.py:119
+Type: SIMULATION_RANDOM_SIMULATION
+Issue: Simulation code detected: random_simulation
+Code: state = random.choice(states)
+Fix: Replace simulation with actual implementation if this is production code
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+1. IMMEDIATE: Fix all CRITICAL issues - these are fake implementations
+   that make the system appear functional without actual functionality.
+3. Code Quality: All identified issues represent technical debt
+   that reduces system reliability and maintainability.
+
+================================================================================
+END REPORT
+================================================================================

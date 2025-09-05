@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FIGURE_4_REAL_TIME_STREAMING_PROCESSOR</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        svg { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto;
+            background: white;
+        }
+        @page { 
+            size: letter; 
+            margin: 0.5in; 
+        }
+        @media print { 
+            body { 
+                margin: 0; 
+                padding: 0.5in;
+                min-height: auto; 
+            } 
+            svg {
+                max-height: 10in;
+            }
+        }
+    </style>
+</head>
+<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .stream-box { fill: #e6f3ff; stroke: black; stroke-width: 1; }
+      .buffer-box { fill: #fff2e6; stroke: black; stroke-width: 1; }
+      .processor-box { fill: #e6ffe6; stroke: black; stroke-width: 2; }
+      .output-box { fill: white; stroke: black; stroke-width: 2; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .data-flow { stroke: blue; stroke-width: 2; fill: none; marker-end: url(#bluearrow); }
+      .process-flow { stroke: black; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="black" />
+      </marker>
+      <marker id="bluearrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="blue" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 4: REAL-TIME STREAMING BIOMETRIC PROCESSOR</text>
+  
+  <!-- Data Ingestion Layer -->
+  <rect x="50" y="50" width="700" height="60" class="stream-box"/>
+  <text x="400" y="75" class="label-text">CONTINUOUS DATA INGESTION LAYER</text>
+  <text x="400" y="95" class="small-text">Multi-Source Streaming • Real-Time Buffer Management • Data Validation</text>
+  
+  <!-- Stream Buffers -->
+  <rect x="50" y="140" width="120" height="80" class="buffer-box"/>
+  <text x="110" y="160" class="small-text">MEMORY</text>
+  <text x="110" y="175" class="small-text">STREAM</text>
+  <text x="110" y="190" class="tiny-text">Ring Buffer</text>
+  <text x="110" y="205" class="tiny-text">1ms Latency</text>
+  
+  <rect x="190" y="140" width="120" height="80" class="buffer-box"/>
+  <text x="250" y="160" class="small-text">ALGORITHM</text>
+  <text x="250" y="175" class="small-text">STREAM</text>
+  <text x="250" y="190" class="tiny-text">FIFO Queue</text>
+  <text x="250" y="205" class="tiny-text">0.5ms Latency</text>
+  
+  <rect x="330" y="140" width="120" height="80" class="buffer-box"/>
+  <text x="390" y="160" class="small-text">TEMPORAL</text>
+  <text x="390" y="175" class="small-text">STREAM</text>
+  <text x="390" y="190" class="tiny-text">Time Series</text>
+  <text x="390" y="205" class="tiny-text">2ms Latency</text>
+  
+  <rect x="470" y="140" width="120" height="80" class="buffer-box"/>
+  <text x="530" y="160" class="small-text">RESOURCE</text>
+  <text x="530" y="175" class="small-text">STREAM</text>
+  <text x="530" y="190" class="tiny-text">Circular Buffer</text>
+  <text x="530" y="205" class="tiny-text">1.5ms Latency</text>
+  
+  <rect x="610" y="140" width="120" height="80" class="buffer-box"/>
+  <text x="670" y="160" class="small-text">NEURAL</text>
+  <text x="670" y="175" class="small-text">STREAM</text>
+  <text x="670" y="190" class="tiny-text">Priority Queue</text>
+  <text x="670" y="205" class="tiny-text">0.8ms Latency</text>
+  
+  <!-- Parallel Processing Units -->
+  <rect x="100" y="260" width="150" height="90" class="processor-box"/>
+  <text x="175" y="280" class="label-text">PARALLEL PROCESSOR</text>
+  <text x="175" y="295" class="label-text">UNIT 1</text>
+  <text x="175" y="320" class="tiny-text">• Feature Extraction</text>
+  <text x="175" y="335" class="tiny-text">• Pattern Matching</text>
+  
+  <rect x="270" y="260" width="150" height="90" class="processor-box"/>
+  <text x="345" y="280" class="label-text">PARALLEL PROCESSOR</text>
+  <text x="345" y="295" class="label-text">UNIT 2</text>
+  <text x="345" y="320" class="tiny-text">• Similarity Scoring</text>
+  <text x="345" y="335" class="tiny-text">• Confidence Calculation</text>
+  
+  <rect x="440" y="260" width="150" height="90" class="processor-box"/>
+  <text x="515" y="280" class="label-text">PARALLEL PROCESSOR</text>
+  <text x="515" y="295" class="label-text">UNIT 3</text>
+  <text x="515" y="320" class="tiny-text">• Real-Time Fusion</text>
+  <text x="515" y="335" class="tiny-text">• Decision Generation</text>
+  
+  <!-- Incremental Matching Engine -->
+  <rect x="200" y="380" width="400" height="80" class="processor-box"/>
+  <text x="400" y="405" class="label-text">INCREMENTAL MATCHING ENGINE</text>
+  <text x="400" y="425" class="small-text">• Streaming Template Comparison • Partial Match Accumulation</text>
+  <text x="400" y="440" class="small-text">• Dynamic Threshold Adjustment • Sub-Millisecond Decisions</text>
+  
+  <!-- Performance Monitors -->
+  <rect x="50" y="380" width="120" height="80" class="stream-box"/>
+  <text x="110" y="400" class="label-text">LATENCY</text>
+  <text x="110" y="415" class="label-text">MONITOR</text>
+  <text x="110" y="435" class="tiny-text">Target: <1ms</text>
+  <text x="110" y="450" class="tiny-text">Current: 0.7ms</text>
+  
+  <rect x="630" y="380" width="120" height="80" class="stream-box"/>
+  <text x="690" y="400" class="label-text">THROUGHPUT</text>
+  <text x="690" y="415" class="label-text">MONITOR</text>
+  <text x="690" y="435" class="tiny-text">Rate: 10K/sec</text>
+  <text x="690" y="450" class="tiny-text">Capacity: 15K/sec</text>
+  
+  <!-- Real-Time Output -->
+  <rect x="250" y="490" width="300" height="80" class="output-box"/>
+  <text x="400" y="515" class="label-text">REAL-TIME IDENTIFICATION OUTPUT</text>
+  <text x="400" y="535" class="small-text">• Streaming Results • Live Confidence Scores</text>
+  <text x="400" y="550" class="small-text">• Sub-Millisecond Response • Continuous Processing</text>
+  
+  <!-- Data Flow Lines -->
+  <!-- Ingestion to Buffers -->
+  <line x1="150" y1="110" x2="110" y2="140" class="data-flow"/>
+  <line x1="250" y1="110" x2="250" y2="140" class="data-flow"/>
+  <line x1="350" y1="110" x2="390" y2="140" class="data-flow"/>
+  <line x1="450" y1="110" x2="530" y2="140" class="data-flow"/>
+  <line x1="550" y1="110" x2="670" y2="140" class="data-flow"/>
+  
+  <!-- Buffers to Processors -->
+  <line x1="110" y1="220" x2="175" y2="260" class="process-flow"/>
+  <line x1="250" y1="220" x2="345" y2="260" class="process-flow"/>
+  <line x1="390" y1="220" x2="345" y2="260" class="process-flow"/>
+  <line x1="530" y1="220" x2="515" y2="260" class="process-flow"/>
+  <line x1="670" y1="220" x2="515" y2="260" class="process-flow"/>
+  
+  <!-- Processors to Matching Engine -->
+  <line x1="175" y1="350" x2="300" y2="380" class="process-flow"/>
+  <line x1="345" y1="350" x2="400" y2="380" class="process-flow"/>
+  <line x1="515" y1="350" x2="500" y2="380" class="process-flow"/>
+  
+  <!-- Matching Engine to Output -->
+  <line x1="400" y1="460" x2="400" y2="490" class="process-flow"/>
+  
+  <!-- Performance Monitoring Lines -->
+  <path d="M 110 380 Q 110 350 175 350" class="connection-line" stroke-dasharray="3,3"/>
+  <path d="M 690 380 Q 690 350 515 350" class="connection-line" stroke-dasharray="3,3"/>
+  
+  <!-- Timing Indicators -->
+  <text x="50" y="300" class="tiny-text">T+0ms</text>
+  <text x="50" y="420" class="tiny-text">T+1ms</text>
+  <text x="50" y="530" class="tiny-text">T+1.5ms</text>
+  
+  <!-- Processing Pipeline Arrow -->
+  <path d="M 20 180 L 20 530" class="process-flow" stroke-width="3"/>
+  <text x="10" y="355" class="tiny-text" transform="rotate(-90 10 355)">PROCESSING</text>
+  <text x="35" y="355" class="tiny-text" transform="rotate(-90 35 355)">PIPELINE</text>
+  
+</svg>
+</body>
+</html>

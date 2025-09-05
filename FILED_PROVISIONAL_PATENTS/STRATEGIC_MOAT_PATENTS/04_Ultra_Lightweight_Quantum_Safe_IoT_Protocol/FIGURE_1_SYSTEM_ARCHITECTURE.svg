@@ -1,0 +1,857 @@
+<svg viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="headerGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="coreGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="adaptiveGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#dc2626;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b91c1c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="networkGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="powerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ea580c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c2410c;stop-opacity:1" />
+    </linearGradient>
+    <filter id="dropShadow">
+      <feDropShadow dx="3" dy="3" stdDeviation="2" opacity="0.4"/>
+    </filter>
+    <marker id="dataArrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#1e40af"/>
+    </marker>
+    <marker id="controlArrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#f8fafc"/>
+  
+  <!-- Title Header -->
+  <rect x="0" y="0" width="1400" height="60" fill="url(#headerGradient)"/>
+  <text x="700" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">
+    Figure 1: Ultra-Lightweight Quantum-Safe IoT Protocol Stack - System Architecture
+  </text>
+
+  <!-- IoT Device Layer (Left Side) -->
+  <g id="iotDeviceLayer">
+    <rect x="50" y="100" width="320" height="750" fill="#e2e8f0" rx="15" stroke="#64748b" stroke-width="2"/>
+    <text x="210" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+      IOT DEVICE ECOSYSTEM
+    </text>
+    
+    <!-- Ultra-Constrained Devices -->
+    <rect x="70" y="150" width="280" height="120" fill="url(#coreGradient)" rx="10" filter="url(#dropShadow)"/>
+    <text x="210" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ULTRA-CONSTRAINED DEVICES
+    </text>
+    <text x="210" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Level 1 Security: Minimal Resource Usage
+    </text>
+    
+    <rect x="80" y="200" width="110" height="60" fill="white" rx="5" opacity="0.95"/>
+    <text x="135" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Smart Sensors
+    </text>
+    <text x="135" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      8-bit MCU, 32KB RAM
+    </text>
+    <text x="135" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      &lt;10MHz, &lt;1mW
+    </text>
+    <text x="135" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      AES-128, Pre-shared Keys
+    </text>
+    
+    <rect x="200" y="200" width="110" height="60" fill="white" rx="5" opacity="0.95"/>
+    <text x="255" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      RFID Tags
+    </text>
+    <text x="255" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Ultra-low power
+    </text>
+    <text x="255" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Passive operation
+    </text>
+    <text x="255" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Minimal security
+    </text>
+    
+    <!-- Standard IoT Devices -->
+    <rect x="70" y="290" width="280" height="120" fill="url(#adaptiveGradient)" rx="10" filter="url(#dropShadow)"/>
+    <text x="210" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      STANDARD IOT DEVICES
+    </text>
+    <text x="210" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Level 2 Security: Post-Quantum Protocols
+    </text>
+    
+    <rect x="80" y="340" width="110" height="60" fill="white" rx="5" opacity="0.95"/>
+    <text x="135" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Smart Home
+    </text>
+    <text x="135" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      32-bit ARM, 256KB
+    </text>
+    <text x="135" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      48MHz, 10mW
+    </text>
+    <text x="135" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Kyber-512, Dilithium-2
+    </text>
+    
+    <rect x="200" y="340" width="110" height="60" fill="white" rx="5" opacity="0.95"/>
+    <text x="255" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Wearables
+    </text>
+    <text x="255" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Battery optimized
+    </text>
+    <text x="255" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Health monitoring
+    </text>
+    <text x="255" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Adaptive security
+    </text>
+    
+    <!-- Advanced IoT Devices -->
+    <rect x="70" y="430" width="280" height="120" fill="url(#networkGradient)" rx="10" filter="url(#dropShadow)"/>
+    <text x="210" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ADVANCED IOT DEVICES
+    </text>
+    <text x="210" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Level 3 Security: Enhanced Protection
+    </text>
+    
+    <rect x="80" y="480" width="110" height="60" fill="white" rx="5" opacity="0.95"/>
+    <text x="135" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Smart Vehicles
+    </text>
+    <text x="135" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      ARM Cortex-A, 1GB
+    </text>
+    <text x="135" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      1GHz, 100mW
+    </text>
+    <text x="135" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Full PQC suite
+    </text>
+    
+    <rect x="200" y="480" width="110" height="60" fill="white" rx="5" opacity="0.95"/>
+    <text x="255" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Medical Devices
+    </text>
+    <text x="255" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      High reliability
+    </text>
+    <text x="255" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      FDA compliance
+    </text>
+    <text x="255" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Certificate-based
+    </text>
+    
+    <!-- Industrial IoT -->
+    <rect x="70" y="570" width="280" height="120" fill="url(#powerGradient)" rx="10" filter="url(#dropShadow)"/>
+    <text x="210" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      INDUSTRIAL IOT SYSTEMS
+    </text>
+    <text x="210" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">
+      Level 4 Security: Military-Grade Protection
+    </text>
+    
+    <rect x="80" y="620" width="110" height="60" fill="white" rx="5" opacity="0.95"/>
+    <text x="135" y="640" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Controllers
+    </text>
+    <text x="135" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Multi-core, &gt;2GB
+    </text>
+    <text x="135" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Real-time OS
+    </text>
+    <text x="135" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      HSM integration
+    </text>
+    
+    <rect x="200" y="620" width="110" height="60" fill="white" rx="5" opacity="0.95"/>
+    <text x="255" y="640" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      Smart Grid
+    </text>
+    <text x="255" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Critical infrastructure
+    </text>
+    <text x="255" y="665" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Audit logging
+    </text>
+    <text x="255" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      FIPS compliance
+    </text>
+    
+    <!-- Resource Constraints -->
+    <rect x="70" y="710" width="280" height="120" fill="#f1f5f9" rx="10" stroke="#94a3b8" stroke-width="1"/>
+    <text x="210" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">
+      RESOURCE CONSTRAINTS
+    </text>
+    
+    <text x="90" y="755" font-family="Arial, sans-serif" font-size="9" font-weight="bold">CPU:</text>
+    <text x="120" y="755" font-family="Arial, sans-serif" font-size="9">8MHz - 2GHz+</text>
+    
+    <text x="90" y="770" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Memory:</text>
+    <text x="130" y="770" font-family="Arial, sans-serif" font-size="9">32KB - 8GB+</text>
+    
+    <text x="90" y="785" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Power:</text>
+    <text x="125" y="785" font-family="Arial, sans-serif" font-size="9">µW - Watts</text>
+    
+    <text x="90" y="800" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Network:</text>
+    <text x="135" y="800" font-family="Arial, sans-serif" font-size="9">kbps - Gbps</text>
+    
+    <text x="90" y="815" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Lifetime:</text>
+    <text x="135" y="815" font-family="Arial, sans-serif" font-size="9">1-20+ years</text>
+  </g>
+
+  <!-- Core Protocol Stack (Center) -->
+  <g id="coreProtocolStack">
+    <rect x="420" y="100" width="450" height="750" fill="white" rx="15" stroke="#1e40af" stroke-width="3" filter="url(#dropShadow)"/>
+    <text x="645" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e40af">
+      ULTRA-LIGHTWEIGHT QUANTUM-SAFE PROTOCOL STACK
+    </text>
+    
+    <!-- Adaptive Resource Manager -->
+    <rect x="440" y="150" width="410" height="100" fill="url(#adaptiveGradient)" rx="10" filter="url(#dropShadow)"/>
+    <text x="645" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ADAPTIVE RESOURCE MANAGER (ARM)
+    </text>
+    
+    <rect x="450" y="185" width="95" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="497" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      CPU Monitor
+    </text>
+    <text x="497" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      µs resolution
+    </text>
+    <text x="497" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Cache analysis
+    </text>
+    <text x="497" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Task scheduling
+    </text>
+    
+    <rect x="555" y="185" width="95" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="602" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Memory Mgmt
+    </text>
+    <text x="602" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Heap tracking
+    </text>
+    <text x="602" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Fragmentation
+    </text>
+    <text x="602" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Optimization
+    </text>
+    
+    <rect x="660" y="185" width="95" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="707" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Power Mgmt
+    </text>
+    <text x="707" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Battery model
+    </text>
+    <text x="707" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Harvesting
+    </text>
+    <text x="707" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Sleep modes
+    </text>
+    
+    <rect x="765" y="185" width="75" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="802" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Network
+    </text>
+    <text x="802" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Bandwidth
+    </text>
+    <text x="802" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Latency
+    </text>
+    <text x="802" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Loss rates
+    </text>
+    
+    <!-- Modular Protocol Engine -->
+    <rect x="440" y="270" width="410" height="120" fill="url(#coreGradient)" rx="10" filter="url(#dropShadow)"/>
+    <text x="645" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      MODULAR PROTOCOL ENGINE (MPE)
+    </text>
+    
+    <!-- Core Modules -->
+    <text x="530" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">
+      Core Modules
+    </text>
+    
+    <rect x="450" y="320" width="70" height="30" fill="white" rx="3" opacity="0.95"/>
+    <text x="485" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Auth
+    </text>
+    <text x="485" y="343" text-anchor="middle" font-family="Arial, sans-serif" font-size="6">
+      Dilithium
+    </text>
+    
+    <rect x="530" y="320" width="70" height="30" fill="white" rx="3" opacity="0.95"/>
+    <text x="565" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      KeyEx
+    </text>
+    <text x="565" y="343" text-anchor="middle" font-family="Arial, sans-serif" font-size="6">
+      Kyber
+    </text>
+    
+    <rect x="610" y="320" width="70" height="30" fill="white" rx="3" opacity="0.95"/>
+    <text x="645" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Encrypt
+    </text>
+    <text x="645" y="343" text-anchor="middle" font-family="Arial, sans-serif" font-size="6">
+      AES-256
+    </text>
+    
+    <rect x="690" y="320" width="70" height="30" fill="white" rx="3" opacity="0.95"/>
+    <text x="725" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Integrity
+    </text>
+    <text x="725" y="343" text-anchor="middle" font-family="Arial, sans-serif" font-size="6">
+      HMAC-SHA3
+    </text>
+    
+    <rect x="770" y="320" width="70" height="30" fill="white" rx="3" opacity="0.95"/>
+    <text x="805" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Session
+    </text>
+    <text x="805" y="343" text-anchor="middle" font-family="Arial, sans-serif" font-size="6">
+      Key Rotation
+    </text>
+    
+    <!-- Optional Modules -->
+    <text x="530" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">
+      Optional Enhancement Modules
+    </text>
+    
+    <rect x="450" y="370" width="60" height="15" fill="#fbbf24" rx="2" opacity="0.9"/>
+    <text x="480" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Threat Detection
+    </text>
+    
+    <rect x="520" y="370" width="60" height="15" fill="#fbbf24" rx="2" opacity="0.9"/>
+    <text x="550" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Secure Boot
+    </text>
+    
+    <rect x="590" y="370" width="60" height="15" fill="#fbbf24" rx="2" opacity="0.9"/>
+    <text x="620" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Secure Storage
+    </text>
+    
+    <rect x="660" y="370" width="60" height="15" fill="#fbbf24" rx="2" opacity="0.9"/>
+    <text x="690" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Certificates
+    </text>
+    
+    <rect x="730" y="370" width="60" height="15" fill="#fbbf24" rx="2" opacity="0.9"/>
+    <text x="760" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Compliance
+    </text>
+    
+    <!-- Ultra-Lightweight Crypto Library -->
+    <rect x="440" y="410" width="410" height="100" fill="url(#networkGradient)" rx="10" filter="url(#dropShadow)"/>
+    <text x="645" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ULTRA-LIGHTWEIGHT CRYPTO LIBRARY (ULCL)
+    </text>
+    
+    <rect x="450" y="445" width="120" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="510" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      CRYSTALS-Kyber
+    </text>
+    <text x="510" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Optimized NTT
+    </text>
+    <text x="510" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      40% compression
+    </text>
+    <text x="510" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Vectorized ops
+    </text>
+    
+    <rect x="580" y="445" width="120" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="640" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      CRYSTALS-Dilithium
+    </text>
+    <text x="640" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Signature compression
+    </text>
+    <text x="640" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Streaming verify
+    </text>
+    <text x="640" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Parallel generation
+    </text>
+    
+    <rect x="710" y="445" width="120" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="770" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold">
+      SPHINCS+
+    </text>
+    <text x="770" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Hypertree optim
+    </text>
+    <text x="770" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Compressed trees
+    </text>
+    <text x="770" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Power-optimized
+    </text>
+    
+    <!-- Power-Aware Security Controller -->
+    <rect x="440" y="530" width="410" height="100" fill="url(#powerGradient)" rx="10" filter="url(#dropShadow)"/>
+    <text x="645" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      POWER-AWARE SECURITY CONTROLLER (PASC)
+    </text>
+    
+    <rect x="450" y="565" width="95" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="497" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Battery Model
+    </text>
+    <text x="497" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Discharge pred
+    </text>
+    <text x="497" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Lifetime ext
+    </text>
+    <text x="497" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Emergency res
+    </text>
+    
+    <rect x="555" y="565" width="95" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="602" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Energy Harvest
+    </text>
+    <text x="602" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Solar/RF/Kinetic
+    </text>
+    <text x="602" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Multi-source
+    </text>
+    <text x="602" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Smart switching
+    </text>
+    
+    <rect x="660" y="565" width="95" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="707" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Adaptive Scale
+    </text>
+    <text x="707" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Dynamic levels
+    </text>
+    <text x="707" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Power-critical
+    </text>
+    <text x="707" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Burst operations
+    </text>
+    
+    <rect x="765" y="565" width="75" height="55" fill="white" rx="5" opacity="0.95"/>
+    <text x="802" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Sleep Mgmt
+    </text>
+    <text x="802" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Context save
+    </text>
+    <text x="802" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Wake schedule
+    </text>
+    <text x="802" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Power states
+    </text>
+    
+    <!-- Network Adaptation Layer -->
+    <rect x="440" y="650" width="200" height="100" fill="#06b6d4" rx="10" filter="url(#dropShadow)"/>
+    <text x="540" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      NETWORK ADAPTATION
+    </text>
+    <text x="540" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      LAYER (NAL)
+    </text>
+    
+    <rect x="450" y="695" width="80" height="45" fill="white" rx="3" opacity="0.95"/>
+    <text x="490" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Bandwidth
+    </text>
+    <text x="490" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Adaptive
+    </text>
+    <text x="490" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Compression
+    </text>
+    
+    <rect x="540" y="695" width="90" height="45" fill="white" rx="3" opacity="0.95"/>
+    <text x="585" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Intermittent
+    </text>
+    <text x="585" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Store-forward
+    </text>
+    <text x="585" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Offline ops
+    </text>
+    
+    <!-- Security Policy Manager -->
+    <rect x="650" y="650" width="200" height="100" fill="#8b5cf6" rx="10" filter="url(#dropShadow)"/>
+    <text x="750" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      SECURITY POLICY
+    </text>
+    <text x="750" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      MANAGER (SPM)
+    </text>
+    
+    <rect x="660" y="695" width="80" height="45" fill="white" rx="3" opacity="0.95"/>
+    <text x="700" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Policy
+    </text>
+    <text x="700" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Enforcement
+    </text>
+    <text x="700" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Compliance
+    </text>
+    
+    <rect x="750" y="695" width="90" height="45" fill="white" rx="3" opacity="0.95"/>
+    <text x="795" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Resource
+    </text>
+    <text x="795" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Coordination
+    </text>
+    <text x="795" y="730" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Optimization
+    </text>
+    
+    <!-- Performance Metrics -->
+    <rect x="440" y="770" width="410" height="70" fill="#f1f5f9" rx="8" stroke="#64748b" stroke-width="1"/>
+    <text x="645" y="790" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">
+      PERFORMANCE METRICS &amp; OPTIMIZATIONS
+    </text>
+    
+    <text x="460" y="810" font-family="Arial, sans-serif" font-size="9">
+      • Resource Usage: 70-90% reduction vs standard implementations
+    </text>
+    <text x="460" y="825" font-family="Arial, sans-serif" font-size="9">
+      • Power Consumption: &lt;50µJ per operation (Level 1), &lt;500µJ (Level 2)
+    </text>
+    <text x="460" y="840" font-family="Arial, sans-serif" font-size="9">
+      • Memory Footprint: 32KB-2MB depending on security level
+    </text>
+  </g>
+
+  <!-- Network Infrastructure (Right Side) -->
+  <g id="networkInfrastructure">
+    <rect x="920" y="100" width="430" height="750" fill="#fef3c7" rx="15" stroke="#f59e0b" stroke-width="2"/>
+    <text x="1135" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">
+      NETWORK INFRASTRUCTURE &amp; CONNECTIVITY
+    </text>
+    
+    <!-- Various Network Types -->
+    <rect x="940" y="150" width="190" height="120" fill="#22c55e" rx="10" filter="url(#dropShadow)"/>
+    <text x="1035" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      HIGH-BANDWIDTH NETWORKS
+    </text>
+    
+    <rect x="950" y="185" width="80" height="40" fill="white" rx="3" opacity="0.9"/>
+    <text x="990" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      WiFi 6/6E
+    </text>
+    <text x="990" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Gbps speeds
+    </text>
+    <text x="990" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Full security
+    </text>
+    
+    <rect x="1040" y="185" width="80" height="40" fill="white" rx="3" opacity="0.9"/>
+    <text x="1080" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      5G/LTE
+    </text>
+    <text x="1080" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Cellular
+    </text>
+    <text x="1080" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Mobile IoT
+    </text>
+    
+    <rect x="950" y="235" width="170" height="25" fill="white" rx="3" opacity="0.9"/>
+    <text x="1035" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Standard Protocol Mode - Full PQC Suite
+    </text>
+    
+    <rect x="1140" y="150" width="190" height="120" fill="#eab308" rx="10" filter="url(#dropShadow)"/>
+    <text x="1235" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">
+      CONSTRAINED NETWORKS
+    </text>
+    
+    <rect x="1150" y="185" width="80" height="40" fill="white" rx="3" opacity="0.9"/>
+    <text x="1190" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      LoRaWAN
+    </text>
+    <text x="1190" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Long range
+    </text>
+    <text x="1190" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Low power
+    </text>
+    
+    <rect x="1240" y="185" width="80" height="40" fill="white" rx="3" opacity="0.9"/>
+    <text x="1280" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      NB-IoT
+    </text>
+    <text x="1280" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Narrow band
+    </text>
+    <text x="1280" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Ultra-low data
+    </text>
+    
+    <rect x="1150" y="235" width="170" height="25" fill="white" rx="3" opacity="0.9"/>
+    <text x="1235" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Compressed Protocol Mode - Minimal Security
+    </text>
+    
+    <!-- Intermittent Connectivity -->
+    <rect x="940" y="290" width="390" height="80" fill="#ef4444" rx="10" filter="url(#dropShadow)"/>
+    <text x="1135" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      INTERMITTENT &amp; DISRUPTED CONNECTIVITY
+    </text>
+    
+    <rect x="950" y="325" width="90" height="35" fill="white" rx="3" opacity="0.9"/>
+    <text x="995" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Store-Forward
+    </text>
+    <text x="995" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Offline security
+    </text>
+    
+    <rect x="1050" y="325" width="90" height="35" fill="white" rx="3" opacity="0.9"/>
+    <text x="1095" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Mesh Networks
+    </text>
+    <text x="1095" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Peer-to-peer
+    </text>
+    
+    <rect x="1150" y="325" width="90" height="35" fill="white" rx="3" opacity="0.9"/>
+    <text x="1195" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Opportunistic
+    </text>
+    <text x="1195" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Sync on connect
+    </text>
+    
+    <rect x="1240" y="325" width="80" height="35" fill="white" rx="3" opacity="0.9"/>
+    <text x="1280" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold">
+      Satellite
+    </text>
+    <text x="1280" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Remote areas
+    </text>
+    
+    <!-- Security Adaptation -->
+    <rect x="940" y="390" width="390" height="120" fill="#6366f1" rx="10" filter="url(#dropShadow)"/>
+    <text x="1135" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      ADAPTIVE SECURITY PROTOCOLS
+    </text>
+    
+    <text x="960" y="435" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">
+      Bandwidth-Based Adaptation:
+    </text>
+    <text x="970" y="450" font-family="Arial, sans-serif" font-size="9" fill="white">
+      • High BW (&gt;1Mbps): Full PQC suite, complete security
+    </text>
+    <text x="970" y="463" font-family="Arial, sans-serif" font-size="9" fill="white">
+      • Medium BW (100kbps-1Mbps): Compressed protocols, adaptive
+    </text>
+    <text x="970" y="476" font-family="Arial, sans-serif" font-size="9" fill="white">
+      • Low BW (&lt;100kbps): Ultra-compressed, essential security only
+    </text>
+    
+    <text x="960" y="495" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">
+      Connectivity-Based Adaptation:
+    </text>
+    <text x="970" y="510" font-family="Arial, sans-serif" font-size="9" fill="white">
+      • Always connected: Real-time validation, continuous updates
+    </text>
+    
+    <!-- Cloud Integration -->
+    <rect x="940" y="530" width="390" height="100" fill="#0891b2" rx="10" filter="url(#dropShadow)"/>
+    <text x="1135" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">
+      CLOUD &amp; EDGE INTEGRATION
+    </text>
+    
+    <rect x="950" y="570" width="90" height="50" fill="white" rx="5" opacity="0.9"/>
+    <text x="995" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Edge Computing
+    </text>
+    <text x="995" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Local processing
+    </text>
+    <text x="995" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Low latency
+    </text>
+    
+    <rect x="1050" y="570" width="90" height="50" fill="white" rx="5" opacity="0.9"/>
+    <text x="1095" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Cloud Services
+    </text>
+    <text x="1095" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Scalable compute
+    </text>
+    <text x="1095" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Global reach
+    </text>
+    
+    <rect x="1150" y="570" width="90" height="50" fill="white" rx="5" opacity="0.9"/>
+    <text x="1195" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Hybrid Model
+    </text>
+    <text x="1195" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Edge + Cloud
+    </text>
+    <text x="1195" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Optimized split
+    </text>
+    
+    <rect x="1240" y="570" width="80" height="50" fill="white" rx="5" opacity="0.9"/>
+    <text x="1280" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Analytics
+    </text>
+    <text x="1280" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      ML insights
+    </text>
+    <text x="1280" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="8">
+      Threat intel
+    </text>
+    
+    <!-- Deployment Scenarios -->
+    <rect x="940" y="650" width="390" height="190" fill="#f3f4f6" rx="10" stroke="#6b7280" stroke-width="2"/>
+    <text x="1135" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">
+      DEPLOYMENT SCENARIOS &amp; USE CASES
+    </text>
+    
+    <rect x="950" y="690" width="110" height="60" fill="#ddd6fe" rx="5" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="1005" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Smart Cities
+    </text>
+    <text x="1005" y="722" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Traffic monitoring
+    </text>
+    <text x="1005" y="732" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Environmental sensors
+    </text>
+    <text x="1005" y="742" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Public safety systems
+    </text>
+    
+    <rect x="1070" y="690" width="110" height="60" fill="#fecaca" rx="5" stroke="#ef4444" stroke-width="1"/>
+    <text x="1125" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Industrial IoT
+    </text>
+    <text x="1125" y="722" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Manufacturing
+    </text>
+    <text x="1125" y="732" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Process control
+    </text>
+    <text x="1125" y="742" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Asset tracking
+    </text>
+    
+    <rect x="1190" y="690" width="130" height="60" fill="#bfdbfe" rx="5" stroke="#3b82f6" stroke-width="1"/>
+    <text x="1255" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Healthcare IoT
+    </text>
+    <text x="1255" y="722" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Patient monitoring
+    </text>
+    <text x="1255" y="732" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Medical devices
+    </text>
+    <text x="1255" y="742" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Compliance required
+    </text>
+    
+    <rect x="950" y="760" width="110" height="60" fill="#d1fae5" rx="5" stroke="#10b981" stroke-width="1"/>
+    <text x="1005" y="780" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Agriculture
+    </text>
+    <text x="1005" y="792" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Precision farming
+    </text>
+    <text x="1005" y="802" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Livestock monitoring
+    </text>
+    <text x="1005" y="812" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Weather stations
+    </text>
+    
+    <rect x="1070" y="760" width="110" height="60" fill="#fed7aa" rx="5" stroke="#f97316" stroke-width="1"/>
+    <text x="1125" y="780" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Automotive
+    </text>
+    <text x="1125" y="792" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Connected vehicles
+    </text>
+    <text x="1125" y="802" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      V2V/V2I comm
+    </text>
+    <text x="1125" y="812" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Safety critical
+    </text>
+    
+    <rect x="1190" y="760" width="130" height="60" fill="#fde68a" rx="5" stroke="#f59e0b" stroke-width="1"/>
+    <text x="1255" y="780" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+      Energy &amp; Utilities
+    </text>
+    <text x="1255" y="792" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Smart grid
+    </text>
+    <text x="1255" y="802" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Meter reading
+    </text>
+    <text x="1255" y="812" text-anchor="middle" font-family="Arial, sans-serif" font-size="7">
+      Infrastructure critical
+    </text>
+  </g>
+
+  <!-- Data Flow Arrows -->
+  <path d="M 370 400 L 420 400" stroke="#1e40af" stroke-width="4" fill="none" marker-end="url(#dataArrow)"/>
+  <text x="395" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+    Device Data
+  </text>
+  
+  <path d="M 870 400 L 920 400" stroke="#1e40af" stroke-width="4" fill="none" marker-end="url(#dataArrow)"/>
+  <text x="895" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+    Secure Comm
+  </text>
+  
+  <!-- Control Flow Arrows -->
+  <path d="M 920 350 L 870 350" stroke="#dc2626" stroke-width="3" fill="none" marker-end="url(#controlArrow)" stroke-dasharray="5,3"/>
+  <text x="895" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+    Network Feedback
+  </text>
+  
+  <path d="M 420 350 L 370 350" stroke="#dc2626" stroke-width="3" fill="none" marker-end="url(#controlArrow)" stroke-dasharray="5,3"/>
+  <text x="395" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold">
+    Resource Constraints
+  </text>
+</svg>

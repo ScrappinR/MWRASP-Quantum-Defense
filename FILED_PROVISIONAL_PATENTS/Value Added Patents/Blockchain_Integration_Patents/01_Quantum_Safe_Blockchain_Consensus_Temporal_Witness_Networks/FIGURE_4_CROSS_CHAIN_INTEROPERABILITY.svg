@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="850" viewBox="0 0 1200 850" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .bidirectional { marker-start: url(#arrowhead); marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .blockchain-a { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .blockchain-b { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .blockchain-c { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .bridge-protocol { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .quantum-validator { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+      .consensus-coordinator { fill: #f0f4c3; stroke: #827717; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 4: Cross-Chain Quantum Interoperability Architecture</text>
+  
+  <!-- Blockchain Network A -->
+  <rect x="50" y="100" width="250" height="150" class="blockchain-a"/>
+  <text x="175" y="130" class="system-text">Blockchain Network A</text>
+  <text x="175" y="145" class="system-text">(Ethereum-based)</text>
+  <text x="175" y="170" class="component-text">Consensus: Proof of Stake</text>
+  <text x="175" y="185" class="component-text">Quantum Security: CRYSTALS-Dilithium</text>
+  <text x="175" y="200" class="component-text">Smart Contracts: EVM Compatible</text>
+  <text x="175" y="215" class="component-text">Block Time: 12 seconds</text>
+  <text x="175" y="230" class="component-text">Cross-chain Bridge Endpoint</text>
+  
+  <!-- Blockchain Network B -->
+  <rect x="900" y="100" width="250" height="150" class="blockchain-b"/>
+  <text x="1025" y="130" class="system-text">Blockchain Network B</text>
+  <text x="1025" y="145" class="system-text">(Bitcoin-based)</text>
+  <text x="1025" y="170" class="component-text">Consensus: Proof of Work</text>
+  <text x="1025" y="185" class="component-text">Quantum Security: SPHINCS+</text>
+  <text x="1025" y="200" class="component-text">UTXO Model</text>
+  <text x="1025" y="215" class="component-text">Block Time: 10 minutes</text>
+  <text x="1025" y="230" class="component-text">Cross-chain Bridge Endpoint</text>
+  
+  <!-- Blockchain Network C -->
+  <rect x="475" y="500" width="250" height="150" class="blockchain-c"/>
+  <text x="600" y="530" class="system-text">Blockchain Network C</text>
+  <text x="600" y="545" class="system-text">(Custom Quantum-Safe)</text>
+  <text x="600" y="570" class="component-text">Consensus: Temporal Witness BFT</text>
+  <text x="600" y="585" class="component-text">Quantum Security: Multi-Algorithm</text>
+  <text x="600" y="600" class="component-text">AI Smart Contract Validation</text>
+  <text x="600" y="615" class="component-text">Block Time: 3 seconds</text>
+  <text x="600" y="630" class="component-text">Native Cross-chain Support</text>
+  
+  <!-- Quantum Bridge Protocol -->
+  <rect x="400" y="200" width="400" height="120" class="bridge-protocol"/>
+  <text x="600" y="230" class="system-text">Quantum-Safe Cross-Chain Bridge Protocol</text>
+  <text x="500" y="255" class="component-text">Protocol Translation:</text>
+  <text x="500" y="270" class="detail-text">• Message format conversion</text>
+  <text x="500" y="282" class="detail-text">• Consensus mechanism mapping</text>
+  <text x="500" y="294" class="detail-text">• State synchronization</text>
+  
+  <text x="700" y="255" class="component-text">Quantum Security:</text>
+  <text x="700" y="270" class="detail-text">• Multi-signature validation</text>
+  <text x="700" y="282" class="detail-text">• Quantum-resistant proofs</text>
+  <text x="700" y="294" class="detail-text">• Temporal witness verification</text>
+  
+  <!-- Cross-Chain Validators -->
+  <rect x="200" y="350" width="180" height="100" class="quantum-validator"/>
+  <text x="290" y="380" class="system-text">Quantum Validator 1</text>
+  <text x="290" y="400" class="component-text">• Multi-chain monitoring</text>
+  <text x="290" y="415" class="component-text">• Consensus participation</text>
+  <text x="290" y="430" class="component-text">• CRYSTALS-Dilithium sigs</text>
+  <text x="290" y="445" class="component-text">• Temporal attestation</text>
+  
+  <rect x="820" y="350" width="180" height="100" class="quantum-validator"/>
+  <text x="910" y="380" class="system-text">Quantum Validator 2</text>
+  <text x="910" y="400" class="component-text">• Multi-chain monitoring</text>
+  <text x="910" y="415" class="component-text">• Consensus participation</text>
+  <text x="910" y="430" class="component-text">• SPHINCS+ signatures</text>
+  <text x="910" y="445" class="component-text">• Cross-chain validation</text>
+  
+  <!-- Consensus Coordinator -->
+  <rect x="450" y="350" width="300" height="100" class="consensus-coordinator"/>
+  <text x="600" y="380" class="system-text">Cross-Chain Consensus Coordinator</text>
+  <text x="600" y="400" class="component-text">• Multi-chain state management</text>
+  <text x="600" y="415" class="component-text">• Consensus orchestration</text>
+  <text x="600" y="430" class="component-text">• Conflict resolution</text>
+  <text x="600" y="445" class="component-text">• Finality coordination</text>
+  
+  <!-- Connection Lines -->
+  <!-- Blockchain A to Bridge -->
+  <line x1="300" y1="175" x2="400" y2="230" class="bidirectional"/>
+  
+  <!-- Blockchain B to Bridge -->
+  <line x1="900" y1="175" x2="800" y2="230" class="bidirectional"/>
+  
+  <!-- Bridge to Validators and Coordinator -->
+  <line x1="500" y1="320" x2="380" y2="350" class="arrow"/>
+  <line x1="600" y1="320" x2="600" y2="350" class="arrow"/>
+  <line x1="700" y1="320" x2="820" y2="350" class="arrow"/>
+  
+  <!-- Validators to Coordinator -->
+  <line x1="380" y1="400" x2="450" y2="400" class="bidirectional"/>
+  <line x1="750" y1="400" x2="820" y2="400" class="bidirectional"/>
+  
+  <!-- Coordinator to Blockchain C -->
+  <line x1="600" y1="450" x2="600" y2="500" class="bidirectional"/>
+  
+  <!-- Cross-chain communication lines -->
+  <line x1="300" y1="175" x2="290" y2="350" class="arrow" stroke-dasharray="3,3"/>
+  <line x1="900" y1="175" x2="910" y2="350" class="arrow" stroke-dasharray="3,3"/>
+  
+  <!-- Inter-blockchain direct communication -->
+  <line x1="175" y1="250" x2="175" y2="480" class="arrow" stroke="#9c27b0" stroke-dasharray="2,2"/>
+  <line x1="175" y1="480" x2="475" y2="575" class="arrow" stroke="#9c27b0" stroke-dasharray="2,2"/>
+  
+  <line x1="1025" y1="250" x2="1025" y2="480" class="arrow" stroke="#9c27b0" stroke-dasharray="2,2"/>
+  <line x1="1025" y1="480" x2="725" y2="575" class="arrow" stroke="#9c27b0" stroke-dasharray="2,2"/>
+  
+  <!-- Cross-Chain Transaction Flow -->
+  <rect x="50" y="720" width="1100" height="100" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="745" class="system-text">Cross-Chain Transaction Flow</text>
+  
+  <text x="150" y="770" class="component-text">1. Transaction Initiation</text>
+  <text x="150" y="785" class="detail-text">• Source chain validation</text>
+  <text x="150" y="797" class="detail-text">• Quantum signature verification</text>
+  
+  <text x="350" y="770" class="component-text">2. Bridge Protocol</text>
+  <text x="350" y="785" class="detail-text">• Message translation</text>
+  <text x="350" y="797" class="detail-text">• Security proof generation</text>
+  
+  <text x="550" y="770" class="component-text">3. Consensus Coordination</text>
+  <text x="550" y="785" class="detail-text">• Multi-chain validation</text>
+  <text x="550" y="797" class="detail-text">• Temporal witness verification</text>
+  
+  <text x="750" y="770" class="component-text">4. Target Chain Execution</text>
+  <text x="750" y="785" class="detail-text">• State update</text>
+  <text x="750" y="797" class="detail-text">• Finality confirmation</text>
+  
+  <text x="950" y="770" class="component-text">5. Completion</text>
+  <text x="950" y="785" class="detail-text">• Cross-chain finality</text>
+  <text x="950" y="797" class="detail-text">• State synchronization</text>
+  
+  <!-- Labels for communication types -->
+  <text x="350" y="190" class="detail-text" transform="rotate(-20 350 190)">Bridge Protocol</text>
+  <text x="850" y="190" class="detail-text" transform="rotate(20 850 190)">Bridge Protocol</text>
+  
+  <text x="340" y="340" class="detail-text" transform="rotate(0 340 340)">Validation</text>
+  <text x="860" y="340" class="detail-text" transform="rotate(0 860 340)">Validation</text>
+  
+  <text x="290" y="480" class="detail-text" fill="#9c27b0">Direct Communication</text>
+  <text x="800" y="480" class="detail-text" fill="#9c27b0">Direct Communication</text>
+  
+  <!-- Performance Metrics -->
+  <text x="50" y="50" class="component-text">Cross-Chain Performance:</text>
+  <text x="50" y="65" class="detail-text">• Transaction latency: 30-60 seconds • Throughput: 1000+ cross-chain TPS • Finality: 3-5 block confirmations</text>
+  
+  <!-- Security Features -->
+  <text x="800" y="50" class="component-text">Quantum Security Features:</text>
+  <text x="800" y="65" class="detail-text">• Multi-algorithm cryptography • Temporal witness validation • Byzantine fault tolerance</text>
+
+</svg>

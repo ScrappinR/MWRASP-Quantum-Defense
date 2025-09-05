@@ -1,0 +1,175 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="threatGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="quantumPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="2" fill="#00d4aa" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">
+    Figure 1: Predictive Quantum Threat Detection System Architecture
+  </text>
+  
+  <!-- Network Layer -->
+  <rect x="50" y="80" width="1100" height="120" fill="url(#quantumPattern)" stroke="#34495e" stroke-width="2" rx="10"/>
+  <text x="600" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+    Network Traffic and Data Sources Layer
+  </text>
+  
+  <!-- Network Components -->
+  <rect x="80" y="120" width="150" height="60" fill="#ecf0f1" stroke="#34495e" stroke-width="1" rx="5"/>
+  <text x="155" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Network Traffic</text>
+  <text x="155" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Monitoring</text>
+  <text x="155" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">Real-time Analysis</text>
+  
+  <rect x="280" y="120" width="150" height="60" fill="#ecf0f1" stroke="#34495e" stroke-width="1" rx="5"/>
+  <text x="355" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Cryptographic</text>
+  <text x="355" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Operations Monitor</text>
+  <text x="355" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">Quantum Signatures</text>
+  
+  <rect x="480" y="120" width="150" height="60" fill="#ecf0f1" stroke="#34495e" stroke-width="1" rx="5"/>
+  <text x="555" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">System Behavior</text>
+  <text x="555" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Analytics</text>
+  <text x="555" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">Anomaly Detection</text>
+  
+  <rect x="680" y="120" width="150" height="60" fill="#ecf0f1" stroke="#34495e" stroke-width="1" rx="5"/>
+  <text x="755" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Quantum Threat</text>
+  <text x="755" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Intelligence Feed</text>
+  <text x="755" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">Global Indicators</text>
+  
+  <rect x="880" y="120" width="150" height="60" fill="#ecf0f1" stroke="#34495e" stroke-width="1" rx="5"/>
+  <text x="955" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Historical Attack</text>
+  <text x="955" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#2c3e50">Database</text>
+  <text x="955" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">Pattern Library</text>
+  
+  <!-- Quantum Attack Pattern Recognition Engine -->
+  <rect x="50" y="240" width="1100" height="150" fill="url(#mlGradient)" stroke="#34495e" stroke-width="3" rx="10"/>
+  <text x="600" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    Quantum Attack Pattern Recognition Engine
+  </text>
+  
+  <!-- ML Models -->
+  <rect x="80" y="290" width="200" height="80" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="180" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">ML Model Ensemble</text>
+  <text x="180" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Shor's Algorithm Detection</text>
+  <text x="180" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Grover's Search Recognition</text>
+  <text x="180" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">QKD Attack Identification</text>
+  
+  <rect x="320" y="290" width="200" height="80" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="420" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Behavioral Analysis</text>
+  <text x="420" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Quantum Communication</text>
+  <text x="420" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Protocol Analysis</text>
+  <text x="420" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Attack Vector Mapping</text>
+  
+  <rect x="560" y="290" width="200" height="80" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="660" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Feature Extraction</text>
+  <text x="660" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Quantum Signatures</text>
+  <text x="660" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Cryptographic Anomalies</text>
+  <text x="660" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Timing Analysis</text>
+  
+  <rect x="800" y="290" width="270" height="80" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="935" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Ensemble Prediction Engine</text>
+  <text x="935" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Model Confidence Weighting</text>
+  <text x="935" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Threat Type Classification</text>
+  <text x="935" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Timeline Estimation</text>
+  
+  <!-- Predictive Threat Assessment System -->
+  <rect x="50" y="430" width="540" height="140" fill="url(#threatGradient)" stroke="#34495e" stroke-width="3" rx="10"/>
+  <text x="320" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Predictive Threat Assessment System
+  </text>
+  
+  <rect x="80" y="480" width="220" height="70" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="190" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Vulnerability Assessment</text>
+  <text x="190" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Quantum Risk Analysis</text>
+  <text x="190" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Impact Prediction</text>
+  <text x="190" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Timeline Forecasting</text>
+  
+  <rect x="340" y="480" width="220" height="70" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="450" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Threat Landscape Analysis</text>
+  <text x="450" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Quantum Capability Tracking</text>
+  <text x="450" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Attack Probability Modeling</text>
+  <text x="450" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Adversary Profiling</text>
+  
+  <!-- Automated Countermeasure Deployer -->
+  <rect x="610" y="430" width="540" height="140" fill="#27ae60" stroke="#34495e" stroke-width="3" rx="10"/>
+  <text x="880" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Automated Quantum Countermeasure Deployer
+  </text>
+  
+  <rect x="640" y="480" width="220" height="70" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="750" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Countermeasure Library</text>
+  <text x="750" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Post-Quantum Crypto</text>
+  <text x="750" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Quantum Key Distribution</text>
+  <text x="750" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Emergency Protocols</text>
+  
+  <rect x="900" y="480" width="220" height="70" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="1010" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Deployment Engine</text>
+  <text x="1010" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Emergency Mode</text>
+  <text x="1010" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Parallel Deployment</text>
+  <text x="1010" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Validation Framework</text>
+  
+  <!-- Response Coordination Center -->
+  <rect x="50" y="610" width="1100" height="120" fill="#8e44ad" stroke="#34495e" stroke-width="3" rx="10"/>
+  <text x="600" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    Real-Time Response Coordination Center
+  </text>
+  
+  <rect x="100" y="660" width="180" height="50" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="190" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2c3e50">Alert Management</text>
+  <text x="190" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Priority Escalation</text>
+  
+  <rect x="320" y="660" width="180" height="50" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="410" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2c3e50">Response Orchestration</text>
+  <text x="410" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Multi-System Coordination</text>
+  
+  <rect x="540" y="660" width="180" height="50" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="630" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2c3e50">Performance Monitoring</text>
+  <text x="630" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Success Rate Tracking</text>
+  
+  <rect x="760" y="660" width="180" height="50" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="850" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2c3e50">Incident Reporting</text>
+  <text x="850" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Compliance Documentation</text>
+  
+  <rect x="980" y="660" width="120" height="50" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="1040" y="680" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2c3e50">Dashboard</text>
+  <text x="1040" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Real-time Status</text>
+  
+  <!-- Data Flow Arrows -->
+  <!-- Network to Recognition Engine -->
+  <path d="M600 200 L600 240" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Recognition Engine to Assessment/Countermeasures -->
+  <path d="M320 390 L320 430" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  <path d="M880 390 L880 430" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Assessment/Countermeasures to Coordination Center -->
+  <path d="M320 570 L320 610" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  <path d="M880 570 L880 610" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Cross-communication arrows -->
+  <path d="M590 515 L610 515" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34495e"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <rect x="50" y="750" width="300" height="40" fill="white" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+  <text x="60" y="770" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Data Flow:</text>
+  <line x1="140" y1="768" x2="160" y2="768" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)"/>
+  <text x="170" y="772" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">Primary</text>
+  <line x1="210" y1="768" x2="230" y2="768" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="240" y="772" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">Cross-system</text>
+</svg>

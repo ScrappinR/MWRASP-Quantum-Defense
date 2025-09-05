@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @page { size: 8.5in 11in; margin: 0.5in; }
+        body { margin: 0; padding: 0; }
+        svg { width: 100%; height: auto; max-width: 7.5in; }
+    </style>
+</head>
+<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2550" height="3300" viewBox="0 0 2550 3300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .channel-box { fill: #e6f3ff; stroke: black; stroke-width: 2; }
+      .integrator-box { fill: #fff2e6; stroke: black; stroke-width: 2; }
+      .encoder-box { fill: #e6ffe6; stroke: black; stroke-width: 1; }
+      .detector-box { fill: #ffe6e6; stroke: black; stroke-width: 1; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .data-flow { stroke: blue; stroke-width: 2; fill: none; marker-end: url(#bluearrow); }
+      .steganographic-flow { stroke: purple; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+    </style>
+    <defs>
+      <marker id="bluearrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="blue" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 4: STEGANOGRAPHIC CHANNEL INTEGRATION SYSTEM</text>
+  
+  <!-- Message Input Layer -->
+  <rect x="100" y="50" width="600" height="50" class="module-box"/>
+  <text x="400" y="70" class="label-text">COVERT MESSAGE PROCESSING LAYER</text>
+  <text x="400" y="85" class="small-text">â€¢ Message Segmentation â€¢ Channel Assignment â€¢ Encoding Coordination</text>
+  
+  <!-- Steganographic Channels -->
+  <rect x="50" y="130" width="140" height="100" class="channel-box"/>
+  <text x="120" y="155" class="label-text">MEMORY PATTERN</text>
+  <text x="120" y="170" class="label-text">CHANNEL</text>
+  <text x="120" y="195" class="tiny-text">â€¢ Allocation Timing</text>
+  <text x="120" y="210" class="tiny-text">â€¢ GC Pattern Control</text>
+  <text x="120" y="225" class="tiny-text">Bandwidth: 2 bps</text>
+  
+  <rect x="210" y="130" width="140" height="100" class="channel-box"/>
+  <text x="280" y="155" class="label-text">ALGORITHMIC</text>
+  <text x="280" y="170" class="label-text">CHANNEL</text>
+  <text x="280" y="195" class="tiny-text">â€¢ Crypto Selection</text>
+  <text x="280" y="210" class="tiny-text">â€¢ Algorithm Choice</text>
+  <text x="280" y="225" class="tiny-text">Bandwidth: 1.5 bps</text>
+  
+  <rect x="370" y="130" width="140" height="100" class="channel-box"/>
+  <text x="440" y="155" class="label-text">TEMPORAL</text>
+  <text x="440" y="170" class="label-text">CHANNEL</text>
+  <text x="440" y="195" class="tiny-text">â€¢ Response Timing</text>
+  <text x="440" y="210" class="tiny-text">â€¢ Processing Delays</text>
+  <text x="440" y="225" class="tiny-text">Bandwidth: 3 bps</text>
+  
+  <rect x="530" y="130" width="140" height="100" class="channel-box"/>
+  <text x="600" y="155" class="label-text">RESOURCE</text>
+  <text x="600" y="170" class="label-text">CHANNEL</text>
+  <text x="600" y="195" class="tiny-text">â€¢ CPU Utilization</text>
+  <text x="600" y="210" class="tiny-text">â€¢ Memory Usage</text>
+  <text x="600" y="225" class="tiny-text">Bandwidth: 1 bps</text>
+  
+  <!-- Channel Encoders -->
+  <rect x="50" y="260" width="140" height="70" class="encoder-box"/>
+  <text x="120" y="285" class="label-text">MEMORY</text>
+  <text x="120" y="300" class="label-text">ENCODER</text>
+  <text x="120" y="320" class="tiny-text">Bit Rate: 2.0 bps</text>
+  
+  <rect x="210" y="260" width="140" height="70" class="encoder-box"/>
+  <text x="280" y="285" class="label-text">ALGORITHM</text>
+  <text x="280" y="300" class="label-text">ENCODER</text>
+  <text x="280" y="320" class="tiny-text">Bit Rate: 1.5 bps</text>
+  
+  <rect x="370" y="260" width="140" height="70" class="encoder-box"/>
+  <text x="440" y="285" class="label-text">TEMPORAL</text>
+  <text x="440" y="300" class="label-text">ENCODER</text>
+  <text x="440" y="320" class="tiny-text">Bit Rate: 3.0 bps</text>
+  
+  <rect x="530" y="260" width="140" height="70" class="encoder-box"/>
+  <text x="600" y="285" class="label-text">RESOURCE</text>
+  <text x="600" y="300" class="label-text">ENCODER</text>
+  <text x="600" y="320" class="tiny-text">Bit Rate: 1.0 bps</text>
+  
+  <!-- Channel Integration Engine -->
+  <rect x="200" y="360" width="400" height="100" class="integrator-box"/>
+  <text x="400" y="385" class="label-text">MULTI-CHANNEL INTEGRATION ENGINE</text>
+  <text x="400" y="405" class="small-text">â€¢ Channel Multiplexing â€¢ Bandwidth Optimization â€¢ Error Correction</text>
+  <text x="400" y="420" class="small-text">â€¢ Synchronization Control â€¢ Adaptive Channel Selection</text>
+  <text x="400" y="435" class="small-text">â€¢ Quality of Service Management â€¢ Reliability Assurance</text>
+  <text x="400" y="450" class="small-text">Combined Bandwidth: 7.5 bps | Effective Rate: 5.6 bps</text>
+  
+  <!-- Detection Resistance Measures -->
+  <rect x="50" y="480" width="150" height="80" class="detector-box"/>
+  <text x="125" y="505" class="label-text">STATISTICAL</text>
+  <text x="125" y="520" class="label-text">ANALYSIS RESISTANCE</text>
+  <text x="125" y="540" class="tiny-text">â€¢ Chi-Square Masking</text>
+  <text x="125" y="555" class="tiny-text">â€¢ KS Test Evasion</text>
+  
+  <rect x="220" y="480" width="150" height="80" class="detector-box"/>
+  <text x="295" y="505" class="label-text">MACHINE LEARNING</text>
+  <text x="295" y="520" class="label-text">COUNTERMEASURES</text>
+  <text x="295" y="540" class="tiny-text">â€¢ Pattern Randomization</text>
+  <text x="295" y="555" class="tiny-text">â€¢ Adversarial Defense</text>
+  
+  <rect x="390" y="480" width="150" height="80" class="detector-box"/>
+  <text x="465" y="505" class="label-text">BEHAVIORAL</text>
+  <text x="465" y="520" class="label-text">CAMOUFLAGE</text>
+  <text x="465" y="540" class="tiny-text">â€¢ Normal Variance</text>
+  <text x="465" y="555" class="tiny-text">â€¢ Natural Patterns</text>
+  
+  <rect x="560" y="480" width="150" height="80" class="detector-box"/>
+  <text x="635" y="505" class="label-text">PLAUSIBLE</text>
+  <text x="635" y="520" class="label-text">DENIABILITY</text>
+  <text x="635" y="540" class="tiny-text">â€¢ Legitimate Causes</text>
+  <text x="635" y="555" class="tiny-text">â€¢ Alternative Explanations</text>
+  
+  <!-- Output Layer -->
+  <rect x="250" y="590" width="300" height="50" class="module-box"/>
+  <text x="400" y="610" class="label-text">COVERT MESSAGE TRANSMISSION</text>
+  <text x="400" y="625" class="small-text">â€¢ Multi-Channel Output â€¢ Synchronized Delivery â€¢ Error Recovery</text>
+  
+  <!-- Flow Lines -->
+  <!-- Input to Channels -->
+  <line x1="250" y1="100" x2="120" y2="130" class="data-flow"/>
+  <line x1="350" y1="100" x2="280" y2="130" class="data-flow"/>
+  <line x1="450" y1="100" x2="440" y2="130" class="data-flow"/>
+  <line x1="550" y1="100" x2="600" y2="130" class="data-flow"/>
+  
+  <!-- Channels to Encoders -->
+  <line x1="120" y1="230" x2="120" y2="260" class="steganographic-flow"/>
+  <line x1="280" y1="230" x2="280" y2="260" class="steganographic-flow"/>
+  <line x1="440" y1="230" x2="440" y2="260" class="steganographic-flow"/>
+  <line x1="600" y1="230" x2="600" y2="260" class="steganographic-flow"/>
+  
+  <!-- Encoders to Integration Engine -->
+  <line x1="120" y1="330" x2="250" y2="360" class="data-flow"/>
+  <line x1="280" y1="330" x2="350" y2="360" class="data-flow"/>
+  <line x1="440" y1="330" x2="450" y2="360" class="data-flow"/>
+  <line x1="600" y1="330" x2="550" y2="360" class="data-flow"/>
+  
+  <!-- Integration Engine to Detection Resistance -->
+  <line x1="300" y1="460" x2="125" y2="480" class="connection-line"/>
+  <line x1="350" y1="460" x2="295" y2="480" class="connection-line"/>
+  <line x1="450" y1="460" x2="465" y2="480" class="connection-line"/>
+  <line x1="500" y1="460" x2="635" y2="480" class="connection-line"/>
+  
+  <!-- Integration Engine to Output -->
+  <line x1="400" y1="460" x2="400" y2="590" class="data-flow"/>
+  
+  <!-- Quality Monitoring -->
+  <rect x="680" y="130" width="100" height="100" class="integrator-box"/>
+  <text x="730" y="155" class="label-text">QUALITY</text>
+  <text x="730" y="170" class="label-text">MONITOR</text>
+  <text x="730" y="195" class="tiny-text">SNR: 12.5 dB</text>
+  <text x="730" y="210" class="tiny-text">BER: 10^-6</text>
+  <text x="730" y="225" class="tiny-text">Detection: 0.02%</text>
+  
+  <!-- Channel Coordination -->
+  <rect x="680" y="250" width="100" height="100" class="integrator-box"/>
+  <text x="730" y="275" class="label-text">CHANNEL</text>
+  <text x="730" y="290" class="label-text">COORDINATOR</text>
+  <text x="730" y="315" class="tiny-text">Load Balancing</text>
+  <text x="730" y="330" class="tiny-text">Fault Recovery</text>
+  <text x="730" y="345" class="tiny-text">Synchronization</text>
+  
+  <!-- Coordination Lines -->
+  <line x1="680" y1="180" x2="600" y2="360" class="connection-line" stroke-dasharray="3,3"/>
+  <line x1="680" y1="300" x2="600" y2="400" class="connection-line" stroke-dasharray="3,3"/>
+  
+  <!-- Performance Indicators -->
+  <text x="30" y="180" class="tiny-text">Ch1: Active</text>
+  <text x="30" y="195" class="tiny-text">Load: 85%</text>
+  
+  <text x="30" y="280" class="tiny-text">Ch2: Standby</text>
+  <text x="30" y="295" class="tiny-text">Load: 23%</text>
+  
+  <text x="30" y="380" class="tiny-text">Ch3: Active</text>
+  <text x="30" y="395" class="tiny-text">Load: 92%</text>
+  
+  <text x="30" y="480" class="tiny-text">Ch4: Backup</text>
+  <text x="30" y="495" class="tiny-text">Load: 0%</text>
+  
+</svg>
+
+</body>
+</html>

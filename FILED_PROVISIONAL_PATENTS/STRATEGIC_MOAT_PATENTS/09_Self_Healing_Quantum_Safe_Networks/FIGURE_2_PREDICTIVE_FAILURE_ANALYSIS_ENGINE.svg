@@ -1,0 +1,339 @@
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="quantumPredictionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a52;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="mlGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#44a08d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cascadeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffa726;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff7043;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="dataFlowPattern" x="0" y="0" width="15" height="15" patternUnits="userSpaceOnUse">
+      <rect width="15" height="15" fill="#ecf0f1"/>
+      <circle cx="7.5" cy="7.5" r="2" fill="#3498db" opacity="0.4"/>
+      <circle cx="7.5" cy="7.5" r="1" fill="#2980b9" opacity="0.6"/>
+    </pattern>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">
+    Figure 2: Predictive Failure Analysis Engine with AI/ML Models
+  </text>
+  
+  <!-- Input Data Sources -->
+  <rect x="50" y="80" width="1100" height="100" fill="url(#dataFlowPattern)" stroke="#34495e" stroke-width="2" rx="10"/>
+  <text x="600" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+    Multi-Source Network Data Inputs for Predictive Analysis
+  </text>
+  
+  <!-- Data Source Components -->
+  <rect x="80" y="120" width="140" height="50" fill="#e8f4fd" stroke="#3498db" stroke-width="1" rx="5"/>
+  <text x="150" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2c3e50">Network Metrics</text>
+  <text x="150" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Latency, Throughput</text>
+  <text x="150" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Packet Loss, Jitter</text>
+  
+  <rect x="240" y="120" width="140" height="50" fill="#e8f4fd" stroke="#3498db" stroke-width="1" rx="5"/>
+  <text x="310" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2c3e50">Historical Patterns</text>
+  <text x="310" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Failure History</text>
+  <text x="310" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Recovery Patterns</text>
+  
+  <rect x="400" y="120" width="140" height="50" fill="#e8f4fd" stroke="#3498db" stroke-width="1" rx="5"/>
+  <text x="470" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2c3e50">Quantum Threats</text>
+  <text x="470" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Attack Signatures</text>
+  <text x="470" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Threat Intelligence</text>
+  
+  <rect x="560" y="120" width="140" height="50" fill="#e8f4fd" stroke="#3498db" stroke-width="1" rx="5"/>
+  <text x="630" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2c3e50">Environmental</text>
+  <text x="630" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Power, Cooling</text>
+  <text x="630" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Physical Security</text>
+  
+  <rect x="720" y="120" width="140" height="50" fill="#e8f4fd" stroke="#3498db" stroke-width="1" rx="5"/>
+  <text x="790" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2c3e50">Topology Data</text>
+  <text x="790" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Network Graph</text>
+  <text x="790" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Dependencies</text>
+  
+  <rect x="880" y="120" width="140" height="50" fill="#e8f4fd" stroke="#3498db" stroke-width="1" rx="5"/>
+  <text x="950" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2c3e50">Crypto Assets</text>
+  <text x="950" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Algorithm Inventory</text>
+  <text x="950" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Key Management</text>
+  
+  <rect x="1040" y="120" width="110" height="50" fill="#e8f4fd" stroke="#3498db" stroke-width="1" rx="5"/>
+  <text x="1095" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2c3e50">System Logs</text>
+  <text x="1095" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Event Logs</text>
+  <text x="1095" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#34495e">Error Traces</text>
+  
+  <!-- Machine Learning Model Ensemble -->
+  <rect x="50" y="220" width="1100" height="180" fill="url(#mlGradient)" stroke="#44a08d" stroke-width="3" rx="10"/>
+  <text x="600" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    Machine Learning Model Ensemble for Network Failure Prediction
+  </text>
+  
+  <!-- ML Model Components -->
+  <rect x="80" y="270" width="200" height="110" fill="rgba(255,255,255,0.95)" stroke="#2c3e50" stroke-width="2" rx="8"/>
+  <text x="180" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">LSTM Network</text>
+  <text x="180" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Temporal Pattern Analysis</text>
+  
+  <!-- LSTM visualization -->
+  <g transform="translate(90, 315)">
+    <rect x="10" y="5" width="25" height="15" fill="#3498db" rx="3"/>
+    <rect x="40" y="5" width="25" height="15" fill="#e74c3c" rx="3"/>
+    <rect x="70" y="5" width="25" height="15" fill="#f39c12" rx="3"/>
+    <rect x="100" y="5" width="25" height="15" fill="#27ae60" rx="3"/>
+    <rect x="130" y="5" width="25" height="15" fill="#9b59b6" rx="3"/>
+    <rect x="160" y="5" width="25" height="15" fill="#1abc9c" rx="3"/>
+    
+    <!-- Memory connections -->
+    <path d="M35 12 Q50 2 55 12" stroke="#2c3e50" stroke-width="1" fill="none"/>
+    <path d="M65 12 Q80 2 85 12" stroke="#2c3e50" stroke-width="1" fill="none"/>
+    <path d="M95 12 Q110 2 115 12" stroke="#2c3e50" stroke-width="1" fill="none"/>
+    
+    <text x="95" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Sequence Learning</text>
+    <text x="95" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#95a5a6">15min-24hr Prediction</text>
+  </g>
+  
+  <rect x="300" y="270" width="200" height="110" fill="rgba(255,255,255,0.95)" stroke="#2c3e50" stroke-width="2" rx="8"/>
+  <text x="400" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Random Forest</text>
+  <text x="400" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Ensemble Decision Trees</text>
+  
+  <!-- Random Forest visualization -->
+  <g transform="translate(320, 315)">
+    <!-- Tree 1 -->
+    <circle cx="20" cy="10" r="4" fill="#27ae60"/>
+    <circle cx="10" cy="25" r="3" fill="#3498db"/>
+    <circle cx="30" cy="25" r="3" fill="#e74c3c"/>
+    <line x1="20" y1="14" x2="10" y2="22" stroke="#2c3e50" stroke-width="1"/>
+    <line x1="20" y1="14" x2="30" y2="22" stroke="#2c3e50" stroke-width="1"/>
+    
+    <!-- Tree 2 -->
+    <circle cx="70" cy="10" r="4" fill="#27ae60"/>
+    <circle cx="60" cy="25" r="3" fill="#f39c12"/>
+    <circle cx="80" cy="25" r="3" fill="#9b59b6"/>
+    <line x1="70" y1="14" x2="60" y2="22" stroke="#2c3e50" stroke-width="1"/>
+    <line x1="70" y1="14" x2="80" y2="22" stroke="#2c3e50" stroke-width="1"/>
+    
+    <!-- Tree 3 -->
+    <circle cx="120" cy="10" r="4" fill="#27ae60"/>
+    <circle cx="110" cy="25" r="3" fill="#1abc9c"/>
+    <circle cx="130" cy="25" r="3" fill="#34495e"/>
+    <line x1="120" y1="14" x2="110" y2="22" stroke="#2c3e50" stroke-width="1"/>
+    <line x1="120" y1="14" x2="130" y2="22" stroke="#2c3e50" stroke-width="1"/>
+    
+    <text x="75" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Hardware Prediction</text>
+    <text x="75" y="57" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#95a5a6">Component Failures</text>
+  </g>
+  
+  <rect x="520" y="270" width="200" height="110" fill="rgba(255,255,255,0.95)" stroke="#2c3e50" stroke-width="2" rx="8"/>
+  <text x="620" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Transformer Model</text>
+  <text x="620" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Attention-Based Analysis</text>
+  
+  <!-- Transformer visualization -->
+  <g transform="translate(540, 315)">
+    <!-- Attention heads -->
+    <rect x="10" y="5" width="15" height="30" fill="#3498db" opacity="0.7"/>
+    <rect x="30" y="8" width="15" height="24" fill="#e74c3c" opacity="0.7"/>
+    <rect x="50" y="3" width="15" height="34" fill="#f39c12" opacity="0.7"/>
+    <rect x="70" y="12" width="15" height="16" fill="#27ae60" opacity="0.7"/>
+    <rect x="90" y="6" width="15" height="28" fill="#9b59b6" opacity="0.7"/>
+    <rect x="110" y="10" width="15" height="20" fill="#1abc9c" opacity="0.7"/>
+    <rect x="130" y="4" width="15" height="32" fill="#34495e" opacity="0.7"/>
+    <rect x="150" y="14" width="15" height="12" fill="#e67e22" opacity="0.7"/>
+    
+    <text x="85" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Pattern Recognition</text>
+    <text x="85" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#95a5a6">Complex Correlations</text>
+  </g>
+  
+  <rect x="740" y="270" width="200" height="110" fill="rgba(255,255,255,0.95)" stroke="#2c3e50" stroke-width="2" rx="8"/>
+  <text x="840" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Support Vector Machine</text>
+  <text x="840" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Anomaly Detection</text>
+  
+  <!-- SVM visualization -->
+  <g transform="translate(760, 315)">
+    <!-- Normal points -->
+    <circle cx="30" cy="15" r="2.5" fill="#27ae60"/>
+    <circle cx="40" cy="8" r="2.5" fill="#27ae60"/>
+    <circle cx="50" cy="20" r="2.5" fill="#27ae60"/>
+    <circle cx="35" cy="25" r="2.5" fill="#27ae60"/>
+    
+    <!-- Anomaly points -->
+    <circle cx="90" cy="12" r="2.5" fill="#e74c3c"/>
+    <circle cx="100" cy="22" r="2.5" fill="#e74c3c"/>
+    <circle cx="110" cy="8" r="2.5" fill="#e74c3c"/>
+    
+    <!-- Decision boundary -->
+    <line x1="65" y1="5" x2="75" y2="30" stroke="#2c3e50" stroke-width="2" stroke-dasharray="3,3"/>
+    
+    <text x="75" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Anomaly Boundary</text>
+    <text x="75" y="57" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#95a5a6">Outlier Detection</text>
+  </g>
+  
+  <rect x="960" y="270" width="170" height="110" fill="rgba(255,255,255,0.95)" stroke="#2c3e50" stroke-width="2" rx="8"/>
+  <text x="1045" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Neural Network</text>
+  <text x="1045" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Deep Learning</text>
+  
+  <!-- Neural Network visualization -->
+  <g transform="translate(980, 315)">
+    <!-- Input layer -->
+    <circle cx="15" cy="8" r="3" fill="#3498db"/>
+    <circle cx="15" cy="20" r="3" fill="#3498db"/>
+    <circle cx="15" cy="32" r="3" fill="#3498db"/>
+    
+    <!-- Hidden layer -->
+    <circle cx="55" cy="12" r="3" fill="#e74c3c"/>
+    <circle cx="55" cy="28" r="3" fill="#e74c3c"/>
+    
+    <!-- Output layer -->
+    <circle cx="95" cy="20" r="3" fill="#27ae60"/>
+    
+    <!-- Connections -->
+    <line x1="18" y1="8" x2="52" y2="12" stroke="#bdc3c7" stroke-width="1"/>
+    <line x1="18" y1="20" x2="52" y2="28" stroke="#bdc3c7" stroke-width="1"/>
+    <line x1="58" y1="12" x2="92" y2="20" stroke="#bdc3c7" stroke-width="2"/>
+    <line x1="58" y1="28" x2="92" y2="20" stroke="#bdc3c7" stroke-width="2"/>
+    
+    <text x="55" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Failure Classification</text>
+  </g>
+  
+  <!-- Quantum Threat Prediction Models -->
+  <rect x="50" y="440" width="540" height="140" fill="url(#quantumPredictionGradient)" stroke="#ee5a52" stroke-width="3" rx="10"/>
+  <text x="320" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Quantum Threat Prediction Models
+  </text>
+  
+  <rect x="80" y="485" width="220" height="80" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="190" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Quantum Attack Modeling</text>
+  <text x="190" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Shor's Algorithm Detection</text>
+  <text x="190" y="532" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Grover's Algorithm Signatures</text>
+  <text x="190" y="544" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• QKD Attack Vectors</text>
+  <text x="190" y="556" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Timeline: 1min-1week</text>
+  
+  <rect x="320" y="485" width="240" height="80" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="440" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Adversary Capability Analysis</text>
+  <text x="440" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Quantum Computing Progress</text>
+  <text x="440" y="532" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Nation-State Capabilities</text>
+  <text x="440" y="544" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Threat Intelligence Integration</text>
+  <text x="440" y="556" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Risk Assessment Matrix</text>
+  
+  <!-- Cascading Failure Analysis -->
+  <rect x="610" y="440" width="540" height="140" fill="url(#cascadeGradient)" stroke="#ff7043" stroke-width="3" rx="10"/>
+  <text x="880" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">
+    Cascading Failure Risk Analysis
+  </text>
+  
+  <rect x="640" y="485" width="220" height="80" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="750" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Failure Propagation Model</text>
+  <text x="750" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Network Dependency Graph</text>
+  <text x="750" y="532" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Failure Simulation Engine</text>
+  <text x="750" y="544" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Critical Path Analysis</text>
+  <text x="750" y="556" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Monte Carlo Simulation</text>
+  
+  <rect x="880" y="485" width="240" height="80" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="1000" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Quantum Amplification Factor</text>
+  <text x="1000" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Quantum Attack Enhancement</text>
+  <text x="1000" y="532" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Cryptographic Failures</text>
+  <text x="1000" y="544" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">• Recovery Complexity</text>
+  <text x="1000" y="556" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Impact Multiplication</text>
+  
+  <!-- Prediction Fusion and Output -->
+  <rect x="50" y="620" width="1100" height="120" fill="url(#aiGradient)" stroke="#764ba2" stroke-width="3" rx="10"/>
+  <text x="600" y="645" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">
+    Prediction Fusion Engine and Proactive Recommendations
+  </text>
+  
+  <!-- Fusion Components -->
+  <rect x="100" y="665" width="200" height="60" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="200" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Ensemble Fusion</text>
+  <text x="200" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Weighted Consensus</text>
+  <text x="200" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Confidence Scoring</text>
+  <text x="200" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Uncertainty Quantification</text>
+  
+  <rect x="320" y="665" width="200" height="60" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="420" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Risk Prioritization</text>
+  <text x="420" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Critical Path Priority</text>
+  <text x="420" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Business Impact Score</text>
+  <text x="420" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Recovery Complexity</text>
+  
+  <rect x="540" y="665" width="200" height="60" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="640" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Timeline Prediction</text>
+  <text x="640" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Failure Window: 15m-24h</text>
+  <text x="640" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Attack Window: 1m-1w</text>
+  <text x="640" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Confidence Intervals</text>
+  
+  <rect x="760" y="665" width="200" height="60" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="860" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Mitigation Strategy</text>
+  <text x="860" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Proactive Hardening</text>
+  <text x="860" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Resource Preparation</text>
+  <text x="860" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Recovery Pre-positioning</text>
+  
+  <rect x="980" y="665" width="150" height="60" fill="rgba(255,255,255,0.9)" stroke="#2c3e50" stroke-width="1" rx="5"/>
+  <text x="1055" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#2c3e50">Action Triggers</text>
+  <text x="1055" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Alert Thresholds</text>
+  <text x="1055" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#34495e">Auto-Response</text>
+  <text x="1055" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Decision Gates</text>
+  
+  <!-- Output Dashboard -->
+  <rect x="50" y="780" width="1100" height="80" fill="#f8f9fa" stroke="#bdc3c7" stroke-width="2" rx="10"/>
+  <text x="600" y="805" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2c3e50">
+    Predictive Analysis Results Dashboard
+  </text>
+  
+  <!-- Result Indicators -->
+  <rect x="100" y="820" width="150" height="30" fill="#e74c3c" stroke="#c0392b" stroke-width="1" rx="3"/>
+  <text x="175" y="838" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">HIGH RISK: Node D</text>
+  
+  <rect x="270" y="820" width="150" height="30" fill="#f39c12" stroke="#e67e22" stroke-width="1" rx="3"/>
+  <text x="345" y="838" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">MEDIUM: Quantum Threat</text>
+  
+  <rect x="440" y="820" width="150" height="30" fill="#27ae60" stroke="#229954" stroke-width="1" rx="3"/>
+  <text x="515" y="838" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">LOW: Normal Operations</text>
+  
+  <rect x="610" y="820" width="150" height="30" fill="#3498db" stroke="#2980b9" stroke-width="1" rx="3"/>
+  <text x="685" y="838" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">PREDICTION: 2.3hrs</text>
+  
+  <rect x="780" y="820" width="150" height="30" fill="#9b59b6" stroke="#8e44ad" stroke-width="1" rx="3"/>
+  <text x="855" y="838" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">CONFIDENCE: 94.7%</text>
+  
+  <rect x="950" y="820" width="150" height="30" fill="#1abc9c" stroke="#16a085" stroke-width="1" rx="3"/>
+  <text x="1025" y="838" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">ACTION: PREPARE</text>
+  
+  <!-- Data Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#34495e"/>
+    </marker>
+    <marker id="mlArrow" markerWidth="12" markerHeight="9" refX="11" refY="4.5" orient="auto">
+      <polygon points="0 0, 12 4.5, 0 9" fill="#44a08d"/>
+    </marker>
+  </defs>
+  
+  <!-- Input to ML Models -->
+  <path d="M600 180 L600 220" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- ML Models to Specialized Analysis -->
+  <path d="M320 400 L320 440" stroke="#44a08d" stroke-width="3" marker-end="url(#mlArrow)" fill="none"/>
+  <path d="M880 400 L880 440" stroke="#44a08d" stroke-width="3" marker-end="url(#mlArrow)" fill="none"/>
+  
+  <!-- Specialized Analysis to Fusion Engine -->
+  <path d="M320 580 L320 620" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  <path d="M880 580 L880 620" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Fusion Engine to Dashboard -->
+  <path d="M600 740 L600 780" stroke="#34495e" stroke-width="3" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Cross-connections -->
+  <path d="M590 510 L610 510" stroke="#ff7043" stroke-width="2" marker-end="url(#arrowhead)" fill="none"/>
+  
+  <!-- Performance Metrics -->
+  <rect x="50" y="870" width="500" height="20" fill="white" stroke="#bdc3c7" stroke-width="1" rx="3"/>
+  <text x="60" y="883" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2c3e50">Prediction Accuracy:</text>
+  <text x="160" y="883" font-family="Arial, sans-serif" font-size="9" fill="#27ae60">Traditional Failures: 96.3%</text>
+  <text x="280" y="883" font-family="Arial, sans-serif" font-size="9" fill="#e74c3c">Quantum Threats: 92.1%</text>
+  <text x="390" y="883" font-family="Arial, sans-serif" font-size="9" fill="#f39c12">Cascading: 88.7%</text>
+</svg>

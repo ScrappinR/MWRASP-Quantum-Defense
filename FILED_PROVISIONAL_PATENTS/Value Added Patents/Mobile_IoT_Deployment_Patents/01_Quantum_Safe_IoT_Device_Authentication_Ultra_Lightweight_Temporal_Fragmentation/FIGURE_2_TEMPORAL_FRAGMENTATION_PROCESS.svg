@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .step1 { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .step2 { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .step3 { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .step4 { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .step5 { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+      .fragment { fill: #f0f4c3; stroke: #827717; stroke-width: 2; rx: 8; }
+      .timing { fill: #e0f2f1; stroke: #009688; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 2: Ultra-Lightweight Temporal Fragmentation Process</text>
+  
+  <!-- Input Data -->
+  <rect x="50" y="80" width="150" height="100" class="step1"/>
+  <text x="125" y="110" class="system-text">Input Data</text>
+  <text x="125" y="130" class="component-text">Authentication Token:</text>
+  <text x="125" y="145" class="detail-text">64-byte payload</text>
+  <text x="125" y="157" class="detail-text">Device ID: 0xABCD</text>
+  <text x="125" y="169" class="detail-text">Timestamp: μs precision</text>
+  
+  <!-- Microsecond Timer -->
+  <rect x="250" y="80" width="150" height="100" class="step2"/>
+  <text x="325" y="110" class="system-text">Microsecond</text>
+  <text x="325" y="125" class="system-text">Timer</text>
+  <text x="325" y="145" class="component-text">High-precision clock:</text>
+  <text x="325" y="160" class="detail-text">• 1μs resolution</text>
+  <text x="325" y="172" class="detail-text">• Hardware counter</text>
+  
+  <!-- Fragmentation Algorithm -->
+  <rect x="450" y="80" width="200" height="100" class="step3"/>
+  <text x="550" y="110" class="system-text">Fragmentation</text>
+  <text x="550" y="125" class="system-text">Algorithm</text>
+  <text x="550" y="145" class="component-text">Ultra-lightweight:</text>
+  <text x="550" y="160" class="detail-text">• Memory: &lt;512 bytes</text>
+  <text x="550" y="172" class="detail-text">• Processing: &lt;1ms</text>
+  
+  <!-- Fragment Generation -->
+  <rect x="700" y="80" width="200" height="100" class="step4"/>
+  <text x="800" y="110" class="system-text">Fragment</text>
+  <text x="800" y="125" class="system-text">Generation</text>
+  <text x="800" y="145" class="component-text">Output fragments:</text>
+  <text x="800" y="160" class="detail-text">• 8-64 byte chunks</text>
+  <text x="800" y="172" class="detail-text">• Temporal ordering</text>
+  
+  <!-- Temporal Distribution -->
+  <rect x="950" y="80" width="200" height="100" class="step5"/>
+  <text x="1050" y="110" class="system-text">Temporal</text>
+  <text x="1050" y="125" class="system-text">Distribution</text>
+  <text x="1050" y="145" class="component-text">Time-spread:</text>
+  <text x="1050" y="160" class="detail-text">• 100μs intervals</text>
+  <text x="1050" y="172" class="detail-text">• Random delays</text>
+  
+  <!-- Fragment Examples -->
+  <!-- Fragment A -->
+  <rect x="100" y="250" width="140" height="80" class="fragment"/>
+  <text x="170" y="275" class="system-text">Fragment A</text>
+  <text x="170" y="295" class="component-text">Bytes 0-15:</text>
+  <text x="170" y="310" class="detail-text">0xAB CD EF 12...</text>
+  <text x="170" y="322" class="detail-text">T₀: 12:34:56.001</text>
+  
+  <!-- Fragment B -->
+  <rect x="270" y="250" width="140" height="80" class="fragment"/>
+  <text x="340" y="275" class="system-text">Fragment B</text>
+  <text x="340" y="295" class="component-text">Bytes 16-31:</text>
+  <text x="340" y="310" class="detail-text">0x34 56 78 9A...</text>
+  <text x="340" y="322" class="detail-text">T₁: 12:34:56.102</text>
+  
+  <!-- Fragment C -->
+  <rect x="440" y="250" width="140" height="80" class="fragment"/>
+  <text x="510" y="275" class="system-text">Fragment C</text>
+  <text x="510" y="295" class="component-text">Bytes 32-47:</text>
+  <text x="510" y="310" class="detail-text">0xBC DE F0 12...</text>
+  <text x="510" y="322" class="detail-text">T₂: 12:34:56.205</text>
+  
+  <!-- Fragment D -->
+  <rect x="610" y="250" width="140" height="80" class="fragment"/>
+  <text x="680" y="275" class="system-text">Fragment D</text>
+  <text x="680" y="295" class="component-text">Bytes 48-63:</text>
+  <text x="680" y="310" class="detail-text">0x34 56 78 9A...</text>
+  <text x="680" y="322" class="detail-text">T₃: 12:34:56.307</text>
+  
+  <!-- Timing Analysis -->
+  <rect x="800" y="250" width="350" height="80" class="timing"/>
+  <text x="975" y="275" class="system-text">Temporal Analysis Engine</text>
+  <text x="900" y="295" class="component-text">Fragment Timing:</text>
+  <text x="900" y="310" class="detail-text">• Δt₁ = 101μs (random jitter)</text>
+  <text x="900" y="322" class="detail-text">• Δt₂ = 103μs (within tolerance)</text>
+  
+  <text x="1050" y="295" class="component-text">Validation:</text>
+  <text x="1050" y="310" class="detail-text">• Sequence integrity ✓</text>
+  <text x="1050" y="322" class="detail-text">• Temporal consistency ✓</text>
+  
+  <!-- Reassembly Process -->
+  <rect x="200" y="400" width="800" height="120" class="step1"/>
+  <text x="600" y="430" class="system-text">Ultra-Fast Fragment Reassembly Process</text>
+  <text x="350" y="455" class="component-text">1. Fragment Collection:</text>
+  <text x="350" y="470" class="detail-text">• Parallel reception</text>
+  <text x="350" y="482" class="detail-text">• Buffer management</text>
+  <text x="350" y="494" class="detail-text">• Timeout handling (&lt;10ms)</text>
+  <text x="350" y="506" class="detail-text">• Memory: 256 bytes max</text>
+  
+  <text x="600" y="455" class="component-text">2. Temporal Ordering:</text>
+  <text x="600" y="470" class="detail-text">• Timestamp verification</text>
+  <text x="600" y="482" class="detail-text">• Sequence reconstruction</text>
+  <text x="600" y="494" class="detail-text">• Gap detection</text>
+  <text x="600" y="506" class="detail-text">• Processing: &lt;500μs</text>
+  
+  <text x="850" y="455" class="component-text">3. Data Reconstruction:</text>
+  <text x="850" y="470" class="detail-text">• Byte concatenation</text>
+  <text x="850" y="482" class="detail-text">• Integrity validation</text>
+  <text x="850" y="494" class="detail-text">• Original data restored</text>
+  <text x="850" y="506" class="detail-text">• Total time: &lt;2ms</text>
+  
+  <!-- Performance Optimization Details -->
+  <rect x="50" y="580" width="1100" height="200" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="605" class="system-text">Resource Optimization and Power Management</text>
+  
+  <!-- Memory Optimization -->
+  <rect x="80" y="630" width="200" height="120" class="step2"/>
+  <text x="180" y="660" class="system-text">Memory Optimization</text>
+  <text x="180" y="680" class="component-text">Static Allocation:</text>
+  <text x="180" y="695" class="detail-text">• Fragment buffer: 256B</text>
+  <text x="180" y="707" class="detail-text">• Timing table: 128B</text>
+  <text x="180" y="719" class="detail-text">• Work buffer: 64B</text>
+  <text x="180" y="731" class="detail-text">• Total RAM: 448B</text>
+  <text x="180" y="743" class="detail-text">• No dynamic allocation</text>
+  
+  <!-- Processing Optimization -->
+  <rect x="300" y="630" width="200" height="120" class="step3"/>
+  <text x="400" y="660" class="system-text">Processing Speed</text>
+  <text x="400" y="680" class="component-text">Algorithm Efficiency:</text>
+  <text x="400" y="695" class="detail-text">• Bitwise operations only</text>
+  <text x="400" y="707" class="detail-text">• No floating point</text>
+  <text x="400" y="719" class="detail-text">• Lookup tables (LUT)</text>
+  <text x="400" y="731" class="detail-text">• SIMD instructions</text>
+  <text x="400" y="743" class="detail-text">• Pipeline optimization</text>
+  
+  <!-- Power Management -->
+  <rect x="520" y="630" width="200" height="120" class="step4"/>
+  <text x="620" y="660" class="system-text">Power Management</text>
+  <text x="620" y="680" class="component-text">Energy Profile:</text>
+  <text x="620" y="695" class="detail-text">• Fragment: 8μJ avg</text>
+  <text x="620" y="707" class="detail-text">• Reassembly: 12μJ</text>
+  <text x="620" y="719" class="detail-text">• Sleep mode: &lt;1μA</text>
+  <text x="620" y="731" class="detail-text">• Wake time: &lt;50μs</text>
+  <text x="620" y="743" class="detail-text">• Battery life: 5+ years</text>
+  
+  <!-- Security Features -->
+  <rect x="740" y="630" width="200" height="120" class="step5"/>
+  <text x="840" y="660" class="system-text">Security Properties</text>
+  <text x="840" y="680" class="component-text">Quantum Resistance:</text>
+  <text x="840" y="695" class="detail-text">• Temporal entropy</text>
+  <text x="840" y="707" class="detail-text">• Random jitter</text>
+  <text x="840" y="719" class="detail-text">• Fragment scrambling</text>
+  <text x="840" y="731" class="detail-text">• Replay protection</text>
+  <text x="840" y="743" class="detail-text">• Side-channel immune</text>
+  
+  <!-- Scalability -->
+  <rect x="960" y="630" width="160" height="120" class="timing"/>
+  <text x="1040" y="660" class="system-text">Scalability</text>
+  <text x="1040" y="680" class="component-text">Network Scale:</text>
+  <text x="1040" y="695" class="detail-text">• 10K+ devices</text>
+  <text x="1040" y="707" class="detail-text">• Mesh topology</text>
+  <text x="1040" y="719" class="detail-text">• Self-organizing</text>
+  <text x="1040" y="731" class="detail-text">• Collision avoidance</text>
+  <text x="1040" y="743" class="detail-text">• QoS management</text>
+  
+  <!-- Connection Lines -->
+  <line x1="200" y1="130" x2="250" y2="130" class="arrow"/>
+  <line x1="400" y1="130" x2="450" y2="130" class="arrow"/>
+  <line x1="650" y1="130" x2="700" y2="130" class="arrow"/>
+  <line x1="900" y1="130" x2="950" y2="130" class="arrow"/>
+  
+  <!-- To fragments -->
+  <line x1="550" y1="180" x2="170" y2="250" class="arrow"/>
+  <line x1="600" y1="180" x2="340" y2="250" class="arrow"/>
+  <line x1="650" y1="180" x2="510" y2="250" class="arrow"/>
+  <line x1="700" y1="180" x2="680" y2="250" class="arrow"/>
+  
+  <!-- Timing analysis -->
+  <line x1="750" y1="290" x2="800" y2="290" class="arrow"/>
+  
+  <!-- To reassembly -->
+  <line x1="170" y1="330" x2="350" y2="400" class="arrow"/>
+  <line x1="340" y1="330" x2="500" y2="400" class="arrow"/>
+  <line x1="510" y1="330" x2="650" y2="400" class="arrow"/>
+  <line x1="680" y1="330" x2="800" y2="400" class="arrow"/>
+  
+  <!-- Performance metrics labels -->
+  <text x="225" y="120" class="detail-text">μs timing</text>
+  <text x="525" y="120" class="detail-text">&lt;1ms</text>
+  <text x="825" y="120" class="detail-text">8-64B</text>
+  <text x="1075" y="120" class="detail-text">100μs</text>
+  
+  <!-- Fragment timing labels -->
+  <text x="170" y="240" class="detail-text">T₀</text>
+  <text x="340" y="240" class="detail-text">T₀+101μs</text>
+  <text x="510" y="240" class="detail-text">T₀+204μs</text>
+  <text x="680" y="240" class="detail-text">T₀+307μs</text>
+  
+  <!-- Overall performance -->
+  <text x="50" y="50" class="component-text">Performance: Fragment generation &lt;1ms • Memory footprint &lt;512B • Power consumption &lt;10μJ • Quantum-resistant</text>
+
+</svg>

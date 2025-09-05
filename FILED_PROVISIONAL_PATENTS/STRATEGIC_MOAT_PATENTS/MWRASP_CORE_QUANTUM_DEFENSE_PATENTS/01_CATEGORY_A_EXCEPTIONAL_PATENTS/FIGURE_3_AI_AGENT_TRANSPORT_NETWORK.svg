@@ -1,0 +1,213 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="black">
+    FIGURE 3: AI AGENT TRANSPORT NETWORK WITH ZERO-KNOWLEDGE PROTOCOLS
+  </text>
+  
+  <!-- Background -->
+  <rect x="50" y="60" width="1100" height="700" fill="#f8f9fa" stroke="black" stroke-width="2" rx="15"/>
+  
+  <!-- Geographic Nodes -->
+  <!-- Source Node (New York) -->
+  <g id="SourceNode">
+    <rect x="100" y="150" width="180" height="120" fill="#fff3e0" stroke="orange" stroke-width="3" rx="10"/>
+    <text x="190" y="175" text-anchor="middle" font-size="14" font-weight="bold">SOURCE NODE</text>
+    <text x="190" y="195" text-anchor="middle" font-size="12">New York Data Center</text>
+    <text x="190" y="215" text-anchor="middle" font-size="10">40.7128°N, 74.0060°W</text>
+    
+    <!-- Fragment -->
+    <rect x="160" y="230" width="60" height="25" fill="#FF6B6B" stroke="black" stroke-width="1" rx="3"/>
+    <text x="190" y="247" text-anchor="middle" font-size="10" font-weight="bold">Fragment A</text>
+  </g>
+  
+  <!-- Destination Node (London) -->
+  <g id="DestinationNode">
+    <rect x="900" y="150" width="180" height="120" fill="#e8f5e8" stroke="green" stroke-width="3" rx="10"/>
+    <text x="990" y="175" text-anchor="middle" font-size="14" font-weight="bold">DESTINATION NODE</text>
+    <text x="990" y="195" text-anchor="middle" font-size="12">London Data Center</text>
+    <text x="990" y="215" text-anchor="middle" font-size="10">51.5074°N, 0.1278°W</text>
+    
+    <!-- Secure Vault -->
+    <rect x="960" y="230" width="60" height="25" fill="#4ECDC4" stroke="black" stroke-width="2" rx="3"/>
+    <text x="990" y="247" text-anchor="middle" font-size="10" font-weight="bold">Secure Vault</text>
+  </g>
+  
+  <!-- AI Agent Transport Path -->
+  <g id="TransportPath">
+    <!-- Transport Route -->
+    <path d="M 280 210 Q 400 100 500 150 Q 650 200 800 180 Q 850 170 900 210" 
+          stroke="#2196F3" stroke-width="4" fill="none" stroke-dasharray="10,5"/>
+    
+    <!-- Route Markers -->
+    <circle cx="400" cy="130" r="5" fill="#2196F3"/>
+    <text x="400" y="115" text-anchor="middle" font-size="8">Checkpoint 1</text>
+    
+    <circle cx="650" cy="180" r="5" fill="#2196F3"/>
+    <text x="650" y="165" text-anchor="middle" font-size="8">Checkpoint 2</text>
+    
+    <!-- Distance Information -->
+    <text x="590" y="110" text-anchor="middle" font-size="11" font-weight="bold" fill="#2196F3">
+      Transport Distance: 5,585km
+    </text>
+    <text x="590" y="125" text-anchor="middle" font-size="10" fill="#2196F3">
+      Estimated Duration: 8.5 hours
+    </text>
+  </g>
+  
+  <!-- AI Agent Detail -->
+  <g id="AIAgent" transform="translate(500, 350)">
+    <!-- Agent Body -->
+    <rect x="-60" y="-40" width="120" height="80" fill="#e3f2fd" stroke="blue" stroke-width="3" rx="15"/>
+    <text x="0" y="-20" text-anchor="middle" font-size="12" font-weight="bold">AI TRANSPORT AGENT</text>
+    <text x="0" y="-5" text-anchor="middle" font-size="10">Agent ID: TRA-7429</text>
+    <text x="0" y="10" text-anchor="middle" font-size="10">Security Clearance: L3</text>
+    <text x="0" y="25" text-anchor="middle" font-size="9">Zero-Knowledge Protocol</text>
+    
+    <!-- Agent Icon -->
+    <circle cx="0" cy="-60" r="20" fill="#2196F3" stroke="black" stroke-width="2"/>
+    <text x="0" y="-55" text-anchor="middle" font-size="12" fill="white" font-weight="bold">AI</text>
+    
+    <!-- Security Features -->
+    <g id="SecurityFeatures">
+      <!-- Encrypted Payload -->
+      <rect x="-100" y="60" width="80" height="40" fill="#ffebee" stroke="red" stroke-width="2" rx="5"/>
+      <text x="-60" y="75" text-anchor="middle" font-size="9" font-weight="bold">ENCRYPTED</text>
+      <text x="-60" y="87" text-anchor="middle" font-size="9">PAYLOAD</text>
+      <text x="-60" y="95" text-anchor="middle" font-size="7">No Content Access</text>
+      
+      <!-- Integrity Hash -->
+      <rect x="20" y="60" width="80" height="40" fill="#f3e5f5" stroke="purple" stroke-width="2" rx="5"/>
+      <text x="60" y="75" text-anchor="middle" font-size="9" font-weight="bold">INTEGRITY</text>
+      <text x="60" y="87" text-anchor="middle" font-size="9">HASH</text>
+      <text x="60" y="95" text-anchor="middle" font-size="7">SHA-256</text>
+      
+      <!-- Zero-Knowledge Proof -->
+      <rect x="-40" y="110" width="80" height="40" fill="#e8f5e8" stroke="green" stroke-width="2" rx="5"/>
+      <text x="0" y="125" text-anchor="middle" font-size="9" font-weight="bold">ZK PROOF</text>
+      <text x="0" y="137" text-anchor="middle" font-size="9">Valid Possession</text>
+      <text x="0" y="145" text-anchor="middle" font-size="7">No Content Reveal</text>
+    </g>
+  </g>
+  
+  <!-- Zero-Knowledge Protocol Flow -->
+  <g id="ZKProtocolFlow">
+    <rect x="100" y="450" width="1000" height="200" fill="#fafafa" stroke="gray" stroke-width="2" rx="10"/>
+    <text x="600" y="475" text-anchor="middle" font-size="14" font-weight="bold">Zero-Knowledge Transport Protocol Flow</text>
+    
+    <!-- Step 1: Fragment Preparation -->
+    <g id="Step1" transform="translate(150, 500)">
+      <circle cx="0" cy="0" r="25" fill="#FF6B6B" stroke="black" stroke-width="2"/>
+      <text x="0" y="-5" text-anchor="middle" font-size="10" font-weight="bold" fill="white">1</text>
+      <text x="0" y="8" text-anchor="middle" font-size="8" fill="white">PREP</text>
+      
+      <rect x="-60" y="40" width="120" height="60" fill="white" stroke="black" stroke-width="1" rx="5"/>
+      <text x="0" y="55" text-anchor="middle" font-size="9" font-weight="bold">Fragment Encryption</text>
+      <text x="0" y="68" text-anchor="middle" font-size="8">AES-256 + Quantum-Safe</text>
+      <text x="0" y="80" text-anchor="middle" font-size="8">Agent Cannot Decrypt</text>
+      <text x="0" y="92" text-anchor="middle" font-size="8">Generate ZK Commitment</text>
+    </g>
+    
+    <!-- Step 2: Agent Deployment -->
+    <g id="Step2" transform="translate(350, 500)">
+      <circle cx="0" cy="0" r="25" fill="#4ECDC4" stroke="black" stroke-width="2"/>
+      <text x="0" y="-5" text-anchor="middle" font-size="10" font-weight="bold" fill="white">2</text>
+      <text x="0" y="8" text-anchor="middle" font-size="8" fill="white">DEPLOY</text>
+      
+      <rect x="-60" y="40" width="120" height="60" fill="white" stroke="black" stroke-width="1" rx="5"/>
+      <text x="0" y="55" text-anchor="middle" font-size="9" font-weight="bold">Agent Receives</text>
+      <text x="0" y="68" text-anchor="middle" font-size="8">Encrypted Fragment</text>
+      <text x="0" y="80" text-anchor="middle" font-size="8">Integrity Hash</text>
+      <text x="0" y="92" text-anchor="middle" font-size="8">Transport Mission</text>
+    </g>
+    
+    <!-- Step 3: Secure Transport -->
+    <g id="Step3" transform="translate(550, 500)">
+      <circle cx="0" cy="0" r="25" fill="#45B7D1" stroke="black" stroke-width="2"/>
+      <text x="0" y="-5" text-anchor="middle" font-size="10" font-weight="bold" fill="white">3</text>
+      <text x="0" y="8" text-anchor="middle" font-size="8" fill="white">MOVE</text>
+      
+      <rect x="-60" y="40" width="120" height="60" fill="white" stroke="black" stroke-width="1" rx="5"/>
+      <text x="0" y="55" text-anchor="middle" font-size="9" font-weight="bold">Secure Transport</text>
+      <text x="0" y="68" text-anchor="middle" font-size="8">Continuous Verification</text>
+      <text x="0" y="80" text-anchor="middle" font-size="8">Route Optimization</text>
+      <text x="0" y="92" text-anchor="middle" font-size="8">Tamper Detection</text>
+    </g>
+    
+    <!-- Step 4: Delivery -->
+    <g id="Step4" transform="translate(750, 500)">
+      <circle cx="0" cy="0" r="25" fill="#96CEB4" stroke="black" stroke-width="2"/>
+      <text x="0" y="-5" text-anchor="middle" font-size="10" font-weight="bold" fill="white">4</text>
+      <text x="0" y="8" text-anchor="middle" font-size="8" fill="white">DELIVER</text>
+      
+      <rect x="-60" y="40" width="120" height="60" fill="white" stroke="black" stroke-width="1" rx="5"/>
+      <text x="0" y="55" text-anchor="middle" font-size="9" font-weight="bold">Secure Delivery</text>
+      <text x="0" y="68" text-anchor="middle" font-size="8">Timing Validation</text>
+      <text x="0" y="80" text-anchor="middle" font-size="8">Integrity Verification</text>
+      <text x="0" y="92" text-anchor="middle" font-size="8">Proof of Delivery</text>
+    </g>
+    
+    <!-- Step 5: Memory Wipe -->
+    <g id="Step5" transform="translate(950, 500)">
+      <circle cx="0" cy="0" r="25" fill="#FFEAA7" stroke="black" stroke-width="2"/>
+      <text x="0" y="-5" text-anchor="middle" font-size="10" font-weight="bold">5</text>
+      <text x="0" y="8" text-anchor="middle" font-size="8">WIPE</text>
+      
+      <rect x="-60" y="40" width="120" height="60" fill="white" stroke="black" stroke-width="1" rx="5"/>
+      <text x="0" y="55" text-anchor="middle" font-size="9" font-weight="bold">Memory Wipe</text>
+      <text x="0" y="68" text-anchor="middle" font-size="8">7-Pass DOD Standard</text>
+      <text x="0" y="80" text-anchor="middle" font-size="8">Cryptographic Erasure</text>
+      <text x="0" y="92" text-anchor="middle" font-size="8">Self-Destruct Payload</text>
+    </g>
+    
+    <!-- Flow Arrows -->
+    <path d="M 200 530 L 300 530" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 400 530 L 500 530" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 600 530 L 700 530" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <path d="M 800 530 L 900 530" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Security Monitoring -->
+  <g id="SecurityMonitoring">
+    <rect x="300" y="680" width="600" height="80" fill="#fff8e1" stroke="orange" stroke-width="2" rx="10"/>
+    <text x="600" y="700" text-anchor="middle" font-size="12" font-weight="bold">Real-Time Security Monitoring</text>
+    
+    <!-- Monitoring Features -->
+    <text x="320" y="720" font-size="10">• Agent Location Tracking with GPS precision</text>
+    <text x="320" y="735" font-size="10">• Payload Integrity Continuous Verification</text>
+    <text x="320" y="750" font-size="10">• Zero-Knowledge Proof Validation</text>
+    
+    <text x="620" y="720" font-size="10">• Emergency Self-Destruct Protocols</text>
+    <text x="620" y="735" font-size="10">• Quantum-Safe Communication Channels</text>
+    <text x="620" y="750" font-size="10">• Multi-Layer Authentication Systems</text>
+  </g>
+  
+  <!-- Arrow Definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+            refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+  
+  <!-- Agent Status Display -->
+  <g id="AgentStatus" transform="translate(100, 300)">
+    <rect x="0" y="0" width="150" height="100" fill="#e1f5fe" stroke="blue" stroke-width="2" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" font-size="11" font-weight="bold">AGENT STATUS</text>
+    <text x="10" y="35" font-size="9">Status: IN_TRANSIT</text>
+    <text x="10" y="50" font-size="9">Progress: 67%</text>
+    <text x="10" y="65" font-size="9">ETA: 2.8 hours</text>
+    <text x="10" y="80" font-size="9">Security: VERIFIED</text>
+    <text x="10" y="95" font-size="9">Payload: INTACT</text>
+  </g>
+  
+  <!-- Mission Control -->
+  <g id="MissionControl" transform="translate(950, 300)">
+    <rect x="0" y="0" width="150" height="100" fill="#f3e5f5" stroke="purple" stroke-width="2" rx="5"/>
+    <text x="75" y="20" text-anchor="middle" font-size="11" font-weight="bold">MISSION CONTROL</text>
+    <text x="10" y="35" font-size="9">Active Agents: 47</text>
+    <text x="10" y="50" font-size="9">Completed: 1,247</text>
+    <text x="10" y="65" font-size="9">Success Rate: 99.97%</text>
+    <text x="10" y="80" font-size="9">Violations: 0</text>
+    <text x="10" y="95" font-size="9">Uptime: 99.995%</text>
+  </g>
+</svg>

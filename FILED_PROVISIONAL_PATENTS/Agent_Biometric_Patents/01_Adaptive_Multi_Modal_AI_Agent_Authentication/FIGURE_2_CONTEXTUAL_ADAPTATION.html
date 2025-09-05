@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>FIGURE_2_CONTEXTUAL_ADAPTATION</title>
+    <style>
+        body { 
+            margin: 0; 
+            padding: 20px; 
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        svg { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto;
+            background: white;
+        }
+        @page { 
+            size: letter; 
+            margin: 0.5in; 
+        }
+        @media print { 
+            body { 
+                margin: 0; 
+                padding: 0.5in;
+                min-height: auto; 
+            } 
+            svg {
+                max-height: 10in;
+            }
+        }
+    </style>
+</head>
+<body>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .label-text { font-family: Arial, sans-serif; font-size: 11px; text-anchor: middle; }
+      .small-text { font-family: Arial, sans-serif; font-size: 9px; text-anchor: middle; }
+      .tiny-text { font-family: Arial, sans-serif; font-size: 8px; text-anchor: middle; }
+      .module-box { fill: none; stroke: black; stroke-width: 2; }
+      .sub-module { fill: lightgray; stroke: black; stroke-width: 1; }
+      .connection-line { stroke: black; stroke-width: 1; fill: none; }
+      .decision-diamond { fill: white; stroke: black; stroke-width: 2; }
+      .process-flow { stroke: black; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .assessment-box { fill: #f0f0f0; stroke: black; stroke-width: 1; }
+    </style>
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="black" />
+      </marker>
+    </defs>
+  </defs>
+  
+  <!-- Title -->
+  <text x="400" y="25" class="title-text">FIGURE 2: CONTEXTUAL AUTHENTICATION ADAPTATION ENGINE</text>
+  
+  <!-- Context Analysis Phase -->
+  <rect x="50" y="50" width="700" height="120" class="module-box"/>
+  <text x="400" y="70" class="label-text">CONTEXT ANALYSIS PHASE</text>
+  
+  <!-- Network Trust Assessment -->
+  <rect x="70" y="80" width="100" height="80" class="sub-module"/>
+  <text x="120" y="100" class="small-text">NETWORK TRUST</text>
+  <text x="120" y="115" class="small-text">ASSESSMENT</text>
+  <text x="120" y="130" class="tiny-text">• Connection Security</text>
+  <text x="120" y="142" class="tiny-text">• Certificate Validation</text>
+  <text x="120" y="154" class="tiny-text">• Reputation Scoring</text>
+  
+  <!-- Data Sensitivity Analysis -->
+  <rect x="190" y="80" width="100" height="80" class="sub-module"/>
+  <text x="240" y="100" class="small-text">DATA SENSITIVITY</text>
+  <text x="240" y="115" class="small-text">CLASSIFICATION</text>
+  <text x="240" y="130" class="tiny-text">• Content Analysis</text>
+  <text x="240" y="142" class="tiny-text">• Regulatory Impact</text>
+  <text x="240" y="154" class="tiny-text">• Business Criticality</text>
+  
+  <!-- Threat Assessment -->
+  <rect x="310" y="80" width="100" height="80" class="sub-module"/>
+  <text x="360" y="100" class="small-text">THREAT LEVEL</text>
+  <text x="360" y="115" class="small-text">EVALUATION</text>
+  <text x="360" y="130" class="tiny-text">• Intelligence Feeds</text>
+  <text x="360" y="142" class="tiny-text">• Anomaly Detection</text>
+  <text x="360" y="154" class="tiny-text">• Attack Indicators</text>
+  
+  <!-- Operational Stress -->
+  <rect x="430" y="80" width="100" height="80" class="sub-module"/>
+  <text x="480" y="100" class="small-text">OPERATIONAL</text>
+  <text x="480" y="115" class="small-text">STRESS ANALYSIS</text>
+  <text x="480" y="130" class="tiny-text">• CPU Utilization</text>
+  <text x="480" y="142" class="tiny-text">• Memory Pressure</text>
+  <text x="480" y="154" class="tiny-text">• Network Load</text>
+  
+  <!-- Resource Constraints -->
+  <rect x="550" y="80" width="100" height="80" class="sub-module"/>
+  <text x="600" y="100" class="small-text">RESOURCE</text>
+  <text x="600" y="115" class="small-text">CONSTRAINTS</text>
+  <text x="600" y="130" class="tiny-text">• Available Memory</text>
+  <text x="600" y="142" class="tiny-text">• Processing Power</text>
+  <text x="600" y="154" class="tiny-text">• Battery Level</text>
+  
+  <!-- Communication Urgency -->
+  <rect x="670" y="80" width="70" height="80" class="sub-module"/>
+  <text x="705" y="100" class="small-text">URGENCY</text>
+  <text x="705" y="115" class="small-text">ASSESSMENT</text>
+  <text x="705" y="130" class="tiny-text">• Priority Level</text>
+  <text x="705" y="142" class="tiny-text">• Time Constraints</text>
+  
+  <!-- Context Fusion Engine -->
+  <rect x="250" y="200" width="300" height="60" class="module-box"/>
+  <text x="400" y="220" class="label-text">CONTEXT FUSION ENGINE</text>
+  <text x="400" y="240" class="small-text">Weighted Analysis • Risk Scoring • Confidence Calculation</text>
+  
+  <!-- Decision Logic -->
+  <polygon points="400,290 450,320 400,350 350,320" class="decision-diamond"/>
+  <text x="400" y="315" class="small-text">SECURITY</text>
+  <text x="400" y="330" class="small-text">LEVEL?</text>
+  
+  <!-- Authentication Configurations -->
+  <!-- Low Security -->
+  <rect x="50" y="380" width="150" height="100" class="assessment-box"/>
+  <text x="125" y="400" class="label-text">LOW SECURITY</text>
+  <text x="125" y="420" class="small-text">• Single Modal Auth</text>
+  <text x="125" y="435" class="small-text">• Fast Processing</text>
+  <text x="125" y="450" class="small-text">• Minimal Overhead</text>
+  <text x="125" y="465" class="tiny-text">Trust: High, Threat: Low</text>
+  
+  <!-- Medium Security -->
+  <rect x="225" y="380" width="150" height="100" class="assessment-box"/>
+  <text x="300" y="400" class="label-text">MEDIUM SECURITY</text>
+  <text x="300" y="420" class="small-text">• Dual Modal Auth</text>
+  <text x="300" y="435" class="small-text">• Balanced Performance</text>
+  <text x="300" y="450" class="small-text">• Standard Validation</text>
+  <text x="300" y="465" class="tiny-text">Trust: Medium, Threat: Medium</text>
+  
+  <!-- High Security -->
+  <rect x="400" y="380" width="150" height="100" class="assessment-box"/>
+  <text x="475" y="400" class="label-text">HIGH SECURITY</text>
+  <text x="475" y="420" class="small-text">• Multi-Modal Auth</text>
+  <text x="475" y="435" class="small-text">• Enhanced Validation</text>
+  <text x="475" y="450" class="small-text">• Quantum-Resistant</text>
+  <text x="475" y="465" class="tiny-text">Trust: Low, Threat: High</text>
+  
+  <!-- Maximum Security -->
+  <rect x="575" y="380" width="150" height="100" class="assessment-box"/>
+  <text x="650" y="400" class="label-text">MAXIMUM SECURITY</text>
+  <text x="650" y="420" class="small-text">• All Modalities</text>
+  <text x="650" y="435" class="small-text">• Zero-Knowledge</text>
+  <text x="650" y="450" class="small-text">• Homomorphic Enc.</text>
+  <text x="650" y="465" class="tiny-text">Trust: Critical, Threat: Extreme</text>
+  
+  <!-- Adaptive Configuration -->
+  <rect x="200" y="520" width="400" height="80" class="module-box"/>
+  <text x="400" y="545" class="label-text">ADAPTIVE AUTHENTICATION CONFIGURATION</text>
+  <text x="400" y="565" class="small-text">• Modality Selection • Parameter Tuning • Performance Optimization</text>
+  <text x="400" y="580" class="small-text">• Fallback Strategies • Monitoring Setup • Update Scheduling</text>
+  
+  <!-- Output Configuration -->
+  <rect x="250" y="630" width="300" height="50" class="module-box"/>
+  <text x="400" y="650" class="label-text">AUTHENTICATION CONFIGURATION</text>
+  <text x="400" y="665" class="small-text">Selected Modalities • Security Parameters • Performance Targets</text>
+  
+  <!-- Flow Lines -->
+  <!-- Context inputs to fusion -->
+  <line x1="120" y1="160" x2="320" y2="200" class="process-flow"/>
+  <line x1="240" y1="160" x2="360" y2="200" class="process-flow"/>
+  <line x1="360" y1="160" x2="400" y2="200" class="process-flow"/>
+  <line x1="480" y1="160" x2="440" y2="200" class="process-flow"/>
+  <line x1="600" y1="160" x2="480" y2="200" class="process-flow"/>
+  <line x1="705" y1="160" x2="500" y2="200" class="process-flow"/>
+  
+  <!-- Fusion to decision -->
+  <line x1="400" y1="260" x2="400" y2="290" class="process-flow"/>
+  
+  <!-- Decision branches -->
+  <line x1="350" y1="320" x2="125" y2="380" class="process-flow"/>
+  <text x="225" y="345" class="tiny-text">LOW</text>
+  
+  <line x1="375" y1="335" x2="300" y2="380" class="process-flow"/>
+  <text x="330" y="360" class="tiny-text">MEDIUM</text>
+  
+  <line x1="425" y1="335" x2="475" y2="380" class="process-flow"/>
+  <text x="455" y="360" class="tiny-text">HIGH</text>
+  
+  <line x1="450" y1="320" x2="650" y2="380" class="process-flow"/>
+  <text x="565" y="345" class="tiny-text">MAXIMUM</text>
+  
+  <!-- Configuration outputs -->
+  <line x1="125" y1="480" x2="300" y2="520" class="process-flow"/>
+  <line x1="300" y1="480" x2="350" y2="520" class="process-flow"/>
+  <line x1="475" y1="480" x2="450" y2="520" class="process-flow"/>
+  <line x1="650" y1="480" x2="500" y2="520" class="process-flow"/>
+  
+  <!-- Final output -->
+  <line x1="400" y1="600" x2="400" y2="630" class="process-flow"/>
+  
+  <!-- Feedback Loop -->
+  <path d="M 600 655 Q 750 655 750 320 Q 750 200 550 230" class="connection-line" stroke-dasharray="3,3"/>
+  <text x="750" y="400" class="tiny-text" transform="rotate(90 750 400)">ADAPTATION FEEDBACK</text>
+  
+</svg>
+</body>
+</html>

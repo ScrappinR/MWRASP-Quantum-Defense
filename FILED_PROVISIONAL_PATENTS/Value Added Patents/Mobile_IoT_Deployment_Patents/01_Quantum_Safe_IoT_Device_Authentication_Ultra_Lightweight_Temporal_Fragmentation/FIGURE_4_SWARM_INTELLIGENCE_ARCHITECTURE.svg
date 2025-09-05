@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .bidirectional { marker-start: url(#arrowhead); marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .iot-node { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .coordinator { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .swarm-brain { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .decision-engine { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .threat-intel { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+      .resilience-system { fill: #f0f4c3; stroke: #827717; stroke-width: 2; rx: 8; }
+      .consensus { fill: #e0f2f1; stroke: #009688; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 4: IoT Swarm Intelligence Network Architecture</text>
+  
+  <!-- Swarm Coordination Center -->
+  <rect x="450" y="80" width="300" height="120" class="swarm-brain"/>
+  <text x="600" y="110" class="system-text">Distributed Swarm Brain</text>
+  <text x="600" y="125" class="system-text">Coordination Center</text>
+  <text x="550" y="150" class="component-text">Collective Intelligence:</text>
+  <text x="550" y="165" class="detail-text">• Multi-agent coordination</text>
+  <text x="550" y="177" class="detail-text">• Emergent behavior patterns</text>
+  <text x="550" y="189" class="detail-text">• Adaptive decision making</text>
+  
+  <text x="650" y="150" class="component-text">Network Management:</text>
+  <text x="650" y="165" class="detail-text">• Topology optimization</text>
+  <text x="650" y="177" class="detail-text">• Resource allocation</text>
+  <text x="650" y="189" class="detail-text">• Load balancing</text>
+  
+  <!-- IoT Node Clusters -->
+  <!-- Cluster 1 (Top Left) -->
+  <rect x="100" y="50" width="80" height="60" class="iot-node"/>
+  <text x="140" y="75" class="system-text">Node A1</text>
+  <text x="140" y="90" class="detail-text">Sensor</text>
+  <text x="140" y="102" class="detail-text">2KB RAM</text>
+  
+  <rect x="200" y="50" width="80" height="60" class="iot-node"/>
+  <text x="240" y="75" class="system-text">Node A2</text>
+  <text x="240" y="90" class="detail-text">Actuator</text>
+  <text x="240" y="102" class="detail-text">4KB RAM</text>
+  
+  <rect x="150" y="130" width="80" height="60" class="coordinator"/>
+  <text x="190" y="155" class="system-text">Local</text>
+  <text x="190" y="170" class="system-text">Coordinator</text>
+  <text x="190" y="182" class="detail-text">16KB RAM</text>
+  
+  <!-- Cluster 2 (Top Right) -->
+  <rect x="920" y="50" width="80" height="60" class="iot-node"/>
+  <text x="960" y="75" class="system-text">Node B1</text>
+  <text x="960" y="90" class="detail-text">Gateway</text>
+  <text x="960" y="102" class="detail-text">32KB RAM</text>
+  
+  <rect x="1020" y="50" width="80" height="60" class="iot-node"/>
+  <text x="1060" y="75" class="system-text">Node B2</text>
+  <text x="1060" y="90" class="detail-text">Smart Sensor</text>
+  <text x="1060" y="102" class="detail-text">8KB RAM</text>
+  
+  <rect x="970" y="130" width="80" height="60" class="coordinator"/>
+  <text x="1010" y="155" class="system-text">Local</text>
+  <text x="1010" y="170" class="system-text">Coordinator</text>
+  <text x="1010" y="182" class="detail-text">16KB RAM</text>
+  
+  <!-- Cluster 3 (Bottom Left) -->
+  <rect x="100" y="400" width="80" height="60" class="iot-node"/>
+  <text x="140" y="425" class="system-text">Node C1</text>
+  <text x="140" y="440" class="detail-text">Monitor</text>
+  <text x="140" y="452" class="detail-text">4KB RAM</text>
+  
+  <rect x="200" y="400" width="80" height="60" class="iot-node"/>
+  <text x="240" y="425" class="system-text">Node C2</text>
+  <text x="240" y="440" class="detail-text">Controller</text>
+  <text x="240" y="452" class="detail-text">8KB RAM</text>
+  
+  <rect x="150" y="320" width="80" height="60" class="coordinator"/>
+  <text x="190" y="345" class="system-text">Local</text>
+  <text x="190" y="360" class="system-text">Coordinator</text>
+  <text x="190" y="372" class="detail-text">16KB RAM</text>
+  
+  <!-- Cluster 4 (Bottom Right) -->
+  <rect x="920" y="400" width="80" height="60" class="iot-node"/>
+  <text x="960" y="425" class="system-text">Node D1</text>
+  <text x="960" y="440" class="detail-text">Relay</text>
+  <text x="960" y="452" class="detail-text">2KB RAM</text>
+  
+  <rect x="1020" y="400" width="80" height="60" class="iot-node"/>
+  <text x="1060" y="425" class="system-text">Node D2</text>
+  <text x="1060" y="440" class="detail-text">Edge Node</text>
+  <text x="1060" y="452" class="detail-text">32KB RAM</text>
+  
+  <rect x="970" y="320" width="80" height="60" class="coordinator"/>
+  <text x="1010" y="345" class="system-text">Local</text>
+  <text x="1010" y="360" class="system-text">Coordinator</text>
+  <text x="1010" y="372" class="detail-text">16KB RAM</text>
+  
+  <!-- Decision Engine -->
+  <rect x="300" y="240" width="200" height="100" class="decision-engine"/>
+  <text x="400" y="270" class="system-text">Distributed</text>
+  <text x="400" y="285" class="system-text">Decision Engine</text>
+  <text x="400" y="305" class="component-text">Consensus Algorithm:</text>
+  <text x="400" y="320" class="detail-text">• Byzantine fault tolerance</text>
+  <text x="400" y="332" class="detail-text">• Quantum-safe voting</text>
+  
+  <!-- Threat Intelligence -->
+  <rect x="700" y="240" width="200" height="100" class="threat-intel"/>
+  <text x="800" y="270" class="system-text">Swarm Threat</text>
+  <text x="800" y="285" class="system-text">Intelligence</text>
+  <text x="800" y="305" class="component-text">Collective Defense:</text>
+  <text x="800" y="320" class="detail-text">• Pattern sharing</text>
+  <text x="800" y="332" class="detail-text">• Coordinated response</text>
+  
+  <!-- Network Resilience System -->
+  <rect x="100" y="550" width="1000" height="120" class="resilience-system"/>
+  <text x="600" y="580" class="system-text">Network Resilience and Self-Healing Mechanisms</text>
+  <text x="250" y="605" class="component-text">Fault Detection:</text>
+  <text x="250" y="620" class="detail-text">• Node health monitoring</text>
+  <text x="250" y="632" class="detail-text">• Communication failures</text>
+  <text x="250" y="644" class="detail-text">• Performance degradation</text>
+  <text x="250" y="656" class="detail-text">• Byzantine behavior</text>
+  
+  <text x="500" y="605" class="component-text">Auto-Recovery:</text>
+  <text x="500" y="620" class="detail-text">• Route recalculation</text>
+  <text x="500" y="632" class="detail-text">• Load redistribution</text>
+  <text x="500" y="644" class="detail-text">• Backup activation</text>
+  <text x="500" y="656" class="detail-text">• Network reformation</text>
+  
+  <text x="750" y="605" class="component-text">Adaptive Behavior:</text>
+  <text x="750" y="620" class="detail-text">• Topology optimization</text>
+  <text x="750" y="632" class="detail-text">• Resource reallocation</text>
+  <text x="750" y="644" class="detail-text">• Security adaptation</text>
+  <text x="750" y="656" class="detail-text">• Performance tuning</text>
+  
+  <text x="950" y="605" class="component-text">Metrics:</text>
+  <text x="950" y="620" class="detail-text">• Recovery: &lt;5s</text>
+  <text x="950" y="632" class="detail-text">• Availability: 99.9%</text>
+  <text x="950" y="644" class="detail-text">• Fault tolerance: 30%</text>
+  <text x="950" y="656" class="detail-text">• Self-healing: 95%</text>
+  
+  <!-- Consensus Protocol -->
+  <rect x="400" y="720" width="400" height="120" class="consensus"/>
+  <text x="600" y="750" class="system-text">Quantum-Safe Swarm Consensus Protocol</text>
+  <text x="500" y="775" class="component-text">Consensus Steps:</text>
+  <text x="500" y="790" class="detail-text">1. Proposal broadcast</text>
+  <text x="500" y="802" class="detail-text">2. Local validation</text>
+  <text x="500" y="814" class="detail-text">3. Cryptographic voting</text>
+  <text x="500" y="826" class="detail-text">4. Result aggregation</text>
+  
+  <text x="700" y="775" class="component-text">Performance:</text>
+  <text x="700" y="790" class="detail-text">• Consensus time: &lt;100ms</text>
+  <text x="700" y="802" class="detail-text">• Message overhead: &lt;5%</text>
+  <text x="700" y="814" class="detail-text">• Energy cost: &lt;10μJ/vote</text>
+  <text x="700" y="826" class="detail-text">• Scalability: 10K+ nodes</text>
+  
+  <!-- Connection Lines -->
+  <!-- Nodes to Local Coordinators -->
+  <line x1="140" y1="110" x2="170" y2="130" class="arrow"/>
+  <line x1="240" y1="110" x2="210" y2="130" class="arrow"/>
+  <line x1="960" y1="110" x2="990" y2="130" class="arrow"/>
+  <line x1="1060" y1="110" x2="1030" y2="130" class="arrow"/>
+  <line x1="140" y1="400" x2="170" y2="380" class="arrow"/>
+  <line x1="240" y1="400" x2="210" y2="380" class="arrow"/>
+  <line x1="960" y1="400" x2="990" y2="380" class="arrow"/>
+  <line x1="1060" y1="400" x2="1030" y2="380" class="arrow"/>
+  
+  <!-- Local Coordinators to Swarm Brain -->
+  <line x1="230" y1="160" x2="450" y2="140" class="bidirectional"/>
+  <line x1="970" y1="160" x2="750" y2="140" class="bidirectional"/>
+  <line x1="230" y1="350" x2="450" y2="160" class="bidirectional"/>
+  <line x1="970" y1="350" x2="750" y2="160" class="bidirectional"/>
+  
+  <!-- Swarm Brain to Decision/Threat Systems -->
+  <line x1="500" y1="200" x2="400" y2="240" class="arrow"/>
+  <line x1="700" y1="200" x2="800" y2="240" class="arrow"/>
+  
+  <!-- Decision Engine and Threat Intel communication -->
+  <line x1="500" y1="290" x2="700" y2="290" class="bidirectional"/>
+  
+  <!-- Inter-cluster communication -->
+  <line x1="280" y1="80" x2="920" y2="80" class="bidirectional" stroke="#e91e63" stroke-dasharray="3,3"/>
+  <line x1="140" y1="110" x2="140" y2="400" class="bidirectional" stroke="#e91e63" stroke-dasharray="3,3"/>
+  <line x1="1060" y1="110" x2="1060" y2="400" class="bidirectional" stroke="#e91e63" stroke-dasharray="3,3"/>
+  <line x1="280" y1="430" x2="920" y2="430" class="bidirectional" stroke="#e91e63" stroke-dasharray="3,3"/>
+  
+  <!-- Mesh network connections -->
+  <line x1="180" y1="80" x2="220" y2="80" class="bidirectional" stroke-dasharray="2,2"/>
+  <line x1="1000" y1="80" x2="1040" y2="80" class="bidirectional" stroke-dasharray="2,2"/>
+  <line x1="180" y1="430" x2="220" y2="430" class="bidirectional" stroke-dasharray="2,2"/>
+  <line x1="1000" y1="430" x2="1040" y2="430" class="bidirectional" stroke-dasharray="2,2"/>
+  
+  <!-- To resilience system -->
+  <line x1="600" y1="200" x2="600" y2="550" class="arrow"/>
+  
+  <!-- Labels -->
+  <text x="350" y="120" class="detail-text" transform="rotate(-10 350 120)">Coordination</text>
+  <text x="850" y="120" class="detail-text" transform="rotate(10 850 120)">Management</text>
+  
+  <text x="580" y="220" class="detail-text">Intelligence</text>
+  <text x="620" y="220" class="detail-text">Distribution</text>
+  
+  <text x="600" y="280" class="detail-text" stroke="#ff9800">Decision Exchange</text>
+  
+  <text x="140" y="250" class="detail-text" fill="#e91e63" transform="rotate(90 140 250)">Swarm Communication</text>
+  <text x="1060" y="250" class="detail-text" fill="#e91e63" transform="rotate(-90 1060 250)">Network Mesh</text>
+  
+  <!-- Performance Metrics -->
+  <text x="50" y="50" class="component-text">Swarm Performance: Consensus &lt;100ms • Fault tolerance 30% • Auto-recovery &lt;5s • Scalability 10K+ nodes • Energy &lt;10μJ per operation</text>
+
+</svg>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="850" viewBox="0 0 1200 850" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title-text { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; text-anchor: middle; }
+      .system-text { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .component-text { font-family: Arial, sans-serif; font-size: 12px; text-anchor: middle; }
+      .detail-text { font-family: Arial, sans-serif; font-size: 10px; text-anchor: middle; }
+      .arrow { marker-end: url(#arrowhead); stroke: #333; stroke-width: 2; fill: none; }
+      .layer1 { fill: #ffebee; stroke: #f44336; stroke-width: 2; rx: 8; }
+      .layer2 { fill: #e3f2fd; stroke: #2196f3; stroke-width: 2; rx: 8; }
+      .layer3 { fill: #e8f5e8; stroke: #4caf50; stroke-width: 2; rx: 8; }
+      .layer4 { fill: #f3e5f5; stroke: #9c27b0; stroke-width: 2; rx: 8; }
+      .layer5 { fill: #fff3e0; stroke: #ff9800; stroke-width: 2; rx: 8; }
+      .coordinator { fill: #fce4ec; stroke: #e91e63; stroke-width: 2; rx: 8; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="25" class="title-text">FIGURE 4: Adaptive Multi-Layer AI Security Architecture</text>
+  
+  <!-- Layer 1: AI Threat Detection -->
+  <rect x="50" y="80" width="280" height="120" class="layer1"/>
+  <text x="190" y="110" class="system-text">Layer 1: AI Threat Detection</text>
+  <text x="190" y="135" class="component-text">Machine Learning Classifiers:</text>
+  <text x="190" y="150" class="detail-text">• Random Forest • SVM • Gradient Boosting</text>
+  <text x="190" y="165" class="component-text">Neural Networks:</text>
+  <text x="190" y="180" class="detail-text">• Deep learning • Pattern recognition</text>
+  <text x="190" y="195" class="detail-text">• Real-time inference</text>
+  
+  <!-- Layer 2: Adaptive Access Control -->
+  <rect x="380" y="80" width="280" height="120" class="layer2"/>
+  <text x="520" y="110" class="system-text">Layer 2: Adaptive Access Control</text>
+  <text x="520" y="135" class="component-text">Dynamic Policy Engine:</text>
+  <text x="520" y="150" class="detail-text">• Risk-based decisions • Context awareness</text>
+  <text x="520" y="165" class="component-text">Pattern Recognition:</text>
+  <text x="520" y="180" class="detail-text">• Behavioral patterns • Access patterns</text>
+  <text x="520" y="195" class="detail-text">• Anomaly-based controls</text>
+  
+  <!-- Layer 3: Intelligent Rate Limiting -->
+  <rect x="710" y="80" width="280" height="120" class="layer3"/>
+  <text x="850" y="110" class="system-text">Layer 3: Intelligent Rate Limiting</text>
+  <text x="850" y="135" class="component-text">Adaptive Throttling:</text>
+  <text x="850" y="150" class="detail-text">• Behavioral-based limits • Dynamic adjustment</text>
+  <text x="850" y="165" class="component-text">Traffic Analysis:</text>
+  <text x="850" y="180" class="detail-text">• Flow analysis • Burst detection</text>
+  <text x="850" y="195" class="detail-text">• Predictive scaling</text>
+  
+  <!-- Layer 4: AI Anomaly Detection -->
+  <rect x="200" y="250" width="280" height="120" class="layer4"/>
+  <text x="340" y="280" class="system-text">Layer 4: AI Anomaly Detection</text>
+  <text x="340" y="305" class="component-text">Unsupervised Learning:</text>
+  <text x="340" y="320" class="detail-text">• Isolation forests • Clustering algorithms</text>
+  <text x="340" y="335" class="component-text">Statistical Models:</text>
+  <text x="340" y="350" class="detail-text">• Statistical outliers • Time series analysis</text>
+  <text x="340" y="365" class="detail-text">• Automated response triggers</text>
+  
+  <!-- Layer 5: Adaptive Encryption -->
+  <rect x="530" y="250" width="280" height="120" class="layer5"/>
+  <text x="670" y="280" class="system-text">Layer 5: Adaptive Encryption</text>
+  <text x="670" y="305" class="component-text">Context-Aware Security:</text>
+  <text x="670" y="320" class="detail-text">• Dynamic key strength • Protocol selection</text>
+  <text x="670" y="335" class="component-text">Data Protection:</text>
+  <text x="670" y="350" class="detail-text">• Sensitive data detection • Encryption policies</text>
+  <text x="670" y="365" class="detail-text">• Performance optimization</text>
+  
+  <!-- AI Security Coordinator -->
+  <rect x="300" y="420" width="400" height="100" class="coordinator"/>
+  <text x="500" y="450" class="system-text">AI Security Coordinator</text>
+  <text x="500" y="475" class="component-text">Layer Orchestration • Threat Intelligence Integration</text>
+  <text x="500" y="490" class="component-text">Response Coordination • Performance Optimization</text>
+  <text x="500" y="505" class="component-text">Adaptive Policy Management • Real-time Analytics</text>
+  
+  <!-- Connection Lines -->
+  <!-- From layers to coordinator -->
+  <line x1="190" y1="200" x2="350" y2="420" class="arrow"/>
+  <line x1="520" y1="200" x2="450" y2="420" class="arrow"/>
+  <line x1="850" y1="200" x2="650" y2="420" class="arrow"/>
+  <line x1="340" y1="370" x2="400" y2="420" class="arrow"/>
+  <line x1="670" y1="370" x2="600" y2="420" class="arrow"/>
+  
+  <!-- Inter-layer communication -->
+  <line x1="330" y1="140" x2="380" y2="140" class="arrow"/>
+  <line x1="660" y1="140" x2="710" y2="140" class="arrow"/>
+  <line x1="480" y1="310" x2="530" y2="310" class="arrow"/>
+  
+  <!-- AI Models and Algorithms -->
+  <rect x="50" y="580" width="1100" height="220" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="600" y="605" class="system-text">AI Models and Algorithms</text>
+  
+  <!-- Machine Learning Models -->
+  <rect x="80" y="630" width="200" height="80" class="layer1"/>
+  <text x="180" y="655" class="system-text">Threat Detection ML</text>
+  <text x="180" y="675" class="detail-text">• Random Forest</text>
+  <text x="180" y="687" class="detail-text">• SVM Classification</text>
+  <text x="180" y="699" class="detail-text">• Ensemble Methods</text>
+  
+  <rect x="300" y="630" width="200" height="80" class="layer2"/>
+  <text x="400" y="655" class="system-text">Deep Learning</text>
+  <text x="400" y="675" class="detail-text">• Neural Networks</text>
+  <text x="400" y="687" class="detail-text">• LSTM for sequences</text>
+  <text x="400" y="699" class="detail-text">• CNN for patterns</text>
+  
+  <rect x="520" y="630" width="200" height="80" class="layer3"/>
+  <text x="620" y="655" class="system-text">Reinforcement Learning</text>
+  <text x="620" y="675" class="detail-text">• Policy optimization</text>
+  <text x="620" y="687" class="detail-text">• Q-learning</text>
+  <text x="620" y="699" class="detail-text">• Actor-critic</text>
+  
+  <rect x="740" y="630" width="200" height="80" class="layer4"/>
+  <text x="840" y="655" class="system-text">Unsupervised Learning</text>
+  <text x="840" y="675" class="detail-text">• Clustering</text>
+  <text x="840" y="687" class="detail-text">• Isolation Forest</text>
+  <text x="840" y="699" class="detail-text">• Autoencoders</text>
+  
+  <rect x="960" y="630" width="160" height="80" class="layer5"/>
+  <text x="1040" y="655" class="system-text">Time Series</text>
+  <text x="1040" y="675" class="detail-text">• ARIMA</text>
+  <text x="1040" y="687" class="detail-text">• Prophet</text>
+  <text x="1040" y="699" class="detail-text">• Seasonal</text>
+  
+  <!-- Adaptive Features -->
+  <rect x="80" y="730" width="1040" height="50" class="coordinator"/>
+  <text x="600" y="750" class="system-text">Adaptive AI Features</text>
+  <text x="200" y="765" class="component-text">Continuous Learning</text>
+  <text x="400" y="765" class="component-text">Model Evolution</text>
+  <text x="600" y="765" class="component-text">Performance Monitoring</text>
+  <text x="800" y="765" class="component-text">Drift Detection</text>
+  <text x="1000" y="765" class="component-text">Auto-scaling</text>
+  
+  <!-- Data Flow Indicators -->
+  <text x="355" y="130" class="detail-text">Threat Intel</text>
+  <text x="685" y="130" class="detail-text">Access Decisions</text>
+  <text x="505" y="300" class="detail-text">Anomaly Scores</text>
+  
+  <!-- Feedback Loops -->
+  <line x1="500" y1="520" x2="500" y2="560" class="arrow"/>
+  <line x1="500" y1="560" x2="50" y2="560" class="arrow" stroke-dasharray="3,3"/>
+  <line x1="50" y1="560" x2="50" y2="60" class="arrow" stroke-dasharray="3,3"/>
+  <line x1="50" y1="60" x2="1000" y2="60" class="arrow" stroke-dasharray="3,3"/>
+  <line x1="1000" y1="60" x2="1000" y2="80" class="arrow" stroke-dasharray="3,3"/>
+  
+  <text x="600" y="55" class="detail-text" fill="#666">Continuous Learning and Adaptation Feedback Loop</text>
+  
+  <!-- Performance Indicators -->
+  <text x="100" y="550" class="detail-text">Layer 1: &lt;5ms detection</text>
+  <text x="300" y="550" class="detail-text">Layer 2: &lt;2ms decisions</text>
+  <text x="500" y="550" class="detail-text">Layer 3: &lt;1ms throttling</text>
+  <text x="700" y="550" class="detail-text">Layer 4: &lt;10ms analysis</text>
+  <text x="900" y="550" class="detail-text">Layer 5: &lt;3ms encryption</text>
+
+</svg>
